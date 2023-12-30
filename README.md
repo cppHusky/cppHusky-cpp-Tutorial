@@ -4,9 +4,9 @@
 
 ### 此项目已经开始！
 
-当前进度：泛讲篇第四章完成。参见[Preview](https://github.com/cppHusky/cppHusky-cpp-Tutorial/releases/tag/Preview)
+当前进度：泛讲篇第四章完成。参见[Preview](https://github.com/cppHusky/cppHusky-cpp-Tutorial/releases/tag/preview)。
 
-我为此规划了一个大致的编章结构，参见[Structure.md](https://github.com/cppHusky/cppHusky-cpp-Tutorial/blob/main/Edition2/Structure.md)。
+我为此规划了一个大致的编章结构，参见[Structure.md](https://github.com/cppHusky/cppHusky-cpp-Tutorial/blob/main/Structure.md)。
 
 正在疯狂赶进度，还要画好多插图，还要期末考试。现阶段争取保持每4天更新一章的速度。
 
