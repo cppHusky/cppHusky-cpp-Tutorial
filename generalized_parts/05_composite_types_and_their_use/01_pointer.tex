@@ -114,8 +114,8 @@ void exchange(int a, int b) { //这里只需实现副作用，无需求值，故
 }
 int main() {
     int a {3}, b {4}; //定义a=3,b=4
-    exchange(3, 4); //交换a和b的值，预期是a变成4，b变成3
-    cout << a << ' ' << b; //输出a和b的值，检验一下
+    exchange(a, b); //交换a和b的值，预期是a变成4，b变成3
+    cout << a << ' ' << b; //输出a和b的值，检验一下结果
     return 0;
 }
 \end{lstlisting}
@@ -123,3 +123,98 @@ int main() {
 3 4
 }\\\noindent\rule{\linewidth}{0.2pt}
 这个代码的逻辑看上去很正确，但是为什么它完全不起作用呢？\par
+回想一下我们之前讲过的内容。每次程序调用一个函数的时候，都会在栈区压入一层堆栈帧。这个堆栈帧中就含有在本次调用过程中创建的变量，如图5.5所示，这时调用栈中发生修改的是 \lstinline@exchange@ 对应内存空间中的 \lstinline@a@ 和 \lstinline@b@，而不是 \lstinline@main@ 函数中的 \lstinline@a@ 和 \lstinline@b@。这两对变量虽然同名，但它们对应的是内存空间中完全不同的区域。\par
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../images/generalized_parts/05_parameter_pass_by_value_300.png}
+    \caption{在调用 \lstinline@exchange@ 函数时，调用栈中发生的变化}
+\end{figure}
+所以在函数参数传递的过程中，程序并没有把``整个变量''传递给目标函数，而只传递了它的``值''。至于被调用的那个函数，它会另外定义一个新的变量（它在内存空间中另一自己的一席之地）来接收传入的值。很多资料会把它称为\textbf{副本（Copy）}。\par
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\textwidth]{../images/generalized_parts/05_process_of_pass_by_reference_300.png}
+    \caption{\lstinline@main@ 向 \lstinline@exchange@ 中传入的信息只有值}
+\end{figure}
+我们会发现，不同函数之间只能共享值，这种现象好像一种屏障——在某些时候，它显得十分安全，我们不会在一个函数中乱改其它函数中的信息；但在另一些时候，它显得非常不灵活，如果我们用别的函数只能读取而不能修改此函数中的值，函数的功能就会受到很大限制——比如我们试图写一个值交换函数而不能。\par
+所以我们需要找到一种方法，使我们可以跨过函数作用域的屏障，来修改特定的变量值。我们的答案是使用\textbf{指针传递（Passing by pointer）}。\par
+回顾一下前文中讲过的三个基本要点：
+\begin{enumerate}
+    \item \textbf{地址是一个值}。我们可以把它当作和整数值、浮点值、字符值和布尔值等并列的事物来看待。
+    \item \textbf{只要知道了某个变量的地址，我们就有可能修改内存中相应区域的内容}。我们可以通过取内容运算符来读取或修改其中的内容，效果等同于使用相应的变量名。
+    \item \textbf{指针是一大类数据类型，它们存储的信息是地址值}。如果一个指针存储了某个变量的值，我们可以说``这个指针指向那个变量''。
+\end{enumerate}\par
+搞清了以上三点之后，我们就不难想到另一种可能性——如果我们把 \lstinline@a@ 和 \lstinline@b@ 的地址作为参数传给 \lstinline@exchange@ 呢？\par
+地址是一个值，因此它可以作为实参来传递，没有问题。\par
+只要 \lstinline@exchange@ 函数知道了 \lstinline@a@ 和 \lstinline@b@ 的地址，那么它自然具备了修改 \lstinline@a@ 和 \lstinline@b@ 的内容的能力。也没问题。\par
+那么 \lstinline@exchange@ 函数要用什么形参来接收地址值呢？当然是用指针，因为只有指针才能存储地址值。\par
+于是一切顺理成章，我们的解决方案就给出来了。现在我们就来试着来改一下 \lstinline@exchange@ 函数：
+\begin{lstlisting}
+void exchange(int *pa, int *pb) { //它接收两个int*参数
+    int tmp = *pa; //定义一个临时变量tmp，用于存储*pa的值
+    *pa = *pb; //赋值，现在*pa获得了*pb的值
+    *pb = tmp; //赋值，现在*pb获得了tmp的值，也就是*pa原来的值
+}
+int main() {
+    int a {3}, b {4}; //定义a=3,b=4
+    exchange(&a, &b); //向exchange函数传递&a和&b的值，也就是地址
+    cout << a << ' ' << b; //输出a和b的值，检验一下结果
+    return 0;
+}
+\end{lstlisting}
+最后的运行结果果然不出我们所料，正是\\\noindent\rule{\linewidth}{0.2pt}\texttt{
+4 3
+}\\\noindent\rule{\linewidth}{0.2pt}
+所以这种函数参数指针传递的方式要比我们之前见过的\textbf{值传递（Passing by value）}更有效。但是话又说回来，并不是任何时候用指针传递都比用值传递要更好的。初学者可能很难搞清楚``什么时候要用什么''，其实没关系。你只需要多写一些代码，等到经验丰富之后自然就清楚了。\par
+还请读者留意：虽然我们人为地划分出了``值传递''和``指针传递''的概念，但它们的本质都是在传递值！只不过后者传递的是``指针值''罢了。\par
+\subsection*{野指针问题}
+说完了指针在函数传递中的应用，读者应当对指针的强大有了初步认识。指针为我们编写程序带来了极大的灵活性，但其中也潜藏着一些风险。所以现在就让我们返回到一些细节的讨论上来。\par
+我曾说过，如果定义一个局部变量而不初始化的话，它将会存储一个不确定的值。使用这种不确定的值可能会导致程序运行的结果不可预测，所以我们需要在使用它之前通过初始化、赋值或输入等等各种方法让它成为一个可控的变量。\par
+指针亦如此。如果我们不进行初始化或赋值，让它指向一个安全的位置，那么它可能会指向内存中的任何一个字节，我们把这种指向不确定的指针叫作\textbf{野指针（Wild pointer）}。野指针是很可怕的，一旦我们试图读取或修改对应未知空间中的信息，我们可能会把这个程序乃至其它进程改爆，从而导致严重的后果\footnote{对于个人电脑来说，这种后果可能很轻微——大不了我们重启电脑，这时内存中的一切又焕然一新了。但对于服务器等需要长期运转且不能轻易停工的设备来说，损失可能非常大。}。因此，在使用指针之前，我们也要进行初始化或者赋值\footnote{我们不能通过``输入地址''的方式来改变指针的值，这同样是很危险的。}。\par
+我们可以用同类型变量\footnote{实际上，指针也是一种变量。但是人们习惯上把``指针''和``变量''视为互不重合的两个概念。本书也沿用这种习惯，通常把指针和变量这两个概念分开。如果需要把指针当作变量的一部分，会特殊说明。}的地址来为指针赋值，我们已经在前面的例子中接触过这种语法了。不同类型数据的地址不能互相赋值，比如我们不能用 \lstinline@float@ 型变量的地址来为 \lstinline@double*@ 型指针赋值。\par
+\begin{lstlisting}
+    float f; //定义float变量f
+    double *pd; //定义double*指针pd
+    pd = &f; //试图将f的地址赋值给pd
+//error: cannot convert 'float*' to 'double*' in assignment
+\end{lstlisting}
+这个报错信息的意思是：在赋值时，\lstinline@float*@ 类型（即 \lstinline@&f@）不能隐式类型转换为 \lstinline@double*@ 类型（即 \lstinline@pd@）。这说明指针类型之间不能随便进行隐式类型转换。\par
+如果我们定义了一个指针，但暂时还不想让它指向哪个变量，而又害怕空置会产生野指针，那么我们还有一个选择：\lstinline@nullptr@。
+\begin{lstlisting}
+    long long *pll = {nullptr}; //定义long long*型指针并指向空地址nullptr
+\end{lstlisting}
+空地址（\lstinline@nullptr@）不是一个运算符，它是一个常量地址。\lstinline@nullptr@ 的类型比较特殊，它是 \lstinline@nullptr_t@ 类型的，我们知道这个也没什么用。但这个类型的特点在于，它可以隐式类型转换为任何一个指针\footnote{乃至高阶指针，见后面的章节。}类型。因此，\lstinline@nullptr@ 可以为各种指针进行初始化。\par
+\lstinline@nullptr@ 是受保护的。我们对它的内容进行的读取和修改都没有任何意义，也不会造成任何风险。所以当我们不需要这个指针指向什么时，最好让它指向空地址 \lstinline@nullptr@。我们在动态内存分配章节中就会讲到它的一种应用，那就是在动态内存回收之后，为防野指针出现，就让这个指针指向空地址。\par
+\subsection*{指针的运算}
+接下来讲解一下指针的运算。虽然指针的值很像整型数据，但是它的加减法规则与整型数据截然不同。\par
+两个指针的加法是没有意义的，因为我们根本不能确定加完了之后得到的地址是指向什么的（这不就是野指针吗）。\par
+而指针与整型的加/减法是有意义的，尤其是在数组当中。一个指针与整数相加/减，它的返回值是和原来指针相同的类型（比如说，\lstinline@int*@ 与 \lstinline@short@ 相加/减，返回值为 \lstinline@int*@）。\par
+\begin{lstlisting}
+    float f, *pf {&f}; //这里不需要初始化f，因为只需用到其地址，而不需要其值
+    cout << pf << endl << pf - 1 << endl; //输出pf和pf+1的值，它们都是地址值
+    long double ld; //同理，只是改成了long double型
+    cout << &ld << endl << &ld + 1; //直接输出&ld，效果相同
+\end{lstlisting}
+运行结果是这样的\footnote{再次提醒读者，实际输出的内存地址因机而异，我们应当关注的是几个输出地址之间的相互关系。}：\\\noindent\rule{\linewidth}{0.2pt}\texttt{
+0x7ffc4bf3837c\\
+0x7ffc4bf38378\\
+0x7ffc4bf38380\\
+0x7ffc4bf38390
+}\\\noindent\rule{\linewidth}{0.2pt}
+输出内容是很长的十六进制形式，我们来分析下。\par
+首先输出的两个是 \lstinline@pf@ 和 \lstinline@pf-1@ 的值。从数值上看，前者是 \lstinline@...37c@，而后者是 \lstinline@...378@，后者虽然是 \lstinline@pf-1@，但地址却减小了4个字节。\par
+接下来输出的两个是 \lstinline@&ld@ 和 \lstinline@&ld+1@ 的值。从数值上看，前者是 \lstinline@...380@，而后者是 \lstinline@...390@，后者虽然是 \lstinline@&ld+1@，但地址却增加了16个字节。\par
+之所以会出现这种情况，关键就在于不同类型数据在内存中占用的字节数目不同。一般说来，\lstinline@float@ 型占据4字节内存空间，而 \lstinline@long double@ 型占据16字节内存空间。\par
+指针和整型的加减法并不是单纯地移动多少个字节，而是移动了多少个数据（可以理解为，偏移量乘以单个数据占用的字节数）。这样设计是有它的道理的，等我们讲到数组，读者就会很容易理解了。\par
+两个同类型指针可以相减，其返回值是一个特殊的类型，叫作 \lstinline@ptrdiff_t@。不过我们也无需纠结这种细节，因为 \lstinline@ptrdiff_t@ 可以隐式类型转换为整型，所以我们可以直接把它当作整型来用，比如输出。
+\begin{lstlisting}
+    int a, b, c;
+    cout << &a << endl << &b << endl << &c << endl;
+    cout << &a - &b << ' ' << &c - &a << endl;
+\end{lstlisting}
+运行结果是这样的：\\\noindent\rule{\linewidth}{0.2pt}\texttt{
+0x7fff604ad654\\
+0x7fff604ad658\\
+0x7fff604ad65c\\
+-1 2
+}\\\noindent\rule{\linewidth}{0.2pt}
+我们可以看到，这里的 \lstinline@a@, \lstinline@b@, \lstinline@c@ 地址值依次递增4，而 \lstinline@&a-&b@ 得到 \lstinline@-1@ 而非 \lstinline@-4@，这说明指针的减法也是在计算数据偏移量，而不是字节数偏移量。\par

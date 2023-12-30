@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  29 DEC 2023 21:49
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  30 DEC 2023 21:17
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1132,9 +1132,14 @@ File: ./05_composite_types_and_their_use/../images/generalized_parts/05_operator
  [86]
 File: ./05_composite_types_and_their_use/../images/generalized_parts/05_relationship_between_variables_and_pointers_300.png Graphic file (type bmp)
 <./05_composite_types_and_their_use/../images/generalized_parts/05_relationship_between_variables_and_pointers_300.png>
- [87]) (./generalized_parts/05_composite_types_and_their_use/02_constant_pointer_and_pointer_to_constant.tex) (./generalized_parts/05_composite_types_and_their_use/03_passing_arguments_by_lvalue_reference.tex) (./generalized_parts/05_composite_types_and_their_use/04_one_dimensional_arrays.tex) (./generalized_parts/05_composite_types_and_their_use/05_the_relationship_between_arrays_and_pointers.tex) (./generalized_parts/05_composite_types_and_their_use/06_string_with_arrays.tex) (./generalized_parts/05_composite_types_and_their_use/07_multidimensional_arrays_and_higher_order_pointers.tex) (./generalized_parts/05_composite_types_and_their_use/08_dynamic_memory_allocation.tex))) (././intensive_part.tex [88] [89
+ [87]
+File: ./05_composite_types_and_their_use/../images/generalized_parts/05_parameter_pass_by_value_300.png Graphic file (type bmp)
+<./05_composite_types_and_their_use/../images/generalized_parts/05_parameter_pass_by_value_300.png>
+File: ./05_composite_types_and_their_use/../images/generalized_parts/05_process_of_pass_by_reference_300.png Graphic file (type bmp)
+<./05_composite_types_and_their_use/../images/generalized_parts/05_process_of_pass_by_reference_300.png>
+ [88] [89] [90]) (./generalized_parts/05_composite_types_and_their_use/02_constant_pointer_and_pointer_to_constant.tex) (./generalized_parts/05_composite_types_and_their_use/03_passing_arguments_by_lvalue_reference.tex) (./generalized_parts/05_composite_types_and_their_use/04_one_dimensional_arrays.tex) (./generalized_parts/05_composite_types_and_their_use/05_the_relationship_between_arrays_and_pointers.tex) (./generalized_parts/05_composite_types_and_their_use/06_string_with_arrays.tex) (./generalized_parts/05_composite_types_and_their_use/07_multidimensional_arrays_and_higher_order_pointers.tex) (./generalized_parts/05_composite_types_and_their_use/08_dynamic_memory_allocation.tex))) (././intensive_part.tex [91] [92
 
-] [90]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
+] [93] [94]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
 附录 A
 LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/m/n' will be
 (Font)              scaled to size 8.33344pt on input line 2.
@@ -1143,17 +1148,17 @@ Underfull \hbox (badness 6063) in paragraph at lines 16--16
 [][][]\TU/SimSun(0)/m/n/8.33344 对 于 内 置 类 型 数 组 [][][] 的 下 标 运 算，| [][][][][][] |（和 [][][][][][]）|  都 会 解 析 为 [][][][][][][]
  []
 
-[91
+[95
 
-]) (./other_parts/appendices/B.tex [92]
+]) (./other_parts/appendices/B.tex [96]
 附录 B
-[93
+[97
 
-]) (./other_parts/appendices/C.tex [94]
+]) (./other_parts/appendices/C.tex [98]
 附录 C
-)) (./other_parts/afterword.tex [95
+)) (./other_parts/afterword.tex [99
 
-] [96
+] [100
 
 ])
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1164,28 +1169,28 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [97]
+ [101]
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [98] (./main.aux)
+ [102] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6567377FBEAA5297B4A1B76BC6D9A637;3474.
+(rerunfilecheck)             Checksum: F904EF75CFEAF284A6811D5FCD8941CA;3474.
  ) 
 Here is how much of TeX's memory you used:
- 24484 strings out of 474924
- 586036 string characters out of 5765037
+ 24515 strings out of 474924
+ 588151 string characters out of 5765037
  1995189 words of memory out of 5000000
- 45822 multiletter control sequences out of 15000+600000
+ 45851 multiletter control sequences out of 15000+600000
  571813 words of font info for 164 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,17n,111p,1231b,1834s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (104 pages).
+Output written on main.pdf (108 pages).
