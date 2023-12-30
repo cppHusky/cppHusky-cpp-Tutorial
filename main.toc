@@ -1,0 +1,36 @@
+\contentsline {chapter}{序}{i}{chapter*.1}%
+\contentsline {part}{泛讲篇}{3}{part*.3}%
+\contentsline {chapter}{\numberline {第一章\hspace {.3em}}初识C++}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}开始一个C++程序}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}数据与信息}{6}{section.1.2}%
+\contentsline {section}{\numberline {1.3}数据的定义和使用}{8}{section.1.3}%
+\contentsline {section}{\numberline {1.4}运算符与类型}{11}{section.1.4}%
+\contentsline {section}{\numberline {1.5}\texttt {sizeof} 与内存空间}{13}{section.1.5}%
+\contentsline {section}{\numberline {1.6}类与对象}{16}{section.1.6}%
+\contentsline {chapter}{\numberline {第二章\hspace {.3em}}数据的基本操作}{19}{chapter.2}%
+\contentsline {section}{\numberline {2.1}赋值语句与常量}{19}{section.2.1}%
+\contentsline {section}{\numberline {2.2}基本数据类型}{22}{section.2.2}%
+\contentsline {section}{\numberline {2.3}运算符}{27}{section.2.3}%
+\contentsline {section}{\numberline {2.4}类型转换}{32}{section.2.4}%
+\contentsline {chapter}{\numberline {第三章\hspace {.3em}}程序的流程控制}{37}{chapter.3}%
+\contentsline {section}{\numberline {3.1}简介：结构、流程与次序}{37}{section.3.1}%
+\contentsline {section}{\numberline {3.2}选择结构}{45}{section.3.2}%
+\contentsline {subsubsection}{多路分支的选择结构}{48}{subsubsection*.51}%
+\contentsline {section}{\numberline {3.3}循环结构}{51}{section.3.3}%
+\contentsline {section}{\numberline {3.4}作用域初步}{60}{section.3.4}%
+\contentsline {section}{\numberline {3.5}实操：简易计算器的设计}{61}{section.3.5}%
+\contentsline {chapter}{\numberline {第四章\hspace {.3em}}函数初步}{65}{chapter.4}%
+\contentsline {section}{\numberline {4.1}函数的概念}{65}{section.4.1}%
+\contentsline {section}{\numberline {4.2}函数的定义和使用}{67}{section.4.2}%
+\contentsline {section}{\numberline {4.3}函数重载}{73}{section.4.3}%
+\contentsline {section}{\numberline {4.4}默认参数的设置}{76}{section.4.4}%
+\contentsline {section}{\numberline {4.5}函数递归}{78}{section.4.5}%
+\contentsline {section}{\numberline {4.6}函数模版简介}{80}{section.4.6}%
+\contentsline {chapter}{\numberline {第五章\hspace {.3em}}复合类型及其使用}{83}{chapter.5}%
+\contentsline {section}{\numberline {5.1}指针}{83}{section.5.1}%
+\contentsline {part}{精讲篇}{91}{part*.66}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{91}{appendix.A}%
+\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{93}{appendix.B}%
+\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{95}{appendix.C}%
+\contentsline {section}{\numberline {C.1}进制与进制转换}{95}{section.C.1}%
+\contentsline {chapter}{跋}{97}{appendix*.67}%

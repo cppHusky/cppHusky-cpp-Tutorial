@@ -1,0 +1,99 @@
+\chapter{ASCII码表（0到127）}
+ASCII字符分为控制字符和可显示字符两部分。\par
+表B.1是33个ASCII控制字符，其中DEC代表十进制形式，HEX代表十六进制形式，CN代表脱出字符\footnote{脱出字符（Caret notation），是ASCII控制字符的一种记号，常用于在终端当中输入控制字符。多数情况下，脱出字符由Ctrl+某键输入，而不是敲下\lstinline@^@加一个字符。在显示时，脱出字符被视为单个字符，而非两个。}，ES代表转义字符\footnote{转义字符（Escape sequence），是一个字符序列，它以反斜线开头，用特定的字母组合来表达一些特殊含义。在输出转义字符时，它们不会按照原形式输出，而是被译为另一类字符（比如控制字符）。}，CH代表字符含义。\par
+\begin{longtable}{|c|c|c|c|c||c|c|c|c|c|}
+\caption{33个ASCII控制字符}\label{tab:B-1}\\
+\hline
+DEC & HEX & CN & ES & CH & DEC & HEX & CN & ES & CH\\
+\hline\hline
+0 & 00 & \lstinline!^@! & \lstinline@\0@ & NUL 空 & 16 & 10 & \lstinline@^P@ & & DLE 退出数据链\\
+\hline
+1 & 01 & \lstinline@^A@ & & SOH 标题开始 & 17 & 11 & \lstinline@^Q@ & & DC1 设备控制1\\
+\hline
+2 & 02 & \lstinline@^B@ & & STX 正文开始 & 18 & 12 & \lstinline@^R@ & & DC2 设备控制2\\
+\hline
+3 & 03 & \lstinline@^C@ & & ETX 正文结束 & 19 & 13 & \lstinline@^S@ & & DC3 设备控制3\\
+\hline
+4 & 04 & \lstinline@^D@ & & EOT 传送结束 & 20 & 14 & \lstinline@^T@ & & DC4 设备控制4\\
+\hline
+5 & 05 & \lstinline@^E@ & & ENQ 询问 & 21 & 15 & \lstinline@^U@ & & MAK 反确认\\
+\hline
+6 & 06 & \lstinline@^F@ & & ACK 确认 & 22 & 16 & \lstinline@^V@ & & SYN 同步空闲\\
+\hline
+7 & 07 & \lstinline@^G@ & \lstinline@\a@ & BEL 响铃 & 23 & 17 & \lstinline@^W@ & & ETB 传输块结束\\
+\hline
+8 & 08 & \lstinline@^H@ & \lstinline@\b@ & BS 退格 & 24 & 18 & \lstinline@^X@ & & CAN 取消\\
+\hline
+9 & 09 & \lstinline@^I@ & \lstinline@\t@ & HT 横向制表 & 25 & 19 & \lstinline@^Y@ & & EM 媒介结束\\
+\hline
+10 & 0A & \lstinline@^J@ & \lstinline@\n@ & LF 换行 & 26 & 1A & \lstinline@^Z@ & & SUB 替换\\
+\hline
+11 & 0B & \lstinline@^K@ & \lstinline@\v@ & VT 纵向制表 & 27 & 1B & \lstinline@^[@ & \lstinline@\e@\footnote{C++和许多语言标准都没有明确规定将\lstinline@\\e@作为转义字符，但是有些编译器，如GCC，允许使用这种语法。} & ESC 退出\\
+\hline
+12 & 0C & \lstinline@^L@ & \lstinline@\f@ & FF 换页 & 28 & 1C & \lstinline@^\@ & & FS 文件分隔符\\
+\hline
+13 & 0D & \lstinline@^M@ & \lstinline@\r@ & CR 回车 & 29 & 1D & \lstinline@^]@ & & GS 组分隔符\\
+\hline
+14 & 0E & \lstinline@^N@ & & SO 移出 & 30 & 1E & \lstinline@^^@ & & RS 记录分隔符\\
+\hline
+15 & 0F & \lstinline@^O@ & & SI 移入 & 31 & 1F & \lstinline@^_@ & & US 单无分隔符\\
+\hline
+127 & 7F & \lstinline@^?@ & & DEL 删除\\
+\cline{1-5}
+\end{longtable}\par
+表B.2是95个ASCII可打印字符，其中DEC表示十进制形式，HEX代表十六进制形式，CH代表字符。
+\newpage
+\begin{longtable}{|c|c|c||c|c|c||c|c|c||c|c|c|}
+\caption{95个ASCII可打印字符}\label{tab:B-2}\\
+\hline
+DEC & HEX & CH & DEC & HEX & CH & DEC & HEX & CH & DEC & HEX & CH\\
+\hline\hline
+32 & 20 & \lstinline@ @\footnote{此处为空格符。} & 48 & 30 & \lstinline@0@ & 64 & 40 & \lstinline!@! & 80 & 50 & \lstinline@P@\\
+\hline
+33 & 21 & \lstinline@!@ & 49 & 31 & \lstinline@1@ & 65 & 41 & \lstinline@A@ & 81 & 51 & \lstinline@Q@\\
+\hline
+34 & 22 & \texttt{"}\footnote{字符 \lstinline@"@ 在C++代码中需用转义字符 \lstinline@'\\"'@ 表达。} & 50 & 32 & \lstinline@2@ & 66 & 42 & \lstinline@B@ & 82 & 52 & \lstinline@R@\\
+\hline
+35 & 23 & \texttt{\#} & 51 & 33 & \lstinline@3@ & 67 & 43 & \lstinline@C@ & 83 & 53 & \lstinline@S@\\
+\hline
+36 & 24 & \lstinline@$@ & 52 & 34 & \lstinline@4@ & 68 & 44 & \lstinline@D@ & 84 & 54 & \lstinline@T@\\
+\hline
+37 & 25 & \lstinline@%@ & 53 & 35 & \lstinline@5@ & 69 & 45 & \lstinline@E@ & 85 & 55 & \lstinline@U@\\
+\hline
+38 & 26 & \lstinline@&@ & 54 & 36 & \lstinline@6@ & 70 & 46 & \lstinline@F@ & 86 & 56 & \lstinline@V@\\
+\hline
+39 & 27 & \texttt{'}\footnote{字符 \lstinline@'@ 在C++代码中需用转义字符 \lstinline@'\\''@ 表达。} & 55 & 37 & \lstinline@7@ & 71 & 47 & \lstinline@G@ & 87 & 57 & \lstinline@W@\\
+\hline
+40 & 28 & \lstinline@(@ & 56 & 38 & \lstinline@8@ & 72 & 48 & \lstinline@H@ & 88 & 58 & \lstinline@X@\\
+\hline
+41 & 29 & \lstinline@)@ & 57 & 39 & \lstinline@9@ & 73 & 49 & \lstinline@I@ & 89 & 59 & \lstinline@Y@\\
+\hline
+42 & 2A & \lstinline@*@ & 58 & 3A & \lstinline@:@ & 74 & 4A & \lstinline@J@ & 90 & 5A & \lstinline@Z@\\
+\hline
+43 & 2B & \lstinline@+@ & 59 & 3B & \lstinline@;@ & 75 & 4B & \lstinline@K@ & 91 & 5B & \lstinline@[@\\
+\hline
+44 & 2C & \lstinline@,@ & 60 & 3C & \lstinline@<@ & 76 & 4C & \lstinline@L@ & 92 & 5C & \lstinline@\@\footnote{字符 \lstinline@\\@ 在C++代码中需用转义字符 \lstinline@'\\\'@ 表达。}\\
+\hline
+45 & 2D & \lstinline@-@ & 61 & 3D & \lstinline@=@ & 77 & 4D & \lstinline@M@ & 93 & 5D & \lstinline@]@\\
+\hline
+46 & 2E & \lstinline@.@ & 62 & 4E & \lstinline@>@ & 78 & 4E & \lstinline@N@ & 94 & 5E & \lstinline@^@\\
+\hline
+47 & 2F & \lstinline@/@ & 63 & 4F & \lstinline@?@ & 79 & 4F & \lstinline@O@ & 95 & 5F & \lstinline@_@\\
+\hline\hline
+96 & 60 & \lstinline@`@ & 104 & 68 & \lstinline@h@ & 112 & 70 & \lstinline@p@ & 120 & 78 & \lstinline@x@\\
+\hline
+97 & 61 & \lstinline@a@ & 105 & 69 & \lstinline@i@ & 113 & 71 & \lstinline@q@ & 121 & 79 & \lstinline@y@\\
+\hline
+98 & 62 & \lstinline@b@ & 106 & 6A & \lstinline@j@ & 114 & 72 & \lstinline@r@ & 122 & 7A & \lstinline@z@\\
+\hline
+99 & 63 & \lstinline@c@ & 107 & 6B & \lstinline@k@ & 115 & 73 & \lstinline@s@ & 123 & 7B & \lstinline@{@\\
+\hline
+100 & 64 & \lstinline@d@ & 108 & 6C & \lstinline@l@ & 116 & 74 & \lstinline@t@ & 124 & 7C & \lstinline@|@\\
+\hline
+101 & 65 & \lstinline@e@ & 109 & 6D & \lstinline@m@ & 117 & 75 & \lstinline@u@ & 125 & 7D & \lstinline@}@\\
+\hline
+102 & 66 & \lstinline@f@ & 110 & 6E & \lstinline@n@ & 118 & 76 & \lstinline@v@ & 126 & 7E & \lstinline@~@\\
+\hline
+103 & 67 & \lstinline@g@ & 111 & 6F & \lstinline@o@ & 119 & 77 & \lstinline@w@\\
+\cline{1-9}
+\end{longtable}

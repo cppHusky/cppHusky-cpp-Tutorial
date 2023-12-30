@@ -1,0 +1,38 @@
+\ProvidesPackage{Preparation}
+\usepackage{geometry,fontsize,setspace,xcolor,fancyhdr}%Required for typesetting
+\usepackage{amssymb}%Required for math typing
+\usepackage{textcomp}%Required for special symbol
+\usepackage{graphicx}%Required for inserting images
+\usepackage{hyperref}%Required for table of contents
+\usepackage{pdfpages}%Required for inserting PDFs
+\usepackage{listings,minted}%Required for code highlighting
+\usepackage{import}%Required for multi-files
+\usepackage{longtable,multirow}%Required for tables
+\usepackage{sourcecodepro}%font
+\usepackage{fontspec}%Require for code font
+\geometry{a4paper,top=2cm,bottom=3.2cm,inner=2.5cm,outer=3.2cm}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\renewcommand{\lstlistingname}{代码}
+\lstset{
+    language=C++,
+    basicstyle=\fontsize{9pt}{11.5pt}\selectfont\ttfamily,
+    morekeywords={
+        auto,
+        constexpr,
+        decltype,
+        long long,
+        noexcept,
+        nullptr,
+        static_assert,
+    },
+    keywordstyle=\color{blue}\bfseries,
+    stringstyle=\color{red},
+    commentstyle=\color[RGB]{128,0,192},
+    morecomment=[l][\color{magenta}]{\#},
+    backgroundcolor=\color[RGB]{240,240,240}
+}

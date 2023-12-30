@@ -1,0 +1,75 @@
+\section{开始一个C++程序}
+各种编程语言的教程都喜欢用``输出Hello World!''作为第一个编程示例，本书也不例外。\par
+在C++中，我们可以用如下的代码来输出``Hello World!''：
+\begin{lstlisting}[caption=\texttt{Hello\_World.cpp},label={lst:HelloWorld}]
+// 这是一个简单的C++程序，用于输出Hello World
+#include <iostream> //标准输入输出头文件
+using namespace std; //使用std命名空间
+int main() { //主函数，程序执行始于此
+    cout << "Hello World!";//输出Hello World
+    return 0;
+}
+\end{lstlisting}
+如果你使用的是集成开发环境，那么只需要用一两个选项或快捷键就可以完成编译、运行步骤，并看到程序的运行结果了。这个快捷键因软件而异，不过总得说来，可以概括成三个过程：
+\begin{enumerate}
+    \item \textbf{编译（Compile）}：编译器将你写在文件中的源代码\footnote{源代码（Source Code），是一系列人类可读的计算机语言指令，在C++中一般指.cpp文件中的代码。}编译成目标代码\footnote{目标代码（Object Code），是源代码经编译器或汇编器处理后产生的代码，对人类来说可读性很差。机器不能直接执行源代码，只能执行目标代码。}。
+    \item \textbf{链接（Link）}：将目标代码与其它代码链接。C++标准库提供了非常丰富的功能，而链接器负责将我们的源代码与这些功能对应的库，以及其它必需文件结合起来，形成可执行文件。
+    \item \textbf{运行（Run）}：可执行文件在运行时，可以进行计算、存取和用户交互等各种行为。程序可以长期处于运行状态，也可以在某个指令后结束运行。
+\end{enumerate}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/generalized_parts/01_From_source_code_to_executable_300.png}
+    \caption{从源代码到可执行文件}
+\end{figure}
+实际上的过程会更复杂，比如在编译之前还会进行预处理（Preprocess）。但是我们现在还不需要操心这么多，因为在按下``编译''键之后，预处理和编译都会进行，所以不妨把它统称为一个过程。\par
+\subsection*{编译器的选择}
+C++的\textbf{编译器（Compiler）}非常丰富。\href{https://en.wikipedia.org/wiki/List_of_compilers#C++_compilers}{List of C++ Compilers-Wikipedia} 条目为我们提供了一个不完全的C++编译器列表。\par
+一般我们选择使用Clang、GCC或Visual C++（MSVC），它们都是跨系统的编译器，对语言标准的支持比较好\footnote{Clang和GCC支持C++17以前标准和C++20的大部分标准，而MSVC支持C++20的全部标准和C++23的部分标准。}，许多IDE（如Dev\_C++, Code::Blocks，Visual C++等）也都默认提供这些编译器之一。另外，Coliru和Wandbox等在线编译器也都支持使用Clang和GCC。\par
+同种的编译器也会有版本上的差异。很多古老的版本（如GCC 4.9.4）并不支持新近的语法（如C++17\footnote{C++17是C++委员会制定的一个语言标准，其最终版发布于2017年12月。这也是本书采用的主要语言标准。}）。新版本的编译器往往有很多好用的特性，比如对代码有更好的优化。\footnote{另请注意，最好选择稳定版本的编译器，而非试验性的测试版，以免出现问题带来的麻烦。}\par
+\subsection*{语言标准的选择}
+不同的C++\textbf{标准（Standard）}对语法的支持不同。比如说，在C++11以后的标准中下，可以使用 \lstinline@auto@ 来自动确定我们要定义的变量类型。这是一种很方便的语法，但C++11以前的版本就不支持使用。\par
+C++语言标准的更新总会带来很多新的功能，也会对以往标准中的缺陷和漏洞加以弥补，所以越新的标准往往就越强大、易用。另一方面，新标准通常都能兼容旧标准\footnote{只是通常如此。有很多反例，比如C++17标准移除了古已有之的 \lstinline@std::auto_ptr@。}，所以你也无需担心为了适应新标准而放弃很多旧知识，或者换用新标准后很多代码编译失败了。\par
+可惜并非所有编译器都能支持C++新标准的特性。因此，在编写本书时，考虑到许多编译器对语言标准支持的情况，本书选择使用C++17标准。\textbf{今后若无特殊说明，默认本书所有知识和代码遵循C++17标准。}\par
+\subsubsection*{Windows下运行的可能问题}
+在Windows系统中，很多IDE允许你在一个辅助窗口中运行程序（我本人比较习惯这种方式）。有些IDE在程序执行完毕后，会保留辅助窗口，等待用户``按任意键继续''，于是我们有足够的时间看到程序运行的结果；还有一些IDE在程序结束时会立刻关闭辅助窗口，我们就来不及看程序运行的结果。\par
+为了解决这个问题，我们可能需要对代码做一些修改：
+\begin{lstlisting}
+    //...前面的代码不变
+    cin.get();//可能需要添加的语句
+    cin.get();//甚至可能需要再加这句
+    return 0;
+}
+\end{lstlisting}
+\lstinline@cin.get()@ 的作用是读取下一个键盘输入，所以如果你不按下键盘上的Enter键，程序就会一直等待下去。（只有按下Enter，输入内容才能发送给程序，我们后面会慢慢道来）\par
+至于用两个 \lstinline@cin.get()@，这是为了应对可能的 \lstinline@'\n'@ 遗留被第一个 \lstinline@cin.get()@ 吞没。我们现在尚无必要在乎这些细枝末节，只需要知道：如果窗口没有保持打开，就加一个 \lstinline@cin.get()@；如果还不行，就加两个 \lstinline@cin.get()@。\footnote{值得留意的是，用 \lstinline@cin.get()@ 来阻断程序进度只是一种临时的解决方案，目的在于便于我们进行学习和演示。而在实际的开发中，人们通常不会在程序中添加这种代码。}\par
+\subsection*{回到Hello World}
+现在让我们回来看Hello World代码。这个代码可以在任何操作系统上，用任何编译器和任何语言标准来编译。程序的输出就是一个单词 \texttt{Hello World!}。\par
+\begin{lstlisting}
+// 这是一个简单的C++程序，用于输出Hello World
+\end{lstlisting}
+程序的第一行是一个\textbf{注释（Comment）}。注释以两个双斜线开头，其后直到行末的内容均会被编译器忽略，所以你写什么都可以。注释是为了给人类阅读的，以便我们理解程序和代码的含义。\par
+\begin{lstlisting}
+#include <iostream> //标准输入输出头文件
+\end{lstlisting}
+程序的第二行是一个\textbf{文件包含（File Inclusion）}。通过这个语句，预处理器会对代码作预处理\footnote{如前所述，源代码在编译之前需要经过预处理，例如文件包含和宏。预处理结束后，编译才会开始。}，将本句命令替换成 \lstinline@iostream@ 库中的代码。\par
+\begin{lstlisting}
+using namespace std; //使用std命名空间
+\end{lstlisting}
+程序的第三行是一个\textbf{命名空间（Namespace）}使用。C++中，\lstinline@cout@ 被定义\footnote{定义（Definition），是为程序中的一个实体（如变量、函数、类等）分配内存并提供其具体的实现或值的过程。在以C++为代表的静态语言中，一个实体必须定义才能使用。}在 \lstinline@std@ 命名空间中，我们要通过 \lstinline@std::cout@ 这样的语法才可以使用它。而有了 \lstinline@using namespace std;@ 之后，我们就可以直接使用 \lstinline{cout}。\par
+关于文件包含和命名空间的概念，我们会在第七章进行讲解。目前我们无需过分纠结。\par
+\begin{lstlisting}
+int main(){//主函数，程序执行始于此
+    //函数体代码
+}
+\end{lstlisting}
+程序的第四行是\textbf{主函数（Main Function）}的定义。主函数是程序的入口，它必须唯一。程序从主函数开始按顺序执行各句代码，除非遇到了条件或循环结构。关于函数，我们会在第四章讲解；关于结构，我们会在第三章讲解。\par
+\begin{lstlisting}
+    cout << "Hello World!";//输出Hello World
+\end{lstlisting}
+程序的第五行是\textbf{输出（Output）}语句。这一句对我们来说更重要，因为我们接下来要模仿的代码主要是基于修改输出内容来实现的。\par
+\lstinline@<<@ 左侧的 \lstinline@cout@ 是在标准库 \lstinline@iostream@ 中定义的 \lstinline@std@ 空间的对象，控制标准输出。我们无需对它作修改；\lstinline@<<@ 右侧的 \lstinline@"hello World!"@ 则是我们要输出的内容。外套双引号表示它是一个字符串，我们会在第五章讲解字符串。\par
+如果我们想要输出一个数字，我们只需要修改 \lstinline@<<@ 右侧的内容即可，比如
+\begin{lstlisting}
+    cout << 3.14159;//输出圆周率小数点后五位
+\end{lstlisting}
+第三节我们就会开始介绍如何使用 \lstinline@cout@ 来输出数据。\par

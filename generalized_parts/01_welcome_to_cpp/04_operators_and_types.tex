@@ -1,0 +1,69 @@
+\section{运算符与类型}
+在上一节的末尾，我们实现了一个简单的基于浮点数的计算器。这一节我想走得更远，增加一些数据类型和新的运算，看看会不会有什么新变化。\par
+\subsection*{整数的模运算}
+\textbf{模运算（Modulo）}，俗称取余，简记为$\mathrm{mod}$，就是求两个数相除得到的余数。例如，$5\div2=2\ldots1$，这里的余数就是$1$，所以$5\:\mathrm{mod}\:2=1$；再例如，$9\div3=3\ldots0$，这里的余数就是$0$，所以$9\:\mathrm{mod}\:3=0$。\par
+一般意义上讲，只有整数才有带余除法，所以我们在计算时应该使用整型，比如 \lstinline@int@。
+如果要计算某两个数 \lstinline@a@ 与 \lstinline@b@ 的模值，我们可以用如下的代码来实现：
+\begin{lstlisting}
+    int a {1584}, b {7}; //定义a, b并初始化
+    cout << a % b; //求a mod b的值
+\end{lstlisting}
+这里使用的百分记号（\lstinline@%@）可能会让人费解。其实在C++中，\lstinline@%@ 并不是百分记号，而是取模运算符，含义是左边整数除以右边整数得到的余数（模值）。在各类编程语言中，这种``记号含义与传统含义不同''的现象比比皆是，以下是C++当中的部分例子（读者无需现在就掌握，但日后要留心）：
+\begin{itemize}
+    \item \lstinline@^@ 不是冪指数的含义，而是位异或运算。\footnote{关于位异或和移位运算符，参见附录C.2 布尔代数基础。}%tbt
+    \item \lstinline@<<@ 和 \lstinline@>>@ 既不是书名号，也不是数学意义上的``远小于''和``远大于''，而是移位运算符。
+    \item \lstinline@[]@ 和 \lstinline@{}@ 不是数学上的``中括号''和``大括号''，它们分别有另外的含义。数学意义上的括号统一使用 \lstinline@()@ 嵌套来实现。
+    \item \lstinline@=@ 是赋值运算符，而传统意义上相等性的判断应当用 \lstinline@==@。
+    \item \dots\dots
+\end{itemize}\par
+要计算 \lstinline@1584%7@ 的值，也可以跳过定义数据这一步，直接在输出语句中使用字面量\footnote{字面量（Literal），是一个值在代码中不具名的文本表示。比如 \lstinline@1584@，它没有``名字''，在代码中被写出来就是1584，它的值也是1584。与之相对的是具名数据，它们经过定义，就有了名字。}完成。
+\begin{lstlisting}
+    cout << 1584 % 7; //直接求 1584 mod 7，不必定义a和b
+\end{lstlisting}
+这种写法更加简便、直观，不需要定义数据。但也请注意，它无法支持程序层面的交互（如，用户输入两个数并计算。我们总不能要求用户来亲自修改代码。关于程序输入，我们会在第二章介绍）。\par
+\subsection*{字面量的类型}
+C++会自动识别字面量的类型，比如前面介绍过的这个例子（编译器的报错信息以注释形式附于其后）：
+\begin{lstlisting}
+    short s2 = {40000};
+//error: narrowing conversion of '40000' from 'int'
+//to 'short int' [-Wnarrowing]
+\end{lstlisting}
+编译器的报错信息是很重要的，它能把出错的关键信息告诉我们，帮助我们有针对性地查找和解决问题。这个报错信息是``\lstinline@40000@ 在从 \lstinline@int@ 到 \lstinline@short int@ 的过程中发生了收缩转换''，意思就是``原本 \lstinline@40000@ 是 \lstinline@int@ 类型的，完全装得下；但是你要往 \lstinline@short@ 里面塞，那就装不下了''。\par
+于是从报错信息中我们能看出，\lstinline@40000@这个值被编译器识别成 \lstinline@int@ 型。\par
+再来个类似的例子：
+\begin{lstlisting}
+    int i {2147483648};
+//error: narrowing conversion of '2147483648' from 'long long int'
+//to 'int' [-Wnarrowing]
+\end{lstlisting}
+这个报错信息是``\lstinline@2147483648@ 在从 \lstinline@long long int@\footnote{这点可能因电脑的环境而异，比如有些电脑的 \lstinline@long@ 类型就可以容纳这个数，那么报错信息应当是 \lstinline@long int@；而另一些则不能容纳这个数，报错信息应当是 \lstinline@long long int@。} 到 \lstinline@int@ 的过程中发生了收缩转换''，意思就是``原本的 \lstinline@long long@ 类型完全装得下，但是 \lstinline@int@ 类型装不下''。换言之，字面量 \lstinline@2147483648@ 被编译器识别成了 \lstinline@long long@ 型。\par
+总得说来，如无前缀或后缀\footnote{字面量可加前缀或后缀来指定优先使用的类型，第二章会对此进行介绍。}，代码中的浮点字面量统一识别成 \lstinline@double@ 型。代码中的整数字面量会按照 \lstinline@int@, \lstinline@long@, \lstinline@long long@ 的顺序，找到能容纳它的类型，作为这个字面量的类型；而字符字面量会把ASCII字符统一识别成 \lstinline@char@ 型\footnote{关于宽字符，我们会在精讲篇中再谈。}。\par
+字面量的实际知识远比我们介绍的要多。如果读者有意进一步了解相关知识，可以查阅\href{https://zh.cppreference.com/w/cpp/language/expressions#.E5.AD.97.E9.9D.A2.E9.87.8F}{字面量-表达式-cppreference}。\par
+\subsubsection*{\texttt{1}和\texttt{1.0}的区别是什么？}
+我们在写代码时常常会遇到 \lstinline@1.0@ 这样的写法。你可能会好奇，为什么不写成 \lstinline@1@ 呢？究其原因，在于 \lstinline@1.0@ 是一个浮点字面量，而 \lstinline@1@ 则是一个整数字面量。它们的类型并不相同，一个是 \lstinline@double@，另一个则是 \lstinline@int@。\par
+C++中还有更简洁的语法，就是用 \lstinline@1.@ 和 \lstinline@.1@ 来取代 \lstinline@1.0@ 和 \lstinline@0.1@ 这样的浮点字面量。比如说
+\begin{lstlisting}
+    cout << 1. / .1; //等价于cout << 1.0 / 0.1;
+\end{lstlisting}\par
+\subsection*{整数除法问题}
+让我们来看一下这段代码：
+\begin{lstlisting}
+    cout << 8 / 3; //计算8/3的值
+\end{lstlisting}
+猜一下它的运行结果。如果你手头有编译条件，可以跑一下代码看看（记得加上那一堆必需代码）。\par
+如果你猜的结果是 \lstinline@2.66667@ 或者是类似的近似结果，那么恭喜你，这是初学者常犯的错误！\par
+整数除法与浮点数除法有所不同。如果两数不能整除，那么结果就会被``截尾''\footnote{截尾（Truncation），广义上指对小数点后数字个数的限制。在这里指的是直接截掉小数点后的部分，比如$1.618\rightarrow1$和$-2.718\rightarrow-2$。这种方法与四舍五入和单纯上/下取整都不同，可以把它理解成``对正数向下取整，对负数向上取整''。}。如果要避免截尾，获得较精确的数据，应该使用符点型来操作。
+\begin{lstlisting}
+    cout << 8. / 3.; //计算8.0/3.0的值
+\end{lstlisting}\par
+那如果我要计算两个具名整型数据的除法呢？比如在 \lstinline@a@ 和 \lstinline@b@ 都是整型的情况下计算 \lstinline@a/b@？这时我们可以使用第二章中将会介绍的类型转换的方法。\par
+这里有一种比较简单的类型转换方法：
+\begin{lstlisting}
+    cout << 1. * a / b; //计算a/b的浮点数结果
+\end{lstlisting}
+但是请注意，下面的写法是不行的：
+\begin{lstlisting}
+    cout << a / b * 1.; //计算a/b的浮点数结果，但事与愿违
+\end{lstlisting}
+关于第一种方法为什么可行，第二种为什么不可行，我们会在第二章中探讨。\par
+总而言之，类型不同，可能会让结果出现一些意想不到的差异。因此类型是很重要的数据特怔，日后编程时我们需要多加留意。\par

@@ -1,0 +1,85 @@
+\chapter{C++运算符基本属性}\label{ch:appendix_A}
+表A.1列出了截至C++17的所有运算符的优先级、结合性和重载要求。\footnote{值得注意的是，虽然双引号\texttt{""}不被视为运算符，但它可以用在重载自定义字面量的语法中。本书不予以介绍，对此感兴趣的读者可以阅读 \href{https://zh.cppreference.com/w/cpp/language/user_literal}{用户定义字面量-cppreference} 。}\par%tbs
+\begin{longtable}{|c|c|c|c|c|}
+\caption{截至C++17的所有运算符}\label{tab:A-1}\\
+\hline
+\textbf{优先级} & \textbf{运算符} & \textbf{运算符含义} & \textbf{结合性} & \textbf{重载要求}\\
+\hline\hline
+1 & \lstinline@scope::a@ & 作用域解析 & \multirow{9}{*}{从左到右} & 不可重载\\
+\cline{1-3}\cline{5-5}
+\multirow{8}{*}{2} & \lstinline@var++ var--@ & 后缀自增/自减 &  & 特殊参数要求\footnote{重载后缀自增/自减运算符需带 \lstinline@int@ 型参数。参数可以不具名，事实上也无需使用。这样的语法是为了与前缀形式相区别。}\\
+\cline{2-3}\cline{5-5}
+& \lstinline@type() type{}@ & 函数风格类型转换\footnote{函数风格类型转换、C风格类型转换和 \lstinline@static_cast@ 在静态类型转换时是等价的。换言之，只需定义一个转换函数，就可以使用这三种类型转换语法。} &  & 可重载\\
+\cline{2-3}\cline{5-5}
+& \lstinline@fun()@ & 函数调用 &  & 只能是成员函数\\
+\cline{2-3}\cline{5-5}
+& \lstinline@arr[index]@ & 下标运算\footnote{对于内置类型数组 \lstinline@arr@ 的下标运算， \lstinline@arr[index]@（和 \lstinline@index[arr]@）都会解析为 \lstinline@*(arr+index)@（和\lstinline@*(index+arr)@），而自定义类型的下标重载版本不会如此。} &  & 只能是成员函数\\
+\cline{2-3}\cline{5-5}
+& \lstinline@obj.member@ & 成员访问 &  & 不可重载\\
+\cline{2-3}\cline{5-5}
+& \multirow{3}{*}{\lstinline@p_obj->member@} & \multirow{3}{*}{指针的成员访问} &  & 返回类型受限\footnote{返回类型必须是裸指针或对象。返回对象时，可以按值或按引用传递参数。}\\
+&  &  &  & 只能是成员函数\\
+&  &  &  & 不能是静态函数\\
+\hline
+\multirow{9}{*}{3} & \lstinline@++var --var@ & 前缀自增/自减 & \multirow{9}{*}{从右到左} & 可重载\\
+\cline{2-3}\cline{5-5}
+& \lstinline@+var -var@ & 一元加/减(正/负号) &  & 可重载\\
+\cline{2-3}\cline{5-5}
+& \lstinline@!var ~var@ & 逻辑非/按位取反 &  & 可重载\\
+\cline{2-3}\cline{5-5}
+& \lstinline@(type)var@ & C风格类型转换 &  & 可重载\\
+\cline{2-3}\cline{5-5}
+& \lstinline@*pointer@ & 取内容(解引用) &  & 可重载\\
+\cline{2-3}\cline{5-5}
+& \lstinline@&var@ & 取地址 &  & 可重载\\
+\cline{2-3}\cline{5-5}
+& \lstinline@new@ / \lstinline@new[]@ & 动态内存分配 &  & 可重载\\
+\cline{2-3}\cline{5-5}
+& \lstinline@delete@ / \lstinline@delete[]@ & 动态内存回收 &  & 可重载\\
+\cline{2-3}\cline{5-5}
+& \lstinline@sizeof a@\footnote{不使用括号的 \lstinline@sizeof a@ 只适用于数据或对象；如果要对类型求内存空间大小，必须用 \lstinline@sizeof(type)@ 形式。} & 求内存空间大小 &  & 不可重载\\
+\hline
+\multirow{2}{*}{4} & \lstinline@obj.*p@ & 成员指针访问 & \multirow{4}{*}{从左到右} & 不可重载\\
+\cline{2-3}\cline{5-5}
+& \lstinline@p_obj->*p@ & 指针的成员指针访问 &  & 可重载\\
+\cline{1-3}\cline{5-5}
+5 & \lstinline@lhs*rhs lhs/rhs lhs%rhs@ & 乘法/除法/模运算 &  & 可重载\footnote{注意，一些重载运算符对参数有特殊要求：必须接收至少一个自定义类型的参数，可以是类或枚举类。比如说， \lstinline@double operator\%\(double,double)@ 就是不允许的。并非所有重载都有这个限制，比如下标运算可以接收 \lstinline@int@ 类型的参数。}\\
+\cline{1-3}\cline{5-5}
+6 & \lstinline@lhs+rhs lhs-rhs@ & 加法/减法 &  & 可重载\\
+\hline
+\textbf{优先级} & \textbf{运算符} & \textbf{运算符含义} & \textbf{结合性} & \textbf{重载要求}\\
+\hline\hline
+7 & \lstinline@lhs<<rhs lhs>>rhs@ & 左移位/右移位 & \multirow{9}{*}{从左到右} & 可重载\\
+\cline{1-3}\cline{5-5}
+\multirow{2}{*}{8} & \lstinline@lhs<rhs lhs<=rhs@ & 小于/小于或等于&  & 可重载\\
+\cline{2-3}\cline{5-5}
+& \lstinline@lhs>rhs lhs>=rhs@ & 大于/大于或等于 &  & 可重载\\
+\cline{1-3}\cline{5-5}
+9 & \lstinline@lhs==rhs lhs!=rhs@ & 相等运算符/不等运算符 &  & 可重载\\
+\cline{1-3}\cline{5-5}
+10 & \lstinline@lhs&rhs@ & 按位与 &  & 可重载\\
+\cline{1-3}\cline{5-5}
+11 & \lstinline@lhs^rhs@ & 按位异或(互斥或) &  & 可重载\\
+\cline{1-3}\cline{5-5}
+12 & \lstinline@lhs|rhs@ & 按位或(可兼或) &  & 可重载\\
+\cline{1-3}\cline{5-5}
+13 & \lstinline@lhs&&rhs@ & 逻辑与 &  & 可重载\footnote{逻辑与/逻辑或函数有短路求值特点，如对于 \lstinline@false&&f()@，在左操作数为 \lstinline@false@ 时已经能确定整个表达式为 \lstinline@false@，故不需要再求 \lstinline@f()@，于是右操作数及其副作用都不会发生。但这两个运算符经过重载后并不保留短路求值特性，左右操作数都会被计算。}\\
+\cline{1-3}\cline{5-5}
+14 & \lstinline@lhs||rhs@ & 逻辑或(可兼或) &  & 可重载\\
+\hline
+\multirow{8}{*}{15} & \lstinline@condition?exp1:exp2@ & 条件运算符 & \multirow{8}{*}{从右到左} & 不可重载\\
+\cline{2-3}\cline{5-5}
+& \lstinline@throw exception@ & 抛出异常 &  & 不可重载\\
+\cline{2-3}\cline{5-5}
+& \lstinline@lhs=rhs@ & 直接赋值 &  & 只能是成员函数\\
+\cline{2-3}\cline{5-5}
+& \lstinline@lhs+=rhs lhs-=rhs@ & \multirow{5}{*}{复合赋值} &  & \multirow{5}{*}{只能是成员函数}\\
+& \lstinline@lhs*=rhs lhs-=rhs@ &  &  &\\
+& \lstinline@lhs%=rhs lhs|=rhs@ &  &  &\\
+& \lstinline@lhs<<=rhs lhs>>=rhs@ &  &  &\\
+& \lstinline@lhs&=rhs lhs^=rhs@ &  &  &\\
+\hline
+16 & \lstinline@exp1,exp2@ & 逗号 & 从左到右 & 可重载\\
+\hline
+\end{longtable}
+另有这些运算符：\lstinline@static_cast@, \lstinline@dynamic_cast@, \lstinline@const_cast@, \lstinline@reinterpret_cast@, \lstinline@typeid@, \lstinline@noexcept@。它们在使用时必须对操作数加括号（相比之下， \lstinline@sizeof@ 是可以不对操作数加括号的），因而不受优先级、结合性问题困扰，不列入表A.1。以上这些运算符均不可重载，但你可以通过自定义转换函数的方式来使 \lstinline@static_cast@ 变得可用。\par

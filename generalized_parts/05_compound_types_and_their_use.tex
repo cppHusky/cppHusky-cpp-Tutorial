@@ -1,0 +1,13 @@
+\chapter{复合类型及其使用}
+在前面的章节中，我们讲了基本数据类型。不同类型数据的使用可以帮助我们解决一些小规模的问题；再搭配函数的使用，可以让我们的代码更成体系，更有逻辑。\par
+\textbf{复合类型（Compound type）}的出现让函数的功能大放异彩。借助复合类型，我们可以实现更加复杂的功能，比如数据的批量处理（数组），函数的实参修改（指针和引用），以及动态内存分配。很多技术含量较高的代码必须借助复合类型才能实现，所以本章所介绍的内容有着承前启后的作用。\par
+本章主要介绍指针、引用和数组相关的知识；至于结构体、联合体和类，我们留到下一章再讲解。\par
+在本章，我们也将使用 \lstinline@typeid@ 和 \lstinline@std::is_same@ 等运算符或函数，来帮助我们梳理复合类型与基本类型之间的关系，它们是我们处理类型问题时相当有用的工具。\par
+\import{05_composite_types_and_their_use/}{01_pointer.tex}
+\import{05_composite_types_and_their_use/}{02_constant_pointer_and_pointer_to_constant.tex}
+\import{05_composite_types_and_their_use/}{03_passing_arguments_by_lvalue_reference.tex}
+\import{05_composite_types_and_their_use/}{04_one_dimensional_arrays.tex}
+\import{05_composite_types_and_their_use/}{05_the_relationship_between_arrays_and_pointers.tex}
+\import{05_composite_types_and_their_use/}{06_string_with_arrays.tex}
+\import{05_composite_types_and_their_use/}{07_multidimensional_arrays_and_higher_order_pointers.tex}
+\import{05_composite_types_and_their_use/}{08_dynamic_memory_allocation.tex}

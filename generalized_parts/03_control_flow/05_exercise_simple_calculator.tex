@@ -1,0 +1,99 @@
+\section{实操：简易计算器的设计}
+在本章的开首，我们就在考虑设计一个计算器。但因为尚不掌握程序流程控制的方法，所以不能实现。\par
+现在读者已经具备这种能力了，那就让我们写一个简单的计算器，以此温习我们本章的编程知识。\par
+我们先设计一个只支持四则运算和取模的计算器，比如下面的例子，黑体字是输入内容，白体字是输出内容：\\\noindent\rule{\linewidth}{0.2pt}\texttt{
+\textbf{8/3}\\
+=2.66667\\
+\textbf{8\%3}\\
+=2\\
+\textbf{q}\\
+程序结束
+}\\\noindent\rule{\linewidth}{0.2pt}\par
+显然，我们需要用 \lstinline@double@ 或者别的浮点类型来存储数据，这样计算除法时才不致有精度损失。那么遇到取模运算的时候要怎么办呢？我们可以用显式类型转换的方法来变成 \lstinline@int@ 型，然后再计算。\par
+接下来考虑输入的问题，类似于 \lstinline@8/3@ 这样输入要怎么读取呢？实际上，这点我们不用太过关心，因为当输入数据为数值类型时，程序会自动在输入流的非数值的符号处阻断（我们会在第十三章中更详细地进行探诉讨，这里读者只需知道结论即可）。接下来我们用一个字符输入就可以读取这个运算符字符。最后再用另一个数值类型读取右边的数字即可。
+\begin{lstlisting}
+    double num1, num2; //定义两个操作数num
+    char op; //定义一个字符用来存储运算符输入
+    cin >> num1 >> op >> num2; //依次输入左操作数、运算符和右操作数
+\end{lstlisting}
+这样就可以读取 \lstinline@8/3@ 这种格式的输入了。\par
+接下来的主要问题是读取到的 \lstinline@op@ 如何处理。这个计算器可以支持四则运算和取模这五种运算，所以 \lstinline@op@ 的可能取值有五种，分别对应着加减乘除模的ASCII码值。要根据具体情况来做不同的运算，那么用 \lstinline@switch@-\lstinline@case@ 结构当然是比较方便的选择了。
+\begin{lstlisting}
+    switch (op) { //判断op是什么
+        case '+': //根据op的值，采取相应的操作
+            double result {num1 + num2}; //定义成const更好，可以防止误修改
+            break;
+        case '-':
+            double result {num1 - num2};
+            break;
+        case '*':
+            double result {num1 * num2};
+            break;
+        case '/':
+            double result {num1 / num2};
+            break;
+        case '%':
+            int result {static_cast<int>(num1) % static_cast<int>(num2)};
+            //显式类型转换，将double型的num1和num2转换为int，这样才能计算
+            break; //末尾的break可省略
+    }
+    cout << result; //试图输出result的值
+//'result' was not declared in this scope
+\end{lstlisting}
+这段代码如果真的运行的话，编译器可能会报大量的错误。我以注释的方式将其中一条放在这个代码中，它的含义是``\lstinline@result@ 在这个作用域中没有定义''。\par
+这是因为我们遇到了老问题，\lstinline@switch@ 内部是一个内层作用域，我们在内层作用域中定义的 \lstinline@result@ 只在 \lstinline@switch@ 的作用域内有效，一旦离开这个作用域，\lstinline@result@ 的生存期就结束了，这个变量失效。于是编译器就会报告这样的错误。\par
+解决这个问题的方法有两种，一是直接不定义 \lstinline@result@ 了，在每个 \lstinline@case@ 之下直接输出；二是在外层作用域中定义变量 \lstinline@result@（这时就不能再定义成 \lstinline@const@ 了，因为我们要使用赋值的方式来存储计算结果）。这里我们采用第二种方法。\par
+最后，我们希望这个计算器可以多次运行。我们指定，当用户提供一个非预期的值（即，每行的开首不是 \lstinline@num1@ 预期得到的数字，而是字母或者别的什么，比如 \lstinline@q@ 
+）时程序结束，否则就可以反复循环运行。\par
+这里可以用 \lstinline@cin@ 的状态作为 \lstinline@while@ 循环的条件来判断循环是否要终止，而在 \lstinline@cin@ 之后必须检测一次 \lstinline@cin@ 的状态，如果不正常，就要 \lstinline@break@。
+\begin{lstlisting}
+    while (cin) { //如果cin状态正常，就进行循环（非必需，改成true也可）
+        double num1, num2, result; //定义两个操作数num及结果值result
+        char op; //定义一个字符用来存储运算符输入
+        cin >> num1 >> op >> num2; //依次输入左操作数、运算符和右操作数
+        if (!cin) { //如果cin状态不正常，说明输入了非预期内容，退出循环
+            break;
+        }
+        //switch-case结构部分省略
+        cout << "=" << result << endl; //输出result的值
+    }
+    cout << "程序结束" << endl; //提示用户程序结束
+\end{lstlisting}\par
+那么我们的思路就比较清晰了。现在让我们把头文件包含等等杂七杂八的代码加上，就可以形成一个完整的程序了。\par
+\begin{lstlisting}[caption=\texttt{简易计算器.cpp},label=lst:SimpleCalculator]
+//这是一个简易计算器，可以支持简单的四则运算或模运算。不支持复杂表达式的计算
+#include <iostream>
+using namespace std;
+int main() {
+    while (cin) { //如果cin状态正常，就继续循环
+        double num1, num2, result; //定义两个操作数num及结果值result
+        char op; //定义一个字符用来存储运算符输入
+        cin >> num1 >> op >> num2; //依次输入左操作数、运算符和右操作数
+        if (!cin) { //如果cin状态不正常，说明输入了非预期内容，退出循环
+            break;
+        }
+        switch (op) { //判断op是什么
+            case '+': //根据op的值，采取相应的操作
+                result = num1 + num2; //通过赋值的方式存储结果
+                break; //记得用break
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                result = num1 / num2;
+                break;
+            case '%':
+                result = static_cast<int>(num1) % static_cast<int>(num2);
+                //显式类型转换，将double型的num1和num2转换为int，这样才能计算
+                //末尾的break省略
+        }
+        cout << "=" << result << endl; //输出result的值
+    }
+    cout << "程序结束" << endl; //提示用户程序结束
+    return 0;
+}
+\end{lstlisting}\par
+读者可以自行测试此计算器的效果。\par

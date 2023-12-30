@@ -1,0 +1,94 @@
+\section{赋值语句与常量}
+在此之前我们定义了许多数据，但是只进行了初始化，并未在定义之后修改过它们的值。实际上我们之前定义过的那些数据（它们也被称为\textbf{变量（Variable）}）都可以通过赋值、输入、运算等方式来修改其值。这里先来讲一下赋值语句，然后是常量；输入和运算将在之后讲解。\par
+\subsection*{基本赋值语句}
+最基本的赋值语句的结构是这样的：
+\begin{lstlisting}
+    <变量名> = <值>; //用字面量为其赋值
+    <变量名> = <表达式>; //用其它数据或表达式为其赋值
+\end{lstlisting}
+如果你愿意，也可以将初始化看作一个赋值过程\footnote{对于内置类型，我们看不出细节来；但对于自定义类型来说，\textbf{初始化和赋值是不同的}。初始化时会调用构造函数，而赋值时会调用赋值运算符。我们在第八章中会细讲。}；但我绝不会这样讲。\par
+在基本赋值语句中出现的 \lstinline@=@ 叫做\textbf{赋值运算符（Assignment operator）}，它的含义是：将右边的数的值赋给左边，从而改变左边的值。\par
+赋值运算符的用途很广泛，C++中的许多数值改变都要通过赋值来实现。以下是一些常见的例子：
+\begin{lstlisting}
+    int n = {3}; //定义n并初始化为3
+    n = n * n; //这是在做什么？
+    cout << n; //输出会是什么样的？
+\end{lstlisting}
+初学者可能会对$n=n\times n$这样的表达感到困感。但是不要忘记，这里是编程，而不是数学！\par
+\lstinline@n=n*n@ 这个语句可以由赋值运算符分为两部分，左边是 \lstinline@n@，右边是 \lstinline@n*n@。按照赋值运算符的含义，它的功能是将右边的数的值（\lstinline@n*n@）赋给左边，从而改变左边数（\lstinline@n@）的值。也就是说，它的含义是在把$n^2$的值赋给$n$，于是输出就变成了 \lstinline@9@。\par
+赋值运算符和数学上的等号\footnote{数学上的等号在C++中可以用相等性运算符 \lstinline@==@ 来表示。我们会在后面讲解。}不同的地方还在于，它是不满足交换律的。比如说，\lstinline@a=b@ 的含义是把 \lstinline@b@ 的值赋给 \lstinline@a@，而 \lstinline@b=a@ 的含义是把 \lstinline@a@ 的值赋给 \lstinline@b@。再比如，如果我们把刚才的代码改成这样，它是不能通过编译的：
+\begin{lstlisting}
+    int n = {3}; //定义n并初始化为3
+    n * n = n;
+//error: lvalue required as left operand of assignment
+    cout << n;
+\end{lstlisting}
+我已将编译器的报错信息以注释的方式添加到代码中。它的意思是：赋值运算符的左操作数需要是一个左值。我们不需要管什么是``左值''，我们只需要知道，编译器并不允许我们把 \lstinline@n@ 的值赋给 \lstinline@n*n@。\par
+\subsection*{常量}
+任何一个变量（广义地讲，对象）在被定义之后都可以修改，这固然很方便，但也可能会遭遇一些问题。\par
+圆周率的近似值是 \lstinline@3.14@，我们希望定义一个变量 \lstinline@Pi@，它不会被我们自己，或是别的人随便改动；围棋棋盘上有 \lstinline@19*19@ 个可放子的交叉点，这是恒定不变的，我们也希望不会有人乱改。\par
+但是传统意义上的变量无法禁止修改。C语言使用宏\footnote{宏（Macro），是一种批量转换特定内容的方法。它的功能很像我们常用的``查找替换''。}来定义一个标识符，并通过预处理将其转换为字面量（字面量无法被修改）来实现禁止修改的效果。而在C++中，我们有更好的方法：使用 \lstinline@const@ 限定符，将变量限定为\textbf{常量（Constant）}。\footnote{广义上讲，``常量''是``变量''的一部分。根据\href{https://en.wikipedia.org/wiki/Variable_(computer_science)}{Variable-Wikipedia}的阐释，凡在内存中占据存储空间的具名量都是变量。这点似与数学上的``变量''   概念不同。本书于处理常量变量之关系处也很为难，故约定：\textbf{在需要分清常量和变量的场合下，将它们视为不重合的概念；而在一般场合下，统称其为变量。}当然，若以``对象''统称之，便没有歧义了。}\par
+定义一个常量的语法是
+\begin{lstlisting}
+    const <类型> <名字> = <初始化>; //const可以在类型关键字前
+    <类型> const <名字> = <初始化>; //const在类型关键字后，效果相同
+\end{lstlisting}
+这两种方式均正确，读者可以选择自己喜欢的方式来定义。\par
+我们可以定义一个 \lstinline@double@ 型的常量 \lstinline@Pi@ 来表示圆周率的近似值，再定义一个 \lstinline@int@ 型的常量 \lstinline@Grid@ 来表示围棋棋盘的边长。那么我们可以这样写：
+\begin{lstlisting}
+    const double Pi = {3.14}; //定义一个double常量Pi
+    const int Grid {19}; //定义一个int常量Grid
+\end{lstlisting}
+如果你试图在之后的代码中修改常量，那么编译器将报告这样的错误：
+\begin{lstlisting}
+    Pi = 3.1; //试图修改常量Pi的值
+//error: assignment of read-only variable 'Pi'
+\end{lstlisting}
+这说明 \lstinline@Pi@ 是一个只读的数据，我们不能对它赋值来进行修改。\par
+在C++中，常量是一种\textbf{一经定义就无法修改的量}。这意味着，我们只能在定义它的同时就给它初始化，而不能把定义和初始化的步骤分开。\footnote{某种意义上，这也体现出初始化与赋值的区别。}变量则不同，我们可以不进行初始化，或者是在定义之后进行赋值。
+\begin{lstlisting}
+    int i; //定义变量但不初始化，此时i的值未定
+    i = 2; //赋值，这样i的值就确定下来了
+    const int i_c; //定义常量但不初始化
+//error: uninitialized 'const i_c' [-fpermissive]
+\end{lstlisting}
+这个报错信息的含义是：\lstinline@i_c@ 作为一个常量，没有被初始化。所以这是不允许的。\par
+\subsection*{常量与字面量的区别}
+说到这里，你也许会感到困感：如果我们用 \lstinline@const@ 常量就是为了防止数据被修改的话，那为什么不全部使用字面量呢？这里就来介绍一下常量相比于字面量的优点。\par
+首先，常量可以用标识符来阐述其含义。比如用 \lstinline@Grid@，这就比单纯放一个字面量 \lstinline@19@ 要容易理解得多，也便于后期我们回顾代码。\par
+而且，常量容易统一修改。这里的``修改''不是上文中提到的那种赋值式的修改，而是直接修改定义语句中用来初始化的值。\par
+我们在一开始设计围棋程序的时候可能没有想到，围棋棋盘的大小还可以有$13\times13$和$9\times9$两种简化版。如果咄咄逼人的甲方要求你改成 \lstinline@13@ 或者 \lstinline@9@ 的边长，而你又在你的上千行代码中写下了数百个 \lstinline@19@，你可能会崩溃的。\par
+而如果我们都用常量呢？我们可以不用写数百个 \lstinline@19@，而是把它们都用 \lstinline@Grid@ 代替。这样一来，如果甲方要求你改变棋盘的大小，你就可以通过改变初始化值的方式来解决问题了。
+\begin{lstlisting}
+    const int Grid {13}; //现在把19改成13
+\end{lstlisting}
+这样就很省事了。\par
+常量还有一个优点，它可以使用变量来初始化。比如说，我现在换了个思路，不想再修改源代码了。我通过一个中间变量来接收输入，然后把这个输入的值作为棋盘大小，用来给常量初始化。这个过程对于初学者来说可能有点复杂，我把代码列在这里：
+\begin{lstlisting}
+    int g; //定义一个临时变量g。因为通过输入来赋值，我们不必初始化
+    cin >> g; //通过输入来改变g。输入多少，g就变为多少
+    const int Grid = {g}; //用g的值来为Grid初始化，g的值取决于输入
+\end{lstlisting}
+这是一个相当有创造性的做法！在这里，\lstinline@Grid@ 不是预先决定的常量，而是可以通过变量来控制的常量。它仍然符合\textbf{一经定义就无法修改}的限制，同时又有了一定的灵活性。这种做法在将来的函数参数传递中非常常用，后面我们还会继续这个话题。\par
+\subsection*{枚举常量简介}
+\textbf{枚举（Enumeration）}在C++中的使用不像常量那么频繁，但它也很好用。在有些场合中，定义整型常量比较麻烦，而定义枚举很简单，这时我们可以用枚举来简化我们的代码。在另一些场合中，我们可以用枚举来方便地为一些标识符制定常量编码，并限制可能的取值范围。\par
+具名的枚举可以视作一个自定义类型，而常量只能依托于已有的类型（无论是内置类型还是自定义类型），比如 \lstinline@int@, \lstinline@double@ 之类。\par
+定义一个枚举要用到 \lstinline@enum@ 关键字。定义枚举的最简单语法是：
+\begin{lstlisting}
+    enum { <标识符1>, <标识符2>, <标识符3>, ... }; //无枚举名
+    enum <枚举名> { <标识符1>, <标识符2>, ... }; //有枚举名
+\end{lstlisting}\par
+无枚举名的语法一般不用于自定义类型，而是纯粹当作整型常量。我们可以指定不同的标识符的值。
+\begin{lstlisting}
+    enum { MiniGrid = 9, SmallGrid = 13, NormalGrid = 19 };
+    //定义无枚举名的枚举，相当于整型常量
+\end{lstlisting}
+这样我们就可以像常量一样使用它们了。\par
+有枚举名的语法当然也可以当作整型常量来看待，不过它支持的功能就更丰富了。
+\begin{lstlisting}
+    enum Color { Red, Blue, Green}; //定义有枚举名的枚举
+    Color sky_color = {Blue}; //定义Color类数据sky_color，其值为Blue
+    Color grass_color = {Green}; //定义Color类数据grass_color，其值为Green
+\end{lstlisting}
+这里的 \lstinline@sky_color@ 和 \lstinline@grass_color@ 就相当于 \lstinline@Color@ 类型的两个数据，或者也可以说是 \lstinline@Color@ 类的两个对象。\par
+这里只对 \lstinline@enum@ 作简单介绍，而不要求读者掌握。我们会在第六章讲解关于枚举的更多细节。\par

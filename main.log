@@ -1,0 +1,1191 @@
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  29 DEC 2023 21:49
+entering extended mode
+ \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**main
+(./main.tex
+LaTeX2e <2023-11-01>
+L3 programming layer <2023-11-09>
+(c:/texlive/2023/texmf-dist/tex/latex/ctex/ctexbook.cls (c:/texlive/2023/texmf-dist/tex/latex/ctex/config/ctexbackend.cfg
+File: ctexbackend.cfg 2022/07/14 v2.5.10 Backend configuration file (CTEX)
+) (c:/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2023-11-09 L3 programming layer (loader) 
+ (c:/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
+File: l3backend-xetex.def 2023-11-09 L3 backend support: XeTeX
+\g__graphics_track_int=\count182
+\l__pdf_internal_box=\box51
+\g__pdf_backend_object_int=\count183
+\g__pdf_backend_annotation_int=\count184
+\g__pdf_backend_link_int=\count185
+))
+Document Class: ctexbook 2022/07/14 v2.5.10 Chinese adapter for class book (CTEX)
+(c:/texlive/2023/texmf-dist/tex/latex/ctex/ctexhook.sty
+Package: ctexhook 2022/07/14 v2.5.10 Document and package hooks (CTEX)
+) (c:/texlive/2023/texmf-dist/tex/latex/ctex/ctexpatch.sty
+Package: ctexpatch 2022/07/14 v2.5.10 Patching commands (CTEX)
+) (c:/texlive/2023/texmf-dist/tex/latex/base/fix-cm.sty
+Package: fix-cm 2020/11/24 v1.1t fixes to LaTeX
+ (c:/texlive/2023/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
+))
+\l__ctex_tmp_int=\count186
+\l__ctex_tmp_box=\box52
+\l__ctex_tmp_dim=\dimen140
+\g__ctex_section_depth_int=\count187
+\g__ctex_font_size_int=\count188
+ (c:/texlive/2023/texmf-dist/tex/latex/ctex/config/ctexopts.cfg
+File: ctexopts.cfg 2022/07/14 v2.5.10 Option configuration file (CTEX)
+) (c:/texlive/2023/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2023/05/17 v1.4n Standard LaTeX document class
+(c:/texlive/2023/texmf-dist/tex/latex/base/bk10.clo
+File: bk10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count189
+\c@chapter=\count190
+\c@section=\count191
+\c@subsection=\count192
+\c@subsubsection=\count193
+\c@paragraph=\count194
+\c@subparagraph=\count195
+\c@figure=\count196
+\c@table=\count197
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen141
+) (c:/texlive/2023/texmf-dist/tex/latex/ctex/engine/ctex-engine-xetex.def
+File: ctex-engine-xetex.def 2022/07/14 v2.5.10 XeLaTeX adapter (CTEX)
+ (c:/texlive/2023/texmf-dist/tex/xelatex/xecjk/xeCJK.sty
+Package: xeCJK 2022/08/05 v3.9.1 Typesetting CJK scripts with XeLaTeX
+ (c:/texlive/2023/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
+Package: xtemplate 2023-10-10 L3 Experimental prototype document functions
+\l__xtemplate_tmp_dim=\dimen142
+\l__xtemplate_tmp_int=\count198
+\l__xtemplate_tmp_muskip=\muskip16
+\l__xtemplate_tmp_skip=\skip50
+)
+\l__xeCJK_tmp_int=\count199
+\l__xeCJK_tmp_box=\box53
+\l__xeCJK_tmp_dim=\dimen143
+\l__xeCJK_tmp_skip=\skip51
+\g__xeCJK_space_factor_int=\count266
+\l__xeCJK_begin_int=\count267
+\l__xeCJK_end_int=\count268
+\c__xeCJK_CJK_class_int=\XeTeXcharclass1
+\c__xeCJK_FullLeft_class_int=\XeTeXcharclass2
+\c__xeCJK_FullRight_class_int=\XeTeXcharclass3
+\c__xeCJK_HalfLeft_class_int=\XeTeXcharclass4
+\c__xeCJK_HalfRight_class_int=\XeTeXcharclass5
+\c__xeCJK_NormalSpace_class_int=\XeTeXcharclass6
+\c__xeCJK_CM_class_int=\XeTeXcharclass7
+\c__xeCJK_HangulJamo_class_int=\XeTeXcharclass8
+\l__xeCJK_last_skip=\skip52
+\c__xeCJK_none_node=\count269
+\g__xeCJK_node_int=\count270
+\c__xeCJK_CJK_node_dim=\dimen144
+\c__xeCJK_CJK-space_node_dim=\dimen145
+\c__xeCJK_default_node_dim=\dimen146
+\c__xeCJK_CJK-widow_node_dim=\dimen147
+\c__xeCJK_normalspace_node_dim=\dimen148
+\c__xeCJK_default-space_node_skip=\skip53
+\l__xeCJK_ccglue_skip=\skip54
+\l__xeCJK_ecglue_skip=\skip55
+\l__xeCJK_punct_kern_skip=\skip56
+\l__xeCJK_indent_box=\box54
+\l__xeCJK_last_penalty_int=\count271
+\l__xeCJK_last_bound_dim=\dimen149
+\l__xeCJK_last_kern_dim=\dimen150
+\l__xeCJK_widow_penalty_int=\count272
+
+Package xtemplate Info: Declaring object type 'xeCJK/punctuation' taking 0
+(xtemplate)             argument(s) on line 2396.
+
+\l__xeCJK_fixed_punct_width_dim=\dimen151
+\l__xeCJK_mixed_punct_width_dim=\dimen152
+\l__xeCJK_middle_punct_width_dim=\dimen153
+\l__xeCJK_fixed_margin_width_dim=\dimen154
+\l__xeCJK_mixed_margin_width_dim=\dimen155
+\l__xeCJK_middle_margin_width_dim=\dimen156
+\l__xeCJK_bound_punct_width_dim=\dimen157
+\l__xeCJK_bound_margin_width_dim=\dimen158
+\l__xeCJK_margin_minimum_dim=\dimen159
+\l__xeCJK_kerning_total_width_dim=\dimen160
+\l__xeCJK_same_align_margin_dim=\dimen161
+\l__xeCJK_different_align_margin_dim=\dimen162
+\l__xeCJK_kerning_margin_width_dim=\dimen163
+\l__xeCJK_kerning_margin_minimum_dim=\dimen164
+\l__xeCJK_bound_dim=\dimen165
+\l__xeCJK_reverse_bound_dim=\dimen166
+\l__xeCJK_margin_dim=\dimen167
+\l__xeCJK_minimum_bound_dim=\dimen168
+\l__xeCJK_kerning_margin_dim=\dimen169
+\g__xeCJK_family_int=\count273
+\l__xeCJK_fam_int=\count274
+\g__xeCJK_fam_allocation_int=\count275
+\l__xeCJK_verb_case_int=\count276
+\l__xeCJK_verb_exspace_skip=\skip57
+ (c:/texlive/2023/texmf-dist/tex/latex/fontspec/fontspec.sty (c:/texlive/2023/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2023-10-10 L3 Experimental document command parser
+)
+Package: fontspec 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
+ (c:/texlive/2023/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+Package: fontspec-xetex 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
+\l__fontspec_script_int=\count277
+\l__fontspec_language_int=\count278
+\l__fontspec_strnum_int=\count279
+\l__fontspec_tmp_int=\count280
+\l__fontspec_tmpa_int=\count281
+\l__fontspec_tmpb_int=\count282
+\l__fontspec_tmpc_int=\count283
+\l__fontspec_em_int=\count284
+\l__fontspec_emdef_int=\count285
+\l__fontspec_strong_int=\count286
+\l__fontspec_strongdef_int=\count287
+\l__fontspec_tmpa_dim=\dimen170
+\l__fontspec_tmpb_dim=\dimen171
+\l__fontspec_tmpc_dim=\dimen172
+ (c:/texlive/2023/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+) (c:/texlive/2023/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (c:/texlive/2023/texmf-dist/tex/xelatex/xecjk/xeCJK.cfg
+File: xeCJK.cfg 2022/08/05 v3.9.1 Configuration file for xeCJK package
+))
+\ccwd=\dimen173
+\l__ctex_ccglue_skip=\skip58
+)
+\l__ctex_ziju_dim=\dimen174
+ (c:/texlive/2023/texmf-dist/tex/latex/zhnumber/zhnumber.sty
+Package: zhnumber 2022/07/14 v3.0 Typesetting numbers with Chinese glyphs
+\l__zhnum_scale_int=\count288
+\l__zhnum_tmp_int=\count289
+ (c:/texlive/2023/texmf-dist/tex/latex/zhnumber/zhnumber-utf8.cfg
+File: zhnumber-utf8.cfg 2022/07/14 v3.0 Chinese numerals with UTF8 encoding
+))
+\l__ctex_heading_skip=\skip59
+ (c:/texlive/2023/texmf-dist/tex/latex/ctex/scheme/ctex-scheme-chinese-book.def
+File: ctex-scheme-chinese-book.def 2022/07/14 v2.5.10 Chinese scheme for book (CTEX)
+ (c:/texlive/2023/texmf-dist/tex/latex/ctex/config/ctex-name-utf8.cfg
+File: ctex-name-utf8.cfg 2022/07/14 v2.5.10 Caption with encoding UTF-8 (CTEX)
+)) (c:/texlive/2023/texmf-dist/tex/latex/ctex/ctex-c5size.clo
+File: ctex-c5size.clo 2022/07/14 v2.5.10 c5size option (CTEX)
+) (c:/texlive/2023/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-windows.def
+File: ctex-fontset-windows.def 2022/07/14 v2.5.10 Windows fonts definition (CTEX)
+
+Package fontspec Info: Could not resolve font "KaiTi/B" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: Could not resolve font "SimHei/I" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: Could not resolve font "SimSun/BI" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: Font family 'SimSun(0)' created for font 'SimSun' with
+(fontspec)             options
+(fontspec)             [Script={CJK},BoldFont={SimHei},ItalicFont={KaiTi}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"SimSun/OT:script=hani;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"SimHei/OT:script=hani;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"KaiTi/OT:script=hani;language=dflt;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+
+)) (c:/texlive/2023/texmf-dist/tex/latex/ctex/config/ctex.cfg
+File: ctex.cfg 2022/07/14 v2.5.10 Configuration file (CTEX)
+) (c:/texlive/2023/texmf-dist/tex/latex/import/import.sty
+Package: import 2020/04/01  v 6.2
+) (./preparation.sty
+Package: Preparation 
+ (c:/texlive/2023/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (c:/texlive/2023/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+) (c:/texlive/2023/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ (c:/texlive/2023/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+\Gm@cnth=\count290
+\Gm@cntv=\count291
+\c@Gm@tempcnt=\count292
+\Gm@bindingoffset=\dimen175
+\Gm@wd@mp=\dimen176
+\Gm@odd@mp=\dimen177
+\Gm@even@mp=\dimen178
+\Gm@layoutwidth=\dimen179
+\Gm@layoutheight=\dimen180
+\Gm@layouthoffset=\dimen181
+\Gm@layoutvoffset=\dimen182
+\Gm@dimlist=\toks18
+) (c:/texlive/2023/texmf-dist/tex/latex/fontsize/fontsize.sty
+Package: fontsize 2021/08/04 v0.8.5 'fontsize' package. Set main font sizes (Ivan Valbusa)
+ (c:/texlive/2023/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+ (c:/texlive/2023/texmf-dist/tex/generic/xkeyval/xkeyval.tex (c:/texlive/2023/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks19
+\XKV@tempa@toks=\toks20
+)
+\XKV@depth=\count293
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)) (c:/texlive/2023/texmf-dist/tex/latex/l3packages/xfp/xfp.sty
+Package: xfp 2023-10-10 L3 Floating point unit
+)) (c:/texlive/2023/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2022/12/04 v6.7b set line spacing
+) (c:/texlive/2023/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
+ (c:/texlive/2023/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: xetex.def on input line 274.
+ (c:/texlive/2023/texmf-dist/tex/latex/graphics-def/xetex.def
+File: xetex.def 2022/09/22 v5.0n Graphics/color driver for xetex
+) (c:/texlive/2023/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
+Package xcolor Info: Model `RGB' extended on input line 1366.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
+) (c:/texlive/2023/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
+\f@nch@headwidth=\skip60
+\f@nch@O@elh=\skip61
+\f@nch@O@erh=\skip62
+\f@nch@O@olh=\skip63
+\f@nch@O@orh=\skip64
+\f@nch@O@elf=\skip65
+\f@nch@O@erf=\skip66
+\f@nch@O@olf=\skip67
+\f@nch@O@orf=\skip68
+) (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks21
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (c:/texlive/2023/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+) (c:/texlive/2023/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (c:/texlive/2023/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+ (c:/texlive/2023/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (c:/texlive/2023/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: xetex.def on input line 107.
+)
+\Gin@req@height=\dimen183
+\Gin@req@width=\dimen184
+) (c:/texlive/2023/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2023-11-26 v7.01g Hypertext links for LaTeX
+ (c:/texlive/2023/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (c:/texlive/2023/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+) (c:/texlive/2023/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (c:/texlive/2023/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+ (c:/texlive/2023/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+) (c:/texlive/2023/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode not found.
+)) (c:/texlive/2023/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (c:/texlive/2023/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+) (c:/texlive/2023/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+) (c:/texlive/2023/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
+ (c:/texlive/2023/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (c:/texlive/2023/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+ (c:/texlive/2023/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count294
+) (c:/texlive/2023/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count295
+)
+\@linkdim=\dimen185
+\Hy@linkcounter=\count296
+\Hy@pagecounter=\count297
+ (c:/texlive/2023/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2023-11-26 v7.01g Hyperref: PDFDocEncoding definition (HO)
+) (c:/texlive/2023/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count298
+ (c:/texlive/2023/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2023-11-26 v7.01g Hyperref: PDF Unicode definition (HO)
+)
+Package hyperref Info: Option `unicode' set `true' on input line 4064.
+Package hyperref Info: Hyper figures OFF on input line 4181.
+Package hyperref Info: Link nesting OFF on input line 4186.
+Package hyperref Info: Hyper index ON on input line 4189.
+Package hyperref Info: Plain pages OFF on input line 4196.
+Package hyperref Info: Backreferencing OFF on input line 4201.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4448.
+\c@Hy@tempcnt=\count299
+ (c:/texlive/2023/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4786.
+\XeTeXLinkMargin=\dimen186
+ (c:/texlive/2023/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+ (c:/texlive/2023/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count300
+\Field@Width=\dimen187
+\Fld@charsize=\dimen188
+Package hyperref Info: Hyper figures OFF on input line 6065.
+Package hyperref Info: Link nesting OFF on input line 6070.
+Package hyperref Info: Hyper index ON on input line 6073.
+Package hyperref Info: backreferencing OFF on input line 6080.
+Package hyperref Info: Link coloring OFF on input line 6085.
+Package hyperref Info: Link coloring with OCG OFF on input line 6090.
+Package hyperref Info: PDF/A mode OFF on input line 6095.
+ (c:/texlive/2023/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count301
+\c@Item=\count302
+\c@Hfootnote=\count303
+)
+Package hyperref Info: Driver (autodetected): hxetex.
+ (c:/texlive/2023/texmf-dist/tex/latex/hyperref/hxetex.def
+File: hxetex.def 2023-11-26 v7.01g Hyperref driver for XeTeX
+ (c:/texlive/2023/texmf-dist/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
+)
+\pdfm@box=\box55
+\c@Hy@AnnotLevel=\count304
+\HyField@AnnotCount=\count305
+\Fld@listcount=\count306
+\c@bookmark@seq@number=\count307
+ (c:/texlive/2023/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+ (c:/texlive/2023/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
+with kernel methods
+) (c:/texlive/2023/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
+)
+\Hy@SectionHShift=\skip69
+) (c:/texlive/2023/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2022/12/19 v0.5x Insert pages of external PDF documents (AM)
+ (c:/texlive/2023/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+) (c:/texlive/2023/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count308
+\calc@Bcount=\count309
+\calc@Adimen=\dimen189
+\calc@Bdimen=\dimen190
+\calc@Askip=\skip70
+\calc@Bskip=\skip71
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count310
+\calc@Cskip=\skip72
+) (c:/texlive/2023/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2023/05/03 v3.0c eso-pic (RN)
+\ESO@tempdima=\dimen191
+\ESO@tempdimb=\dimen192
+)
+\AM@pagewidth=\dimen193
+\AM@pageheight=\dimen194
+\AM@fboxrule=\dimen195
+ (c:/texlive/2023/texmf-dist/tex/latex/pdfpages/ppxetex.def
+File: ppxetex.def 2022/12/19 v0.5x Pdfpages driver for XeTeX (AM)
+)
+\pdfpages@includegraphics@status=\count311
+\AM@pagebox=\box56
+\AM@global@opts=\toks22
+\AM@pagecnt=\count312
+\AM@toc@title=\toks23
+\AM@lof@heading=\toks24
+\c@AM@survey=\count313
+\AM@templatesizebox=\box57
+) (c:/texlive/2023/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count314
+\lst@gtempboxa=\box58
+\lst@token=\toks25
+\lst@length=\count315
+\lst@currlwidth=\dimen196
+\lst@column=\count316
+\lst@pos=\count317
+\lst@lostspace=\dimen197
+\lst@width=\dimen198
+\lst@newlines=\count318
+\lst@lineno=\count319
+\lst@maxwidth=\dimen199
+ (c:/texlive/2023/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+\c@lstnumber=\count320
+\lst@skipnumbers=\count321
+\lst@framebox=\box59
+) (c:/texlive/2023/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2023/02/27 1.9 listings configuration
+))
+Package: listings 2023/02/27 1.9 (Carsten Heinz)
+ (c:/texlive/2023/texmf-dist/tex/xelatex/xecjk/xeCJK-listings.sty
+Package: xeCJK-listings 2022/08/05 v3.9.1 xeCJK patch file for listings
+\l__xeCJK_listings_max_char_int=\count322
+\l__xeCJK_listings_flag_int=\count323
+) (c:/texlive/2023/texmf-dist/tex/latex/minted/minted.sty
+Package: minted 2023/09/12 v2.8 Yet another Pygments shim for LaTeX
+ (c:/texlive/2023/texmf-dist/tex/latex/fvextra/fvextra.sty
+Package: fvextra 2023/11/28 v1.6.1 fvextra - extensions and patches for fancyvrb
+ (c:/texlive/2023/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2023/11/06 4.5b verbatim text (tvz,hv)
+\FV@CodeLineNo=\count324
+\FV@InFile=\read2
+\FV@TabBox=\box60
+\c@FancyVerbLine=\count325
+\FV@StepNumber=\count326
+\FV@OutFile=\write3
+) (c:/texlive/2023/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
+) (c:/texlive/2023/texmf-dist/tex/latex/lineno/lineno.sty
+Package: lineno 2023/05/20 line numbers on paragraphs v5.3
+Invalid UTF-8 byte or sequence at line 292 replaced by U+FFFD.
+\linenopenalty=\count327
+\output=\toks26
+\linenoprevgraf=\count328
+\linenumbersep=\dimen256
+\linenumberwidth=\dimen257
+\c@linenumber=\count329
+\c@pagewiselinenumber=\count330
+\c@LN@truepage=\count331
+\c@internallinenumber=\count332
+\c@internallinenumbers=\count333
+\quotelinenumbersep=\dimen258
+\bframerule=\dimen259
+\bframesep=\dimen260
+\bframebox=\box61
+LaTeX Info: Redefining \\ on input line 3180.
+)
+\c@FancyVerbWriteLine=\count334
+\c@FancyVerbBufferIndex=\count335
+\c@FancyVerbBufferLength=\count336
+\c@FancyVerbBufferLine=\count337
+\c@FV@oldbufferlength=\count338
+\c@FV@TrueTabGroupLevel=\count339
+\c@FV@TrueTabCounter=\count340
+\FV@TabBox@Group=\box62
+\FV@TmpLength=\skip73
+\c@FV@HighlightLinesStart=\count341
+\c@FV@HighlightLinesStop=\count342
+\FV@LoopCount=\count343
+\FV@NCharsBox=\box63
+\FV@BreakIndent=\dimen261
+\FV@BreakIndentNChars=\count344
+\FV@BreakSymbolSepLeft=\dimen262
+\FV@BreakSymbolSepLeftNChars=\count345
+\FV@BreakSymbolSepRight=\dimen263
+\FV@BreakSymbolSepRightNChars=\count346
+\FV@BreakSymbolIndentLeft=\dimen264
+\FV@BreakSymbolIndentLeftNChars=\count347
+\FV@BreakSymbolIndentRight=\dimen265
+\FV@BreakSymbolIndentRightNChars=\count348
+\c@FancyVerbLineBreakLast=\count349
+\FV@LineBox=\box64
+\FV@LineIndentBox=\box65
+\c@FV@BreakBufferDepth=\count350
+\FV@LineWidth=\dimen266
+) (c:/texlive/2023/texmf-dist/tex/latex/tools/shellesc.sty
+Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
+Package shellesc Info: Unrestricted shell escape enabled on input line 75.
+) (c:/texlive/2023/texmf-dist/tex/latex/ifplatform/ifplatform.sty
+Package: ifplatform 2017/10/13 v0.4a Testing for the operating system
+ (c:/texlive/2023/texmf-dist/tex/generic/catchfile/catchfile.sty
+Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
+ (c:/texlive/2023/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)) (c:/texlive/2023/texmf-dist/tex/generic/iftex/ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)) (c:/texlive/2023/texmf-dist/tex/generic/xstring/xstring.sty (c:/texlive/2023/texmf-dist/tex/generic/xstring/xstring.tex
+\xs_counta=\count351
+\xs_countb=\count352
+)
+Package: xstring 2023/08/22 v1.86 String manipulations (CT)
+) (c:/texlive/2023/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip74
+\fb@frw=\dimen267
+\fb@frh=\dimen268
+\FrameRule=\dimen269
+\FrameSep=\dimen270
+) (c:/texlive/2023/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count353
+\float@exts=\toks27
+\float@box=\box66
+\@float@everytoks=\toks28
+\@floatcapt=\box67
+)
+\minted@appexistsfile=\read3
+\minted@bgbox=\box68
+\minted@code=\write4
+\c@minted@FancyVerbLineTemp=\count354
+\c@minted@pygmentizecounter=\count355
+\@float@every@listing=\toks29
+\c@listing=\count356
+)
+runsystem(if not exist _minted-main mkdir _minted-main)...executed.
+
+ (c:/texlive/2023/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2023-11-01 v4.19 Multi-page Table package (DPC)
+\LTleft=\skip75
+\LTright=\skip76
+\LTpre=\skip77
+\LTpost=\skip78
+\LTchunksize=\count357
+\LTcapwidth=\dimen271
+\LT@head=\box69
+\LT@firsthead=\box70
+\LT@foot=\box71
+\LT@lastfoot=\box72
+\LT@gbox=\box73
+\LT@cols=\count358
+\LT@rows=\count359
+\c@LT@tables=\count360
+\c@LT@chunks=\count361
+\LT@p@ftn=\toks30
+) (c:/texlive/2023/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
+\multirow@colwidth=\skip79
+\multirow@cntb=\count362
+\multirow@dima=\skip80
+\bigstrutjot=\dimen272
+) (c:/texlive/2023/texmf-dist/tex/latex/sourcecodepro/sourcecodepro.sty
+Package: sourcecodepro 2018/01/13 v2.7 Adobe's Source Code Pro typeface
+ (c:/texlive/2023/texmf-dist/tex/generic/iftex/ifxetex.sty
+Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
+)
+
+Package fontspec Info: Font family 'SourceCodePro(0)' created for font
+(fontspec)             'SourceCodePro' with options [Ligatures =,Numbers
+(fontspec)             =,Scale = 1,Extension =
+(fontspec)             .otf,WordSpace={1,0,0},HyphenChar=None,PunctuationSpace=WordSpace,UprightFont
+(fontspec)             = *-Regular,ItalicFont = *-RegularIt,BoldFont =
+(fontspec)             *-Bold,BoldItalicFont = *-BoldIt].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[SourceCodePro-Regular.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
+(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
+(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
+(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[SourceCodePro-Bold.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
+(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
+(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
+(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[SourceCodePro-RegularIt.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
+(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
+(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
+(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[SourceCodePro-BoldIt.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
+(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
+(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
+(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+
+
+Package fontspec Info: Font family 'SourceCodePro(1)' created for font
+(fontspec)             'SourceCodePro' with options [Ligatures =,Numbers
+(fontspec)             =,Scale = 1,Extension = .otf,UprightFont =
+(fontspec)             *-Regular,ItalicFont = *-RegularIt,BoldFont =
+(fontspec)             *-Bold,BoldItalicFont = *-BoldIt].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[SourceCodePro-Regular.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[SourceCodePro-Bold.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[SourceCodePro-RegularIt.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[SourceCodePro-BoldIt.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+
+Package fontspec Info: Font family 'SourceCodePro(2)' created for font
+(fontspec)             'SourceCodePro' with options [Ligatures =,Numbers
+(fontspec)             =,Scale = 1,Extension = .otf,UprightFont =
+(fontspec)             *-Medium,ItalicFont = *-MediumIt,BoldFont =
+(fontspec)             *-Bold,BoldItalicFont = *-BoldIt].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[SourceCodePro-Medium.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[SourceCodePro-Bold.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[SourceCodePro-MediumIt.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[SourceCodePro-BoldIt.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+
+Package fontspec Info: Font family 'SourceCodePro(3)' created for font
+(fontspec)             'SourceCodePro' with options [Ligatures =,Numbers
+(fontspec)             =,Scale = 1,Extension = .otf,UprightFont =
+(fontspec)             *-Light,ItalicFont = *-LightIt,BoldFont =
+(fontspec)             *-Semibold,BoldItalicFont = *-SemiboldIt].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[SourceCodePro-Light.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[SourceCodePro-Semibold.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[SourceCodePro-LightIt.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[SourceCodePro-SemiboldIt.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+
+Package fontspec Info: Font family 'SourceCodePro(4)' created for font
+(fontspec)             'SourceCodePro' with options [Ligatures =,Numbers
+(fontspec)             =,Scale = 1,Extension = .otf,UprightFont =
+(fontspec)             *-ExtraLight,ItalicFont = *-ExtraLightIt,BoldFont =
+(fontspec)             *-Black,BoldItalicFont = *-BlackIt].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[SourceCodePro-ExtraLight.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[SourceCodePro-Black.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[SourceCodePro-ExtraLightIt.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[SourceCodePro-BlackIt.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+
+Package fontspec Info: Font family 'SourceCodePro(5)' created for font
+(fontspec)             'SourceCodePro' with options [Ligatures =,Numbers
+(fontspec)             =,Scale = 1,Extension = .otf,Numbers =,UprightFont =
+(fontspec)             *-Regular,ItalicFont = *-RegularIt,BoldFont =
+(fontspec)             *-Bold,BoldItalicFont = *-BoldIt].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[SourceCodePro-Regular.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[SourceCodePro-Bold.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[SourceCodePro-RegularIt.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[SourceCodePro-BoldIt.otf]/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 19.
+ (c:/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+) (c:/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+) (c:/texlive/2023/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+))
+runsystem(for ^%i in (pygmentize.exe pygmentize.bat pygmentize.cmd) do set > main.aex <nul: /p x=^%~$PATH:i>> main.aex)...executed.
+
+runsystem(del main.aex)...executed.
+
+ (./main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+
+Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
+(fontspec)             this).
+
+\symlegacymaths=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 4.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 4.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 4.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 4.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 4.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 4.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 4.
+LaTeX Font Info:    Redeclaring math accent \check on input line 4.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 4.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 4.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 4.
+LaTeX Font Info:    Redeclaring math symbol \colon on input line 4.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 4.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 4.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 4.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 4.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 4.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 4.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 4.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 4.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 4.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 4.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 4.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 4.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 4.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `normal' on input line 4.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 4.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `bold' on input line 4.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 4.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 4.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 4.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 4.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 4.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> TU/SourceCodePro(0)/m/n on input line 4.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 4.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 4.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 4.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> TU/SourceCodePro(0)/b/n on input line 4.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+*geometry* verbose mode - [ preamble ] result:
+* driver: xetex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(71.13188pt, 435.32727pt, 91.04872pt)
+* v-part:(T,H,B)=(56.9055pt, 697.09262pt, 91.04872pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=435.32727pt
+* \textheight=697.09262pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=18.77873pt
+* \topmargin=-45.43198pt
+* \headheight=12.0pt
+* \headsep=18.06749pt
+* \topskip=10.0pt
+* \footskip=25.29494pt
+* \marginparwidth=125.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=8.99997pt plus 3.99956pt minus 2.00041pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package hyperref Info: Link coloring ON on input line 4.
+(./main.out) (./main.out)
+\@outlinefile=\write5
+\openout5 = `main.out'.
+
+ (c:/texlive/2023/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
+ (c:/texlive/2023/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
+Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PDF (HO)
+ (c:/texlive/2023/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: dvipdfm (xetex) on input line 98.
+))
+\c@lstlisting=\count363
+File: images/other_parts/cover.pdf Graphic file (type pdf)
+<use images/other_parts/cover.pdf>
+File: images/other_parts/cover.pdf Graphic file (type pdf)
+<use images/other_parts/cover.pdf>
+File: images/other_parts/cover.pdf Graphic file (type pdf)
+<use images/other_parts/cover.pdf, page 1>
+File: images/other_parts/cover.pdf Graphic file (type pdf)
+<use images/other_parts/cover.pdf, page 1>
+File: images/other_parts/cover.pdf Graphic file (type pdf)
+<use images/other_parts/cover.pdf, page 1>
+File: images/other_parts/cover.pdf Graphic file (type pdf)
+<use images/other_parts/cover.pdf, page 1>
+File: images/other_parts/cover.pdf Graphic file (type pdf)
+<use images/other_parts/cover.pdf, page 1>
+ [1
+
+] [2
+
+] (./other_parts/foreword.tex) [1
+
+]
+LaTeX Font Info:    Font shape `TU/SimSun(0)/m/sl' in size <10> not available
+(Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 16.
+ [2
+
+] (./main.toc
+LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
+ (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
+ (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+
+Package fontspec Info: Could not resolve font "FangSong/BI" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: Could not resolve font "FangSong/B" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: Could not resolve font "FangSong/I" (it probably
+(fontspec)             doesn't exist).
+
+LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 8.
+
+Package fontspec Info: Font family 'FangSong(0)' created for font 'FangSong'
+(fontspec)             with options [Script={CJK}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"FangSong/OT:script=hani;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+
+ [3])
+\tf@toc=\write6
+\openout6 = `main.toc'.
+
+ [4] (././generalized_part.tex [1
+
+
+] [2] (./generalized_parts/01_welcome_to_cpp.tex
+第一章
+LaTeX Font Info:    Calculating math sizes for size <8.33344> on input line 5.
+(./generalized_parts/01_welcome_to_cpp/01_start_with_a_cpp_program.tex
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 4.
+LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/m/n' will be
+(Font)              scaled to size 9.0pt on input line 4.
+LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/b/n' will be
+(Font)              scaled to size 9.0pt on input line 7.
+ [3
+
+]
+File: ./01_welcome_to_cpp/../images/generalized_parts/01_From_source_code_to_executable_300.png Graphic file (type bmp)
+<./01_welcome_to_cpp/../images/generalized_parts/01_From_source_code_to_executable_300.png>
+ [4] [5]) (./generalized_parts/01_welcome_to_cpp/02_data_and_information.tex [6]
+File: ./01_welcome_to_cpp/../images/generalized_parts/01_ASCII.png Graphic file (type bmp)
+<./01_welcome_to_cpp/../images/generalized_parts/01_ASCII.png>
+) (./generalized_parts/01_welcome_to_cpp/03_define_and_use_data.tex [7] [8] [9] [10]) (./generalized_parts/01_welcome_to_cpp/04_operators_and_types.tex [11]
+LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/b/n' will be
+(Font)              scaled to size 10.0pt on input line 42.
+ [12]) (./generalized_parts/01_welcome_to_cpp/05_sizeof_and_memory.tex
+LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/b/n' will be
+(Font)              scaled to size 14.40002pt on input line 1.
+LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/m/sl' in size <10> not available
+(Font)              Font shape `TU/SourceCodePro(0)/m/it' tried instead on input line 11.
+LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/m/it' will be
+(Font)              scaled to size 10.0pt on input line 11.
+ [13]
+File: ./01_welcome_to_cpp/../images/generalized_parts/01_Memory_byte_and_bit_300.png Graphic file (type bmp)
+<./01_welcome_to_cpp/../images/generalized_parts/01_Memory_byte_and_bit_300.png>
+ [14]
+LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/b/n' will be
+(Font)              scaled to size 11.99997pt on input line 28.
+ [15]) (./generalized_parts/01_welcome_to_cpp/06_classes_and_objects.tex [16] [17])) (./generalized_parts/02_basic_operation_on_data.tex [18]
+第二章
+(./generalized_parts/02_basic_operation_on_data/01_assignment_and_constants.tex [19
+
+] [20] [21]) (./generalized_parts/02_basic_operation_on_data/02_fundamental_types.tex [22] [23]
+Overfull \hbox (8.7171pt too wide) in paragraph at lines 70--70
+[]\TU/SimSun(0)/m/n/10 整 型 数 据 的 字 面 量 同 样 有 很 多 后 缀 可 以 用 来 指 定 类 型，|  比 如 [][][] 后 缀 规 定 了 [][][][][][][][][][][][][]
+ []
+
+[24] [25]) (./generalized_parts/02_basic_operation_on_data/03_operators.tex [26] [27] [28]
+File: ./02_basic_operation_on_data/../images/generalized_parts/02_Precedence_of_multiply_addition_and_assignment_300.png Graphic file (type bmp)
+<./02_basic_operation_on_data/../images/generalized_parts/02_Precedence_of_multiply_addition_and_assignment_300.png>
+ [29]
+Overfull \hbox (8.99084pt too wide) in paragraph at lines 87--87
+[]\TU/SimSun(0)/m/n/10 为 什 么 是 这 样 呢？|  原 因 在 于，| [][][] 的 优 先 级 要 高 于 这 一 系 列 的 比 较 运 算 符。|  所 以 如 果 按 照 [][][][]
+ []
+
+File: ./02_basic_operation_on_data/../images/generalized_parts/02_Associativity_of_division_and_assignment_300.png Graphic file (type bmp)
+<./02_basic_operation_on_data/../images/generalized_parts/02_Associativity_of_division_and_assignment_300.png>
+[30] [31]) (./generalized_parts/02_basic_operation_on_data/04_type_cast.tex [32]
+File: ./02_basic_operation_on_data/../images/generalized_parts/02_Implicit_type_cast_from_int_to_double_300.png Graphic file (type bmp)
+<./02_basic_operation_on_data/../images/generalized_parts/02_Implicit_type_cast_from_int_to_double_300.png>
+ [33]
+File: ./02_basic_operation_on_data/../images/generalized_parts/02_boolean_conversion_300.png Graphic file (type bmp)
+<./02_basic_operation_on_data/../images/generalized_parts/02_boolean_conversion_300.png>
+ [34]
+File: ./02_basic_operation_on_data/../images/generalized_parts/02_Explicit_type_cast_from_double_to_int_in_vain_300.png Graphic file (type bmp)
+<./02_basic_operation_on_data/../images/generalized_parts/02_Explicit_type_cast_from_double_to_int_in_vain_300.png>
+)) (./generalized_parts/03_control_flow.tex [35] [36]
+第三章
+(./generalized_parts/03_control_flow/01_introduction_to_structure_process_and_order.tex [37
+
+] [38]
+File: ./03_control_flow/../images/generalized_parts/03_Alpine_email_client.png Graphic file (type bmp)
+<./03_control_flow/../images/generalized_parts/03_Alpine_email_client.png>
+File: ./03_control_flow/../images/generalized_parts/03_GUI_example_Chrome.png Graphic file (type bmp)
+<./03_control_flow/../images/generalized_parts/03_GUI_example_Chrome.png>
+ [39]
+File: ./03_control_flow/../images/generalized_parts/03_input_to_cmd_300.png Graphic file (type bmp)
+<./03_control_flow/../images/generalized_parts/03_input_to_cmd_300.png>
+ [40]
+File: ./03_control_flow/../images/generalized_parts/03_structured_program_theorem_300.png Graphic file (type bmp)
+<./03_control_flow/../images/generalized_parts/03_structured_program_theorem_300.png>
+ [41] [42]
+File: ./03_control_flow/../images/generalized_parts/03_how_compilers_interpret_postfix_increment.png Graphic file (type bmp)
+<./03_control_flow/../images/generalized_parts/03_how_compilers_interpret_postfix_increment.png>
+ [43]
+File: ./03_control_flow/../images/generalized_parts/03_truth_table_of_logic_operators_300.png Graphic file (type bmp)
+<./03_control_flow/../images/generalized_parts/03_truth_table_of_logic_operators_300.png>
+ [44]) (./generalized_parts/03_control_flow/02_choice.tex [45]
+File: ./03_control_flow/../images/generalized_parts/03_structure_of_odd_or_even_300.png Graphic file (type bmp)
+<./03_control_flow/../images/generalized_parts/03_structure_of_odd_or_even_300.png>
+ [46]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [47] [48]
+File: ./03_control_flow/../images/generalized_parts/03_if_elseif_else_300.png Graphic file (type bmp)
+<./03_control_flow/../images/generalized_parts/03_if_elseif_else_300.png>
+ [49]
+Overfull \hbox (12.6705pt too wide) in paragraph at lines 183--183
+[]\TU/SimSun(0)/m/n/10 我 们 还 可 以 做 合 并 标 签 的 操 作，|  这 个 效 果 相 当 于 \TU/lmr/m/n/10 “\TU/SimSun(0)/m/n/10 如 果 [][][][][] 匹 配 了 [][][][][][] \TU/SimSun(0)/b/n/10 或 者 [][][][][][]\TU/SimSun(0)/m/n/10 ，|
+ []
+
+[50]) (./generalized_parts/03_control_flow/03_loop.tex [51] [52] [53]
+File: ./03_control_flow/../images/generalized_parts/03_structure_of_odd_or_even_with_while_loop_300.png Graphic file (type bmp)
+<./03_control_flow/../images/generalized_parts/03_structure_of_odd_or_even_with_while_loop_300.png>
+ [54] [55] [56]
+File: ./03_control_flow/../images/generalized_parts/03_structure_of_break_300.png Graphic file (type bmp)
+<./03_control_flow/../images/generalized_parts/03_structure_of_break_300.png>
+ [57]
+File: ./03_control_flow/../images/generalized_parts/03_structure_of_continue_300.png Graphic file (type bmp)
+<./03_control_flow/../images/generalized_parts/03_structure_of_continue_300.png>
+ [58] [59]) (./generalized_parts/03_control_flow/04_introduction_to_scope.tex [60]) (./generalized_parts/03_control_flow/05_exercise_simple_calculator.tex [61]
+Overfull \hbox (1.8815pt too wide) in paragraph at lines 44--44
+[]\TU/SimSun(0)/m/n/10 这 是 因 为 我 们 遇 到 了 老 问 题，| [][][][][] 内 部 是 一 个 内 层 作 用 域，|  我 们 在 内 层 作 用 域 中 定 义 的 [][][]
+ []
+
+[62] [63])) (./generalized_parts/04_introduction_to_functions.tex [64]
+第四章
+(./generalized_parts/04_introduction_to_functions/01_the_concept_of_functions.tex
+File: ./04_introduction_to_functions/../images/generalized_parts/04_black_box_300.png Graphic file (type bmp)
+<./04_introduction_to_functions/../images/generalized_parts/04_black_box_300.png>
+ [65
+
+]
+Overfull \hbox (21.04272pt too wide) in paragraph at lines 25--25
+\TU/SimSun(0)/m/n/10 中，|  函 数 也 可 以 接 收 一 个 或 多 个 输 入，|  甚 至 接 收 空 输 入  |（我 们 在 前 面 用 到 的 [][][][][][][][][][]
+ []
+
+[66]) (./generalized_parts/04_introduction_to_functions/02_the_definition_and_use_of_functions.tex [67]
+File: ./04_introduction_to_functions/../images/generalized_parts/04_block_scope_and_function_scope_300.png Graphic file (type bmp)
+<./04_introduction_to_functions/../images/generalized_parts/04_block_scope_and_function_scope_300.png>
+ [68] [69] [70] [71]
+File: ./04_introduction_to_functions/../images/generalized_parts/04_max3_code_logic_300.png Graphic file (type bmp)
+<./04_introduction_to_functions/../images/generalized_parts/04_max3_code_logic_300.png>
+ [72]) (./generalized_parts/04_introduction_to_functions/03_function_overloading.tex [73]
+File: ./04_introduction_to_functions/../images/generalized_parts/04_function_overloading_300.png Graphic file (type bmp)
+<./04_introduction_to_functions/../images/generalized_parts/04_function_overloading_300.png>
+ [74] [75]) (./generalized_parts/04_introduction_to_functions/04_default_argument.tex [76] [77]) (./generalized_parts/04_introduction_to_functions/05_recursion.tex
+LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/m/it' will be
+(Font)              scaled to size 9.0pt on input line 26.
+File: ./04_introduction_to_functions/../images/generalized_parts/04_factorial_code_logic_300.png Graphic file (type bmp)
+<./04_introduction_to_functions/../images/generalized_parts/04_factorial_code_logic_300.png>
+
+Overfull \hbox (2.61679pt too wide) in paragraph at lines 34--34
+[][][][] \TU/SimSun(0)/m/n/10 从 而 求 出 它 的 返 回 值。|  而 在 运 行 时 发 现，|  因 为 [][][][] 不 满 足，|  所 以 你 不 得 不 再 去 求 [][][][]，|
+ []
+
+[78]
+File: ./04_introduction_to_functions/../images/generalized_parts/04_the_process_of_recursion_300.png Graphic file (type bmp)
+<./04_introduction_to_functions/../images/generalized_parts/04_the_process_of_recursion_300.png>
+File: ././/images/generalized_parts/04_call_stack_structure_300.png Graphic file (type bmp)
+<././/images/generalized_parts/04_call_stack_structure_300.png>
+LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/b/it' will be
+(Font)              scaled to size 9.0pt on input line 49.
+ [79]) (./generalized_parts/04_introduction_to_functions/06_introduction_to_function_templates.tex [80] [81]
+File: ././/images/generalized_parts/04_function_template_and_instance_300.png Graphic file (type bmp)
+<././/images/generalized_parts/04_function_template_and_instance_300.png>
+)) (./generalized_parts/05_compound_types_and_their_use.tex [82]
+第五章
+(./generalized_parts/05_composite_types_and_their_use/01_pointer.tex
+LaTeX Font Info:    Calculating math sizes for size <11.99997> on input line 2.
+File: ./05_composite_types_and_their_use/../images/generalized_parts/05_layout_of_memory_300.png Graphic file (type bmp)
+<./05_composite_types_and_their_use/../images/generalized_parts/05_layout_of_memory_300.png>
+ [83
+
+]
+File: ./05_composite_types_and_their_use/../images/generalized_parts/05_address_of_types_in_memory_300.png Graphic file (type bmp)
+<./05_composite_types_and_their_use/../images/generalized_parts/05_address_of_types_in_memory_300.png>
+ [84] [85]
+File: ./05_composite_types_and_their_use/../images/generalized_parts/05_operator_dereference_or_multiplication_300.png Graphic file (type bmp)
+<./05_composite_types_and_their_use/../images/generalized_parts/05_operator_dereference_or_multiplication_300.png>
+ [86]
+File: ./05_composite_types_and_their_use/../images/generalized_parts/05_relationship_between_variables_and_pointers_300.png Graphic file (type bmp)
+<./05_composite_types_and_their_use/../images/generalized_parts/05_relationship_between_variables_and_pointers_300.png>
+ [87]) (./generalized_parts/05_composite_types_and_their_use/02_constant_pointer_and_pointer_to_constant.tex) (./generalized_parts/05_composite_types_and_their_use/03_passing_arguments_by_lvalue_reference.tex) (./generalized_parts/05_composite_types_and_their_use/04_one_dimensional_arrays.tex) (./generalized_parts/05_composite_types_and_their_use/05_the_relationship_between_arrays_and_pointers.tex) (./generalized_parts/05_composite_types_and_their_use/06_string_with_arrays.tex) (./generalized_parts/05_composite_types_and_their_use/07_multidimensional_arrays_and_higher_order_pointers.tex) (./generalized_parts/05_composite_types_and_their_use/08_dynamic_memory_allocation.tex))) (././intensive_part.tex [88] [89
+
+] [90]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
+附录 A
+LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/m/n' will be
+(Font)              scaled to size 8.33344pt on input line 2.
+
+Underfull \hbox (badness 6063) in paragraph at lines 16--16
+[][][]\TU/SimSun(0)/m/n/8.33344 对 于 内 置 类 型 数 组 [][][] 的 下 标 运 算，| [][][][][][] |（和 [][][][][][]）|  都 会 解 析 为 [][][][][][][]
+ []
+
+[91
+
+]) (./other_parts/appendices/B.tex [92]
+附录 B
+[93
+
+]) (./other_parts/appendices/C.tex [94]
+附录 C
+)) (./other_parts/afterword.tex [95
+
+] [96
+
+])
+File: images/other_parts/back_cover.pdf Graphic file (type pdf)
+<use images/other_parts/back_cover.pdf>
+File: images/other_parts/back_cover.pdf Graphic file (type pdf)
+<use images/other_parts/back_cover.pdf>
+File: images/other_parts/back_cover.pdf Graphic file (type pdf)
+<use images/other_parts/back_cover.pdf, page 1>
+File: images/other_parts/back_cover.pdf Graphic file (type pdf)
+<use images/other_parts/back_cover.pdf, page 1>
+ [97]
+File: images/other_parts/back_cover.pdf Graphic file (type pdf)
+<use images/other_parts/back_cover.pdf, page 1>
+File: images/other_parts/back_cover.pdf Graphic file (type pdf)
+<use images/other_parts/back_cover.pdf, page 1>
+File: images/other_parts/back_cover.pdf Graphic file (type pdf)
+<use images/other_parts/back_cover.pdf, page 1>
+ [98] (./main.aux)
+ ***********
+LaTeX2e <2023-11-01>
+L3 programming layer <2022/08/05>
+ ***********
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 6567377FBEAA5297B4A1B76BC6D9A637;3474.
+ ) 
+Here is how much of TeX's memory you used:
+ 24484 strings out of 474924
+ 586036 string characters out of 5765037
+ 1995189 words of memory out of 5000000
+ 45822 multiletter control sequences out of 15000+600000
+ 571813 words of font info for 164 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 93i,17n,111p,1231b,1834s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on main.pdf (104 pages).

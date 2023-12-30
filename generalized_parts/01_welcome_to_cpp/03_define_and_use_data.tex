@@ -1,0 +1,107 @@
+\section{数据的定义和使用}
+前一节我们介绍了三种数据类型：整型、浮点型和字符型。这一节让我们回到代码中来，看看如何定义一个数据，又如何使用它。\par
+C++中有一些关键字，用特定的关键字就可以定义特定类型的数据，比如
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+int main(){
+    int i = -1; //定义一个int整型数据，并初始化为-1
+    double d = 3.14159; //定义一个double浮点型数据，并初始化为3.14159
+    char c = '0'; //定义一个char字符型数据，并初始化为'0'，其ASCII码为48
+    return 0;
+}
+\end{lstlisting}
+这三个语句的结构非常相似，我们可以把它们归纳成一个统一的形式：
+\begin{lstlisting}
+    <类型关键字> <名字> = <值>;
+\end{lstlisting}
+接下来我们分别介绍这三个部分。\par
+\subsection*{类型关键字（Keyword）}
+C++为不同类型提供了丰富的关键字。\par
+对于整型来说，\lstinline@int@ 是最基本的关键字。我们可以通过增加前缀的方式来将 \lstinline@int@型改为其它整型。\par
+\begin{itemize}
+    \item \textbf{改变符号性}：我们可以增加 \lstinline@signed@（有符号）前缀，允许它表示负数；或者增加 \lstinline@unsigned@（无符号）前缀，禁止它表示负数。如果不加前缀，将默认允许表示负数。因此，如果没有禁止负数的需要，无需加前缀 \lstinline@unsigned@。
+    \item \textbf{改变``容量''}：我们可以增加 \lstinline@short@, \lstinline@long@ 或者 \lstinline@long long@ 前缀来改变它的容量。简便起见，如果有这三个前缀之一，可以直接省略 \lstinline@int@。因此，我们可以直接用 \lstinline@long long@ 这样的关键字而不必用 \lstinline@long long int@。
+\end{itemize}\par
+无论改变符号性还是改变容量，其目的都在于让我们的数据合乎需求。如果我们要统计某物的数量，那么这个数字肯定是非负的，于是我们可以用 \lstinline@unsigned@ 来限制它的取值范围；如果某物的数量可能很多，\lstinline@int@ 类型的容量存不下，那么我们就要考虑使用 \lstinline@long long@了。\par
+对于浮点型来说，\lstinline@double@ 是最常用的关键字。另有 \lstinline@float@ 和 \lstinline@long double@，它们的有效位数和容量也不同。简单来说，\lstinline@float@ 的有效位数和容量最少，\lstinline@double@ 居中，\lstinline@long double@ 最多。浮点型数据无法改变符号性，它们必须允许负数的表示。\par
+对于字符型来说，\lstinline@char@ 是最常用的关键字\footnote{C++还规定了两个类型：\lstinline@signed char@ 和 \lstinline@unsigned char@。请注意，它们和 \lstinline@char@ 是三种互不相同的类型。这一点与 \lstinline@int@ 等于 \lstinline@signed int@ 的情况截然不同。读者尚无必要纠结其中细节，精讲篇会予以介绍。}，它能表示ASCII的所有字符，但对非拉丁字母（比如中日韩文字及变体）无能为力。为了表示非拉丁字母，我们可以使用 \lstinline@wchar_t@ 类型。\par
+其实我们在实际编程时最常使用的关键字是 \lstinline@int@, \lstinline@double@, \lstinline@char@。而其它的关键字，如 \lstinline@unsigned@ 或 \lstinline@long double@ 往往是我们有特殊需求时才会去考虑使用的。简便起见，我们在这一章只使用这三种基本类型。它们足够应付我们的需要了。\par
+\subsection*{标识符（名字）（Identifier）}
+在定义数据时，我们需要给它一个名字，以便日后使用。这个名字就是一种标识符。\par
+在C++中，标识符指代的概念甚广，包含一切关键字，以及我们定义的所有名字。在遵守下述要求的前提下，我们可以起各种千奇百怪的名字：
+\begin{enumerate}
+    \item 一个标识符只能由英文字母A-Z和a-z、数字0-9以及下划线\_构成。\footnote{这是不完全的，实际上还可以用其它具有XID\_Continue属性的字符。本书无意在这个问题上走得太远，也不打算使用这种字符来作为标识符。感兴趣的读者可以参阅\href{https://www.unicode.org/reports/tr31/\#Table\_Lexical\_Classes\_for\_Identifiers}{Properties for Lexical Classes for Identifiers-Unicode Technical Reports}获取更多信息。}
+    \item 标识符的首字母不能是数字，但可以是字母和下划线。\footnote{有一类特殊的反例，参见\href{https://zh.cppreference.com/w/cpp/language/user_literal}{用户定义字面量-cppreference}。这种情况不在我们的讨论范围之内。}
+    \item 标识符对大小写敏感。这意味着，即便两个标识符只有大小写上的区别，它们也是不相同的。
+    \item C++中的关键字均被保护\footnote{许多代码编辑器会对关键字做特殊着色处理。本书将关键字一律以蓝色加粗来标明（偶有不宜着色者除外）。}，你不能定义一个与关键字相同的名字。
+    \item 标识符的长度可能受到系统或开发环境的限制，不能太长。\footnote{C++标准并未对标识符的长度作明确规定，实际编程中也几乎不会有长度超限的情况，所以本条不那么重要。}
+\end{enumerate}
+比如我在上述代码中起了三个名字：\lstinline@i@, \lstinline@d@, \lstinline@c@，这些名字都是允许的。\par
+不只是数据名。以后我们可能需要起函数名、结构名和类名，这些命名方式全部应该按照这样的标准来起名。举几个例子：``\lstinline@lhs@'', ``\lstinline@it_1@''和``\lstinline@__max@'' 都是可以使用的名字，而``\lstinline@12a@'', ``\lstinline@张三@''和``\lstinline@new@''都是不能使用的名字（\lstinline@new@ 是C++中的关键字）。\par
+\subsection*{初始化（Initialization）}
+一个数据存储一个值。整型数据存储整数值，浮点型数据存储小数值，字符型数据存储字符值（对于 \lstinline@char@ 型来说，它存储的值可以用对应的ASCII码值来表示。）如果你不为它指定一个值的话，它就会存储一个不确定的值\footnote{严格说来，只有局部变量才会如此。全局变量如果不加指定，将会自动初始化为零。}。使用``不确定的值''是危险的，我们要尽量避免。\par
+初始化是一种``在定义的同时就给定值''的方法。在本例中，我们使用\lstinline@=@加一个值的形式来实现初始化。
+\begin{lstlisting}
+    unsigned long long ull = 4294967296;
+    //定义一个unsigned long long整型数据，并初始化为4294967296
+    long double ld = 3.141592653590;
+    //定义一个long double浮点型数据，并初始化为3.141592653590
+\end{lstlisting}
+以上初始化语法也叫作\textbf{直接初始化（Direct Initialization）}。\par
+初始化的语法不只这一种。在C++11以后的语言标准中，我更推荐使用\textbf{统一初始化（Uniform Initialization）}的方法：
+\begin{lstlisting}
+    <类型关键字> <名字> = {值}; //统一初始化语法
+    <类型关键字> <名字> {值}; //另一种统一初始化语法
+\end{lstlisting}
+统一初始化的语法更强大，在进行初始化时会进行检测，避免范围缩限等问题。\par
+举个例子，某台电脑的 \lstinline@short@ 型变量只能容纳-32768到32767（包含两端）之间的整数\footnote{这个范围可能因电脑而异，如果读者要自己尝试，应以自己电脑的实际情况为准。}。那么这样的代码是可以通过编译并且运行的：
+\begin{lstlisting}
+    short s1 = 40000; //定义s1并直接初始化为40000
+    cout << s1; //输出s1的值
+\end{lstlisting}
+这个输出的结果可能是 \lstinline@-25536@。同时，有些编译器还可能给出如下警告信息：
+\begin{lstlisting}
+warning: overflow in conversion from ‘int’ to ‘short int’ changes value
+from ‘40000’ to ‘-25536’ [-Woverflow]
+\end{lstlisting}\par
+在这里，给一个不能容纳40000的数据存40000的数值本来就是违规操作。警告信息（Warning）虽然是一个提醒，但仍然不会阻止你运行这个程序并得到错误结果，更遑论一些老旧编译器甚至不会给你警告信息。统一初始化则不然，它会直接以报告错误（Error）的方式阻止你运行程序，你必须改正这个违规操作才行。
+\begin{lstlisting}
+    short s2 = {40000}; //定义s2并统一初始化为40000，这种方法是禁止的。
+\end{lstlisting}\par
+统一初始化还有许多其它的优点，这也是我推荐使用统一初始化的理由。\par
+\subsection*{实操：让编译器充当计算器}
+有了数据之后，我们可以拿它们来做一些简单的计算了。我们希望定义一些数据，让它们进行简单的四则运算。我们在开始动工之前，需要粗略规划一下我们要做的事情。我们的大致步骤是：
+\begin{enumerate}
+    \item 定义几个数据，并初始化。考虑到我们可能会计算小数，我们应该用浮点型的 \lstinline@double@ 类型。
+    \item 把我们想算的式子写到代码的输出语句中。比如说，我想计算 \lstinline@(a+b*c)/d@，那么我应该把 \lstinline@cout<<@ 后面改成我想输出的这个式子。    \item 编译、运行，看下输出的结果。
+\end{enumerate}\par
+现在我们完成第一步，定义数据。从我们的式子中可以看出，这里需要4个浮点型变量，那么我就定义4个浮点型变量。同时我还需要给出4个初始值。
+\begin{lstlisting}
+    double a = {1.5};
+    double b = {0.3};
+    double c {0.5}; //这也是一种统一初始化语法，省略了=
+    double d {4.5};
+\end{lstlisting}
+其实C++还支持另一种简便的语法。如果要定义的量是同类型的，那么我们可以用单个类型关键字，将变量名隔开来定义。
+\begin{lstlisting}
+    double a {1.5}, b {0.3}, c {0.5}, d {4.5}; //定义并初始化
+\end{lstlisting}
+注意，句末用的是分号，而句中用的是逗号。这样就不用写4次 \lstinline@double@ 了，省时省力。\par
+接下来是第二步，我们改一下输出代码，让它输出我们需要的内容。
+\begin{lstlisting}
+    cout << (a + b * c) / d; //输出(a+b*c)/d的值
+\end{lstlisting}\par
+这段代码不能单独存在，现在让我们``借鉴''一下\texttt{Hello\_World.cpp}的代码，把它改成这样：
+\begin{lstlisting}[caption=\texttt{calc.cpp}\label{lst:calc1}]
+// 这是一个简单的C++程序，用于简易的数值计算
+#include <iostream> //标准输入输出头文件
+using namespace std; //使用std命名空间
+int main(){ //主函数，程序执行始于此
+    double a {1.5}, b {0.3}, c {0.5}, d {4.5}; //定义并初始化
+    cout << (a + b * c) / d; //输出(a+b*c)/d的值
+    return 0;
+}
+\end{lstlisting}
+最后的输出结果是一个近似值 \lstinline@0.366667@，与实际计算器算出的结果相近。\par
+你还可以修改代码中的初始值，或者是把输出的式子改成别的式子，观察一下结果。\par

@@ -1,0 +1,66 @@
+\section{\texttt{sizeof} 与内存空间}
+我们在之前总是反复提及，整型与整型之间是不同的，浮点型与浮点型之间也是不同的。对于整型来说，有符号与无符号是一个区别，而``容量''是另一个区别。如何理解这里的``容量''呢？这就要我们深入到``内存''中去，一探究竟。\par
+\subsection*{什么是内存？}
+张三正在用电脑打单机游戏，这时突然停电了。好不容易等到来电，张三心急如焚地打开电脑，刚准备继续玩，突然发现自己忘了存档，当前游戏进度还是昨天的进度。这让他非常不爽。\par
+那么问题来了，明明程序中都有我们当前游戏的进度，为什么我们还要通过``存档''来把这些内容保存下来呢？这就涉及到内存和外存的区别了。\par
+\textbf{非易失型存储器（Non-Volatile Memory, NVM）}，俗称\textbf{外存}，这种存储器内的信息不会随着电脑关机、供电中断等因素而丢失。但是，外存信息的访问速度慢，可能导致程序运行卡顿。张三的游戏存档就储存在外存当中。\par
+\textbf{易失型存储器（Volatile Memory, VM）}，俗称\textbf{内存}，这种存储器内的信息会随着电脑关机、供电中断等因素消失。不过，内存信息的访问速度更快，程序运行更加流畅，所以计算机程序主要都是在内存当中运行的，偶尔才会与外存进行数据交换。在张三打游戏的过程中，游戏数据就存储于内存当中，只有通过存档才能把信息保存至外存。\par
+正因如此，张三今天的游戏数据（储存于内存）丢失了，但昨天的存档（储存于外存）依然健在。\par
+同样，我们写出来的程序在运行时也会在内存当中运转。我们定义的数据，也都保存在内存当中。\par
+\subsection*{内存如何存储数据？}
+存储器的内部结构很像是一大群排列紧密、有序的房屋，彼此都是相同的模样。每个房屋有8个同款的房间，每个房间都存储着0或1，看上去单调而乏味，了无新意。但就是这种看似无趣的0和1的排列组合，却构成了我们眼里丰富多彩的信息。一部时长一百分钟的高清电影，大小7.07GB，换算过来是76亿个这样的房屋，由607亿个这样的0和1的排列组合而成。\footnote{严格说来，这部电影存储于外存。但内存与外存都有这样的特征，所以借来阐述并不为过。}\par
+前文提到，我们可以用编码的方式来将多样的信息转换成10种阿拉伯数字的排列组合，又可以通过解码的方式将这些数据转换回去。而在存储器中，多样的信息都会被编码成0和1的排列组合。我们把每一位这样的0或1称为一个\textbf{比特（Binary digit, bit）}。\par
+比特，如同生命中的细胞，化学中的原子，建成大厦的砖块和社会中的每个人，是构成信息最基本、最微小的单元。无数细胞构成了绚丽多彩的生命，无数原子构成了气象万千的世界，而无数比特则构成了我们眼中目不睱接的信息。\par
+不过，存储器中是不允许``单细胞生物''或者``单原子分子''存在的。在存储器中，每8个比特构成一个\textbf{字节（Byte）}\footnote{历史上，每个字节包含多少个比特没有特定标准，因而在一定时期是混乱的。如今的标准规定每个字节包含八个比特，但可能有极少数例外。}。字节是度量信息的单位，也是可寻址\footnote{关于内存地址，我们会在第五章讲解。}的最小单元。\par
+回到我们刚才的比喻。存储器的内部结构是排列有序的房屋。每个房屋代表一个字节，它是相对独立的最小可寻址单元。而每个房屋有8个房间，各自存储一比特的信息。图1.3可以帮助我们更直观地理解这种关系。\par
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\textwidth]{../images/generalized_parts/01_Memory_byte_and_bit_300.png}
+    \caption{存储器、字节与比特}
+\end{figure}
+\subsection*{信息与容量}
+香农\footnote{克劳德·艾尔伍德·香农（Claude Elwood Shannon），美国数学家、电子工程师、计算机科学家和密码学家，被誉为``信息论之父''。}是最早把``比特''的概念引入到信息技术中的人。在论文\footnote{\textit{A Mathematical Theory of Communication}，于1948年发表于《贝尔实验室技术期刊》。这篇论文奠定了现代信息论的基础，被《科学美国人》誉为``信息时代的《大宪章》''。}的第一页，他就提出：$N$个比特可以表示$2^N$种状态。\footnote{原文：A device with two stable positions, such as a relay or a flip-flop circuit, can store one bit of information. $N$ such devices can store $N$ bits, since the total number of possible states is $2^N$ and $\log_2 2^N=N$.}\par
+我们可以把一个数据的值看作一个\textbf{状态（State）}。当这个数据是 \lstinline@20@ 的时候，它的状态就是20；当这个数据的值是 \lstinline@13@ 的时候，它的状态就发生了改变，变为13。可以试想，如果我们有1个字节的数据，那么这8个比特一共可以表示的状态数量就是$2^8=256$个。换言之，它只能表示最多256种状态，也就只能编码256种信息。\par
+C/C++中的 \lstinline@char@ 数据占用的内存空间是一个字节，所以它能表示256种信息。而ASCII码只有128种信息，所以用一个 \lstinline@char@ 足够表示一个ASCII字符。假如我们定义了一个 \lstinline@char@ 数据并初始化为 \lstinline@'A'@，那么它在内存中的8个比特就有了某个特定的排布方式（假设排布方式是 \lstinline@0100 0001@）。下一次，我给它另一个值，比如 \lstinline@'Z'@。改变了它的值，也就改变了它的状态，于是这8个比特的排布方式也就改变了（假设排布方式改为了 \lstinline@0101 1010@）。但是无论怎么修改它的值，这8个比特的信息永远都在256种可能性中打转，绝对不会出现第257种排布方式。\textbf{于是我们可以说，它的``容量''就是256。}\par
+在大多数电脑上，\lstinline@int@ 类型的数据占用的内存空间是4字节\footnote{C++标准规定，\lstinline@int@ 类型的最低内存占用为2字节（16比特），但现在的大多数电脑都使用4字节。}，也即32比特，所以它能表示$2^{32}=4'294'967'296$种状态。所有这些状态被用来给数字编码。对于 \lstinline@int@ 类型来说，它可以表示从$−2'147'483'648$到$2'147'483'647$的全部整数（含两端）；而 \lstinline@unsigned@ 类型可以表示从$0$到$4'294'967'295$的全部整数（含两端）。\textbf{于是我们可以说，它的``容量''就是$4'294'967'296$。}\par
+值得注意的是，虽然 \lstinline@signed int@（亦即 \lstinline@int@）和 \lstinline@unsigned int@（亦即 \lstinline@unsigned@）占用的内存空间大小相等，但它们能表示的数据范围是不相同的！这是一个``我们能够编码多少数据''和``我们编码了什么数据''的问题。对于 \lstinline@int@ 和 \lstinline@unsigned@ 来说，它们都只能编码$4'294'967'296$个数据，但因为它们编码的数据不尽相同，于是它们能表示的数据范围也就有所差异（但数据宽围的``宽度''是相等的）。我们会在精讲篇中更细致地谈论这个问题。\par
+那么如果你想要表示比$4'294'967'295$还要大的数字呢？我们就要选择能容纳它的类型，比如 \lstinline@long@\footnote{在很多电脑上，\lstinline@long@ 类型和 \lstinline@int@ 类型一样占据4字节空间，这时就不能用 \lstinline@long@。} 或者 \lstinline@long long@，甚至是 \lstinline@unsigned long long@。总得说来，占据内存空间越多的类型，它能表示的数据范围也就越宽。\par
+\subsection*{\texttt{sizeof}运算符}
+在不同的电脑上，同一数据类型可能占据的字节数并不相同，这就给我们造成了困扰。如何知道在自己电脑上每个类型占据多少内存空间呢？我们可以用 \lstinline@sizeof@ 运算符来搞定这个问题。\par
+\lstinline@sizeof@ 是一个单目运算符\footnote{有关运算符的问题，我们将在第二章讲解。}，可以接收一个类型或数据信息，并求出其内存占用。它的语法是
+\begin{lstlisting}
+    sizeof (<类型或数据>); //对类型求size必须套括号
+    sizeof <数据>; //如果只对单个数据求size，可以不套括号
+\end{lstlisting}
+这只是单纯的求值。如果要输出我们求出来的值，我们就需要在前面加上 \lstinline@cout<<@。
+\begin{lstlisting}
+    cout << sizeof (char); //求char类型的内存占用
+\end{lstlisting}
+这样它就会输出 \lstinline@char@类型的内存空间大小。这个值在任何电脑上都是 \lstinline@1@。\par
+我们还可以让它求出某个数据的内存空间占用，比如
+\begin{lstlisting}
+    cout << sizeof 2.71828; //求双精度浮点数2.71828的内存占用
+\end{lstlisting}
+在Coliru上，它的输出结果是 \lstinline@8@。\par
+还可以输出我们定义的数据的内存空间大小，比如
+\begin{lstlisting}
+    unsigned long long ull = {10}; //定义一个unsigned long long数据并初始化为10
+    cout << sizeof (ull); //求ull的内存占用，可以不加括号
+\end{lstlisting}
+在Coliru上，它的输出结果是 \lstinline@8@。\par
+\subsection*{编译时行为与运行时行为}
+\lstinline@sizeof@也是一个运算符。不过它与我们之前见到的加减乘除和模运算不同，它不是在程序运行时进行计算的，而是早在编译时就已经计算好了的。\par
+我们在第1节中讲过，从写完代码到运行程序可以粗略分为三个过程：编译、链接和运行。有些值在编译的时候就能确定下来，比如 \lstinline@sizeof (a)@，无论它在内存中处于什么位置，也无论它的值是多少，它占据的内存空间的大小永远相同。（还记得吗，无论数据怎么变化，本质上只是若干个比特的排布方式发生了改变，但这个数据仍然占据同样尺寸的内存空间）\par
+所以 \lstinline@sizeof@ 在编译时就已经计算出来了，运行时就无需再浪费时间去计算 \lstinline@sizeof@；而四则运算和取模，它们必须要在运行时才能确定结果，所以编译时不会进行计算。\par
+C++11标准引入了 \lstinline@constexpr@ 语法，它扩展了编译时行为的范围。比如说
+\begin{lstlisting}
+    int a = {3}, b = {5};
+    int c = {a+b}; //a+b在运行时计算
+\end{lstlisting}
+假如使用 \lstinline@constexpr@ 呢？
+\begin{lstlisting}
+    constexpr int a {3}, b {5};
+    constexpr int c {a+b}; //a和b都是constexpr，所以a+b将在编译时计算
+\end{lstlisting}
+这说明，\lstinline@constexpr@ 改变了编译器处理数据的方式，使得一些数据可以在编译时就被计算出来。\par
+本章只对编译时行为、运行时行为和 \lstinline@constexpr@ 作简要介绍，在精讲篇中我们还会深入讲解。\par

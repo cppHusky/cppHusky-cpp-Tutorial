@@ -1,0 +1,43 @@
+<mxfile host="Electron" modified="2023-10-15T06:04:47.479Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.2 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="n0NJ05YfAzFUuQdYjstM" version="22.0.2" type="device">
+  <diagram id="EaZvD8HWw4SSQ-NmnlR8" name="Page-1">
+    <mxGraphModel dx="465" dy="320" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="vgQLRxSwW64LN8rvF3LF-1" value="临终值&lt;br&gt;xvalue" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="400" y="320" width="40" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vgQLRxSwW64LN8rvF3LF-2" value="左值&lt;br&gt;lvalue" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="280" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vgQLRxSwW64LN8rvF3LF-3" value="纯右值&lt;br&gt;prvalue" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="440" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vgQLRxSwW64LN8rvF3LF-13" value="广义左值&lt;br&gt;glvalue&lt;br&gt;可取地址" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="319.38" y="220" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vgQLRxSwW64LN8rvF3LF-14" value="纯右值&lt;br&gt;prvalue&lt;br&gt;不可取地址" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="460" y="220" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vgQLRxSwW64LN8rvF3LF-15" value="左值&lt;br&gt;lvalue&lt;br&gt;由左值引用绑定" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="290" y="410" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vgQLRxSwW64LN8rvF3LF-16" value="右值&lt;br&gt;rvalue&lt;br&gt;由右值引用绑定" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="430" y="410" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZDkVnmeFEmOJepo0rYGQ-5" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;rotation=-90;" vertex="1" parent="1">
+          <mxGeometry x="327.51" y="347.5" width="25" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ZDkVnmeFEmOJepo0rYGQ-6" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;rotation=-90;" vertex="1" parent="1">
+          <mxGeometry x="467.5" y="327.5" width="25" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ZDkVnmeFEmOJepo0rYGQ-7" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;rotation=90;direction=east;" vertex="1" parent="1">
+          <mxGeometry x="346.88" y="220" width="25" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ZDkVnmeFEmOJepo0rYGQ-8" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;rotation=90;" vertex="1" parent="1">
+          <mxGeometry x="487.5" y="240" width="25" height="110" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
