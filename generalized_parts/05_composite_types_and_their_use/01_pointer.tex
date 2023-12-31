@@ -132,7 +132,7 @@ int main() {
 所以在函数参数传递的过程中，程序并没有把``整个变量''传递给目标函数，而只传递了它的``值''。至于被调用的那个函数，它会另外定义一个新的变量（它在内存空间中另一自己的一席之地）来接收传入的值。很多资料会把它称为\textbf{副本（Copy）}。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.75\textwidth]{../images/generalized_parts/05_process_of_pass_by_reference_300.png}
+    \includegraphics[width=0.75\textwidth]{../images/generalized_parts/05_process_of_pass_by_value_300.png}
     \caption{\lstinline@main@ 向 \lstinline@exchange@ 中传入的信息只有值}
 \end{figure}
 我们会发现，不同函数之间只能共享值，这种现象好像一种屏障——在某些时候，它显得十分安全，我们不会在一个函数中乱改其它函数中的信息；但在另一些时候，它显得非常不灵活，如果我们用别的函数只能读取而不能修改此函数中的值，函数的功能就会受到很大限制——比如我们试图写一个值交换函数而不能。\par
@@ -190,9 +190,9 @@ int main() {
 而指针与整型的加/减法是有意义的，尤其是在数组当中。一个指针与整数相加/减，它的返回值是和原来指针相同的类型（比如说，\lstinline@int*@ 与 \lstinline@short@ 相加/减，返回值为 \lstinline@int*@）。\par
 \begin{lstlisting}
     float f, *pf {&f}; //这里不需要初始化f，因为只需用到其地址，而不需要其值
-    cout << pf << endl << pf - 1 << endl; //输出pf和pf+1的值，它们都是地址值
+    cout << pf << endl << pf - 1 << endl; //输出pf和pf-1的值，它们都是地址值
     long double ld; //同理，只是改成了long double型
-    cout << &ld << endl << &ld + 1; //直接输出&ld，效果相同
+    cout << &ld << endl << &ld + 1; //直接输出&ld和&ld-1，效果相同
 \end{lstlisting}
 运行结果是这样的\footnote{再次提醒读者，实际输出的内存地址因机而异，我们应当关注的是几个输出地址之间的相互关系。}：\\\noindent\rule{\linewidth}{0.2pt}\texttt{
 0x7ffc4bf3837c\\
@@ -204,7 +204,12 @@ int main() {
 首先输出的两个是 \lstinline@pf@ 和 \lstinline@pf-1@ 的值。从数值上看，前者是 \lstinline@...37c@，而后者是 \lstinline@...378@，后者虽然是 \lstinline@pf-1@，但地址却减小了4个字节。\par
 接下来输出的两个是 \lstinline@&ld@ 和 \lstinline@&ld+1@ 的值。从数值上看，前者是 \lstinline@...380@，而后者是 \lstinline@...390@，后者虽然是 \lstinline@&ld+1@，但地址却增加了16个字节。\par
 之所以会出现这种情况，关键就在于不同类型数据在内存中占用的字节数目不同。一般说来，\lstinline@float@ 型占据4字节内存空间，而 \lstinline@long double@ 型占据16字节内存空间。\par
-指针和整型的加减法并不是单纯地移动多少个字节，而是移动了多少个数据（可以理解为，偏移量乘以单个数据占用的字节数）。这样设计是有它的道理的，等我们讲到数组，读者就会很容易理解了。\par
+指针和整型的加减法并不是单纯地移动多少个字节，而是移动了多少个数据（可以理解为，偏移量乘以单个数据占用的字节数），如图5.7所示。这样设计是有它的道理的，等我们讲到数组，读者就会很容易理解了。\par
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{../images/generalized_parts/05_arithmetic_of_pointer_300.png}
+    \caption{指针加法运算的偏移量是以数据为单位的，而不是地址值}
+\end{figure}
 两个同类型指针可以相减，其返回值是一个特殊的类型，叫作 \lstinline@ptrdiff_t@。不过我们也无需纠结这种细节，因为 \lstinline@ptrdiff_t@ 可以隐式类型转换为整型，所以我们可以直接把它当作整型来用，比如输出。
 \begin{lstlisting}
     int a, b, c;
