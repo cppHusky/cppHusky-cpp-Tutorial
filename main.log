@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  31 DEC 2023 13:04
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  31 DEC 2023 19:11
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1146,9 +1146,14 @@ File: ./05_composite_types_and_their_use/../images/generalized_parts/05_change_p
  [92]
 File: ./05_composite_types_and_their_use/../images/generalized_parts/05_definition_of_constant_pointer_and_pointer_to_const_300.png Graphic file (type bmp)
 <./05_composite_types_and_their_use/../images/generalized_parts/05_definition_of_constant_pointer_and_pointer_to_const_300.png>
-) (./generalized_parts/05_composite_types_and_their_use/03_passing_arguments_by_lvalue_reference.tex) (./generalized_parts/05_composite_types_and_their_use/04_one_dimensional_arrays.tex) (./generalized_parts/05_composite_types_and_their_use/05_the_relationship_between_arrays_and_pointers.tex) (./generalized_parts/05_composite_types_and_their_use/06_string_with_arrays.tex) (./generalized_parts/05_composite_types_and_their_use/07_multidimensional_arrays_and_higher_order_pointers.tex) (./generalized_parts/05_composite_types_and_their_use/08_dynamic_memory_allocation.tex))) (././intensive_part.tex [93] [94
+) (./generalized_parts/05_composite_types_and_their_use/03_passing_arguments_by_lvalue_reference.tex [93] [94] [95] [96]
+Overfull \hbox (71.64339pt too wide) in paragraph at lines 148--148
+\TU/SimSun(0)/m/n/10 提 醒 读 者，| [][][] 输 出 [][][][][] 类 型 的 值 时，|  会 默 认 以 整 数 的 形 式 输 出。|  我 们 也 可 以 用 [][][][][][][][][][]
+ []
 
-] [95] [96]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
+[97]) (./generalized_parts/05_composite_types_and_their_use/04_one_dimensional_arrays.tex) (./generalized_parts/05_composite_types_and_their_use/05_the_relationship_between_arrays_and_pointers.tex) (./generalized_parts/05_composite_types_and_their_use/06_string_with_arrays.tex) (./generalized_parts/05_composite_types_and_their_use/07_multidimensional_arrays_and_higher_order_pointers.tex) (./generalized_parts/05_composite_types_and_their_use/08_dynamic_memory_allocation.tex))) (././intensive_part.tex [98] [99
+
+] [100]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
 附录 A
 LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/m/n' will be
 (Font)              scaled to size 8.33344pt on input line 2.
@@ -1157,17 +1162,17 @@ Underfull \hbox (badness 6063) in paragraph at lines 16--16
 [][][]\TU/SimSun(0)/m/n/8.33344 对 于 内 置 类 型 数 组 [][][] 的 下 标 运 算，| [][][][][][] |（和 [][][][][][]）|  都 会 解 析 为 [][][][][][][]
  []
 
-[97
+[101
 
-]) (./other_parts/appendices/B.tex [98]
+]) (./other_parts/appendices/B.tex [102]
 附录 B
-[99
+[103
 
-]) (./other_parts/appendices/C.tex [100]
+]) (./other_parts/appendices/C.tex [104]
 附录 C
-)) (./other_parts/afterword.tex [101
+)) (./other_parts/afterword.tex [105
 
-] [102
+] [106
 
 ])
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1178,28 +1183,28 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [103]
+ [107]
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [104] (./main.aux)
+ [108] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A7D72FF89F71A5058C7F1B29CCFCF0C8;3665.
+(rerunfilecheck)             Checksum: 828A19B5F24A54EF36E6EF4EEADCCD1D;3824.
  ) 
 Here is how much of TeX's memory you used:
- 24564 strings out of 474924
- 591641 string characters out of 5765037
+ 24626 strings out of 474924
+ 594153 string characters out of 5765037
  1995189 words of memory out of 5000000
- 45897 multiletter control sequences out of 15000+600000
+ 45959 multiletter control sequences out of 15000+600000
  571813 words of font info for 164 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,17n,111p,1231b,1834s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (110 pages).
+Output written on main.pdf (114 pages).

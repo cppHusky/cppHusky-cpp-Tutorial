@@ -29,9 +29,10 @@
 \contentsline {chapter}{\numberline {第五章\hspace {.3em}}复合类型及其使用}{83}{chapter.5}%
 \contentsline {section}{\numberline {5.1}指针}{83}{section.5.1}%
 \contentsline {section}{\numberline {5.2}``常量指针''与``指向常量的指针''}{92}{section.5.2}%
-\contentsline {part}{精讲篇}{97}{part*.68}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{97}{appendix.A}%
-\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{99}{appendix.B}%
-\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{101}{appendix.C}%
-\contentsline {section}{\numberline {C.1}进制与进制转换}{101}{section.C.1}%
-\contentsline {chapter}{跋}{103}{appendix*.69}%
+\contentsline {section}{\numberline {5.3}（左值）引用与引用参数传递}{94}{section.5.3}%
+\contentsline {part}{精讲篇}{101}{part*.72}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{101}{appendix.A}%
+\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{103}{appendix.B}%
+\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{105}{appendix.C}%
+\contentsline {section}{\numberline {C.1}进制与进制转换}{105}{section.C.1}%
+\contentsline {chapter}{跋}{107}{appendix*.73}%
