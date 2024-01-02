@@ -244,7 +244,7 @@ unsigned input_arr(T arr[], const unsigned max_size) {
         << typeid(unsigned).name() << ' ' << typeid(float).name() << endl
         << typeid(int*).name() << ' ' << typeid(char*).name();
 \end{lstlisting}
-需要提醒读者，\lstinline@typeid(...).name()@ 在不同系统下的结果可能不同。因此本例中的结果取Coliru上的结果。读者也可以在Coliru上自行运行这段代码试试效果。它的输出是\\\noindent\rule{\linewidth}{.2pt}\texttt{
+需要提醒读者，\lstinline@typeid(...).name()@ 在不同编译环境下的结果可能不同\footnote{实际体验是，在MSVC开发环境中给出的结果最为清晰。}，因此本例中的结果取Coliru上运行的结果。读者也可以在Coliru上自行运行这段代码试试效果。它的输出是\\\noindent\rule{\linewidth}{.2pt}\texttt{
 A3\_i\\
 A5\_i\\
 i d j f\\
