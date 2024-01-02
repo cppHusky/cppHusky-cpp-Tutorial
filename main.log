@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  2 JAN 2024 09:27
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  2 JAN 2024 21:58
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1178,9 +1178,32 @@ Overfull \hbox (42.6168pt too wide) in paragraph at lines 114--114
 LaTeX Font Warning: Font shape `TU/FangSong(0)/m/it' undefined
 (Font)              using `TU/FangSong(0)/m/n' instead on input line 150.
 
-[111]) (./generalized_parts/05_composite_types_and_their_use/06_array_of_pointer_and_pointer_to_array.tex) (./generalized_parts/05_composite_types_and_their_use/07_multidimensional_arrays_and_higher_order_pointers.tex) (./generalized_parts/05_composite_types_and_their_use/08_dynamic_memory_allocation.tex))) (././intensive_part.tex [112] [113
+[111]) (./generalized_parts/05_composite_types_and_their_use/06_combination_of_pointers_and_arrays.tex [112]
+Overfull \hbox (29.03897pt too wide) in paragraph at lines 11--11
+\TU/SimSun(0)/m/n/10 初 学 者 很 容 易 在 二 维 数 组 的 下 标 问 题 上 犯 糊 涂。|  比 如 在 定 义 [][][] 的 时 候，|  究 竟 是 写 成 [][][]
+ []
 
-] [114]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
+[113]
+File: ./05_composite_types_and_their_use/../images/generalized_parts/05_data_in_the_array_of_array_300.png Graphic file (type bmp)
+<./05_composite_types_and_their_use/../images/generalized_parts/05_data_in_the_array_of_array_300.png>
+
+Overfull \hbox (13.52153pt too wide) in paragraph at lines 49--49
+[]\TU/SimSun(0)/m/n/10 敏 锐 的 读 者 可 能 会 想，|  既 然 [][][][] 的 下 一 位 就 是 [][][][]，|  那 么 我 们 能 否 通 过 [][][][]
+ []
+
+[114] [115]
+File: ./05_composite_types_and_their_use/../images/generalized_parts/05_the_pointer_to_array_and_2d_array_300.png Graphic file (type bmp)
+<./05_composite_types_and_their_use/../images/generalized_parts/05_the_pointer_to_array_and_2d_array_300.png>
+ [116] [117] [118]
+Underfull \hbox (badness 10000) in paragraph at lines 176--181
+
+ []
+
+File: ./05_composite_types_and_their_use/../images/generalized_parts/05_type_conversions_between_array_and_pointer_300.png Graphic file (type bmp)
+<./05_composite_types_and_their_use/../images/generalized_parts/05_type_conversions_between_array_and_pointer_300.png>
+) (./generalized_parts/05_composite_types_and_their_use/07_dynamic_memory_allocation.tex))) (././intensive_part.tex [119] [120
+
+] [121] [122]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
 附录 A
 LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/m/n' will be
 (Font)              scaled to size 8.33344pt on input line 2.
@@ -1189,17 +1212,17 @@ Underfull \hbox (badness 6063) in paragraph at lines 16--16
 [][][]\TU/SimSun(0)/m/n/8.33344 对 于 内 置 类 型 数 组 [][][] 的 下 标 运 算，| [][][][][][] |（和 [][][][][][]）|  都 会 解 析 为 [][][][][][][]
  []
 
-[115
+[123
 
-]) (./other_parts/appendices/B.tex [116]
+]) (./other_parts/appendices/B.tex [124]
 附录 B
-[117
+[125
 
-]) (./other_parts/appendices/C.tex [118]
+]) (./other_parts/appendices/C.tex [126]
 附录 C
-)) (./other_parts/afterword.tex [119
+)) (./other_parts/afterword.tex [127
 
-] [120
+] [128
 
 ])
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1210,14 +1233,14 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [121]
+ [129]
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [122] (./main.aux)
+ [130] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2022/08/05>
@@ -1227,15 +1250,15 @@ L3 programming layer <2022/08/05>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C0ED34501DDA361C22E165C257C94143;3990.
+(rerunfilecheck)             Checksum: D69FDAE2D83293847FBC461242F57A55;4125.
  ) 
 Here is how much of TeX's memory you used:
- 24818 strings out of 474924
- 602079 string characters out of 5765037
+ 24886 strings out of 474924
+ 605071 string characters out of 5765037
  1995189 words of memory out of 5000000
- 46147 multiletter control sequences out of 15000+600000
+ 46215 multiletter control sequences out of 15000+600000
  571813 words of font info for 164 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,17n,111p,1231b,1834s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (128 pages).
+Output written on main.pdf (136 pages).

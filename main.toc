@@ -32,9 +32,10 @@
 \contentsline {section}{\numberline {5.3}（左值）引用与引用参数传递}{94}{section.5.3}%
 \contentsline {section}{\numberline {5.4}一维数组}{98}{section.5.4}%
 \contentsline {section}{\numberline {5.5}字符串}{107}{section.5.5}%
-\contentsline {part}{精讲篇}{115}{part*.82}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{115}{appendix.A}%
-\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{117}{appendix.B}%
-\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{119}{appendix.C}%
-\contentsline {section}{\numberline {C.1}进制与进制转换}{119}{section.C.1}%
-\contentsline {chapter}{跋}{121}{appendix*.83}%
+\contentsline {section}{\numberline {5.6}指针与数组的复合类型}{112}{section.5.6}%
+\contentsline {part}{精讲篇}{123}{part*.98}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{123}{appendix.A}%
+\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{125}{appendix.B}%
+\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{127}{appendix.C}%
+\contentsline {section}{\numberline {C.1}进制与进制转换}{127}{section.C.1}%
+\contentsline {chapter}{跋}{129}{appendix*.99}%
