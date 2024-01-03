@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  3 JAN 2024 17:24
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  3 JAN 2024 20:32
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1211,11 +1211,11 @@ Missing character: There is no � (U+FFFD) in font [SourceCodePro-Regular.otf]/
 Missing character: There is no � (U+FFFD) in font [SourceCodePro-Regular.otf]/OT:script=latn;language=dflt;!
 File: ./generalized_parts/../images/generalized_parts/06_0_1_string_to_int_or_char_300.png Graphic file (type bmp)
 <./generalized_parts/../images/generalized_parts/06_0_1_string_to_int_or_char_300.png>
-(./generalized_parts/06_custom_types_and_their_use/01_enum.tex) (./generalized_parts/06_custom_types_and_their_use/02_struct.tex) (./generalized_parts/06_custom_types_and_their_use/03_union.tex) (./generalized_parts/06_custom_types_and_their_use/04_introduction_to_class.tex))) (././intensive_part.tex [125
+(./generalized_parts/06_custom_types_and_their_use/01_enum.tex [125
 
-] [126
+]) (./generalized_parts/06_custom_types_and_their_use/02_struct.tex) (./generalized_parts/06_custom_types_and_their_use/03_union.tex) (./generalized_parts/06_custom_types_and_their_use/04_introduction_to_class.tex))) (././intensive_part.tex [126] [127
 
-] [127] [128]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
+] [128]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
 附录 A
 LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/m/n' will be
 (Font)              scaled to size 8.33344pt on input line 2.
@@ -1265,10 +1265,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D9E7CE1EFF17417B60F21EE2E1C28EE7;4444.
  ) 
 Here is how much of TeX's memory you used:
- 24960 strings out of 474924
- 609513 string characters out of 5765037
+ 25000 strings out of 474924
+ 609889 string characters out of 5765037
  1995189 words of memory out of 5000000
- 46265 multiletter control sequences out of 15000+600000
+ 46305 multiletter control sequences out of 15000+600000
  571813 words of font info for 164 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,17n,111p,1231b,1834s stack positions out of 10000i,1000n,20000p,200000b,200000s

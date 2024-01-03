@@ -1,1 +1,53 @@
 \section{枚举常量}
+定义一个枚举常量的基本格式如下：\footnote{本节只介绍无作用域枚举，关于有作用域枚举，请见精讲篇。}
+\begin{lstlisting}
+enum <枚举名> {<枚举项>=<整型常量表达式>, <枚举项>=<整型常量表达式>, ...};
+\end{lstlisting}\par
+枚举名不是必须的。如果不使用枚举名，那么这些枚举项的类型就是匿名枚举，这样做相当于定义了一些整型常量。如果我们规定了名字，那它们就是具名枚举，有丰富的作用。\par
+枚举常量都是基于整型的，它的枚举项可以隐式类型转换为整型来输出。
+\begin{lstlisting}
+    enum {A=1, B=3, C=5}; //不具名枚举
+    cout << B; //输出3
+\end{lstlisting}
+我们可以省略其中的部分枚举项的值，这时枚举项的值是基于前一个值递增的。
+\begin{lstlisting}
+    enum {A=-2, B=4, C, D}; //C为递增为5，D递增为6
+    enum {E, F, G}; //第一项E不设值则为0，后面F,G分别为1和2
+\end{lstlisting}
+如果我们需要一次性定义大量整型常量，那么除了 \lstinline@const@ 及 \lstinline@constexpr@ 语法之外，我们还可以选择 \lstinline@enum@。\par
+如果这个枚举有枚举名，那么我们还可以把它作为一个类型来用！具名枚举类型的优点是：
+\begin{itemize}
+    \item 它的值可以用标识符来表示，而不是用单纯的字面量——我们提过，常量表达式比字面量的一大好处在于方便在源代码层面做统一修改。
+    \item 具名枚举类型可以隐式转换为整型常量，所以我们使用起来很方便。
+    \item 整型常量不能隐式转换为具名枚举类型，而且具名枚举类型数据的取值范围有很大限制，我们可以很防止这类数据取一些不允许的值。
+\end{itemize}
+举个例子，想必读者就可以理解了。关于服装的尺码，不同国家/地区都有各自的规定。以男士西装为例，欧洲/俄罗斯、英国/美国、日本、韩国都有自己的尺寸对照表。我们可以用枚举常量来表示各个尺寸。
+\begin{lstlisting}
+enum SuitsSize {
+    XXS=40, XS=42, S_1=44, S_2=46, M_1=48, M_2=50,
+    L_1=52, L_2=54, XL=56, XXL=58, XXXL=60
+}; //这是欧洲/俄罗斯标准
+\end{lstlisting}
+接下来我们可以定义一些 \lstinline@SuitsSize@ 类型的变量，比如说就定义成对应的人名吧。
+\begin{lstlisting}
+    SuitsSize Erik {XXL}; //Erik的值就是XXL，不是58，只是它可以隐式转换成58
+    SuitsSize Jacques {XS}; //Jacques的值就是XS
+    SuitsSize Carlos {M_1}; //M尺码有两个，为了区分而分别写成M_1和M_2
+\end{lstlisting}\par
+当我们想要知道枚举项的具体值时，我们可以直接以 \lstinline@int@ 类型输出。
+\begin{lstlisting}
+    cout << static_cast<int>(XL); //或者直接cout<<XL，会隐式类型转换
+\end{lstlisting}\par
+如果某个人的尺码发生了改变，我们可以直接赋值来改变，非常方便。
+\begin{lstlisting}
+    Erik = XXXL; //胖了
+\end{lstlisting}
+但是我们赋值也不能乱来；我们只能赋那些已经规定好了的项。
+\begin{lstlisting}
+    Eirk = XXXXXXXL; //错误！
+\end{lstlisting}
+既然 \lstinline@SuitsSize@ 也是一个类型，那么我们当然还可以定义这个类型的常量数据。
+\begin{lstlisting}
+    const SuitsSize Giovanni {XXXL}; //Giovanni的值一经定义，就不可改变
+\end{lstlisting}\par
+总而言之，我们可以把具名枚举的各项看作是整型数据，但是我们应该先把它当成一种特殊的自定义类型，它的值就是标识符本身，只不过可以转换为整型而已。作为类比，我们可以想一下 \lstinline@bool@ 类型，它的值就是标识符 \lstinline@true@ 或 \lstinline@false@ 本身，只是它可以隐式转换成整型而已。\par
