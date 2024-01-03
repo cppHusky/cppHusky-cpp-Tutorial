@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  3 JAN 2024 11:59
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  3 JAN 2024 17:24
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1204,9 +1204,18 @@ File: ./05_composite_types_and_their_use/../images/generalized_parts/05_type_con
 ) (./generalized_parts/05_composite_types_and_their_use/07_dynamic_memory_allocation.tex [119] [120] [121]
 File: ./05_composite_types_and_their_use/../images/generalized_parts/05_memory_leak_and_after_end_task.png Graphic file (type bmp)
 <./05_composite_types_and_their_use/../images/generalized_parts/05_memory_leak_and_after_end_task.png>
- [122] [123]))) (././intensive_part.tex [124] [125
+ [122] [123])) (./generalized_parts/06_custom_types_and_their_use.tex [124]
+第六章
+Missing character: There is no � (U+FFFD) in font [SourceCodePro-Regular.otf]/OT:script=latn;language=dflt;!
+Missing character: There is no � (U+FFFD) in font [SourceCodePro-Regular.otf]/OT:script=latn;language=dflt;!
+Missing character: There is no � (U+FFFD) in font [SourceCodePro-Regular.otf]/OT:script=latn;language=dflt;!
+File: ./generalized_parts/../images/generalized_parts/06_0_1_string_to_int_or_char_300.png Graphic file (type bmp)
+<./generalized_parts/../images/generalized_parts/06_0_1_string_to_int_or_char_300.png>
+(./generalized_parts/06_custom_types_and_their_use/01_enum.tex) (./generalized_parts/06_custom_types_and_their_use/02_struct.tex) (./generalized_parts/06_custom_types_and_their_use/03_union.tex) (./generalized_parts/06_custom_types_and_their_use/04_introduction_to_class.tex))) (././intensive_part.tex [125
 
-] [126]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
+] [126
+
+] [127] [128]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
 附录 A
 LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/m/n' will be
 (Font)              scaled to size 8.33344pt on input line 2.
@@ -1215,17 +1224,17 @@ Underfull \hbox (badness 6063) in paragraph at lines 16--16
 [][][]\TU/SimSun(0)/m/n/8.33344 对 于 内 置 类 型 数 组 [][][] 的 下 标 运 算，| [][][][][][] |（和 [][][][][][]）|  都 会 解 析 为 [][][][][][][]
  []
 
-[127
-
-]) (./other_parts/appendices/B.tex [128]
-附录 B
 [129
 
-]) (./other_parts/appendices/C.tex [130]
-附录 C
-)) (./other_parts/afterword.tex [131
+]) (./other_parts/appendices/B.tex [130]
+附录 B
+[131
 
-] [132
+]) (./other_parts/appendices/C.tex [132]
+附录 C
+)) (./other_parts/afterword.tex [133
+
+] [134
 
 ])
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1236,14 +1245,14 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [133]
+ [135]
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [134] (./main.aux)
+ [136] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2022/08/05>
@@ -1253,15 +1262,15 @@ L3 programming layer <2022/08/05>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 4EBCB130DAAF0F744DC73FDDD73E588F;4234.
+(rerunfilecheck)             Checksum: D9E7CE1EFF17417B60F21EE2E1C28EE7;4444.
  ) 
 Here is how much of TeX's memory you used:
- 24905 strings out of 474924
- 606173 string characters out of 5765037
+ 24960 strings out of 474924
+ 609513 string characters out of 5765037
  1995189 words of memory out of 5000000
- 46233 multiletter control sequences out of 15000+600000
+ 46265 multiletter control sequences out of 15000+600000
  571813 words of font info for 164 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,17n,111p,1231b,1834s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (140 pages).
+Output written on main.pdf (142 pages).

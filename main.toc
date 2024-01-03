@@ -34,9 +34,11 @@
 \contentsline {section}{\numberline {5.5}字符串}{107}{section.5.5}%
 \contentsline {section}{\numberline {5.6}指针与数组的复合类型}{112}{section.5.6}%
 \contentsline {section}{\numberline {5.7}动态内存分配}{120}{section.5.7}%
-\contentsline {part}{精讲篇}{127}{part*.101}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{127}{appendix.A}%
-\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{129}{appendix.B}%
-\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{131}{appendix.C}%
-\contentsline {section}{\numberline {C.1}进制与进制转换}{131}{section.C.1}%
-\contentsline {chapter}{跋}{133}{appendix*.102}%
+\contentsline {chapter}{\numberline {第六章\hspace {.3em}}自定义类型及其使用}{125}{chapter.6}%
+\contentsline {section}{\numberline {6.1}枚举常量}{125}{section.6.1}%
+\contentsline {part}{精讲篇}{129}{part*.101}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{129}{appendix.A}%
+\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{131}{appendix.B}%
+\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{133}{appendix.C}%
+\contentsline {section}{\numberline {C.1}进制与进制转换}{133}{section.C.1}%
+\contentsline {chapter}{跋}{135}{appendix*.102}%
