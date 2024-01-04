@@ -51,3 +51,24 @@ enum SuitsSize {
     const SuitsSize Giovanni {XXXL}; //Giovanni的值一经定义，就不可改变
 \end{lstlisting}\par
 总而言之，我们可以把具名枚举的各项看作是整型数据，但是我们应该先把它当成一种特殊的自定义类型，它的值就是标识符本身，只不过可以转换为整型而已。作为类比，我们可以想一下 \lstinline@bool@ 类型，它的值就是标识符 \lstinline@true@ 或 \lstinline@false@ 本身，只是它可以隐式转换成整型而已。\par
+每个枚举项的内存占用默认与 \lstinline@int@ 相同，这种做法有些时候有点浪费空间。比如说，\lstinline@SuitsSize@ 的所有枚举项的值都在 \lstinline@40@ 到 \lstinline@60@ 之间，用一个字节足够存储得下了。为了节约内存空间，我们可以改变它的枚举基，也就是它们基于哪种类型。
+\begin{lstlisting}
+enum SuitsSize : char {//...}; //省略
+\end{lstlisting}
+这样，\lstinline@SuitsSize@ 类型的内存占用就变成了一个字节，读者可以用 \lstinline@sizeof@ 检验之。\par
+除了 \lstinline@char@ 之外，我们还可以用 \lstinline@bool@ 以及所有的整型类型。例如要表示一个人的性别，我们可以用一个 \lstinline@bool@ 型数据来实现。我们可以记 \lstinline@true@ 表示男性，\lstinline@false@ 表示女性。不过用 \lstinline@true@/\lstinline@false@ 的表示方法不够直接，我们何不自定义一个具名枚举呢？
+\begin{lstlisting}
+enum Sex : bool {male, female}; //以bool为枚举基
+\end{lstlisting}
+在这里，我们当然也可以指定 \lstinline@male@/\lstinline@female@ 的布尔值；但是这样做没太大的意义，因为我们真正要表示的信息其实是性别而不是那个布尔值。在应用的时候，我们可以直接这么用：
+\begin{lstlisting}
+    Sex group[5] {male, male, female, male, female}; //定义
+    for(auto individual : group) { //范围for循环
+        if(individual == male) { //用individual==male 作为判断条件
+            //...
+        }
+        else {
+            //...
+        }
+    }
+\end{lstlisting}
