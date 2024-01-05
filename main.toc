@@ -37,9 +37,10 @@
 \contentsline {chapter}{\numberline {第六章\hspace {.3em}}自定义类型及其使用}{125}{chapter.6}%
 \contentsline {section}{\numberline {6.1}枚举常量}{125}{section.6.1}%
 \contentsline {section}{\numberline {6.2}结构体}{127}{section.6.2}%
-\contentsline {part}{精讲篇}{135}{part*.104}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{135}{appendix.A}%
-\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{137}{appendix.B}%
-\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{139}{appendix.C}%
-\contentsline {section}{\numberline {C.1}进制与进制转换}{139}{section.C.1}%
-\contentsline {chapter}{跋}{141}{appendix*.105}%
+\contentsline {section}{\numberline {6.3}实操：用结构体实现单链表}{132}{section.6.3}%
+\contentsline {part}{精讲篇}{143}{part*.108}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{143}{appendix.A}%
+\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{145}{appendix.B}%
+\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{147}{appendix.C}%
+\contentsline {section}{\numberline {C.1}进制与进制转换}{147}{section.C.1}%
+\contentsline {chapter}{跋}{149}{appendix*.109}%

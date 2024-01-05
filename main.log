@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  4 JAN 2024 13:10
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  5 JAN 2024 15:37
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1228,9 +1228,40 @@ Overfull \hbox (39.45459pt too wide) in paragraph at lines 167--167
 []\TU/SimSun(0)/m/n/10 读 者 可 能 注 意 到 [][][][][][][][][][][][][][][][][][][][][][][][][][][] 此 段 中 我 们 使 用 的 条 件 表 达 式。|  如 果 [][][][][][][]
  []
 
-[131]) (./generalized_parts/06_custom_types_and_their_use/03_exercise_example_list.tex) (./generalized_parts/06_custom_types_and_their_use/04_union.tex) (./generalized_parts/06_custom_types_and_their_use/05_introduction_to_class.tex))) (././intensive_part.tex [132] [133
+[131]) (./generalized_parts/06_custom_types_and_their_use/03_exercise_example_list.tex
+File: ./06_custom_types_and_their_use/../images/generalized_parts/06_list_in_the_memory_300.png Graphic file (type bmp)
+<./06_custom_types_and_their_use/../images/generalized_parts/06_list_in_the_memory_300.png>
+ [132]
+File: ./06_custom_types_and_their_use/../images/generalized_parts/06_operation_on_list_300.png Graphic file (type bmp)
+<./06_custom_types_and_their_use/../images/generalized_parts/06_operation_on_list_300.png>
+File: ./06_custom_types_and_their_use/../images/generalized_parts/06_advanced_operation_on_list_300.png Graphic file (type bmp)
+<./06_custom_types_and_their_use/../images/generalized_parts/06_advanced_operation_on_list_300.png>
+ [133] [134]
+File: ./06_custom_types_and_their_use/../images/generalized_parts/06_process_of_clear_list_300.png Graphic file (type bmp)
+<./06_custom_types_and_their_use/../images/generalized_parts/06_process_of_clear_list_300.png>
+File: ./06_custom_types_and_their_use/../images/generalized_parts/06_insertion_into_a_list_300.png Graphic file (type bmp)
+<./06_custom_types_and_their_use/../images/generalized_parts/06_insertion_into_a_list_300.png>
+ [135]
+File: ./06_custom_types_and_their_use/../images/generalized_parts/06_deletion_operation_on_a_list_300.png Graphic file (type bmp)
+<./06_custom_types_and_their_use/../images/generalized_parts/06_deletion_operation_on_a_list_300.png>
+ [136]
+File: ./06_custom_types_and_their_use/../images/generalized_parts/06_range_deletion_operation_on_a_list_300.png Graphic file (type bmp)
+<./06_custom_types_and_their_use/../images/generalized_parts/06_range_deletion_operation_on_a_list_300.png>
+ [137] [138]
+Overfull \hbox (3.5015pt too wide) in paragraph at lines 177--177
+[]\TU/SimSun(0)/m/n/10 其 一，|  在 这 里 [][][][][][][] 的 情 况 下 我 们 要 处 理 是 比 较 麻 烦 的，|  因 为 当 后 面 涉 及 到 [][][][][]
+ []
 
-] [134]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
+
+Overfull \hbox (13.87088pt too wide) in paragraph at lines 177--177
+[][][] \TU/SimSun(0)/m/n/10 改 成 指 向 末 尾 单 元。|  怎 么 做 呢？|  只 能 从 [][][] 开 始 一 个 个 找，|  直 到 找 到 一 个 \TU/lmr/m/n/10 “[][][][][][][][][]”
+ []
+
+File: ./06_custom_types_and_their_use/../images/generalized_parts/06_range_transfer_between_lists_300.png Graphic file (type bmp)
+<./06_custom_types_and_their_use/../images/generalized_parts/06_range_transfer_between_lists_300.png>
+) (./generalized_parts/06_custom_types_and_their_use/04_union.tex) (./generalized_parts/06_custom_types_and_their_use/05_introduction_to_class.tex))) (././intensive_part.tex [139] [140
+
+] [141] [142]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
 附录 A
 LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/m/n' will be
 (Font)              scaled to size 8.33344pt on input line 2.
@@ -1239,17 +1270,17 @@ Underfull \hbox (badness 6063) in paragraph at lines 16--16
 [][][]\TU/SimSun(0)/m/n/8.33344 对 于 内 置 类 型 数 组 [][][] 的 下 标 运 算，| [][][][][][] |（和 [][][][][][]）|  都 会 解 析 为 [][][][][][][]
  []
 
-[135
+[143
 
-]) (./other_parts/appendices/B.tex [136]
+]) (./other_parts/appendices/B.tex [144]
 附录 B
-[137
+[145
 
-]) (./other_parts/appendices/C.tex [138]
+]) (./other_parts/appendices/C.tex [146]
 附录 C
-)) (./other_parts/afterword.tex [139
+)) (./other_parts/afterword.tex [147
 
-] [140
+] [148
 
 ])
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1260,14 +1291,14 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [141]
+ [149]
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [142] (./main.aux)
+ [150] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2022/08/05>
@@ -1277,15 +1308,15 @@ L3 programming layer <2022/08/05>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A8C3A52D681A35BF609B26759B206F58;4523.
+(rerunfilecheck)             Checksum: B1F1525B82DBDC42C82B5B466B6BFDC3;4674.
  ) 
 Here is how much of TeX's memory you used:
- 25097 strings out of 474924
- 612670 string characters out of 5765037
+ 25209 strings out of 474924
+ 621165 string characters out of 5765037
  1995189 words of memory out of 5000000
- 46399 multiletter control sequences out of 15000+600000
+ 46497 multiletter control sequences out of 15000+600000
  571813 words of font info for 164 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,17n,111p,1231b,1834s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (148 pages).
+Output written on main.pdf (156 pages).

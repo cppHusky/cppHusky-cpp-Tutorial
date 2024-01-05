@@ -165,7 +165,7 @@ Bob Johnson，男，35岁\\
 身高 180，体重 80.5
 }\\\noindent\rule{\linewidth}{.2pt}\par
 读者可能注意到 \lstinline@person.sex==male?"男":"女"@ 此段中我们使用的条件表达式。如果 \lstinline@person.sex==male@ 为 \lstinline@true@，那么就会返回 \lstinline@"男"@；否则返回 \lstinline@"女"@。\par
-看上去无论是内置类型还是自定义类型，我们都可以把它放到 \lstinline@struct@当中，构成一个结构体。那么有什么是不可以放入其中构成结构体的呢？那就是这个结构体本身！在函数定义中我们见过递归定义，但是结构体是不允许递归定义的。
+看上去无论是内置类型还是自定义类型，我们都可以把它放到 \lstinline@struct@ 当中，构成一个结构体。那么有什么是不可以放入其中构成结构体的呢？那就是这个结构体本身！在函数定义中我们见过递归定义，但是结构体是不允许递归定义的。
 \begin{lstlisting}
 struct Data {
     int num;
