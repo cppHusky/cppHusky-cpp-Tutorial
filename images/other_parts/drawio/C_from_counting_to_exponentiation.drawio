@@ -1,0 +1,52 @@
+<mxfile host="Electron" modified="2024-01-05T13:58:15.360Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.16 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="GQ8mtbi9fQ0yw83_rP8Q" version="22.1.16" type="device">
+  <diagram name="Page-1" id="0areRLZVoafg6nOJh6yr">
+    <mxGraphModel dx="558" dy="383" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="usIx3TbKLvzMb5DBsSqO-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#36393d;gradientDirection=east;" parent="1" source="usIx3TbKLvzMb5DBsSqO-1" target="usIx3TbKLvzMb5DBsSqO-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="usIx3TbKLvzMb5DBsSqO-4" value="计数-加法" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="usIx3TbKLvzMb5DBsSqO-3" vertex="1" connectable="0">
+          <mxGeometry x="-0.0741" relative="1" as="geometry">
+            <mxPoint x="-7" y="-15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="usIx3TbKLvzMb5DBsSqO-1" value="a+1+1+1+...+1" style="text;html=1;strokeColor=#b46504;fillColor=#fad7ac;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Comic Sans MS;" parent="1" vertex="1">
+          <mxGeometry x="120" y="190" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="usIx3TbKLvzMb5DBsSqO-2" value="a+n" style="text;html=1;strokeColor=#10739e;fillColor=#b1ddf0;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Comic Sans MS;" parent="1" vertex="1">
+          <mxGeometry x="320" y="190" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="usIx3TbKLvzMb5DBsSqO-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#36393d;gradientDirection=east;" parent="1" source="usIx3TbKLvzMb5DBsSqO-5" target="usIx3TbKLvzMb5DBsSqO-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="usIx3TbKLvzMb5DBsSqO-8" value="加法-乘法" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="usIx3TbKLvzMb5DBsSqO-7" vertex="1" connectable="0">
+          <mxGeometry x="-0.0397" relative="1" as="geometry">
+            <mxPoint x="-9" y="-15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="usIx3TbKLvzMb5DBsSqO-5" value="a+a+a+a+...+a" style="text;html=1;strokeColor=#10739e;fillColor=#b1ddf0;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Comic Sans MS;" parent="1" vertex="1">
+          <mxGeometry x="120" y="250" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="usIx3TbKLvzMb5DBsSqO-6" value="&lt;font&gt;a×n&lt;/font&gt;" style="text;html=1;strokeColor=#ae4132;fillColor=#fad9d5;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Comic Sans MS;" parent="1" vertex="1">
+          <mxGeometry x="320" y="250" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="usIx3TbKLvzMb5DBsSqO-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#36393d;gradientDirection=east;" parent="1" source="usIx3TbKLvzMb5DBsSqO-9" target="usIx3TbKLvzMb5DBsSqO-10" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="usIx3TbKLvzMb5DBsSqO-12" value="乘法-乘方" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="usIx3TbKLvzMb5DBsSqO-11" vertex="1" connectable="0">
+          <mxGeometry x="-0.0224" y="-1" relative="1" as="geometry">
+            <mxPoint x="-9" y="-16" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="usIx3TbKLvzMb5DBsSqO-9" value="&lt;font&gt;a×a×a×a×...×a&lt;/font&gt;" style="text;html=1;strokeColor=#ae4132;fillColor=#fad9d5;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Comic Sans MS;" parent="1" vertex="1">
+          <mxGeometry x="120" y="310" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="usIx3TbKLvzMb5DBsSqO-10" value="&lt;font&gt;a&lt;sup&gt;n&lt;/sup&gt;&lt;/font&gt;" style="text;html=1;strokeColor=#0E8088;fillColor=#B0F9E0;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Comic Sans MS;gradientColor=none;" parent="1" vertex="1">
+          <mxGeometry x="320" y="310" width="120" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

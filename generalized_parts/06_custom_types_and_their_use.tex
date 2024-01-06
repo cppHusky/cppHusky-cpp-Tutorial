@@ -4,7 +4,7 @@
     int n {0x63794b37}; //这是一个16进制字面量，其10进制为1668893495
     cout << (char*)&n; //以字符串形式输出
 \end{lstlisting}
-在某台电脑上，它的输出是\\\noindent\rule{\linewidth}{.2pt}\texttt{
+在某个环境下\footnote{不同环境下给出的结果不尽相同}，它的输出是\\\noindent\rule{\linewidth}{.2pt}\texttt{
 7KycT�\$��
 }\\\noindent\rule{\linewidth}{.2pt}
 为什么把 \lstinline@int*@ 类型转换成 \lstinline@char*@ 类型之后再输出就会得到这么奇怪的内容呢？原因就出在类型上。\par

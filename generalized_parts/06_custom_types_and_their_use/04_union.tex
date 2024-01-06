@@ -1,0 +1,42 @@
+\section{联合体}
+联合体初看上去很像结构体，它们的定义语法极其相似，但是它们是完全不同的事物。
+\begin{lstlisting}
+union ValType {
+    int val_i;
+    long long val_ll;
+    char val_c;
+    double val_d;
+    long double val_ld;
+};
+int main() {
+    cout << sizeof(ValType); //输出8或16，总之不是29或者更大的数
+}
+\end{lstlisting}
+一个结构体会把所有成员分别存储在不同的内存区域中，所以这个类型的内存占用不能小于所有成员的总和。以第2节中定义的 \lstinline@Cuboid@ 类型为例，我们可以用这样一段代码来观察某个对象各成员的地址：
+\begin{lstlisting}
+    Cuboid cub;
+    cout << &cub.length << endl << &cub.width << endl << &cub.height;
+\end{lstlisting}
+下面是一种可能的运行结果：\\\noindent\rule{\linewidth}{.2pt}\texttt{
+0x7ffeea18b070\\
+0x7ffeea18b074\\
+0x7ffeea18b078
+}\\\noindent\rule{\linewidth}{.2pt}\par
+从结果中我们可以看到，\lstinline@cub@ 的三个 \lstinline@int@ 型成员分别在不同的内存空间中，\lstinline@cub.length@ 在 \lstinline@...070@ 到 \lstinline@...073@ 位置，\lstinline@cub.width@ 在 \lstinline@...074@ 到 \lstinline@...077@ 位置，\lstinline@cub.height@ 在 \lstinline@...078@ 到 \lstinline@...07b@ 位置。它们之间没有任何重叠，互不干扰。\par
+但联合体不然，它会把所有成员存储到同一个内存区域中。
+\begin{lstlisting}
+    ValType a;
+    cout << &a.val_i << endl
+        << &a.val_ll << endl
+        << (void*)&a.val_c << endl //记得把char*转成void*输出
+        << &a.val_d << endl
+        << &a.val_ld << endl;
+\end{lstlisting}
+下面是一种可能的运行结果：\\\noindent\rule{\linewidth}{.2pt}\texttt{
+0x7ffc00a4d280\\
+0x7ffc00a4d280\\
+0x7ffc00a4d280\\
+0x7ffc00a4d280\\
+0x7ffc00a4d280
+}\\\noindent\rule{\linewidth}{.2pt}
+这说明联合体的所有成员都在同一个位置存着呢。

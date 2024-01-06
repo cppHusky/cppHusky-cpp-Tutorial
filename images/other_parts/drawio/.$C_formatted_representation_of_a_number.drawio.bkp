@@ -1,0 +1,55 @@
+<mxfile host="Electron" modified="2024-01-06T03:51:38.634Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.16 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="4XhSJfVOhCQ1HcLHhGrk" version="22.1.16" type="device">
+  <diagram name="Page-1" id="aVLdNVKNNCka_2ztBok2">
+    <mxGraphModel dx="326" dy="224" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="WEp3MBYw69HDqie-mkmC-1" value="&lt;font face=&quot;Comic Sans MS&quot;&gt;=&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="310" y="150" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="WEp3MBYw69HDqie-mkmC-2" value="&lt;font face=&quot;Comic Sans MS&quot;&gt;(1a.c3)&lt;sub&gt;16&lt;/sub&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=#fad7ac;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="150" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="WEp3MBYw69HDqie-mkmC-3" value="&lt;font face=&quot;Comic Sans MS&quot;&gt;[1, 10; 12, 3]&lt;sub&gt;16&lt;/sub&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=#b1ddf0;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="330" y="150" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="WEp3MBYw69HDqie-mkmC-4" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="364" y="130" as="sourcePoint" />
+            <mxPoint x="364" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WEp3MBYw69HDqie-mkmC-6" value="个位" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="349" y="110" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="WEp3MBYw69HDqie-mkmC-7" value="十位" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="333" y="190" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="WEp3MBYw69HDqie-mkmC-8" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="348" y="190" as="sourcePoint" />
+            <mxPoint x="348" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WEp3MBYw69HDqie-mkmC-9" value="十分位" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="364" y="190" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="WEp3MBYw69HDqie-mkmC-10" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="384" y="190" as="sourcePoint" />
+            <mxPoint x="384" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WEp3MBYw69HDqie-mkmC-11" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="401" y="130" as="sourcePoint" />
+            <mxPoint x="401" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WEp3MBYw69HDqie-mkmC-13" value="百分位" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="381" y="110" width="40" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
