@@ -75,7 +75,7 @@ C/C++有更好的解决方法，那就是用 \lstinline@name@ 数组内的信息
     \includegraphics[width=\textwidth]{../images/generalized_parts/05_Information_in_the_string_300.png}
     \caption{字符串 \lstinline@name@ 中信息的变化情况}
 \end{figure}
-那么接下来我通过 \lstinline@strcpy@ 把另一个名字复制到 \lstinline@name@ 中，这样做会修改原来字符串的信息。
+那么接下来我通过 \lstinline@strcpy@\footnote{MSVC会默认阻止我们使用 \lstinline@strcpy@ 和 \lstinline@strncpy@ 函数。为了解决这个问题，我们可以更改设置，或直接在源代码的最前面加一行 \texttt{\#define \_CRT\_SECURE\_NO\_WARNINGS 1}。}把另一个名字复制到 \lstinline@name@ 中，这样做会修改原来字符串的信息。
 \begin{lstlisting}
     strcpy(name, "Donald Ervin Knuth");
     //strcpy会把第二个参数中的有效部分复制到第一个参数起的内存空间中
