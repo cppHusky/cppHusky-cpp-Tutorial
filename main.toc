@@ -40,9 +40,11 @@
 \contentsline {section}{\numberline {6.3}实操：用结构体实现单链表}{132}{section.6.3}%
 \contentsline {section}{\numberline {6.4}联合体}{139}{section.6.4}%
 \contentsline {section}{\numberline {6.5}类初步}{144}{section.6.5}%
-\contentsline {part}{精讲篇}{151}{part*.113}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{151}{appendix.A}%
-\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{153}{appendix.B}%
-\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{155}{appendix.C}%
-\contentsline {section}{\numberline {C.1}数制转换}{155}{section.C.1}%
-\contentsline {chapter}{跋}{165}{appendix*.121}%
+\contentsline {chapter}{\numberline {第七章\hspace {.3em}}代码工程}{149}{chapter.7}%
+\contentsline {section}{\numberline {7.1}跨文件编译}{149}{section.7.1}%
+\contentsline {part}{精讲篇}{153}{part*.113}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{153}{appendix.A}%
+\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{155}{appendix.B}%
+\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{157}{appendix.C}%
+\contentsline {section}{\numberline {C.1}数制转换}{157}{section.C.1}%
+\contentsline {chapter}{跋}{167}{appendix*.121}%
