@@ -61,15 +61,15 @@
 在C/C++中，所有的字符串都应当以 \lstinline@'\0'@，也就是ASCII码值为 \lstinline@0@ 的字符结尾。这是我们判断一个字符串有效信息长度的最佳标准。为什么这么说呢？\par
 当我们定义字符串时，因为我们也不确定它的有效信息有多长，所以我们可能要给它比较大的容量。
 \begin{lstlisting}
-    char name[32]; //难免会有名字很长的人，所以容量要大一点
+    char name[33]; //难免会有名字很长的人，所以容量要大一点
 \end{lstlisting}
 但是这里就会存在一个问题：绝大部分情况下，这个字符串真实存储的信息长度肯定很少，比如说``Amy Smith''，这个名字只有9个字符，那么我们就还需要一个类似于 \lstinline@size@ 的变量，来说明 \lstinline@name@ 的有效信息长度。问题在于，这个方法比较浪费空间，我们还需要另外定义变量来存储它的长度；而且也很不方便使用，我们每次传参都要额外加一个变量。\par
 C/C++有更好的解决方法，那就是用 \lstinline@name@ 数组内的信息来表示有效长度！具体的方法是，我们在有效信息的末尾，把下一个字符设置成 \lstinline@'\0'@。这样，无论哪个函数拿到了这个字符串，它只需要从 \lstinline@name[0]@ 开始数一数，看数到哪里 \lstinline@name[i]=='\0'@，那么自然就知道了这个字符串的长度，而不需要用另外的参数来记录了。\par
-举个例子，现在我记录一个名字 \lstinline@"Alexander Alexandrovich Stepanov"@。这个名字碰巧有31个字符（含空格），加上末尾的结束符共有32个。现在我们把它存入 \lstinline@name@ 中。
+举个例子，现在我记录一个名字 \lstinline@"Alexander Alexandrovich Stepanov"@。这个名字碰巧有32个字符（含空格），加上末尾的结束符共有33个。现在我们把它存入 \lstinline@name@ 中。
 \begin{lstlisting}
-    char name[32] {"Alexander Alexandrovich Stepanov"};
+    char name[33] {"Alexander Alexandrovich Stepanov"};
 \end{lstlisting}
-这时它的32个字节全部都是有效信息，如图5.13第一行所示。\par
+这时它的33个字节全部都是有效信息，如图5.13第一行所示。\par
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{../images/generalized_parts/05_Information_in_the_string_300.png}
@@ -134,12 +134,12 @@ int main() { //主函数
 现在我们再来讲讲字符串是如何输入的。\par
 最简单的输入方式莫过于用 \lstinline@cin<<@ 来进行输入。
 \begin{lstlisting}
-    char str[32];
+    char str[33];
     cin >> str; //直接用cin向字符串中输入
 \end{lstlisting}
 但是这样就可能会遇到问题。如果我们要向字符串中输入两个英文名，比如 \lstinline@Bjarne Stroustrup@ 和 \lstinline@Alan Mathison Turing@，我们可能就会遭遇这样的困难：
 \begin{lstlisting}
-    char name1[32], name2[32]; //定义两个字符串用于输入人名
+    char name1[33], name2[33]; //定义两个字符串用于输入人名
     cin >> name1 >> name2; //连续输入两个人名
     cout << name1 << endl << name2; //输出第一个人名，再换行，再输出第二个人名
 \end{lstlisting}
@@ -160,7 +160,7 @@ istream& getline(char_type *s, streamsize count, char_type delim); //重载2
 其中的 \lstinline@s@ 是待输入的字符串，而 \lstinline@count@ 表明这个字符串的容量（不同于 \lstinline@strcpy@，这里必须提供容量参数）。对于第一个重载来说，它的含义就是：读取一整行输入，直到遇到回车符\footnote{回车符会被提取，但不会存入 \lstinline@s@ 字符串中。}，才停止输入；或者是 \lstinline@count@ 长度的字符串容纳不了用户输入的内容量，这时输入也会停止，同时 \lstinline@cin@ 会进入``fail''状态（我们需要用 \lstinline@input_clear@ 来恢复 \lstinline@cin@，并清理输入流）。\par
 接下来我们可以用 \lstinline@getline@ 来输入一些有空格的名字了。程序不会在空格字符处断句，只会在回车字符处断句。\par
 \begin{lstlisting}
-    constexpr unsigned NameLen{ 32 }; //把名称字符串容量设为32，便于统一
+    constexpr unsigned NameLen {33}; //把名称字符串容量设为33，便于统一
     char name1[NameLen], name2[NameLen]; //定义两个字符串用于输入人名
     cin.getline(name1, NameLen).getline(name2, NameLen); //getline可以连续使用
     cout << name1 << endl << name2; //输出第一个人名，再换行，再输出第二个人名

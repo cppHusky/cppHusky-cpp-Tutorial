@@ -122,7 +122,7 @@ void output_cuboid(const Cuboid &cub, ostream &out = {cout}){
 \begin{lstlisting}
 enum Sex : bool{male, female}; //枚举基为bool
 struct PersonalInfo { //一个结构体，表示个人信息
-    char name[32]; //字符串，表示名字
+    char name[33]; //字符串，表示名字
     const Sex sex; //性别一般是不会改变的，所以设置成const
     double height;
     double weight;

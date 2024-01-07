@@ -4,7 +4,7 @@
 
 ### 此项目已经开始！
 
-当前进度：泛讲篇第五章完成。参见[Preview](https://github.com/cppHusky/cppHusky-cpp-Tutorial/releases/tag/preview)。
+当前进度：泛讲篇第六章完成。参见[Preview](https://github.com/cppHusky/cppHusky-cpp-Tutorial/releases/tag/preview)。
 
 我为此规划了一个大致的编章结构，参见[Structure.md](https://github.com/cppHusky/cppHusky-cpp-Tutorial/blob/main/Structure.md)。
 
