@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  7 JAN 2024 21:21
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  8 JAN 2024 18:48
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1352,50 +1352,62 @@ Overfull \hbox (13.86275pt too wide) in paragraph at lines 123--124
 
 [147])) (./generalized_parts/07_projecting.tex [148]
 第七章
-(./generalized_parts/07_projecting/01_separate_compilation.tex) (./generalized_parts/07_projecting/02_scope_and_storage_duration.tex) (./generalized_parts/07_projecting/03_namespace.tex) (./generalized_parts/07_projecting/04_coding_style.tex))) (././intensive_part.tex [149
+(./generalized_parts/07_projecting/01_separate_compilation.tex [149
 
-] [150
+] [150]
+Overfull \hbox (47.09216pt too wide) in paragraph at lines 67--67
+\TU/SimSun(0)/m/n/10 我 们 注 意 到，|  当 包 含 了 \TU/SourceCodePro(0)/m/n/10 Header.h \TU/SimSun(0)/m/n/10 之 后，|  在 \TU/SourceCodePro(0)/m/n/10 Test.cpp \TU/SimSun(0)/m/n/10 中 就 不 需 要 包 含 [][][] 和 [][][][][][][][][][][]了。|
+ []
 
-] [151] [152]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
+File: ./07_projecting/../images/generalized_parts/07_separate_compilation_300.png Graphic file (type bmp)
+<./07_projecting/../images/generalized_parts/07_separate_compilation_300.png>
+[151] [152] [153]
+Overfull \hbox (45.04604pt too wide) in paragraph at lines 172--172
+\TU/SimSun(0)/m/n/10 请 读 者 注 意 各 文 件 之 间 使 用 [][][][][][][][] 的 关 系。|  因 为 在 \TU/SourceCodePro(0)/m/n/10 Definition.cpp \TU/SimSun(0)/m/n/10 中 没 有 使 用 [][][][][][][][][][][]，|
+ []
+
+) (./generalized_parts/07_projecting/02_scope_and_storage_duration.tex) (./generalized_parts/07_projecting/03_namespace.tex) (./generalized_parts/07_projecting/04_coding_style.tex))) (././intensive_part.tex [154] [155
+
+] [156]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
 附录 A
 
 Underfull \hbox (badness 6063) in paragraph at lines 16--16
 [][][]\TU/SimSun(0)/m/n/8.33344 对 于 内 置 类 型 数 组 [][][] 的 下 标 运 算，| [][][][][][] |（和 [][][][][][]）|  都 会 解 析 为 [][][][][][][]
  []
 
-[153
+[157
 
-]) (./other_parts/appendices/B.tex [154]
+]) (./other_parts/appendices/B.tex [158]
 附录 B
-[155
+[159
 
-]) (./other_parts/appendices/C.tex [156]
+]) (./other_parts/appendices/C.tex [160]
 附录 C
 File: appendices/../images/other_parts/C_digital_clock.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_digital_clock.png>
-[157
+[161
 
 ]
 File: appendices/../images/other_parts/C_from_counting_to_exponentiation_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_from_counting_to_exponentiation_300.png>
 File: appendices/../images/other_parts/C_duodecimal_multiplication_table.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_duodecimal_multiplication_table.png>
- [158]
+ [162]
 Underfull \vbox (badness 2753) has occurred while \output is active []
 
- [159] [160]
+ [163] [164]
 File: appendices/../images/other_parts/C_formatted_representation_of_a_number_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_formatted_representation_of_a_number_300.png>
- [161] [162]
+ [165] [166]
 File: appendices/../images/other_parts/C_short_division_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_short_division_300.png>
- [163] [164]
+ [167] [168]
 File: appendices/../images/other_parts/C_bin_to_oct_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_oct_300.png>
- [165]
+ [169]
 File: appendices/../images/other_parts/C_bin_to_hex_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_hex_300.png>
-)) (./other_parts/afterword.tex [166])
+)) (./other_parts/afterword.tex [170])
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1404,7 +1416,7 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [167
+ [171
 
 ]
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1413,7 +1425,7 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [168] (./main.aux)
+ [172] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2022/08/05>
@@ -1422,22 +1434,16 @@ L3 programming layer <2022/08/05>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: DC6BEB0681930F66536DDFBF9EC9C84B;4891
-(rerunfilecheck)             After:  0B942EFB5E4701AAF5BCA8E3954D8AAB;4986.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 0B942EFB5E4701AAF5BCA8E3954D8AAB;4986.
  ) 
 Here is how much of TeX's memory you used:
- 26166 strings out of 474924
- 642629 string characters out of 5765037
+ 26186 strings out of 474924
+ 643801 string characters out of 5765037
  1995189 words of memory out of 5000000
- 47408 multiletter control sequences out of 15000+600000
+ 47421 multiletter control sequences out of 15000+600000
  571813 words of font info for 164 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,17n,111p,1239b,1852s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (174 pages).
+Output written on main.pdf (178 pages).
