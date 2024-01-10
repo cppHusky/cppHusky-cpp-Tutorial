@@ -1,0 +1,208 @@
+\section{作用域、存储期与链接}
+在前面的章节中我们已经介绍过作用域的概念。我曾说，作用域的存在是为了控制变量的生存期，其实这是很片面的见解。更准确的说法是：\textbf{作用域（Scope）}和\textbf{存储类说明符（Storage class specifiers）}二者共同作用，控制一个标识符\footnote{未必是变量，也可以是函数和类等}的\textbf{生存期（Storage Duration）}和\textbf{链接方式（Linkage）}。本节我们就来详细讲讲相关知识。\par
+\subsection*{作用域}
+作用域像是程序中的一片领地或者范围，作用域之间相互嵌套，则有点像是行政区划。一个外层作用域嵌套了若干内层作用域，它对自身和内层作用域都有管辖权。而内层作用域仅仅能管理自己的一亩三分地，对外界没有任何作用。\par
+最外层的作用域叫作\textbf{全局作用域（Global scope）}。我们在全局作用域中定义的类、函数或变量，对所有内层作用域都是可见的\footnote{作用域是针对编译时的概念，这决定了编译器会怎样解释代码。而在运行时，编译器早已解决代码如何解释的问题，因而``作用域''这个概念也就不再需要；而我们讨论作用域时，当然也不需要思考某段代码是如何运行的。}。\par
+当我们声明一个函数时，这个函数就引入了一个\textbf{函数形参作用域（Function parameter scope）}。
+\begin{lstlisting}
+void func1(int a); //a位于函数形参作用域中
+void func2(int a); //这两个a并不相同
+\end{lstlisting}
+函数形参作用域会在分号之后结束。所以一旦离开了这个函数，\lstinline@a@ 就变得不可见了。如果是函数定义的话，那么函数形参作用域会延续到函数定义的末尾。
+\begin{lstlisting}
+constexpr double Pi {3.1415926}; //Pi在全局作用域中
+double circ_area(double r) { //在定义之时，函数形参作用域开始
+    return Pi * r * r; //函数形参作用域延续到函数定义中；全局作用域中的Pi也可见
+}
+\end{lstlisting}\par
+当我们定义一个结构体、共用体或类时，它们就会引入一个\textbf{类作用域（Class scope）}。如果我们在其中定义了别的类或者成员函数，那么它们也会引入新的作用域。\par
+\begin{lstlisting}
+class dynamic { //struct引入一个类作用域，这是较外层的作用域
+    enum Types {integer,floating,string}; //这个枚举不会引入新的作用域，但有些会
+    Types type; //Type成员位于类作用域中
+    union Value { //union引入一个类作用域，这是较内层的作用域
+        long long vll;
+        long double vld;
+        char str[16];
+    }; //Value类的定义结束，作用域随之结束
+    Value value;
+}; //dynamic类的定义结束，作用域随之结束
+\end{lstlisting}
+这是我们在介绍联合体时讲过的例子。这里我们在 \lstinline@struct dynamic@ 内部定义 \lstinline@union Value@ 的写法，就是一种嵌套定义。\par
+定义枚举时，我们可以人为地引入一个\textbf{枚举作用域（Enumeration scope）}——这个取决于我们的需求。有的时候我们希望使用的名字太普遍了，容易出现重名问题，这时我们就可以定义一个\textbf{有作用域枚举（Scoped enumeration）}。
+\begin{lstlisting}
+    enum class Bluetooth : bool {on,off}; //蓝牙是否打开（枚举基为bool）
+    enum class Wifi : bool {on,off}; //Wi=fi是否打开
+    enum struct AirplaneMode : bool {on,off}; //用struct或class，效果相同
+\end{lstlisting}
+以上这些都是有作用域枚举。当需要它们时，我们不能像以往那样直接用 \lstinline@on@/\lstinline@off@ 了——这些 \lstinline@on@ 和 \lstinline@off@ 未必是同一种类型！为了区分，我们需要使用作用域解析运算符 \lstinline@::@ 来操作它们。
+\begin{lstlisting}
+struct Device{
+    //在这里定义Bluetooth等，所以
+    Bluetooth bluetooth = Bluetooth::off; //（出厂设置）
+    Wifi mobilehotspot = Wifi::on; //这里都要用到作用域解析运算符
+    AirplaneMode airplanemode = AirplaneMode::off;
+    };
+\end{lstlisting}
+在老式数据结构的成员中，这样设置默认值是可以的，而且也很简便。但是在类中，我们一般不推荐这么做，而是建议用构造函数来实现数据的初始化。关于这方面的内容，我们会在第八章中介绍。\par
+命名空间也会引入一个\textbf{命名空间作用域（Namespace scope）}。命名空间作用域不像函数作用域那样封闭。只要它不是定义在一些封闭的作用域中，我们就可以使用作用域解析运算符来找到它；或者干脆使用 \lstinline@using@ 把它带到全局作用域中来。这点想必不用我再多作解释了。\par
+而最经典，也是我们最熟悉的作用域，还是要数\textbf{块作用域（Block scope）}了。一对花括号，它们套住若干语句\footnote{也称为复合语句（Compound statement）。实际上，绝不是所有``由花括号套住''的内容都能算作复合语句，比如统一初始化中所用的语法。}，会引入一个块作用域。在这个作用域中定义的名字，无论是变量、类，还是函数\footnote{我们可以在函数内部定义Lambda表达式，这是一种函数对象。我们会在精讲篇中讲到它。}，都只对这个作用域可见。\par
+\lstinline@for@, \lstinline@while@, \lstinline@if@, \lstinline@else@, \lstinline@switch@ 等结构会自带一个块作用域。我们在 \lstinline@for@ 中定义的内容，在紧随其后的执行部分可见，但在执行部分结束后就不可见了。\par
+对于 \lstinline@switch@ 语句来说，我们还有一个注意事项——如果在不同的 \lstinline@case@ 下需要定义局部变量的话，那么直接这样写是会出错的：
+\begin{lstlisting}
+    switch(num) {
+        case 1:
+            int x;
+            //...
+            break;
+        case 2:
+            int x; //错误
+//error: redeclaration of 'int x'
+            //...
+            break;
+    }
+\end{lstlisting}
+我们试图使用 \lstinline@switch@ 语句来实现分支，而在某些 \lstinline@case@ 下我们可能有定义局变变量的需要——这时候我们就会发现有问题——编译器给我们的报错信息是``再次定义了 \lstinline@x@''！\par
+出现这个问题的根本原因在于，\lstinline@case@ 本身只是一个标签，它不会自行引入一个内层作用域。换句话说，如果我们不自行引入一个作用域的话，所有的操作都是在 \lstinline@switch@ 的作用域下进行的，那么出现``再次定义了 \lstinline@x@''这样的报错误息也就不足为怪了！\par
+解决这个问题的方法也很简单，就是人为地引入一个块作用域：
+\begin{lstlisting}
+    switch(num) {
+        case 1:{ //人为地用花括号会引入一个更内层的作用域
+            int x;
+            //...
+            break;
+        }
+        case 2:{ //这样就不会引起冲突了
+            int x;
+            //...
+            break;
+        }
+    }
+\end{lstlisting}\par
+\subsection*{名称查找}
+C++允许我们在不同的作用域中使用相同的名字。毕竟，我们划分命名空间和作用域的一个主要目的正是避免名称冲突。在互不相干的作用域中自然可以使用同样的名字，比如我们定义一些函数时就经常用 \lstinline@a@, \lstinline@b@ 这样的名字。
+\begin{lstlisting}
+template<typename T> //这是一个函数模版
+T max(T a, T b) { return a > b ? a : b; } //在这个作用域中使用a和b
+template<typename T>
+T min(T a, T b) { return a < b ? a : b; } //在另一个作用域中也用a和b
+\end{lstlisting}
+在这里，编译器绝不会搞混这两组 \lstinline@a@ 和 \lstinline@b@。\par
+而在互相嵌套的作用域中，我们也可以使用同样的名字。举个例子吧：很多初学者在熟悉了用 \lstinline@i@ 作为单层 \lstinline@for@ 循环的枚举变量之后，就很容易在多重 \lstinline@for@ 循环中不慎把多个变量都用成 \lstinline@i@。
+\begin{lstlisting}
+    for (int i=0; i < 10; ++i) 
+        for (int i=0; i < 10; ++i) {
+            //某些操作
+        }
+\end{lstlisting}
+但是这样写并不会被编译器报错，反而可以通过编译，继续运行——但具体的运行结果会如何，那就难说了。\par
+其实这是\textbf{名称查找（Name lookup）}的问题。每当我们使用一个名字的时候，编译器都会从此处开始向上查找这个名字的定义。只有找到了这个名字的定义，编译器才能知道这个名字意味着什么（它是变量、还是函数、还是类？什么类型的/接收什么参数/怎么定义的？）。\par
+关于名称查找的规则，简单来说就是一句话：编译器会从这个作用域开始，一步步向外找，直到全局作用域为止，只要找到了一个，编译器就会认为这个名称就是这样定义的；如果没找到，就会认为这个名字没有定义，于是报错。\par
+那么就以上述的双重 \lstinline@for@ 循环为例，如果我们在``某些操作''中使用了 \lstinline@i@（比如说，输出它的值），这时编译器会如何解读呢？它会向上寻找，当找到内层 \lstinline@for@ 循环中的 \lstinline@int i@ 时，编译器就认定这就是它要找的 \lstinline@i@ 的定义。那么这样一来，``某些操作''中使用的 \lstinline@i@ 全都是内层 \lstinline@for@ 循环中定义的那个 \lstinline@i@；而外层 \lstinline@for@ 揗环中定义的那个 \lstinline@i@ 对它毫无影响。\par
+那么接下来请读者做一个练习，以此深化对名称查找的认识，来看这段代码：
+\begin{lstlisting}
+    int a; //(1)
+    int b; //(2)
+    {
+        int c; //(3)
+        {
+            int b; //(4)
+            int c; //(5)
+            cout << c; //(6)
+        }
+        cout << b; //(7)
+        cout << a; //(8)
+        int a; //(9)
+    }
+\end{lstlisting}
+这段代码是编译无误的，所以请读者放心。接下来请问读者：(6)(7)(8)三句中所使用的变量 \lstinline@c@, \lstinline@b@, \lstinline@a@ 分别对应哪个定义？\par
+先来看(6)。我们在(3)和(5)当中都定义了 \lstinline@c@，但编译器只会选择``它第一个遇到的''定义，所以在寻找过程中当然会先找到(5)了。\par
+再来看(7)。我们在(2)和(4)当中都定义了 \lstinline@b@，而且看上去 \lstinline@b@ 离得更近，但是请注意，编译器只会从当前的作用域开始向外找，而当遇到一个内层作用域时就会跳过，所以(4)被自动忽略，编译器将选择(2)。\par
+最后来看(8)。(9)显然和(8)在同一个作用域中，而(1)就要远一层了，所以很多人自然会认为是(9)。但是不要忘记，这些代码的执行是有顺序的！我们不可能先输出 \lstinline@a@ 再定义 \lstinline@a@，所以编译器进行名称查找的方向都是向前面的代码去寻找，而不能向后！所以最终的答案是，编译器向前寻找到了(1)，然后认定它就是这个 \lstinline@a@ 的定义。\par
+这样的名称查找规则也能帮助我们理解``为什么当函数定义写在调用之后时，我们要声明这个函数''。这是因为，编译器在查找这个函数时，只会向前进行查找。所以我们最好把需要定义的那些函数声明在先，这样才能让编译器知道它的存在。\par
+\subsection*{对象（变量）的生存期（存储期）}
+在前面的章节中，我们谈到，当一个作用域结束时，本作用域中定义的对象\footnote{包括变量、自定义类的对象、枚举项、函数对象等。我们已经了解了其中的部分内容。}的存储期也就终止了。这就是一种自动存储期的例子。而有些对象，比如 \lstinline@std@ 命名空间中的 \lstinline@cin@, \lstinline@cout@ 和 \lstinline@endl@ 等，不仅作用域很大，而且存储期很长，不会因为离开哪一个作用域就终止，它们都是静态存储期的。\par
+在C++中，所有的对象都具有以下四种\textbf{存储期（Storage duration）}类型之一：
+\begin{itemize}
+    \item 自动存储期（Automatic storage duration）。这种存储期的对象在定义之时开始分配内存空间\footnote{虽然我们习惯把它叫作静态分配，但是它和下文要提到的``静态存储期''并不是同类概念。}，而在作用域结束时就自动释放（不需要手动，这是它与动态存储期的显著区别）。我们定义的局部变量多为自动存储期变量。
+    \item 静态存储期（Static storage duration）。静态存储期的对象在整个程序运行过程中都存在，它会一直保留下来，直到程序结束时释放。\footnote{静态存储期变量一般存储于图5.1中所示的数据段或BSS段，而自动存储期变量一般存储于栈段，这也是与它们的存储期有关的。至于相关细节，我们就不多说了。}
+    \item 动态存储期（Dynamic storage duration）。动态存储期的对象由动态内存分配运算符（如 \lstinline@new@/\lstinline@new[]@\footnote{\lstinline@new@/\lstinline@delete@ 的确是我们最常用的动态内存分配方式，但它们不是全部。我们还可以使用 \lstinline@malloc@。} 等函数来实现）分配产生，它不受作用域的影响，只有当我们手动回收动态内存空间时，它们才会被销毁；否则可能产生内存泄漏问题。
+    \item 线程存储期（Thread storage duration）。这是C++11标准中添加的新内容。本书不打算讲解有关并发的知识，所以就不介绍线程存储期了。
+\end{itemize}\par
+我们在局部作用域内定义的变量都有自动存储期，除非我们用 \lstinline@static@, \lstinline@extern@ 或 \lstinline@thread_local@ 说明符来指定它的类型。其中 \lstinline@thread_local@ 属于并发相关的知识，本书不介绍；我们稍后就来讲 \lstinline@static@ 和 \lstinline@extern@。\par
+而在全局作用域（或者是隶属于全局作用域下的命名空间，如 \lstinline@std@）中定义的对象，都具有静态存储期\footnote{还可能是线程存储期，但是本书不再深究了。}。\lstinline@std::cin@ 就是一个静态存储期变量，所以我们可以在 \lstinline@input_clear@ 函数中先清理 \lstinline@std::cin@ ，然后再在主函数中继续使用它，没有任何问题！\par
+至于动态存储期的对象，我们只能通过动态内存分配来开始，也只有通过动态内存回收才能终止，所以它的存储期也是在运行时动态改变的，未必能事先预知。
+\begin{lstlisting}
+    if (/*...*/) { //谁能预言这个条件是true还是false呢
+        delete[] arr; //回收，此时arr指向的动态内存存储期结束
+        arr = nullptr; //置空，防止野指针出现
+    }
+\end{lstlisting}
+\subsection*{对象（变量）的链接方式}
+在多文件编译过程中，每个源文件都是一个\textbf{翻译单元（Translation Unit）}。在每个翻译单元中，我们定义了同名的变量，它们是否是``同一个东西''呢？这就涉及到\textbf{链接（Link）}的问题。\par
+链接这个概念解决的是变量重名的问题。对于两个重名变量，编译器会根据链接方式来判断它们是否是同一个东西。C++中的变量有三种链接方式\footnote{C++20起增加了``模块链接''方式，但本书基于的标准是C++17。}：\textbf{无链接（No linkage）}、\textbf{内部链接（Internal linkage）}和\textbf{外部链接（External linkage）}。我们分别简单介绍一下这三者。\par
+无链接的含义是，只要离了这个作用域（或者是重新进入这个作用域），这个名字对应的变量就会被销毁。
+\begin{lstlisting}
+    for (int i = 0; i < 5; i++) {
+        int x {0};
+        ++x;
+        cout << x << ' ';
+    } //将输出1 1 1 1 1
+\end{lstlisting}
+这个很好理解，因为每次循环结束，\lstinline@x@ 的生存期都会终止，于是下一次我们定义的 \lstinline@x@ 还是从 \lstinline@0@ 开始自增一次，进而得到输出 \lstinline@1@。也即，在每次循环中出现的 \lstinline@x@ 彼此之间没有关系。\par
+但是当我把它改成内部链接时，情况就不一样了。
+\begin{lstlisting}
+    for (int i = 0; i < 5; i++) {
+        static int x {0}; //在这里加了一个static说明符
+        x++;
+        cout << x << ' ';
+    } //将输出1 2 3 4 5
+\end{lstlisting}
+我们在这里用到了 \lstinline@static@ 说明符，它起到了两个作用：其一，把 \lstinline@x@ 变成了静态存储期对象；其二，规定了 \lstinline@x@ 是内部链接的——在每次循环中出现的 \lstinline@x@ 彼此是同一个事物！\par
+那么既然每次循环时的 \lstinline@x@ 都是同一个事物，它就应该从 \lstinline@0@ 一路自增到 \lstinline@5@，而不是在每轮循环中都从 \lstinline@0@ 自增到 \lstinline@1@ 然后就销毁了。\par
+在循环体中是如此，在函数和类中也是如此。
+\begin{lstlisting}
+void func() {
+    static unsigned count {0}; //定义一个静态变量count，并初始化为0
+    ++count; //count自增
+    //...
+}
+\end{lstlisting}
+在这个函数中，我们也把 \lstinline@count@ 定义成一个静态存储期对象。这种静态存储期对象的定义语句只会被执行一次；而在此之后，程序每次运行到这里时，都会直接跳过 \lstinline@count@ 的定义。\par
+那么这个 \lstinline@count@ 可以表示什么呢？试想，每次这个函数调用时，程序都会执行 \lstinline@++count@ 这步（前面的定义被跳过），那么 \lstinline@count@ 的值当然就可以用来表示 \lstinline@func@ 函数的执行次数！\par
+但是也请读者注意：用 \lstinline@static@ 改变 \lstinline@x@ 和 \lstinline@count@ 的存储期及链接，并不会改变它的作用域。我们不能在上文的 \lstinline@for@ 循环之外使用 \lstinline@x@ 这个名字，也不能在 \lstinline@func@ 函数之外使用 \lstinline@count@。这方面的特例只有静态成员，如果我们定义一个公有静态成员，那么外界就可以获取它的值。
+对于类也是如此，我们可以在一个类中声明静态成员：
+\begin{lstlisting}
+class A
+    public:
+        static int count; //声明一个静态成员count
+    private:
+        static int num;
+};
+\end{lstlisting}
+这里我们也使用 \lstinline@count@ 这个名字，但它与 \lstinline@func@ 属于两个不同的作用域，所以不会产生任何冲突。\par
+静态成员，无论它的访问权限是什么，都只能在类中声明；静态成员的定义需要写在类定义的外部。
+\begin{lstlisting}
+int A::count {0}; //必须在外部定义
+int A::num {}; //即便是私有成员
+\end{lstlisting}
+在使用静态成员的时候，我们有两种写法。可以用类名搭配作用域解析运算符来写，即 \lstinline@A::count@；或者用对象名搭配成员访问运算符来写，即 \lstinline@a.count@。第一种写法是静态成员所独有的，这是因为，静态成员有单独的存储空间，对于所有对象来说都相同。想想，这不正是内部链接的特点吗——每个对象的 \lstinline@count@ 成员都是同一个事物！\par
+内部链接和外部链接的区别是，内部链接仅仅说明``在本翻译单元内它们是同样的事物''，那么对于不同翻译单元来说呢？别忘了，我们在第一章中讲过跨文件编译，这里起码有两个源文件，也就是起码两个翻译单元\footnote{头文件只是一种代码复用的形式，它并不会影响什么链接作用。我们完全可以不用头文件，直接用多个源文件来搞定那些功能——只是写起来要有很多重复代码，修改也比较麻烦。}，它们之间是什么关系呢？\par
+我们在前文中讲过，我们可以把函数的声明写在某个源文件中，而把定义写在另一个源文件中——它们二者就是``同一个事物''。这正是一种外部链接，不同翻译单元中的同名（且同参数列表）函数对应的是同样的事物。\par
+在全局作用域中声明（定义）的对象是默认为外部链接的，我们也可以使用 \lstinline@extern@ 说明符。
+\begin{lstlisting}
+//1.cpp
+extern int a; //这里的extern不可省略
+//2.cpp
+extern int a {3}; //这里的extern可省略
+\end{lstlisting}
+标记为 \lstinline@extern@ 的对象都是静态存储期对象；但它与 \lstinline@static@ 规定的内部链接不同，\lstinline@extern@ 对象是外部链接的。\par
+\textbf{单一定义规则}要求我们，任何一个类/函数/对象都只能有一个定义。既然这里的 \lstinline@a@ 是外部链接的，那么它们当然是同一个事物，也就只能有一个定义。因而，\lstinline@2.cpp@ 中的是定义，而其它源文件中不应该再有定义。但是，\lstinline@extern@ 也不会改变作用域，我们要想在 \lstinline@1.cpp@ 中使用 \lstinline@a@ 这个变量，就必须要声明。于是我们就要写 \lstinline@extern int a@ 了。\par
+如果我们希望一个全局对象是内部链接的，那么我们可以在定义语句中使用 \lstinline@static@ 说明符。
+\begin{lstlisting}
+//1.cpp
+static int a {-1}; //内部链接
+//2.cpp
+static int a {1}; //这两个a是不同的事物
+\end{lstlisting}
+在这里，不同源文件中的 \lstinline@a@ 各自具有内部链接；但它们没有外部链接，也就意味着它们是两个不同的事物。（读者可以自己尝试设计一个方案，来分别输出这两个 \lstinline@a@ 的地址，作为挑战题）所以我们给这两个 \lstinline@a@ 分别进行定义，这是不违反单一定义规则的。\par

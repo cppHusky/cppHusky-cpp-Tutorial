@@ -59,6 +59,7 @@ struct dynamic { //自定义动态类型
 \end{lstlisting}\par
 我来解释一下这段代码：我们定义了一个 \lstinline@dynamic@ 类，这个类的对象可能以三种状态存在：整型状态，浮点型状态或字符型状态。\lstinline@type@ 是一个枚举类型，它可以用来标记这个对象当前处于何种状态。\par
 而在联合体 \lstinline@Value@ 中，三个成员 \lstinline@vll@, \lstinline@vld@ 和 \lstinline@str@ 分别是整型、浮点型和字符串型。在任何时刻，这个变量只能是这三种类型之一，所以它们不会同时出现，用 \lstinline@union@ 就很合理。\par
+需要读者留意的是，在 \lstinline@dynamic@ 中定义 \lstinline@Value@ 的操作不会直接引入一个什么实体。如果我们不用 \lstinline@Value value@ 这句来定义一个 \lstinline@Value@ 类的对象，那么这个内嵌的定义就没有什么存在感了。\par
 \subsection*{如何使用联合体？}
 那么我们就在主函数中定义一个 \lstinline@dynamic@ 类的对象，并设置它的类型和值。
 \begin{lstlisting}
