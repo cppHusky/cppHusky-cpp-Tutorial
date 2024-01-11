@@ -23,7 +23,7 @@ int main() { //主函数，程序执行始于此
 \end{figure}
 实际上的过程会更复杂，比如在编译之前还会进行预处理（Preprocess）。但是我们现在还不需要操心这么多，因为在按下``编译''键之后，预处理和编译都会进行，所以不妨把它统称为一个过程。\par
 \subsection*{编译器的选择}
-C++的\textbf{编译器（Compiler）}非常丰富。\href{https://en.wikipedia.org/wiki/List_of_compilers#C++_compilers}{List of C++ Compilers-Wikipedia} 条目为我们提供了一个不完全的C++编译器列表。\par
+C++的\textbf{编译器（Compiler）}非常丰富。\href{https://en.wikipedia.org/wiki/List_of_compilers\#C++_compilers}{List of C++ Compilers - Wikipedia} 条目为我们提供了一个不完全的C++编译器列表。\par
 一般我们选择使用Clang、GCC或Visual C++（MSVC），它们都是跨系统的编译器，对语言标准的支持比较好\footnote{Clang和GCC支持C++17以前标准和C++20的大部分标准，而MSVC支持C++20的全部标准和C++23的部分标准。}，许多IDE（如Dev\_C++, Code::Blocks，Visual C++等）也都默认提供这些编译器之一。另外，Coliru和Wandbox等在线编译器也都支持使用Clang和GCC。\par
 同种的编译器也会有版本上的差异。很多古老的版本（如GCC 4.9.4）并不支持新近的语法（如C++17\footnote{C++17是C++委员会制定的一个语言标准，其最终版发布于2017年12月。这也是本书采用的主要语言标准。}）。新版本的编译器往往有很多好用的特性，比如对代码有更好的优化。\footnote{另请注意，最好选择稳定版本的编译器，而非试验性的测试版，以免出现问题带来的麻烦。}\par
 \subsection*{语言标准的选择}

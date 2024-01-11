@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  11 JAN 2024 16:31
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  11 JAN 2024 22:28
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1381,48 +1381,51 @@ Overfull \hbox (0.13913pt too wide) in paragraph at lines 132--132
 []\TU/SimSun(0)/m/n/10 我 们 在 局 部 作 用 域 内 定 义 的 变 量 都 有 自 动 存 储 期，|  除 非 我 们 用 [][][][][]\TU/lmr/m/n/10 , [][][][][] \TU/SimSun(0)/m/n/10 或 [][][][][]
  []
 
-[163] [164]) (./generalized_parts/07_projecting/04_coding_style.tex))) (././intensive_part.tex [165] [166
+[163] [164]) (./generalized_parts/07_projecting/04_coding_style.tex
+File: ./07_projecting/../images/generalized_parts/07_international_obfuscated_c_code_contest_instance.png Graphic file (type bmp)
+<./07_projecting/../images/generalized_parts/07_international_obfuscated_c_code_contest_instance.png>
+ [165] [166] [167] [168] [169]))) (././intensive_part.tex [170] [171
 
-] [167] [168]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
+] [172]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
 附录 A
 
 Underfull \hbox (badness 6063) in paragraph at lines 16--16
 [][][]\TU/SimSun(0)/m/n/8.33344 对 于 内 置 类 型 数 组 [][][] 的 下 标 运 算，| [][][][][][] |（和 [][][][][][]）|  都 会 解 析 为 [][][][][][][]
  []
 
-[169
+[173
 
-]) (./other_parts/appendices/B.tex [170]
+]) (./other_parts/appendices/B.tex [174]
 附录 B
-[171
+[175
 
-]) (./other_parts/appendices/C.tex [172]
+]) (./other_parts/appendices/C.tex [176]
 附录 C
 File: appendices/../images/other_parts/C_digital_clock.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_digital_clock.png>
-[173
+[177
 
 ]
 File: appendices/../images/other_parts/C_from_counting_to_exponentiation_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_from_counting_to_exponentiation_300.png>
 File: appendices/../images/other_parts/C_duodecimal_multiplication_table.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_duodecimal_multiplication_table.png>
- [174]
+ [178]
 Underfull \vbox (badness 2753) has occurred while \output is active []
 
- [175] [176]
+ [179] [180]
 File: appendices/../images/other_parts/C_formatted_representation_of_a_number_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_formatted_representation_of_a_number_300.png>
- [177] [178]
+ [181] [182]
 File: appendices/../images/other_parts/C_short_division_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_short_division_300.png>
- [179] [180]
+ [183] [184]
 File: appendices/../images/other_parts/C_bin_to_oct_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_oct_300.png>
- [181]
+ [185]
 File: appendices/../images/other_parts/C_bin_to_hex_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_hex_300.png>
-)) (./other_parts/afterword.tex [182])
+)) (./other_parts/afterword.tex [186])
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1431,7 +1434,7 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [183
+ [187
 
 ]
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1440,7 +1443,7 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [184] (./main.aux)
+ [188] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2022/08/05>
@@ -1450,15 +1453,15 @@ L3 programming layer <2022/08/05>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 98CCEFD4ABF0AA3B1786DB943ACF42E6;5295.
+(rerunfilecheck)             Checksum: 547C67DB36F7107E2DD14FBAEE2FC771;5295.
  ) 
 Here is how much of TeX's memory you used:
- 26300 strings out of 474924
- 646809 string characters out of 5765037
+ 26327 strings out of 474924
+ 648044 string characters out of 5765037
  1995189 words of memory out of 5000000
- 47534 multiletter control sequences out of 15000+600000
+ 47560 multiletter control sequences out of 15000+600000
  571813 words of font info for 164 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,17n,111p,1239b,1854s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (190 pages).
+Output written on main.pdf (194 pages).
