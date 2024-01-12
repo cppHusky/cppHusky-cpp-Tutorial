@@ -45,9 +45,10 @@
 \contentsline {section}{\numberline {7.2}命名空间}{154}{section.7.2}%
 \contentsline {section}{\numberline {7.3}作用域、存储期和链接}{159}{section.7.3}%
 \contentsline {section}{\numberline {7.4}编码风格}{165}{section.7.4}%
-\contentsline {part}{精讲篇}{173}{part*.124}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{173}{appendix.A}%
-\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{175}{appendix.B}%
-\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{177}{appendix.C}%
-\contentsline {section}{\numberline {C.1}数制转换}{177}{section.C.1}%
-\contentsline {chapter}{跋}{187}{appendix*.132}%
+\contentsline {chapter}{\numberline {第八章\hspace {.3em}}类与函数进阶}{171}{chapter.8}%
+\contentsline {part}{精讲篇}{175}{part*.124}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{175}{appendix.A}%
+\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{177}{appendix.B}%
+\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{179}{appendix.C}%
+\contentsline {section}{\numberline {C.1}数制转换}{179}{section.C.1}%
+\contentsline {chapter}{跋}{189}{appendix*.132}%

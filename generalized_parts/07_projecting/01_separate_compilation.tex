@@ -31,9 +31,10 @@ C++允许，也提倡我们把同一段长代码放在不同文件中，然后�
 using namespace std; //使用命名空间std
 void input_clear(istream& = {cin}); //在声明中就给出默认参数
 \end{lstlisting}
-其中的 \lstinline@#pragma once@ 是另一种预处理指令，它保证这个头文件只被包含一次，而不致违反单一定义规则\footnote{单一定义规则（One definition rule, ODR），即任何变量、函数和自定义类型（包括枚举）在每个翻译单元中都可以有多个声明，但只能有一个定义。}。如果你的编译器不支持这种 \lstinline@#pragma once@ 语法，你也可以这么写：
+其中的 \lstinline@#pragma once@ 是另一种预处理指令，它保证这个头文件只被包含一次，而不致违反单一定义规则\footnote{单一定义规则（One definition rule, ODR），即任何变量、函数和自定义类型（包括枚举）在每个翻译单元中都可以有多个声明，但只能有一个定义。}。较现代的编译器一般支持这种语法；但如果你的编译器不支持 
+\lstinline@#pragma once@，你也可以这么写：
 \begin{lstlisting}
-#ifndef _Header_ //名字随便起
+#ifndef _Header_ //名字随便起，但要防止撞其它的名字
 #define _Header_ 
 //...这里是头文件的代码部分
 #endif //与#ifndef配对
