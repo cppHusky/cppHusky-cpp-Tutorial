@@ -1,0 +1,217 @@
+\section{运算符重载}
+我们在前文中已经用函数的方式来操作链表，进而实现一系列功能。在6.3节中，我们定义了这些函数：
+\begin{itemize}
+    \item \lstinline@insert_after(Data*,int)@ 在某个位置之后插入单个数据。
+    \item \lstinline@delete_after(Data*)@ 删除某个位置之后的单个数据。
+    \item \lstinline@delete_after(Data*,Data*)@ 删除某两个位置之间的数据（左不包含右包含）。
+    \item \lstinline@transfer(Data*,Data*,Data*)@ 进行片段转移，把一个片段之内的数据转移到某个位置之后。
+    \item \lstinline@clear_list(Data*)@ 把某个位置之后的所有动态内存都回收（是一种特殊的删除）。
+    \item 还有一个我们提过但没有写出来的片段插入函数，这个可以通过临时链表再片段转移来实现。
+\end{itemize}
+这些函数的名字都很清楚，让人顾名思义，这也是我们在上一章中推荐的写法。但是在用起来的时候呢，就稍微有点麻烦了。\par
+类似的例子比比皆是，如果我们需要拼接两个 \lstinline@std::string@ 对象，那么我们就需要用到 \lstinline@append@ 成员函数。
+\begin{lstlisting}
+    std::string str {"Bjarne"};
+    str.append(" Stroustrup"); //把字符串" Stroustrup"拼接到str后面
+\end{lstlisting}
+或者是在访问 \lstinline@std::vector@ 对象时用 \lstinline@at@ 成员函数。
+\begin{lstlisting}
+    std::vector<int> arr {1,2,3,4}; //初始化为长度为4的数组
+    std::cout << arr.at(2); //输出3，因为下标是从0开始的，所以2号是第3个数
+\end{lstlisting}
+这样并非不可以，而且也不是特别麻烦——总比不用函数要简便吧。但这样多少会给人一种``生分''的感觉——我们自定义的东西更低一等，它不配用数组那种 \lstinline@[]@ 运算符来访问数据，非得用一个函数 \lstinline@at@ 才行。\par
+C++中允许我们进行\textbf{运算符重载（Operator overloading）}，有了运算符重载之后，我们可以用运算符对自定义类型的对象进行某种操作，就像自定义函数一样。
+\begin{lstlisting}
+    str += " Stroustrup"; //等效于str.append(" Stroustrup");
+    std::cout << arr[2]; //等效于std::cout<<arr.at(2);
+\end{lstlisting}\par
+重载运算符的好处不止于``方便''而已。它还为我们后续的泛型编程提供了可能。试想，无论是普通数组 \lstinline@T[N]@，还是 \lstinline@std::vector@，还是 \lstinline@std::array@，或者是 \lstinline@std::valarray@\footnote{关于 \lstinline@std::array@ 和 \lstinline@std::valarray@，我们会在后文中谈到它们。}，只要它是可以表示``数组''的类型，那么我们就可以用下标运算符 \lstinline@[]@ 来访问其中的单个数据。那么我们就可以不管它具体是什么类型，只要都用下标运算符来操作它就行了（这正是泛型的理念）。
+\begin{lstlisting}
+template<typename T> //T可以是任何一个数组
+void arr_output( //参数过多，所以换行写
+    T arr, //数组
+    std::size_t size, //数组长度，最好用std::size_t类型；用int或unsigned也可
+    const char *delim = ' ' //间隔符，默认用空格符
+    std::ostream &out = std::cout //默认用std::cout来输出
+) {
+    for (int i = 0; i < size; i++) //无需担心，int与std::size_t可以比较大小
+        out << arr[i] << delim; //无论arr是哪种数组，都可以用使用下标访问
+}
+\end{lstlisting}
+因为 \lstinline@std::vector@, \lstinline@std::array@, \lstinline@std::valarray@ 都对下标运算符有重载，所以无论 \lstinline@arr@ 是普通数组，还是上述哪一种数组类型，我们都可以统一使用下标运算符来访问。\par
+那么本节，我就边做边讲，带领读者学习一下运算符重载的基本知识。\par
+\subsection*{实操：\texttt{std::vector}语法糖}
+语法糖是指在编程中使用的某些简便语法，它能让我们写起代码来更方便。引用就是一种语法糖，它的本质是指针。我们实际写代码时就能感受到，使用引用来传参比使用指针要轻松多了。\lstinline@std::istream@ 就重载 \lstinline@>>@ 运算符时，传入的参数就是引用。
+\begin{lstlisting}
+basic_istream& basic_istream::operator>>(int &value);
+//这里它的若干重载之一，其右操作数为int&类型
+\end{lstlisting}
+正因如此我们才可以把输入语句直接写成 \lstinline@std::cin>>num@ 这种传引用的形式。如果要用指针传参的话，我们要写成 \lstinline@std::cin>>&num@ 传地址才对。\par
+\lstinline@std::vector@ 有许多丰富的功能，我们在前文中已经介绍过了。这里我们再为它添加一些语法糖，来简化一些操作，比如 \lstinline@push_back@等。\par
+为了避免类模板的信息干扰读者的思路，我们还是用 \lstinline@using@ 语句来起一个别名，并且显式实例化一下针对 \lstinline@int@ 类型的版本。我们可以在全局作用域中这样写：
+\begin{lstlisting}
+#include <vector> //头文件
+using vecint = std::vector<int>; //类型别名
+\end{lstlisting}
+接下来我们把 \lstinline@vecint@ 当作一个数组类型就行了，它拥有 \lstinline@std::vector@ 的一般特怔，其中存储的数据都是整数。\par
+\subsubsection*{移位运算符的重载}
+\lstinline@vecint@ 允许我们在数组尾部用 \lstinline@push_back@ 成员函数插入新数据，它的声明形式是
+\begin{lstlisting}
+void push_back(const T &value);
+void push_back(T &&value);
+\end{lstlisting}
+第二个重载涉及右值引用，我们暂不讨论，只看第一种即可。\par
+我们可以重载左移位运算符 \lstinline@<<@ 用来表示``添加到后面''\footnote{我们一般表示某种线性数据结构时，习惯上把首元素放在左端，尾元素放在右端，所以添加到后面就是添加到右侧，这是很形象的。}，这样写就好：
+\begin{lstlisting}
+vecint& operator<<(vecint&, int); //声明
+vecint& operator<<(vecint &vec, int num) { //定义，其中的num可以是const
+    vec.push_back(num); //在内部仍然使用push_back成员函数来实现这个功能
+    return vec; //返回值是vec本身
+}
+\end{lstlisting}
+接下来我们如果想要向一个数组 \lstinline@arr@ 中添加数据，就不需要写成 \lstinline@arr.push_back(0)@ 了，直接用 \lstinline@arr<<0@ 即可。\par
+运算符重载的语法很像是函数定义\footnote{在C++中，运算符和函数之间有着密不可分的联系。我们在第二章介绍运算符时就在讲操作数、返回值、副作用，而后在函数中也在讲实参、返回值、副作用。它们虽然不完全相同，但确实很相像。后面我们还会遇到函数对象，它进一步打破了函数与运算符之间的壁垒。}，只是名字不再是那种自定义标识符，而是 \lstinline@operator@ 加一个运算符（在这里是 \lstinline@<<@）的形式。而在其它方面，诸如操作数，返回值，都与函数很相似。\par
+但是，在运算符重载时，参数列表中不能接收任意多个数据。对于一元运算符\footnote{一元运算符（Unary operator），指的是只能接收一个操作数的运算符；下文的二元运算符（Binary operator）指的是能且只能接收两个操作数的运算符。}来说，它必须接收一个参数，不能多不能少；对于二元运算符来说，它必须接收两个参数，不能多不能少。在这里，\lstinline@<<@ 的左操作数是 \lstinline@vecint&@，右操作数是 \lstinline@int@。这里的左操作数要传引用，这是因为我们需要修改 \lstinline@vec@ 的内容；而右操作数不需要修改，所以传值就够了\footnote{一些人会片面地认为，传引用比传值节省内存占用，所以凡是传参必传引用，如果不需要修改就加之以 \lstinline@const@，这是忽略了``传引用的本质是传指针''而形成的偏见。举个例子，在某些环境中，一个指针需要8字节，而一个 \lstinline@int@ 变量只需要4字节，这时传引用不就比传值更浪费内存了吗？}。\par
+至于返回值，这里也有那么一点讲究。其实我们满可以像 \lstinline@push_back@ 本来的定义那样，把返回类型定成 \lstinline@void@。而在这里，定义成 \lstinline@vecint&@ 类型也能提供一种方便，那就是连续使用：
+\begin{lstlisting}
+    arr << 0 << 1 << 2; //连续添加三个数
+//等效于下面的写法
+    arr.push_back(0);
+    arr.push_back(1);
+    arr.push_back(2);
+\end{lstlisting}
+我们可以用运算符结合性的知识来分析一下。左移位运算符的结合性是从左向右，所以这段代码应该解析为 \lstinline@((arr<<0)<<1)<<2@。其中 \lstinline@arr<<0@ 的返回值就是对 \lstinline@arr@ 的引用，它又可以作为新的操作数，与 \lstinline@1@ 作用，然后是与 \lstinline@2@ 作用。以此类推，还可以进一步连续使用。这个语法很像是连续输出。\par
+\subsubsection*{自增/自减运算符的重载}
+\lstinline@vecint@ 允许我们使用 \lstinline@pop_back@ 函数来删除数组的最后一个元素。它的声明形式是
+\begin{lstlisting}
+void pop_back();
+\end{lstlisting}\par
+我们可以重载后缀自减运算符 \lstinline@--@ 用来表示``删除最后面的数''。不过这里涉及到一个问题——前缀自增/自减运算符和后缀自增/自减运算符都可以重载，那么怎么区分它们呢？\par
+C++中规定，如果我们要重载前缀自增/自减运算符，那么按照一般形式来写就好。如果我们要重载后缀自增运算符，就需要在参数列表中添加一个不具名的 \lstinline@int@ 形参。这个形参不需要起到什么实质作用，它只是为了区分不同的定义方式。如果我们要重载后缀自减运算符的话，就应该这样写：
+\begin{lstlisting}
+vecint operator--(vecint&, int); //声明后缀自减
+//如果声明前缀自减，参数列表应为(vecint&)
+vecint operator--(vecint &vec, int) { //第二个参数没有作用，所以不需要名字
+    vec.pop_back(); //在内部仍然使用pop_back成员函数来实现这个功能
+    return vec;
+}
+\end{lstlisting}
+接下来我们就可以直接用后缀自减来替代 \lstinline@pop_back@ 成员函数了。
+\begin{lstlisting}
+    vecint arr {1,2,3,4};
+    arr--; //删除末尾数据
+    std::cout << arr.back(); //back()用于输出末尾元素，这里将输出3
+\end{lstlisting}\par
+这里的返回类型是 \lstinline@vecint@，而不是 \lstinline@vecint&@，所以我们不能用它来进行连续删除。读者可能会好奇：难道这里的返回值不能设为引用形式？\par
+并非如此。对于重载运算符的返回值，C++没有任何限制；但是在习惯上，我不倾向于把后缀自增/自减运算符的返回值设为引用——这是因为，C++内置类型的后缀自增/自减本来就不可以连续使用。
+\begin{lstlisting}
+    int num;
+    ++++num; //允许
+    num++++; //不允许
+//error: lvalue required as increment operand
+\end{lstlisting}\par
+还记得吗？对于内置类型来说，前缀自增/自减返回的是处理后的结果，而后缀自增/自减返回的是处理前的结果——这个处理前的结果是一个临时变量，不能按引用返回，只能按值返回。虽然我们自己重载的运算符没有这个问题，但是鉴于人们通常不用连续后缀自增/自减，所以我也不这么重载。如果读者喜欢这么用，当然也可以这样重载：
+\begin{lstlisting}
+vecint& operator--(vecint&, int); //声明后缀自减，它返回引用
+vecint& operator--(vecint &vec, int) {
+    vec.pop_back();
+    return vec;
+}
+\end{lstlisting}\par
+读者可能还有另外一个困惑：既然不允许后缀自减连续使用，那么我们何不重载前缀自减来实现这个功能呢？\par
+当然可以！不过这样就可能会产生理解上的障碍，让人以为——前缀自减运算符是在删除最前面的数据\footnote{前面的注释中也提过，在线性数据结构中，我们一般把首位元素写在左边，所以前置自减运算符很容易让人想到是在操作最前面的数。}。运算符不同于函数，函数可以用名字来表达完整、明确的信息，比如 \lstinline@pop_back@。这样写固然比使用运算符要麻烦，但它不会带来理解错误啊！\par
+运算符虽然用起来方便，但它能为程序员表达的信息实在太少，所以程序员对运算符的理解，很大程度上要依赖我们在这门语言中的``约定成俗''。因此呢，\textbf{我们在重载运算符时，虽然可以想怎么写就怎么写，但还是要尽量让一个运算符的含义看上去容易理解，不易产生歧义才行}。\par
+\subsubsection*{解引用运算符的重载}
+\lstinline@vecint@ 的 \lstinline@size@ 成员函数也很常用，我们也考虑重载一个运算符来表达它。
+\begin{lstlisting}
+size_type size() const noexcept;
+\end{lstlisting}
+这里的 \lstinline@size_type@ 一般是指 \lstinline@std::size_t@ 类型，它是 \lstinline@vecint@ 的``成员别名''。它是最合乎C++标准的``大小''类型，很多关于大小的数据，比如此处的 \lstinline@vec.size()@ 或者是我们熟知的 \lstinline@sizeof@，其实都是 \lstinline@std::size_t@ 类型的。读者可以用 \lstinline@std::is_same@ 检验之。
+\begin{lstlisting}
+    using std::cout, std::endl;
+cout << std::is_same<decltype(sizeof(0)), std::size_t>::value << endl;
+cout << std::is_same<vecint::size_type, std::size_t>::value << endl;
+\end{lstlisting}\par
+言归正传。要选取哪个运算符呢？我们有以下考虑因素：
+\begin{enumerate}
+    \item 它必须是一个单目运算符。毕竟 \lstinline@size@ 函数不需要接收什么参数，所以这个运算符不再需要别的操作数，只需要一个操作数，也就是``需要求哪个 \lstinline@vecint@ 对象的 \lstinline@size@''。
+    \item 它尽量能表达出 \lstinline@size@ 这个意思来。但是很可惜，附录A表中没有哪个运算符非常中我们的意，所以我们需要略微调低一下这一条的优先级。
+    \item 它的本意不要和我们的预期相差太远。否则的话，被误解的几率会成倍增加。比如说，取反运算符 \lstinline@~@ 一般被当作取反或析构来用，很少被用在其它地方，所以它就不适合表示 \lstinline@size@。
+\end{enumerate}
+最后思索再三，我选择了取内容运算符 \lstinline@*@。读者或许会困惑：这难道不是最容易被误会的吗？如果取内容运算符被用来表达 \lstinline@size@，那么我们要怎么用指针方法来表达数组的每个单元\footnote{对于数组来说，下标表达 \lstinline@a[i]@ 会被解释成 \lstinline@*(a+i)@。}？\par
+其实，指针形式的表达只对普通数组有效。普通数组的数组名本身就可以隐式类型转换为指针，所以我们可以用取内容运算符来访问它。而 \lstinline@vecint@ 的对象不可以转换为指针类型，所以我们自然也没有用 \lstinline@*@ 来访问其数据的道理。此外，STL为了解决这方面的不统一，引入了``迭代器''\footnote{我们会在第十一章和精讲篇中介绍迭代器的具体细节。}的概念，因此取内容都是对迭代器来操作的，而不是对容器。\par
+总之，取内容运算符已经尽可能满足了我们的上述要求，所以我们就选择它好了。
+\begin{lstlisting}
+std::size_t operator*(const vecint&); //声明
+std::size_t operator*(const vecint &vec) {
+    return vec.size();
+}
+\end{lstlisting}
+这里的 \lstinline@std::size_t@ 也可以换成 \lstinline@unsigned@ 或者 \lstinline@unsigned long long@，反正它们都可以互相进行类型转换。\par
+然后我们就可以直接使用它了。
+\begin{lstlisting}
+    vecint arr {1,2,3};
+    std::cout << *arr;
+\end{lstlisting}\par
+注意在定义 \lstinline@operator*@ 时我们用的就是 \lstinline@const vecint&@ 类型的参数了，这是为了避免拷贝内部数据造成时间/空间浪费，并且我们又有防止误修改实参的需要。关于拷贝的问题，我们之后再谈。\par
+\subsection*{重载中的代码重用}
+C++已经为 \lstinline@vecint@ 重载了六种比较运算符，用于进行字典序\footnote{字典序（Lexicographic order），是指按照单词首字母顺序在字典中进行排序的方法。在英文字典中，排列单词的顺序是先按照第一个字母以升序排列（a, b, c, ..., z）；如果第一个字母一样，那么比较第二个、第三个乃至后面的字母。如果比到最后两个单词不一样长，那么把短者排在前。在编程意义上，我们可以人为给定一个字母表及顺序，这样就可以排成字典序了。比如说$(1,3,5)$就排在$(3,1,5)$之前，这是只比较两者的首``字母''就可以判断出来的。}比较。如果对象 \lstinline@arr1@ 在字典序上应排于对象 \lstinline@arr2@ 之前，那么 \lstinline@arr1<arr2@ 的返回值就是 \lstinline@true@。
+\begin{lstlisting}
+    vecint arr1 {1,3,5}, arr2 {3,1,5};
+    std::cout << (arr1 < arr2); //输出1
+\end{lstlisting}
+鉴于C++标准中已经实现了这个功能，我们没必要自己实现一遍。我懒得查标准库的代码，所以就让ChatGPT为我们提供了一种可能的定义方式：
+\begin{lstlisting}
+//此代码仅供观赏，不要把它添加到源代码中，否则就是重复定义了
+template<typename T>
+bool operator<(const std::vector<T>& a, const std::vector<T>& b) {
+    return std::lexicographical_compare(a.begin(), a.end(), b.begin(), b.end());
+}
+\end{lstlisting}\par
+其中的 \lstinline@std::lexicographical_compare@ 是一个 \lstinline@algorithm@ 库中的算法，可以用来对两段数据进行字典序比较。这就是一种代码重用的方式，我们只需要套现成的功能来实现我们的目的就足够了。\par
+我们还可以进一步代码重用，并以此来重载其它五个比较运算符。试想，如何用小于号来表示 \lstinline@a>b@呢？其实就是 \lstinline@b<a@ 嘛。
+\begin{lstlisting}
+//同上，此代码仅供观赏。下同
+template<typename T>
+bool operator>(const std::vector<T>& a, const std::vector<T>& b) {
+    return b<a; //a>b就是b<a，这俩一样
+}
+\end{lstlisting}
+同样的道理，\lstinline@a<=b@ 其实就是 \lstinline@!(b<a)@；\lstinline@a>=b@ 其实就是 \lstinline@!(a<b)@；\lstinline@a!=b@ 其实就是 \lstinline@a<b||b<a@；\lstinline@a==b@ 其实就是 \lstinline@!(a<b||b<a)@。所以剩下四个都可以仿照此理来定义出来，所有的比较都可以靠小于号来定义，不需要重复写 \lstinline@std::lexicographical_compare@ 的代码，很简洁。
+\begin{lstlisting}
+template<typename T>
+bool operator<=(const std::vector<T>& a, const std::vector<T>& b) {
+    return !(b<a);
+}
+template<typename T>
+bool operator>=const std::vector<T>& a, const std::vector<T>& b) {
+    return !(a<b);
+}
+template<typename T>
+bool operator!=(const std::vector<T>& a, const std::vector<T>& b) {
+    return a<b||b<a;
+}
+template<typename T>
+bool operator==(const std::vector<T>& a, const std::vector<T>& b) {
+    return !(a<b||b<a);
+}
+\end{lstlisting}\par
+\subsection*{运算符重载的一些规则}
+讲了一些比较基础的例子之后，我们最后来解读一下运算符重载的常见规则。这些内容摘自\href{https://zh.cppreference.com/w/cpp/language/operators}{运算符重载 - cppreference}：\par
+\begin{itemize}
+    \item 有些运算符是不允许重载的：作用域解析运算符 \lstinline@::@ 、成员访问运算符 \lstinline@.@ 、成员指针访问运算符 \lstinline@.*@ 、条件运算符 \lstinline@? :@ ，以及 \lstinline@sizeof@ 等。附录A中都有所介绍。\\——毕竟，有些东西还是要保留其本意的，不然就会出现很大的麻烦。C++已经给了我们足够的余裕，剩下的运算符都可以无条件重载，或是在有限条件下重载。
+    \item 不能创建新的运算符，也即附录A之外的运算符，比如 \lstinline@$@, \lstinline@**@\footnote{在有些情况下，我们可能连用某个一元运算符，比如对于二阶指针写成 \lstinline@**pp@。但这不意味着我们是在``使用 \lstinline@**@ 运算符''；这其实应该叫作``两次使用 \lstinline@*@ 运算符''！}, \lstinline@<>@。\\——这更容易理解，因为我们是在``重载''运算符，当然就是重新定义已经存在的运算符，而不是自行开发新的。
+    \item 运算符的优先级、结合性和操作数的数量不会发生变化。\\——当然，不然编译器就不知道如何理解代码了。这些属于运算符本来的特怔既不会变化，也不应该变化。
+    \item 有些运算符的重载受到限制，它们只能作为成员函数来定义，不能作为非成员函数来定义。\\——到此为止我们都在定义非成员函数，这主要是因为我们不能撬开 \lstinline@vecint@ 的定义来修改它（这也是封装的优点）。在后文中，我们会自己试着写一个简易的 \lstinline@valarray@ 类，这样就可以定义成员函数了。
+    \item 重载的运算符 \lstinline@->@ 必须要么返回裸指针，要么（按引用或值）返回同样重载了运算符 \lstinline@->@ 的对象。
+    \item 重载的运算符 \lstinline@&&@ 与 \lstinline@||@ 在使用时不会再有短路求值特性。\\——这也好理解，毕竟重载之候它就不一定实现与原来相同的功能了，所以短路求值作为一个``针对原本目的而做的优化''就没有必要，更不应该保留了。
+\end{itemize}\par
+这些规则可能看上去比较乱，读者未必现在就能理解。没关系，等你经验丰富了之后就自然会掌握了。\par
+至于本节中定义的那些语法糖，它们主要是作为教学目的出现的，而且也不是很规范，所以往后我们就不会再用了。如果读者还想试试这些语法糖的效果，可以跑一下这段代码：
+\begin{lstlisting}
+    vecint arr; //定义arr，默认为空数组
+    arr << 1 << 3 << 5 << 7; //依次向其中填入1, 3, 5, 7
+    for (int i = 0; i < *arr; i++) { 通过arr的size来确定循环范围
+        std::cout << arr[i] << ' ';
+    }
+\end{lstlisting}\par

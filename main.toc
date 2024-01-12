@@ -5,7 +5,7 @@
 \contentsline {section}{\numberline {1.2}数据与信息}{6}{section.1.2}%
 \contentsline {section}{\numberline {1.3}数据的定义和使用}{8}{section.1.3}%
 \contentsline {section}{\numberline {1.4}运算符与类型}{11}{section.1.4}%
-\contentsline {section}{\numberline {1.5}\texttt {sizeof} 与内存空间}{13}{section.1.5}%
+\contentsline {section}{\numberline {1.5}\texttt {sizeof}与内存空间}{13}{section.1.5}%
 \contentsline {section}{\numberline {1.6}类与对象}{16}{section.1.6}%
 \contentsline {chapter}{\numberline {第二章\hspace {.3em}}数据的基本操作}{19}{chapter.2}%
 \contentsline {section}{\numberline {2.1}赋值语句与常量}{19}{section.2.1}%
@@ -35,20 +35,22 @@
 \contentsline {section}{\numberline {5.6}指针与数组的复合类型}{112}{section.5.6}%
 \contentsline {section}{\numberline {5.7}动态内存分配}{120}{section.5.7}%
 \contentsline {chapter}{\numberline {第六章\hspace {.3em}}自定义类型及其使用}{125}{chapter.6}%
-\contentsline {section}{\numberline {6.1}枚举常量}{125}{section.6.1}%
-\contentsline {section}{\numberline {6.2}结构体}{127}{section.6.2}%
+\contentsline {section}{\numberline {6.1}枚举常量\texttt {enum}}{125}{section.6.1}%
+\contentsline {section}{\numberline {6.2}结构体\texttt {struct}}{127}{section.6.2}%
 \contentsline {section}{\numberline {6.3}实操：用结构体实现单链表}{132}{section.6.3}%
-\contentsline {section}{\numberline {6.4}联合体}{139}{section.6.4}%
-\contentsline {section}{\numberline {6.5}类初步}{144}{section.6.5}%
+\contentsline {section}{\numberline {6.4}联合体\texttt {union}}{139}{section.6.4}%
+\contentsline {section}{\numberline {6.5}类\texttt {class}初步}{144}{section.6.5}%
 \contentsline {chapter}{\numberline {第七章\hspace {.3em}}代码工程}{149}{chapter.7}%
 \contentsline {section}{\numberline {7.1}跨文件编译}{149}{section.7.1}%
 \contentsline {section}{\numberline {7.2}命名空间}{154}{section.7.2}%
 \contentsline {section}{\numberline {7.3}作用域、存储期和链接}{159}{section.7.3}%
 \contentsline {section}{\numberline {7.4}编码风格}{165}{section.7.4}%
 \contentsline {chapter}{\numberline {第八章\hspace {.3em}}类与函数进阶}{171}{chapter.8}%
-\contentsline {part}{精讲篇}{175}{part*.124}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{175}{appendix.A}%
-\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{177}{appendix.B}%
-\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{179}{appendix.C}%
-\contentsline {section}{\numberline {C.1}数制转换}{179}{section.C.1}%
-\contentsline {chapter}{跋}{189}{appendix*.132}%
+\contentsline {section}{\numberline {8.1}运算符重载}{171}{section.8.1}%
+\contentsline {section}{\numberline {8.2}友元函数}{177}{section.8.2}%
+\contentsline {part}{精讲篇}{181}{part*.130}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{181}{appendix.A}%
+\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{183}{appendix.B}%
+\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{185}{appendix.C}%
+\contentsline {section}{\numberline {C.1}数制转换}{185}{section.C.1}%
+\contentsline {chapter}{跋}{195}{appendix*.138}%

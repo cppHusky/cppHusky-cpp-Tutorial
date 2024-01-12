@@ -17,7 +17,7 @@
 \cline{2-3}\cline{5-5}
 & \lstinline@obj.member@ & 成员访问 &  & 不可重载\\
 \cline{2-3}\cline{5-5}
-& \multirow{3}{*}{\lstinline@p_obj->member@} & \multirow{3}{*}{指针的成员访问} &  & 返回类型受限\footnote{返回类型必须是裸指针或对象。返回对象时，可以按值或按引用传递参数。}\\
+& \multirow{3}{*}{\lstinline@p_obj->member@} & \multirow{3}{*}{指针的成员访问} &  & 返回类型受限\footnote{返回类型必须是裸指针或对象。返回对象时，必须返回同样重载了运算符 \lstinline@->@ 的对象。}\\
 &  &  &  & 只能是成员函数\\
 &  &  &  & 不能是静态函数\\
 \hline

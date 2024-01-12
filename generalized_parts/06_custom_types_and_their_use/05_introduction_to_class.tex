@@ -1,4 +1,4 @@
-\section{类初步}
+\section{类\texttt{class}初步}
 {\large ``一个设计良好的类能为用户提供简洁易用的接口\footnote{接口（Interface），在信息技术中指能将不同部件连接起来的媒介。通过接口，不同部件之可以进行信息交换。例如，笔记本电脑有USB接口，如果手机通过数据线连到这个接口上，那么笔记本电脑就可以和手机交换信息。}，并将其内部结构隐藏起来，用户根本不必了解其内部结构。如果内部结构不应该被隐藏——例如，因为用户需要随意改变类中的任何数据成员——你可以把这种类认为是`普通的老式数据结构'。''\footnote{原文：A well-designed class presents a clean and simple interface to its users, hiding its representation and saving its users from having to know about that representation. If the representation shouldn't be hidden - say, because users should be able to change any data member any way they like - you can think of that class as `just a plain old data structure'.}}
 \begin{flushright}——比雅尼·斯特劳斯特鲁普\end{flushright}\par
 我们在第二节中所介绍的结构体更接近于C风格。它只能实现``把多个数据包装到一个对象中''的功能。而在使用时，我们可以任意地改变它的成员变量。这样做的好处是方便，简单，直接。如果我们要写一个结构体来管理单链表，我们完全可以这样写：
@@ -99,15 +99,15 @@ private:
     str2.assign("Bjarne Stroustrup"); //由str2调用assign
 \end{lstlisting}
 在 \lstinline@str2@ 调用 \lstinline@assign@ 的时候，程序会把 \lstinline@"Bjarne Stroustrup"@ 作为 \lstinline@const char*@ 数据传给 \lstinline@assign@ 函数\footnote{实际被传递的还有 \lstinline@&str2@，作为隐藏参数 \lstinline@this@ 传递。详见第八章。}。在函数调用期间，\lstinline@strncpy@ 会改变私有成员 \lstinline@_str@ 的内容，而 \lstinline@strlen@ 会计算 \lstinline@_str@ 的有效长度并以此改变 \lstinline@_length@。\par
-初学者，尤其是从C语言过渡到C++的学习者，往往会觉得 \lstinline@class@ 这种设置访问权限的写法实在是太麻烦了，还不如 \lstinline@struct@ 那样一切默认用 \lstinline@public@ 的方法好。
-\subsection*{\lstinline@vector@ 简介与示例}
+初学者，尤其是从C语言过渡到C++的学习者，往往会觉得 \lstinline@class@ 这种设置访问权限的写法实在是太麻烦了，还不如 \lstinline@struct@ 那样一切默认用 \lstinline@public@ 的方法好。这种想法对于小规模的工程来说还好，但是对于大规模的工程来说，如果没有成员函数加以封装，没有私有访问权限加以保护，那么我们很容易在复杂的工程中写很多冗余代码，或者是犯一些低级错误。这就像是我们用函数——我们当然可以不用函数，但用了函数能让我们的生活更轻松；或者像是我们用 \lstinline@const@——我们当然可以不用 \lstinline@const@，只要你能确保自己写代码时不犯误修改某个值的错误。但是我们还是会选择用它们，也会选择用 \lstinline@class@ 代替 \lstinline@struct@，道理也是一样的。等到读者有了更多的编码经验之后，想必也会体会到这一点。\par
+\subsection*{\texttt{vector}简介与示例}
 C++中有一个动态数组类模版 \lstinline@vector@，它定义在头文件 \lstinline@vector@ 中，是STL的一部分。我们暂时不讲STL，但可以以它为例，讲一下类的成员函数的应用。
-它是一个类模版，我们需要指定具体的类型，比如 \lstinline@int@ 或者 \lstinline@double@，从而让它变为一个类实例。为了避免过多的无关信息，我们直接这么写吧：
+它是一个类模版，我们需要指定具体的类型，比如 \lstinline@int@ 或者 \lstinline@double@，从而让它变为一个类实例。为了避免过多无关信息干扰读者的思路，我们直接这么写吧：
 \begin{lstlisting}
 #include <vector> //包含头文件vector
 using vecint = vector<int>; //vecint相当于vector<int>类的别名
 \end{lstlisting}
-接下来我们可以直接用 \lstinline@vecint@ 作为 \lstinline@vector<int>@ 类的别名，所以 \lstinline@vecint@ 就是一个类型——这样理解就好。\par
+接下来我们可以直接用 \lstinline@vecint@ 作为 \lstinline@vector<int>@ 类的别名，所以 \lstinline@vecint@ 就成了一个类型。这样理解就好。\par
 \lstinline@vecint@ 有一个成员函数 \lstinline@push_back@，它允许我们每次向这个动态数组中添加一个元素；还有一个成员函数 \lstinline@size@，它的返回值是当前数组的有效数字个数。
 \begin{lstlisting}
     vecint v; //定义一个v，这时它的有效数字个数为0
@@ -146,3 +146,4 @@ using vecint = vector<int>; //vecint相当于vector<int>类的别名
 \end{lstlisting}\par
 这些功能看上去让人眼花瞭乱，但它们的思路都不难想，我们有了一定的基础之后也可以自己写一个低配版的 \lstinline@vecint@ 出来。在后面的章节中我们会实操一些相关方面的内容，比如实现 \lstinline@vector@, \lstinline@valarray@, \lstinline@string@ 和 \lstinline@stack@ 等——看上去很吓人，但实际上没有那么难。当读者把这些代码的构建全部练过一遍之后，读者对C++的理解想必会更上一层楼。\par
 不过莫急，我们先插叙一章，来讲讲代码工程的相关知识。\par
+34

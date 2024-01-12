@@ -26,8 +26,9 @@
         std::cout << arr[i].member;
 \end{lstlisting}
 注意这里的 \lstinline@std::cout@ 和 \lstinline@arr[i].member@ 之间没有空格，其实也可以有。我的理解是：这里不需要空格，因为它们是用来表示同一个事物的，所以不需要用空格来区分开。读者当然也可以有自己的理解，并逐渐形成自己的风格，只要它易读就好了。\par
-对于缩进和换行来说，不同代码风格的习惯更是迵异——不过大体原则还是相似的，无非是在花括号是否换行、标签是否不缩进等细节上有出入。
-一般我们默认，在逻辑上有附属关系的语句之间最好加一层缩进。例如说 \lstinline@if@ 语句的作用域内，就要加一层缩进。
+对于缩进和换行来说，不同代码风格的习惯更是迵异——不过大体原则还是相似的，无非是在花括号是否换行、标签是否不缩进等细节上有出入。\par
+斯特劳斯特鲁普在自己的文章\footnote{\href{https://www.stroustrup.com/Programming/PPP-style.pdf}{\textit{PPP Style Guide} - Bjrane Stroustrup}}中简单介绍了一种C++编码风格，它是对K\&R风格\footnote{K\&R风格（Kernighan \& Ritchie Style, K\&R style）是一种常见于C/C++等花括号编程语言的风格，其核心特点在于：首尾花括号与引出花括号的语句保持相同缩进，而花括号内的语句增加一层缩进。}的变体。本书也推荐读者学习和使用这种``斯特劳斯特鲁普变体''\footnote{至于其它的常见编码风格，\href{https://en.wikipedia.org/wiki/Indentation_style\#Brace_placement_in_compound_statements}{Brace placement in compound statements - Wikipedia} 列表中有所介绍。读者也可以挑选一种合自己心意的来使用。}。接下来对它作简要介绍；如果读者希望了解更多，可以去阅读他的文章。\par
+一般我们会对逻辑上有附属关系的语句加一层缩进。例如说 \lstinline@if@ 语句的作用域内，就要加一层缩进。
 \begin{lstlisting}
 if (a > 0)
     std::cout << "Positive";
@@ -36,7 +37,7 @@ else if (a < 0)
 else
     std::cout << "Zero";
 \end{lstlisting}
-其它诸如 \lstinline@for@, \lstinline@while@, \lstinline@switch@ 等结构，以及函数定义、类定义等也是如此。至于花括号在什么位置，它要不要独占一行，又怎么缩进，那就是一个人一个风格了\footnote{\href{https://en.wikipedia.org/wiki/Indentation_style\#Brace_placement_in_compound_statements}{Brace placement in compound statements - Wikipedia} 列表中为我们展示了几种常见的花括号风格。读者可以挑选一种合自己口味的来用。}。\par
+其它诸如 \lstinline@for@, \lstinline@while@, \lstinline@switch@ 等结构，以及函数定义、类定义等也是如此。\par
 再比如，在初始化数组的时候，假如初始化内容非常冗长，我们也可以换行加适当缩进。
 \begin{lstlisting}
 struct Data {
@@ -62,7 +63,8 @@ if (ch > 'a' && ch < 'z' || ch > 'A' && ch < 'Z' || ch > '0' && ch < '9') {
 //适当换行+缩进
 if (ch > 'a' && ch < 'z'
     || ch > 'A' && ch < 'Z'
-    || ch > '0' && ch < '9'){
+    || ch > '0' && ch < '9'
+){
         //...
 }
 \end{lstlisting}
