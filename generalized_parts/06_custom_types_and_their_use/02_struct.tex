@@ -73,7 +73,7 @@ struct Cuboid; //声明Cuboid类型
 结构体把数据包装得更好，这样我们就可以把它作为一个完整的单元，传给函数作为参数，或者是作为函数的返回值。举个例子，我们要写一个 \lstinline@rotate_horizontal@ 函数，来水平方向旋转这个长方体，把长度和宽度颠倒过来。
 \begin{lstlisting}
 void rotate_horizontal(Cuboid &cub) { //引用传递
-    swap(cub.length, cub.width); //调用标准库中的swap函数，可能需要utility库
+    swap(cub.length, cub.width); //调用标准库中的swap函数，注意需要utility库
 }
 \end{lstlisting}
 在这里我们可以直接对 \lstinline@cub.length@ 和 \lstinline@cub.weight@ 成员进行交换，因为是引用传参，所以这样就可以直接修改传入的实参。\par

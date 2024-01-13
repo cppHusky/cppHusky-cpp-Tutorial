@@ -47,10 +47,11 @@
 \contentsline {section}{\numberline {7.4}编码风格}{165}{section.7.4}%
 \contentsline {chapter}{\numberline {第八章\hspace {.3em}}类与函数进阶}{171}{chapter.8}%
 \contentsline {section}{\numberline {8.1}运算符重载}{171}{section.8.1}%
-\contentsline {section}{\numberline {8.2}友元函数}{177}{section.8.2}%
-\contentsline {part}{精讲篇}{181}{part*.130}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{181}{appendix.A}%
-\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{183}{appendix.B}%
-\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{185}{appendix.C}%
-\contentsline {section}{\numberline {C.1}数制转换}{185}{section.C.1}%
-\contentsline {chapter}{跋}{195}{appendix*.138}%
+\contentsline {section}{\numberline {8.2}成员函数与友元函数}{178}{section.8.2}%
+\contentsline {section}{\numberline {8.3}构造与析构}{186}{section.8.3}%
+\contentsline {part}{精讲篇}{189}{part*.137}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{189}{appendix.A}%
+\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{191}{appendix.B}%
+\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{193}{appendix.C}%
+\contentsline {section}{\numberline {C.1}数制转换}{193}{section.C.1}%
+\contentsline {chapter}{跋}{203}{appendix*.145}%

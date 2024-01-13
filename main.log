@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  12 JAN 2024 21:48
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  13 JAN 2024 20:53
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1160,8 +1160,29 @@ File: ./04_introduction_to_functions/../images/generalized_parts/04_max3_code_lo
 File: ./04_introduction_to_functions/../images/generalized_parts/04_function_overloading_300.png Graphic file (type bmp)
 <./04_introduction_to_functions/../images/generalized_parts/04_function_overloading_300.png>
  [74] [75]) (./generalized_parts/04_introduction_to_functions/04_default_argument.tex [76] [77]) (./generalized_parts/04_introduction_to_functions/05_recursion.tex
-LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/m/it' will be
-(Font)              scaled to size 9.0pt on input line 26.
+
+Package fontspec Info: Could not resolve font "KaiTi/BI" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: Could not resolve font "KaiTi/B" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: Could not resolve font "KaiTi/I" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: Font family 'KaiTi(0)' created for font 'KaiTi' with
+(fontspec)             options [Script={CJK}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"KaiTi/OT:script=hani;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+
 File: ./04_introduction_to_functions/../images/generalized_parts/04_factorial_code_logic_300.png Graphic file (type bmp)
 <./04_introduction_to_functions/../images/generalized_parts/04_factorial_code_logic_300.png>
 
@@ -1174,8 +1195,6 @@ File: ./04_introduction_to_functions/../images/generalized_parts/04_the_process_
 <./04_introduction_to_functions/../images/generalized_parts/04_the_process_of_recursion_300.png>
 File: ././/images/generalized_parts/04_call_stack_structure_300.png Graphic file (type bmp)
 <././/images/generalized_parts/04_call_stack_structure_300.png>
-LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/b/it' will be
-(Font)              scaled to size 9.0pt on input line 49.
  [79]) (./generalized_parts/04_introduction_to_functions/06_introduction_to_function_templates.tex [80] [81]
 File: ././/images/generalized_parts/04_function_template_and_instance_300.png Graphic file (type bmp)
 <././/images/generalized_parts/04_function_template_and_instance_300.png>
@@ -1239,12 +1258,7 @@ Overfull \hbox (42.6168pt too wide) in paragraph at lines 114--114
 []\TU/SimSun(0)/m/n/10 换 句 话 说，|  我 们 只 需 要 把 [][][] 串 中 的 有 效 部 分 逐 个 赋 值 给 [][][] 的 对 应 部 分 就 行。|  比 如 说，| [][][][][][]，|
  []
 
-[110]
-
-LaTeX Font Warning: Font shape `TU/FangSong(0)/m/it' undefined
-(Font)              using `TU/FangSong(0)/m/n' instead on input line 150.
-
-[111]) (./generalized_parts/05_composite_types_and_their_use/06_combination_of_pointers_and_arrays.tex [112]
+[110] [111]) (./generalized_parts/05_composite_types_and_their_use/06_combination_of_pointers_and_arrays.tex [112]
 Overfull \hbox (29.03897pt too wide) in paragraph at lines 11--11
 \TU/SimSun(0)/m/n/10 初 学 者 很 容 易 在 二 维 数 组 的 下 标 问 题 上 犯 糊 涂。|  比 如 在 定 义 [][][] 的 时 候，|  究 竟 是 写 成 [][][]
  []
@@ -1388,48 +1402,55 @@ File: ./07_projecting/../images/generalized_parts/07_international_obfuscated_c_
 第八章
 (./generalized_parts/08_a_step_forward_in_classes_and_functions/01_operator_overloading.tex [171
 
-] [172] [173] [174] [175] [176]) (./generalized_parts/08_a_step_forward_in_classes_and_functions/02_friend.tex) (./generalized_parts/08_a_step_forward_in_classes_and_functions/03_constructor_and_destructor.tex) (./generalized_parts/08_a_step_forward_in_classes_and_functions/04_property_of_member.tex) (./generalized_parts/08_a_step_forward_in_classes_and_functions/05_array_of_objects_and_pointer_to_object.tex) (./generalized_parts/08_a_step_forward_in_classes_and_functions/06_type_cast_operator.tex) (./generalized_parts/08_a_step_forward_in_classes_and_functions/07_exercise_string_class.tex))) (././intensive_part.tex [177] [178
+] [172] [173] [174] [175] [176] [177]) (./generalized_parts/08_a_step_forward_in_classes_and_functions/02_member_functions_and_friend.tex [178] [179] [180] [181]
+Underfull \hbox (badness 1057) in paragraph at lines 181--181
+[][][]\TU/SimSun(0)/m/n/8.33344 初 学 者 可 能 对 [][][][][][][][] 这 种 写 法 感 到 困 惑，|  但 是 不 要 忘 记，| [][][][][] 的 返 回 值 也 是 一 个
+ []
 
-] [179] [180]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
+File: ./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_operator_overloading_as_member_function_300.png Graphic file (type bmp)
+<./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_operator_overloading_as_member_function_300.png>
+[182] [183] [184] [185]) (./generalized_parts/08_a_step_forward_in_classes_and_functions/03_constructor_and_destructor.tex) (./generalized_parts/08_a_step_forward_in_classes_and_functions/04_property_of_member.tex) (./generalized_parts/08_a_step_forward_in_classes_and_functions/05_array_of_objects_and_pointer_to_object.tex) (./generalized_parts/08_a_step_forward_in_classes_and_functions/06_type_cast_operator.tex) (./generalized_parts/08_a_step_forward_in_classes_and_functions/07_exercise_string_class.tex))) (././intensive_part.tex [186] [187
+
+] [188]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
 附录 A
 
 Underfull \hbox (badness 6063) in paragraph at lines 16--16
 [][][]\TU/SimSun(0)/m/n/8.33344 对 于 内 置 类 型 数 组 [][][] 的 下 标 运 算，| [][][][][][] |（和 [][][][][][]）|  都 会 解 析 为 [][][][][][][]
  []
 
-[181
+[189
 
-]) (./other_parts/appendices/B.tex [182]
+]) (./other_parts/appendices/B.tex [190]
 附录 B
-[183
+[191
 
-]) (./other_parts/appendices/C.tex [184]
+]) (./other_parts/appendices/C.tex [192]
 附录 C
 File: appendices/../images/other_parts/C_digital_clock.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_digital_clock.png>
-[185
+[193
 
 ]
 File: appendices/../images/other_parts/C_from_counting_to_exponentiation_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_from_counting_to_exponentiation_300.png>
 File: appendices/../images/other_parts/C_duodecimal_multiplication_table.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_duodecimal_multiplication_table.png>
- [186]
+ [194]
 Underfull \vbox (badness 2753) has occurred while \output is active []
 
- [187] [188]
+ [195] [196]
 File: appendices/../images/other_parts/C_formatted_representation_of_a_number_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_formatted_representation_of_a_number_300.png>
- [189] [190]
+ [197] [198]
 File: appendices/../images/other_parts/C_short_division_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_short_division_300.png>
- [191] [192]
+ [199] [200]
 File: appendices/../images/other_parts/C_bin_to_oct_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_oct_300.png>
- [193]
+ [201]
 File: appendices/../images/other_parts/C_bin_to_hex_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_hex_300.png>
-)) (./other_parts/afterword.tex [194])
+)) (./other_parts/afterword.tex [202])
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1438,7 +1459,7 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [195
+ [203
 
 ]
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1447,25 +1468,21 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [196] (./main.aux)
+ [204] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2022/08/05>
  ***********
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: D3381DB646406F8D46217D15D358F45F;5668.
+(rerunfilecheck)             Checksum: 3A2870E12B4AAF4746ED88A1ACB0074E;5803.
  ) 
 Here is how much of TeX's memory you used:
- 26433 strings out of 474924
- 654473 string characters out of 5765037
+ 26481 strings out of 474924
+ 657051 string characters out of 5765037
  1995189 words of memory out of 5000000
- 47639 multiletter control sequences out of 15000+600000
- 571813 words of font info for 164 fonts, out of 8000000 for 9000
+ 47678 multiletter control sequences out of 15000+600000
+ 571821 words of font info for 165 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,17n,111p,1239b,1854s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (202 pages).
+Output written on main.pdf (210 pages).

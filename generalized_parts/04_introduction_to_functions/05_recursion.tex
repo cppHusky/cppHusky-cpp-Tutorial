@@ -23,21 +23,21 @@ int main() {
 }
 \end{lstlisting}
 我来解释一下这段代码，并回答一下读者可能关心的问题。\par
-\textit{``我用 \lstinline@factorial@ 来定义 \lstinline@factorial@，编译器不会报错吗？''}\par
+{\kaishu ``我用 \lstinline@factorial@ 来定义 \lstinline@factorial@，编译器不会报错吗？''}\par
 不会的，因为\textbf{函数的定义就是一种声明}。所以编译器在 \lstinline@factorial@ 函数给定参数列表时就已经知道了它的存在（图4.5）。\par
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\textwidth]{../images/generalized_parts/04_factorial_code_logic_300.png}
     \caption{\lstinline@factorial@ 的定义就是一种声明，所以编译器能够找到它}
 \end{figure}
-\textit{``这段代码会怎么运行？''}\par
+{\kaishu ``这段代码会怎么运行？''}\par
 想像你就是那个程序，在主函数中，当你遇到 \lstinline@factorial(12)@ 时，你会调用这个函数并代入实参 \lstinline@n=12@ 从而求出它的返回值。而在运行时发现，因为 \lstinline@n==0@ 不满足，所以你不得不再去求 \lstinline@factorial(11)@，然后是 \lstinline@factorial(10)@，以此类推。如果一切顺利的话，你会在求 \lstinline@factorial(0)@ 的时候直接返回 \lstinline@1@，然后用 \lstinline@1*factorial(0)@ 算出 \lstinline@factorial(1)@ 的返回值；用 \lstinline@2*factorial(1)@ 算出 \lstinline@factorial(2)@ 的返回值；用 \lstinline@3*factorial(2)@ 算出 \lstinline@factorial(3)@ 的返回值……一直到你算出 \lstinline@factorial(12)@ 为止。图4.6展示了这一过程。\par
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{../images/generalized_parts/04_the_process_of_recursion_300.png}
     \caption{\lstinline@factorial@ 函数递归的运行过程}
 \end{figure}
-\textit{``函数递归运行的过程中，难道还能真的像图4.6那样，运行到一半再跑到开头吗？''}\par
+{\kaishu ``函数递归运行的过程中，难道还能真的像图4.6那样，运行到一半再跑到开头吗？''}\par
 读者可能容易产生这样的误会，认为``既然它是同一个函数，那递归的时候不就是在这一个函数中打转嘛''。\par
 不然。这个函数在编译时和运行时的概念是不同的。在编译时，编译器会认为它是一个函数；但在运行时，内存中会为程序创建一个调用栈（Call stack）来存储函数调用的信息。每次函数调用（包括一般调用和递归调用）都会在栈中压入一个堆栈帧（Stack frame），这个堆栈帧中存储了本次调用的必要信息（比如，本次调用的实参是什么，返回地址是什么）。在结束调用时，返回值传回给调用它的函数（栈的结构保证了调用它的函数也在调用栈中），然后堆栈帧移除，如图4.7。\par
 \begin{figure}[htbp]
@@ -46,7 +46,7 @@ int main() {
     \caption{调用函数时压入堆栈帧，返回值后移除堆栈帧}    
 \end{figure}
 简言之，虽然\textbf{只有一个函数}，但\textbf{有很多个堆栈帧}，每个堆栈帧存储了各自的调用信息。所以自然不会有什么冲突了。\par
-\textit{``为什么一定要有终止条件呢？难道不能像 \lstinline@while(true)@ 语句这样永远循环吗？''}\par
+{\kaishu ``为什么一定要有终止条件呢？难道不能像 \lstinline@while(true)@ 语句这样永远循环吗？''}\par
 我们可以把递归结构当作是一种循环，而 \lstinline@for@ 或 \lstinline@while@ 可以更具体地说是一种迭代（Iteration）。从功能上讲，递归和迭代是非常相似的，它们可以互相替代，而关于``用递归还是迭代''的讨论也是旷日持久。这里我们先不参与此讨论，只解答原本的问题。\par
 递归与迭代有一点不同在于，迭代语法不需要依赖调用栈，比如 \lstinline@for(int i=0;i<1e9;i++)@，无论循环多少次，\lstinline@i@永远占据一个 \lstinline@int@ 的内存空间；但递归是需要依赖调用栈的，并且调用栈的大小有限，一旦内存不够，就会发生\textbf{堆栈溢出（Stack overflow）}，直接导致程序故障罢工。正因如此，我们可以写无限循环的迭代，但不能写一个无限循环的递归。\par
 希望读者看过上述的讲解以后，已经对递归有了基本的认知。\par

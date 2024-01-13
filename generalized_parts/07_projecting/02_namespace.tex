@@ -76,7 +76,7 @@ namespace cppHusky {
     } //定义函数模版min
 }; //注意分号结尾
 \end{lstlisting}
-在 \lstinline@cppHusky@ 命名空间中定义的 \lstinline@max@ 就不同于 \lstinline@utility@ 库中，在 \lstinline@std@ 命名空间中定义的 \lstinline@max@。
+在 \lstinline@cppHusky@ 命名空间中定义的 \lstinline@max@ 就不同于 \lstinline@algorithm@ 库中，在 \lstinline@std@ 命名空间中定义的 \lstinline@max@。
 \begin{lstlisting}
     std::cout << std::max(3, 5) << std::endl; //注意endl也在std命名空间中
     std::cout << cppHusky::max(3, 5) << std::endl;
@@ -140,7 +140,7 @@ namespace cppHusky {
 };
 \end{lstlisting}
 在第一次使用 \lstinline@namespace cppHusky@ 的时候，我们是在定义一个新的命名空间；而在第二次使用 \lstinline@namespace cppHusky@ 的时候，因为 \lstinline@cppHusky@ 已经定义，所以这里新增的内容只是对 \lstinline@cppHusky@ 命名空间的内容扩充。在这两段代码编译完毕之后，\lstinline@cppHusky@ 命名空间中就既有了 \lstinline@Tname@ 的定义，又有了 \lstinline@cin@ 的定义。我们还可以在其它地方继续通过 \lstinline@namespace cppHusky@ 添加新的内容。\par
-之所以允许这样做，是因为我们会有``把不同头文件/源文件中定义的名字放在同一空间下''的需求。比如对于 \lstinline@std@ 命名空间来说，C++在 \lstinline@iostream@ 头文件中定义了 \lstinline@std::cin@，在 \lstinline@cstring@ 头文件中定义了 \lstinline@std::strlen@，在 \lstinline@utility@ 头文件中定义了 \lstinline@std::max@ 和 \lstinline@std::min@，诸如此类……它们处于不同文件中，但只要用 \lstinline@namespace std@ 就可以把它们一同加到这个空间中来，这岂不是很方便？\par
+之所以允许这样做，是因为我们会有``把不同头文件/源文件中定义的名字放在同一空间下''的需求。比如对于 \lstinline@std@ 命名空间来说，C++在 \lstinline@iostream@ 头文件中定义了 \lstinline@std::cin@，在 \lstinline@cstring@ 头文件中定义了 \lstinline@std::strlen@，在 \lstinline@algorithm@ 头文件中定义了 \lstinline@std::max@ 和 \lstinline@std::min@，诸如此类……它们处于不同文件中，但只要用 \lstinline@namespace std@ 就可以把它们一同加到这个空间中来，这岂不是很方便？\par
 \subsection*{\lstinline@using@ 声明}
 如果每次都要靠作用域解析运算符 \lstinline@::@ 来访问非全局变量，那就显得太麻烦了。所以初学者一般很喜欢这样写，一劳永逸：
 \begin{lstlisting}
