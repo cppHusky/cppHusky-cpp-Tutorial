@@ -31,16 +31,16 @@
 #include <initializer_list>
 class valarri {
 public:
-    valarri(const std::initializer_list<int> &initl) { //留到下一节再讲
+    valarri(const std::initializer_list<int> &ilist) { //留到下一节再讲
         _size = 0;
-        for (int x : initl)
+        for (int x : ilist)
             _arr[_size++] = x;
     }
-    //...
+    //...待补充
 private:
-    static const std::size_t MAX_SIZE {100};
-    int _arr[MAX_SIZE];
-    std::size_t _size;
+    static const std::size_t MAX_SIZE {100}; //最大容量
+    std::size_t _size; //前当的数据存储量
+    int _arr[MAX_SIZE]; //一个数组用来存放数据
 };
 \end{lstlisting}
 其中的 \lstinline@valarri@ 成员是一个构造函数，我们会在下一节中介绍构造函数相关的知识。这里读者不必纠结，直接把它抄进 \lstinline@valarri@ 类的定义中就可以了。\par
@@ -94,9 +94,9 @@ public:
     int sum(); //声明max, min和sum
     //...待补充
 private:
-    static const std::size_t MAX_SIZE{ 100 };
-    int _arr[MAX_SIZE];
-    std::size_t _size;
+    static const std::size_t MAX_SIZE {100}; //最大容量
+    std::size_t _size; //前当的数据存储量
+    int _arr[MAX_SIZE]; //一个数组用来存放数据
 }; //这样就整洁多了吧
 \end{lstlisting}
 这个部分的内容可以放到头文件中。\par
@@ -128,9 +128,9 @@ int valarri::sum() {
         summation += _arr[i];
     return summation;
 }
-valarri::valarri(const std::initializer_list<int> &initl) {
+valarri::valarri(const std::initializer_list<int> &ilist) {
     _size = 0;
-    for (int x : initl) {
+    for (int x : ilist) {
         _arr[_size] = x;
         ++_size;
     }

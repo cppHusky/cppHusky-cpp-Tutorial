@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  13 JAN 2024 20:53
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  14 JAN 2024 19:25
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1409,48 +1409,71 @@ Underfull \hbox (badness 1057) in paragraph at lines 181--181
 
 File: ./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_operator_overloading_as_member_function_300.png Graphic file (type bmp)
 <./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_operator_overloading_as_member_function_300.png>
-[182] [183] [184] [185]) (./generalized_parts/08_a_step_forward_in_classes_and_functions/03_constructor_and_destructor.tex) (./generalized_parts/08_a_step_forward_in_classes_and_functions/04_property_of_member.tex) (./generalized_parts/08_a_step_forward_in_classes_and_functions/05_array_of_objects_and_pointer_to_object.tex) (./generalized_parts/08_a_step_forward_in_classes_and_functions/06_type_cast_operator.tex) (./generalized_parts/08_a_step_forward_in_classes_and_functions/07_exercise_string_class.tex))) (././intensive_part.tex [186] [187
+[182] [183] [184] [185]) (./generalized_parts/08_a_step_forward_in_classes_and_functions/03_constructor_and_destructor.tex [186] [187]
+Overfull \hbox (21.20021pt too wide) in paragraph at lines 53--54
+[]\TU/SimSun(0)/m/n/10 这 就 不 得 不 谈 到 [][][][][] 了。|  它 是 一 个 类 模 版，|  可 以 存 储 一 个 常 量 数 组  |（[][][][][][][][][][]
+ []
 
-] [188]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
+
+Overfull \hbox (116.9171pt too wide) in paragraph at lines 72--73
+[]\TU/SimSun(0)/m/n/10 还 有 一 种 更 简 单 的 方 法 是 用 范 围 [][][][][] 循 环，|  请 读 者 参 考 下 面 [][][][][][][][][][][][][][][][][][]
+ []
+
+[188] [189]
+Overfull \hbox (83.03491pt too wide) in paragraph at lines 166--167
+[]\TU/SimSun(0)/m/n/10 先 别 急，|  我 们 来 回 顾 一 下 之 前 写 过 的 构 造 函 数，|  比 如 [][][][][][][][][][][][][][][][][][]，|
+ []
+
+[190] [191] [192] [193]
+File: ./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_shallow_copy_and_deep_copy_300.png Graphic file (type bmp)
+<./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_shallow_copy_and_deep_copy_300.png>
+
+Overfull \hbox (20.46147pt too wide) in paragraph at lines 288--289
+[]\TU/SimSun(0)/m/n/10 要 实 现 深 拷 贝 其 实 很 简 单，|  就 像 一 般 的 构 造 函 数 那 样 写 就 行 了，|  只 是 参 数 类 型 变 成 了 [][][][][][][][]
+ []
+
+[194]) (./generalized_parts/08_a_step_forward_in_classes_and_functions/04_property_of_member.tex) (./generalized_parts/08_a_step_forward_in_classes_and_functions/05_array_of_objects_and_pointer_to_object.tex) (./generalized_parts/08_a_step_forward_in_classes_and_functions/06_type_cast_operator.tex) (./generalized_parts/08_a_step_forward_in_classes_and_functions/07_exercise_string_class.tex))) (././intensive_part.tex [195] [196
+
+] [197] [198]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
 附录 A
 
 Underfull \hbox (badness 6063) in paragraph at lines 16--16
 [][][]\TU/SimSun(0)/m/n/8.33344 对 于 内 置 类 型 数 组 [][][] 的 下 标 运 算，| [][][][][][] |（和 [][][][][][]）|  都 会 解 析 为 [][][][][][][]
  []
 
-[189
+[199
 
-]) (./other_parts/appendices/B.tex [190]
+]) (./other_parts/appendices/B.tex [200]
 附录 B
-[191
+[201
 
-]) (./other_parts/appendices/C.tex [192]
+]) (./other_parts/appendices/C.tex [202]
 附录 C
 File: appendices/../images/other_parts/C_digital_clock.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_digital_clock.png>
-[193
+[203
 
 ]
 File: appendices/../images/other_parts/C_from_counting_to_exponentiation_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_from_counting_to_exponentiation_300.png>
 File: appendices/../images/other_parts/C_duodecimal_multiplication_table.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_duodecimal_multiplication_table.png>
- [194]
+ [204]
 Underfull \vbox (badness 2753) has occurred while \output is active []
 
- [195] [196]
+ [205] [206]
 File: appendices/../images/other_parts/C_formatted_representation_of_a_number_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_formatted_representation_of_a_number_300.png>
- [197] [198]
+ [207] [208]
 File: appendices/../images/other_parts/C_short_division_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_short_division_300.png>
- [199] [200]
+ [209] [210]
 File: appendices/../images/other_parts/C_bin_to_oct_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_oct_300.png>
- [201]
+ [211]
 File: appendices/../images/other_parts/C_bin_to_hex_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_hex_300.png>
-)) (./other_parts/afterword.tex [202])
+)) (./other_parts/afterword.tex [212])
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1459,7 +1482,7 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [203
+ [213
 
 ]
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1468,21 +1491,21 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [204] (./main.aux)
+ [214] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3A2870E12B4AAF4746ED88A1ACB0074E;5803.
+(rerunfilecheck)             Checksum: 13199D31A3B3FAF38E1D19B8FA2BFD7D;5803.
  ) 
 Here is how much of TeX's memory you used:
- 26481 strings out of 474924
- 657051 string characters out of 5765037
+ 26546 strings out of 474924
+ 660398 string characters out of 5765037
  1995189 words of memory out of 5000000
- 47678 multiletter control sequences out of 15000+600000
- 571821 words of font info for 165 fonts, out of 8000000 for 9000
+ 47740 multiletter control sequences out of 15000+600000
+ 571837 words of font info for 167 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,17n,111p,1239b,1854s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (210 pages).
+Output written on main.pdf (220 pages).

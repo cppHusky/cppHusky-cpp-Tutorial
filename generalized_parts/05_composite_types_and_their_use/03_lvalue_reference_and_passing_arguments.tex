@@ -146,7 +146,7 @@ int main() {
     cout << is_same<double, long double>::value; //不同，故输出0
 \end{lstlisting}
 提醒读者，\lstinline@cout@ 输出 \lstinline@bool@ 类型的值时，会默认以整数的形式输出。我们也可以用 \lstinline@cout.setf(ios_base::boolalpha)@ 来让它以布尔值的方式输出。\par
-但是这里有另一个问题：尖括号中只能接收类型信息，我们不能直接把一个变量，或者引用，或者指针塞进去。这时我们就要用到 \lstinline@decltype@ 了。\lstinline@decltype@ 是一个编译时操作，它会解释出一个表达式的类型。
+但是这里有另一个问题：尖括号（Angle brackets）中只能接收类型信息，我们不能直接把一个变量，或者引用，或者指针塞进去。这时我们就要用到 \lstinline@decltype@ 了。\lstinline@decltype@ 是一个编译时操作，它会解释出一个表达式的类型。
 \begin{lstlisting}
     int num;
     cout << is_same<decltype(num), int>::value; //将输出1

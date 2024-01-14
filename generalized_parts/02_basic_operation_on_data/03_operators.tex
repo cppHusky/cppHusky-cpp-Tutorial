@@ -25,7 +25,7 @@
 \begin{lstlisting}
     a = (b = (c = 0)); //连续赋值，等价于a=b=c=0;
 \end{lstlisting}
-圆括号改变了计算的顺序\footnote{再次提醒，方括号\lstinline@[]@和花括号\lstinline@\{\}@它们有各自的作用。我们不能用它们来达到改变运算顺序的目的，只能用圆括号\lstinline@()@。}，它将把括号内的部分当作一个整体来对待。于是这段代码执行的操作就是
+圆括号（Parentheses\textsuperscript{美}/Round brackets\textsuperscript{英}）改变了计算的顺序\footnote{再次提醒，方括号\lstinline@[]@和花括号\lstinline@\{\}@它们有各自的作用。我们不能用它们来达到改变运算顺序的目的，只能用圆括号\lstinline@()@。}，它将把括号内的部分当作一个整体来对待。于是这段代码执行的操作就是
 \begin{enumerate}
     \item \lstinline@c=0@ 中的赋值运算符将左操作数 \lstinline@c@ 的值变为右操作数 \lstinline@0@。最后返回 \lstinline@c@ 的引用。
     \item \lstinline@b=(c=0)@ 中的赋值运算符将左操作数 \lstinline@b@ 的值变为 \lstinline@(c=0)@ 的返回值，即 \lstinline@c@ 。因为此时 \lstinline@c@ 的值为 \lstinline@0@，所以 \lstinline@b@ 的值变为 \lstinline@0@。最后返回 \lstinline@b@ 的引用。
