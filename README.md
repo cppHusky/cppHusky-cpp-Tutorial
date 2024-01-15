@@ -8,6 +8,8 @@
 
 我为此规划了一个大致的编章结构，参见[Structure.md](https://github.com/cppHusky/cppHusky-cpp-Tutorial/blob/main/Structure.md)。
 
-正在疯狂赶进度，还要补充插图。现阶段争取保持每3天更新一章的速度。
+正在疯狂赶进度，还要补充插图。现阶段争取保持每4天更新一章的速度。
+
+我正在考虑把书中每一份正式的示例代码打包并存至本项目中。现在尚在研究阶段。
 
 如果发现内容有任何疏漏和错误，欢迎来作补充和提出修改意见！可以直接提交到[Issues](https://github.com/cppHusky/cppHusky-cpp-Tutorial/issues)当中。

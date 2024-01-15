@@ -109,6 +109,7 @@ bool delete_after(Data *head) {
     Data *p = head->next; //临时指针p指向*head->next
     head->next = p->next; //head->next指向更后一个元素
     delete p; //回收p指向的内存
+    return true;
 }
 \end{lstlisting}
 \begin{figure}[htbp]
@@ -127,7 +128,7 @@ bool delete_after(Data *head) {
 接下来我们可以来试着实现一些链表的进阶功能：片段插入、片段删除和片段转移。其中的片段插入可以用片段转移的方式来实现，所以我们只需要关注后两个就行。我们先来看片段删除操作。\par
 我们在这里要写一个函数，删除从某个单元（不包含）开始到某个单元（包含）为止。\footnote{关于``是否包含两端''的问题，其实有很多种写法，都可以实现。在此处我们选择使用此套方案，即左端不包含而右端包含。}
 \begin{lstlisting}
-bool delete_after(Data *head, Data* tail) {
+bool delete_after(Data *head, Data *tail) {
 //删除*head之后（不包含）直到*tail为止（包含）的单元。若删除失败，返回false
     if (head == tail) //说明没有任何数据需要清理
         return false; //删除失败
