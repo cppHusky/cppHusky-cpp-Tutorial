@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  14 JAN 2024 19:25
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  15 JAN 2024 14:44
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1432,48 +1432,69 @@ Overfull \hbox (20.46147pt too wide) in paragraph at lines 288--289
 []\TU/SimSun(0)/m/n/10 要 实 现 深 拷 贝 其 实 很 简 单，|  就 像 一 般 的 构 造 函 数 那 样 写 就 行 了，|  只 是 参 数 类 型 变 成 了 [][][][][][][][]
  []
 
-[194]) (./generalized_parts/08_a_step_forward_in_classes_and_functions/04_property_of_member.tex) (./generalized_parts/08_a_step_forward_in_classes_and_functions/05_array_of_objects_and_pointer_to_object.tex) (./generalized_parts/08_a_step_forward_in_classes_and_functions/06_type_cast_operator.tex) (./generalized_parts/08_a_step_forward_in_classes_and_functions/07_exercise_string_class.tex))) (././intensive_part.tex [195] [196
+[194]) (./generalized_parts/08_a_step_forward_in_classes_and_functions/04_property_of_member.tex [195]
+File: ./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_file_inclusion_300.png Graphic file (type bmp)
+<./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_file_inclusion_300.png>
+ [196] [197]
+Overfull \hbox (36.24615pt too wide) in paragraph at lines 126--126
+\TU/SimSun(0)/m/n/10 这 也 同 样 是 \TU/lmr/m/n/10 C++ \TU/SimSun(0)/m/n/10 的 保 护 机 制 在 作 怪  |— —|  它 不 允 许 你 把 [][][] 作 为 一 个 参 数 传 给 [][][][][][][][][][][][]，|
+ []
 
-] [197] [198]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
+[198]
+Overfull \hbox (28.51456pt too wide) in paragraph at lines 136--137
+[][][][] \TU/SimSun(0)/m/n/10 类 中 还 有 许 多 函 数 可 以 定 为 常 成 员 函 数，|  比 如 [][][][][]\TU/lmr/m/n/10 , [][][][][], [][][][][]\TU/SimSun(0)/m/n/10 ，|
+ []
+
+[199] [200] [201]
+File: ./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_lazy_tag_300.png Graphic file (type bmp)
+<./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_lazy_tag_300.png>
+ [202] [203]
+Overfull \hbox (12.9415pt too wide) in paragraph at lines 297--298
+[]\TU/SimSun(0)/m/n/10 第 一 次 调 用 [][][][] 成 员 函 数，|  这 个 值 被 计 算 出 来 并 存 储 到 [][][] 中，|  同 时 延 迟 标 记 [][][]
+ []
+
+) (./generalized_parts/08_a_step_forward_in_classes_and_functions/05_array_of_objects_and_pointer_to_object.tex) (./generalized_parts/08_a_step_forward_in_classes_and_functions/06_type_cast_operator.tex) (./generalized_parts/08_a_step_forward_in_classes_and_functions/07_exercise_string_class.tex))) (././intensive_part.tex [204] [205
+
+] [206]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
 附录 A
 
 Underfull \hbox (badness 6063) in paragraph at lines 16--16
 [][][]\TU/SimSun(0)/m/n/8.33344 对 于 内 置 类 型 数 组 [][][] 的 下 标 运 算，| [][][][][][] |（和 [][][][][][]）|  都 会 解 析 为 [][][][][][][]
  []
 
-[199
+[207
 
-]) (./other_parts/appendices/B.tex [200]
+]) (./other_parts/appendices/B.tex [208]
 附录 B
-[201
+[209
 
-]) (./other_parts/appendices/C.tex [202]
+]) (./other_parts/appendices/C.tex [210]
 附录 C
 File: appendices/../images/other_parts/C_digital_clock.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_digital_clock.png>
-[203
+[211
 
 ]
 File: appendices/../images/other_parts/C_from_counting_to_exponentiation_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_from_counting_to_exponentiation_300.png>
 File: appendices/../images/other_parts/C_duodecimal_multiplication_table.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_duodecimal_multiplication_table.png>
- [204]
+ [212]
 Underfull \vbox (badness 2753) has occurred while \output is active []
 
- [205] [206]
+ [213] [214]
 File: appendices/../images/other_parts/C_formatted_representation_of_a_number_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_formatted_representation_of_a_number_300.png>
- [207] [208]
+ [215] [216]
 File: appendices/../images/other_parts/C_short_division_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_short_division_300.png>
- [209] [210]
+ [217] [218]
 File: appendices/../images/other_parts/C_bin_to_oct_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_oct_300.png>
- [211]
+ [219]
 File: appendices/../images/other_parts/C_bin_to_hex_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_hex_300.png>
-)) (./other_parts/afterword.tex [212])
+)) (./other_parts/afterword.tex [220])
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1482,7 +1503,7 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [213
+ [221
 
 ]
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1491,21 +1512,21 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [214] (./main.aux)
+ [222] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 13199D31A3B3FAF38E1D19B8FA2BFD7D;5803.
+(rerunfilecheck)             Checksum: 06DFD146D42B1021F1A75AF81E002DB7;5898.
  ) 
 Here is how much of TeX's memory you used:
- 26546 strings out of 474924
- 660398 string characters out of 5765037
+ 26628 strings out of 474924
+ 664134 string characters out of 5765037
  1995189 words of memory out of 5000000
- 47740 multiletter control sequences out of 15000+600000
+ 47820 multiletter control sequences out of 15000+600000
  571837 words of font info for 167 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,17n,111p,1239b,1854s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (220 pages).
+Output written on main.pdf (228 pages).
