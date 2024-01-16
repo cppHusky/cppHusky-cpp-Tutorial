@@ -49,7 +49,7 @@ C++为不同类型提供了丰富的关键字。\par
     //定义一个long double浮点型数据，并初始化为3.141592653590
 \end{lstlisting}
 以上初始化语法也叫作\textbf{直接初始化（Direct Initialization）}。\par
-初始化的语法不只这一种。在C++11以后的语言标准中，我更推荐使用\textbf{统一初始化（Uniform Initialization）}的方法：
+初始化的语法不只这一种。在C++11以后的语言标准中，我更推荐使用\textbf{统一初始化（Uniform Initialization）}\footnote{有关``统一初始化''这个词，实在让人费解。C++标准中没有查到过这个词，cppreference中也没有查到这个词。但这个词却在网络中普遍存在，十分常用。笔者无法在概念问题上耗费太多时间，因此请读者留意，本书很有可能会在这里犯错。}的方法：
 \begin{lstlisting}
     <类型关键字> <名字> = {值}; //统一初始化语法
     <类型关键字> <名字> {值}; //另一种统一初始化语法
@@ -93,15 +93,6 @@ from ‘40000’ to ‘-25536’ [-Woverflow]
     cout << (a + b * c) / d; //输出(a+b*c)/d的值
 \end{lstlisting}\par
 这段代码不能单独存在，现在让我们``借鉴''一下\texttt{Hello\_World.cpp}的代码，把它改成这样：
-\begin{lstlisting}[caption=\texttt{calc.cpp}\label{lst:calc1}]
-// 这是一个简单的C++程序，用于简易的数值计算
-#include <iostream> //标准输入输出头文件
-using namespace std; //使用std命名空间
-int main(){ //主函数，程序执行始于此
-    double a {1.5}, b {0.3}, c {0.5}, d {4.5}; //定义并初始化
-    cout << (a + b * c) / d; //输出(a+b*c)/d的值
-    return 0;
-}
-\end{lstlisting}
+\lstinputlisting[caption=\texttt{calc.cpp}\label{lst:calc1}]{../code_in_book/1.2/calc.cpp}
 最后的输出结果是一个近似值 \lstinline@0.366667@，与实际计算器算出的结果相近。\par
 你还可以修改代码中的初始值，或者是把输出的式子改成别的式子，观察一下结果。\par

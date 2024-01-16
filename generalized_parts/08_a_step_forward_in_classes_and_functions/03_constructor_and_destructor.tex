@@ -148,7 +148,7 @@ basic_string(
 \end{lstlisting}
 它的作用是：以 \lstinline@count@ 个 \lstinline@ch@ 字符相拼接，从而形成本字符串。
 \begin{lstlisting}
-    std::string str3 {33, '='}; //试图通过统一初始化调用(size_type, ChatT)版本
+    std::string str3 {33, '='}; //试图通过统一初始化调用(size_type, CharT)版本
     std::cout << str3; //但输出的内容却是!=
 \end{lstlisting}
 我们发现，这次的输出内容并没有按我们预想的那样，输出33个 \lstinline@=@ 来。\par

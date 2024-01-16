@@ -52,23 +52,7 @@
         \caption{奇偶判断程序流程图}
     \end{figure}
 最后Ctrl+V一下文件包含等等乱七八糟的代码，就是这样：
-\begin{lstlisting}[caption=\texttt{odd\_or\_even.cpp},label=lst:oddoreven]
-//这段代码可以判断输入的正整数是奇数还是偶数
-#include <iostream>
-using namespace std;
-int main() { //主函数，代码顺序执行
-    int num; //也可以用unsigned
-    cin >> num; //输入num变量
-    const int mod {num % 2}; //num模除2的值；也可以不用const
-    if (mod == 1) { //选择结构
-    	cout << "奇数";
-    }
-    else {
-    	cout << "偶数";
-    }
-    return 0;
-}
-\end{lstlisting}
+\lstinputlisting[caption=\texttt{odd\_or\_even.cpp},label=lst:oddoreven]{../code_in_book/3.2/odd_or_even.cpp}
 读者可以自行测试一下，例如输入\texttt{1}，程序就会给出输出 \texttt{奇数}；输入\texttt{2}，程序就会给出输出 \texttt{偶数}。\par
 如果甲方有什么其它的奇怪要求，比如``如果是偶数就输出，如果是奇数就不输出''，这时我们就只需要为偶数部分写一个 \lstinline@if@ 块即可，没有必要再写 \lstinline@else@ 块，代码可以这样写：
 \begin{lstlisting}

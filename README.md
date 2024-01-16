@@ -8,8 +8,10 @@
 
 我为此规划了一个大致的编章结构，参见[Structure.md](https://github.com/cppHusky/cppHusky-cpp-Tutorial/blob/main/Structure.md)。
 
-正在疯狂赶进度，还要补充插图。现阶段争取保持每4天更新一章的速度。
+本书中的每一份正式的示例代码都已打包并存至本项目中！详见[Code in book](https://github.com/cppHusky/cppHusky-cpp-Tutorial/tree/main/code_in_book)。
 
-我正在考虑把书中每一份正式的示例代码打包并存至本项目中。现在尚在研究阶段。
+正在疯狂赶进度，还要补充插图和代码。现阶段争取保持每4天更新一章的速度。
 
 如果发现内容有任何疏漏和错误，欢迎来作补充和提出修改意见！可以直接提交到[Issues](https://github.com/cppHusky/cppHusky-cpp-Tutorial/issues)当中。
+
+>自24年1月6日起，共编缉此项目时长为 ：[![wakatime](https://wakatime.com/badge/user/018cddbf-c102-44d2-a0f3-463bcf2eef39/project/018cddc4-4445-4bc3-8a9d-c6c933978a2b.svg)](https://wakatime.com/badge/user/018cddbf-c102-44d2-a0f3-463bcf2eef39/project/018cddc4-4445-4bc3-8a9d-c6c933978a2b)

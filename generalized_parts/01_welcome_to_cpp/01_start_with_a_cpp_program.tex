@@ -1,15 +1,7 @@
 \section{开始一个C++程序}
 各种编程语言的教程都喜欢用``输出Hello World!''作为第一个编程示例，本书也不例外。\par
 在C++中，我们可以用如下的代码来输出``Hello World!''：
-\begin{lstlisting}[caption=\texttt{Hello\_World.cpp},label={lst:HelloWorld}]
-// 这是一个简单的C++程序，用于输出Hello World
-#include <iostream> //标准输入输出头文件
-using namespace std; //使用std命名空间
-int main() { //主函数，程序执行始于此
-    cout << "Hello World!";//输出Hello World
-    return 0;
-}
-\end{lstlisting}
+\lstinputlisting[caption=\texttt{Hello\_World.cpp},label={lst:HelloWorld}]{../code_in_book/1.1/Hello_World.cpp}\par
 如果你使用的是集成开发环境，那么只需要用一两个选项或快捷键就可以完成编译、运行步骤，并看到程序的运行结果了。这个快捷键因软件而异，不过总得说来，可以概括成三个过程：
 \begin{enumerate}
     \item \textbf{编译（Compile）}：编译器将你写在文件中的源代码\footnote{源代码（Source Code），是一系列人类可读的计算机语言指令，在C++中一般指.cpp文件中的代码。}编译成目标代码\footnote{目标代码（Object Code），是源代码经编译器或汇编器处理后产生的代码，对人类来说可读性很差。机器不能直接执行源代码，只能执行目标代码。}。

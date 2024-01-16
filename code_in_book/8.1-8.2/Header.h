@@ -1,6 +1,8 @@
 #pragma once
 #include <initializer_list>
 #include <iostream>
+#include <vector> //使用vector必备的库
+using vecint = std::vector<int>; //别名声明
 class valarri; //valarri类声明
 void input_clear(std::istream& = {std::cin}); //input_clear函数声明
 class valarri { //valarri类定义
@@ -23,6 +25,10 @@ public: //公有成员部分
     valarri(int, std::size_t); //将<参数1>重复<参数2>次
     valarri(const valarri&); //拷贝构造函数
     ~valarri(); //析构函数
+    valarri(const vecint&); //vecint到valarri的转换构造函数
+    operator vecint()const; //valarri到vecint的自定义转换函数
+    explicit operator bool()const { return _size; }
+    //valarri到bool的自定义转换函数，说明此数组中是否有数据，是常成员函数
     valarri& operator=(const valarri&); //直接赋值运算符
     valarri operator+(const valarri&)const; //可以与数组相加
     valarri operator+(int)const; //可以与数相加
@@ -30,8 +36,8 @@ public: //公有成员部分
     valarri& operator+=(const valarri&); //可以加之以数组
     valarri& operator+=(int); //可以加之以数
     friend std::istream& operator>>(std::istream&, valarri&); //需iostream库
-    int& operator[](int i) { return _arr.p()[i]; } //下标，非常成员函数
-    int operator[](int i)const { return _arr.p()[i]; } //下标，常成员函数
+    int& operator[](std::size_t i) { return _arr.p()[i]; } //非常成员函数
+    int operator[](std::size_t i)const { return _arr.p()[i]; } //常成员函数
     void swap(valarri&); //完全交换两个valarri对象的成员数据
     void resize(std::size_t, int = {0}); //改变数据容量，如果扩大，将补<参数2>
     std::size_t size()const { return _size; } //返回当前的存储量大小，常成员函数

@@ -154,50 +154,7 @@ int main() {
 在这里，我们是把输入和求最大值并到同一步来写了。这句可能有点乱，但我们分析一下就会发现它很好懂。\par
 首先，\lstinline@maximum@ 接收两个参数，一个是 \lstinline@arr@，而另一个是 \lstinline@input_arr(arr,Maxsize)@。这也就是说，我们需要把 \lstinline@input_arr@ 的返回值求出来，然后才能执行 \lstinline@maximum@ 函数。而在 \lstinline@input_arr@ 执行过程中，程序会先进行输入（这是 \lstinline@input_arr@ 函数的副作用），然后返回实际存储数据的个数。这个个数将作为参数被 \lstinline@maximum@ 函数使用。\par
 下一步，\lstinline@maximum@ 知道了 \lstinline@arr@ 数组的位置和实际数据的个数，然后就会在对应的范围中求出最大的数。这时的 \lstinline@arr@ 也已经保存了用户输入的值（这是 \lstinline@input_arr@ 的副作用），所以整个程序就这样顺理成章地运行下去了。\par
-\begin{lstlisting}[caption=\texttt{输入数据求最大值.cpp},label=lst:GetMaximumFromInput]
-//这是一个输入若干数求最大值的程序，用户可以输入最多100000个数据，输入q结束输入
-#include <iostream>
-using namespace std;
-//声明部分
-void input_clear(istream& = {cin}); //在声明中就给出默认参数，注意类型是引用
-template<typename T>
-T maximum(T[], int); //T[]写成T*也没问题，不过习惯上还是写成数组形式
-template<typename T> //注意：每次声明（定义）模版时必须写一个template
-unsigned input_arr(T[], const unsigned);
-//定义部分
-int main() { //主函数
-    const int Maxsize {100000}; //用constexpr也可
-    int arr[Maxsize];
-    cout << maximum(arr, input_arr(arr, Maxsize));
-    return 0;
-}
-void input_clear(istream &in) {
-    in.clear();
-    while (in.get() != '\n')
-        continue;
-}
-template<typename T>
-T maximum(T arr[], int n) {
-    T res {arr[0]}; //先假设最大值为arr[0]
-    for (int i = 1; i < n; i++)
-        if (arr[i] > res) //如果arr[i]>res，说明有更大的数
-            res = arr[i]; //那么目前能找到的最大值就是arr[i]
-    return res; //res就是返回值
-}
-template<typename T>
-unsigned input_arr(T arr[], const unsigned max_size) {
-    unsigned real_size {0}; //记录数组中数据的实际个数
-    while (real_size < 1000) { //防止数组下标越界
-        cin >> arr[real_size]; //输入arr[real_size]
-        ++real_size; //然后real_size自增
-        if (!cin) { //如果输入状态错误
-            input_clear(); //先清理输入
-            break; //再退出while循环
-        }
-    }
-    return real_size;
-}
-\end{lstlisting}
+\lstinputlisting[caption=\texttt{输入数据求最大值.cpp},label=lst:GetMaximumFromInput]{../code_in_book/5.1/输入数据求最大值.cpp}\par
 这应该是本书迄今为止展示的最长代码了，但是关于它的每个部分，我都已经拆解过（除了 \lstinline@input_clear@，这部分我们暂且不讲，读者知道怎么用即可）。当我们想要实现较复杂的功能时，长代码总是难以避免的。这也正是我们需要用函数来进行``模块化''的一个重要原因。\par
 \subsection*{范围 \lstinline@for@ 循环}
 有的时候我们可能需要对一个数据的数据进行批量处理，这时我们一般用 \lstinline@for@ 循环来实现。好处也很明显，\lstinline@for@ 循环内部可以定义一个下标变量 \lstinline@i@（或者用别的名字），终止条件可以通过比较运算来实现，而迭代操作刚好可以处理下标的变化。这样看来，\lstinline@for@ 循环仿佛是为数组处理量身打造的。\par

@@ -4,24 +4,7 @@
 数学上有个函数叫作阶乘（Factorial），对于非负整数$n$，它的定义是$n!=1\times2\times3\times\ldots\times n$（特殊定义$0!=1$）。它还有一种递推定义：$0!=1; n!=n\times(n-1)!$。\par
 如何理解这个递推定义呢？其实就是，$0!$的值是给定的，而$n!$的值要由$n$乘以$(n-1)!$来计算。那么$(n-1)!$如何计算呢？要通过$n-1$乘以$(n-2)!$来计算。这样不断推导下去，就能一直推到$0!$这个确定的数据，因此只要知道了$0!$，就可以一步一步推出$n!$的值来。\par
 而在编程当中，我们可以用函数递归的方法来计算阶乘，下面是一个示例代码：
-\begin{lstlisting}[caption=\texttt{Factorial\_with\_Recursion.cpp},label=lst:FactorialWithRecursion]
-//用递归方法实现阶乘函数
-#include <iostream>
-using namespace std;
-//如果fractorial的参数大于12，就会发生运算结果溢出。可以考虑用unsigned long long
-unsigned factorial(unsigned n) { //阶乘的参数和值都不是负数，所以定义成unsigned
-    if (n == 0) { //终止条件，不可或缺
-        return 1; //0!为1，直接返回
-    }
-    else { //如果没有到达终止条件，就调用factorial(n-1)，离终止条件更近一步
-        return n * factorial(n - 1); //递归，n!用n*(n-1)!表示
-    }
-}
-int main() {
-    cout << factorial(12); //计算并输出12!的值
-    return 0;
-}
-\end{lstlisting}
+\lstinputlisting[caption=\texttt{Factorial\_with\_Recursion.cpp},label=lst:FactorialWithRecursion]{../code_in_book/4.2/Factorial_with_Recursion.cpp}
 我来解释一下这段代码，并回答一下读者可能关心的问题。\par
 {\kaishu ``我用 \lstinline@factorial@ 来定义 \lstinline@factorial@，编译器不会报错吗？''}\par
 不会的，因为\textbf{函数的定义就是一种声明}。所以编译器在 \lstinline@factorial@ 函数给定参数列表时就已经知道了它的存在（图4.5）。\par

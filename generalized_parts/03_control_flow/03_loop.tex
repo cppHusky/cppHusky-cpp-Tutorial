@@ -96,24 +96,7 @@
     \caption{while循环奇偶判断流程图}
 \end{figure}
 这种实现方式是可行的，并且相当好用。我在这里先放代码，然后再做解释：
-\begin{lstlisting}[caption=\texttt{while循环奇偶判断.cpp},label=lst:OddOrEvenWithWhileLoop]
-//这是一个基于while循环的奇偶判断程序，当输入为字母时停止循环
-#include <iostream> //标准输入输出头文件
-using namespace std; //命名空间使用
-int main() { //主函数
-    int num; //定义num，可不初始化
-    while (cin >> num) { //输入num并使用cin的返回值作为判断条件
-        const int mod {num % 2}; //num模除2的值
-        if (mod == 0) { //判断是否为偶数
-            cout << "偶数" << endl;
-        }
-        else { //mod可能是1或-1，我们把它们都归入else中
-            cout << "奇数" << endl;
-        }
-    }
-    cout << "程序结束"; //输出一个提示语，告诉用户程序结束
-}
-\end{lstlisting}
+\lstinputlisting[caption=\texttt{while循环奇偶判断.cpp},label=lst:OddOrEvenWithWhileLoop]{../code_in_book/3.3/while循环奇偶判断.cpp}\par
 这里最巧妙的操作在于使用 \lstinline@cin>>num@ 作为 \lstinline@while@ 循环的判断条件。前面我们提过，\lstinline@cin>>num@ 的返回值还是 \lstinline@cin@ 本身。而 \lstinline@ostream@ 类重载了 \lstinline@operator bool@，所以作为 \lstinline@ostream@ 类的对象，\lstinline@cin@ 可以被隐式类型转换为 \lstinline@bool@ 类型，这是它能作为判断条件的前提。\par
 那么什么情况下 \lstinline@cin@ 会被隐式类型转换为 \lstinline@true@ 呢？就是在输入状态一切正常的情况下。在C++中，有很多情况会导致输入状态不正常，比如：
 \begin{itemize}
@@ -241,30 +224,7 @@ void input_clear() {
 \end{lstlisting}
 我们会在下一章讲函数，在此之前你只需要管怎么使用就可以了。\par
 现在我们试着用这个方法来写一个输入数字求和的程序。用户可以输入若干整数，当输入 \lstinline@0@ 时结束循环，并给出以上所有数据的和。这里是完整代码：
-\begin{lstlisting}[caption=\texttt{sum.cpp},label=lst:SumWithContinue]
-#include <iostream>
-using namespace std;
-void input_clear() {
-    cin.clear(); //清除错误状态
-    while (cin.get() != '\n') //清除本行输入
-        continue;
-}
-int main() { //主函数
-    int sum {0}, x {1}; //x初始化为1是为了防止误结束循环
-    while (x != 0) { //当x为0时结束循环
-        cin >> x; //输入x的值
-        if (!cin) {
-            input_clear(); //清除错误和错误输入
-            x = 1; //x赋为1，否则可能导致循环误结束
-            cout << "请输入数字！输入0结束计算" << endl;
-            continue; //跳过sum+=x的操作
-        }
-        sum += x; //这是一个复合赋值运算符，等效于sum=sum+x
-    }
-    cout << "总数为：" << sum;
-    return 0;
-}
-\end{lstlisting}
+\lstinputlisting[caption=\texttt{sum.cpp},label=lst:SumWithContinue]{../code_in_book/3.4/sum.cpp}
 这段代码的主函数部分分别定义了 \lstinline@sum@ 和 \lstinline@x@，其中的 \lstinline@sum@ 用于求出所有数据的和，而 \lstinline@x@ 用于在每个迭代过程中存储新的数据。在 \lstinline@while@ 块内，程序将先读取 \lstinline@x@ 的输入。如果发现 \lstinline@cin@ 的状态不正常，就说明用户输入了不合理内容\footnote{实际情况可能更复杂，比如遇到了 \lstinline@EOF@。我们可以用一些代码来专门检测不正常的原因是否是 \lstinline@EOF@ 造成的，但是我们在本章还没必要细究这些问题。}。\par
 如果用户读取了不合理内容，我们需要做两件事：一是将 \lstinline@cin@ 恢复到正常状态，以便下次输入；二是用 \lstinline@continue@ 跳过后面的部分，以防 \lstinline@sum+=x@ 误执行导致计算结果出现问题。\par
 这里涉及到了一点复合赋值运算符的应用，我们简单一说便好：复合赋值运算符的返回值是赋值之后的左操作数的引用。比如加赋值，\lstinline@sum+=x@ 其实相当于 \lstinline@sum=sum+x@；减赋值，\lstinline@sum-=x@ 相当于 \lstinline@sum=sum-x@；还有乘赋值、除赋值、模赋值等运算符，它们都可以按照相同的规律来解释。\par

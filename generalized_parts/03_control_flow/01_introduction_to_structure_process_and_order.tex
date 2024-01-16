@@ -69,20 +69,7 @@ C++功能丰富，无论是命令行界面还是文本用户界面，我们都�
 \end{figure}
 值得注意的是回车键。在我们按下回车键之前，我们输入的内容并未实际发送给计算机，我们可以修改这些内容；而一旦按下了回车键，本行的输入内容将会发送给程序\footnote{这才是真正意义上完成了一次输入。}，我们也没机会再修改了。\par
 那么当我们按下回车键之后，计算机将会接收到什么输入内容呢？我们可以用这个程序来检测：
-\begin{lstlisting}[caption=\texttt{Input\_to\_ASCII.cpp},label={lst:InputToASCII}]
-// 这是一个简单的程序，用来将用户所有的输入转为ASCII码
-// 读者无需掌握本代码的全部细节，后续会讲到
-#include <iostream> //标准输入输出头文件
-using namespace std; //使用命名空间std
-int main() { //主函数，程序执行始于此
-    char c; //定义一个char变量c用以接收输入
-    while (cin.good()) { //while循环，当cin状态正常时继续循环
-        c = cin.get(); //通过cin.get()接收输入，并存入c
-        std::cout << static_cast<int>(c) << std::endl;
-        //强制类型转换为int，故以ASCII码值形式显示输入内容
-    }
-}
-\end{lstlisting}
+\lstinputlisting[caption=\texttt{Input\_to\_ASCII.cpp},label={lst:InputToASCII}]{../code_in_book/3.1/Input_to_ASCII.cpp}\par
 读者可以自行尝试这个程序。如果你单独按下一个回车键，程序会给出输出 \lstinline@10@。\textbf{这说明，回车键也是一种输入！}当你按下回车键的时候，既有``发送输入内容''的作用，又有``输入一个回车字符''作用。这点我们现在还不必深究，读者只需有一个印象即可。\par
 \subsubsection*{输出}
 如果说输入是我们在命令行中敲下若干字符的过程的话，那么输入就是程序在命令行中敲下若干字符的过程。\footnote{这当然是不严谨的。一般来说输出流有缓冲区机制，会先把输出内容存入缓冲区，再一次性将缓冲区内容输出，以提高效率。程序输出的逻辑与人工输入并不相同！这里只为方便初学者理解而如是描述。}想象一下，在输出过程中有一个输出光标，程序每输出一个字符，光标就会后移一位；输出换行符时，程序就会换行。\par

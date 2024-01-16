@@ -8,22 +8,7 @@
 于是乎，我们只需要通过 \lstinline@sizeof@ 算出它的内存空间大小，再根据它是有符号类型还是无符号类型，就可以判断出它的数据范围是什么了。\par
 C++还有另一种更简便的方法，那就是直接使用 \lstinline@limits@ 头文件中定义的 \lstinline@numeric_limits@ 来输出某一类型的数据上下限。\lstinline@numeric_limits@ 给出的结果正是本电脑的类型数据范围。\par
 以下是实现这个功能的完整示例代码：
-\begin{lstlisting}[caption=\texttt{Integer\_Limits.cpp}]
-// 这是一个简单的C++程序，用于输出一些整型数值的上/下限值
-#include <iostream> //标准输入输出头文件
-#include <limits> //标准算术类型属性头文件，numeric_limits定义于此
-using namespace std; //使用std命名空间
-int main(){ //主函数，程序执行始于此
-    cout << numeric_limits<short>::lowest(); //输出short类型的下限值
-    cout << endl; //输出换行，下同
-    cout << numeric_limits<short>::max(); //输出short类型的上限值
-    cout << endl;
-    cout << numeric_limits<unsigned>::lowest(); //输出unsigned类型的下限值
-    cout << endl;
-    cout << numeric_limits<unsigned>::max(); //输出unsigned类型的上限值
-    return 0;
-}
-\end{lstlisting}
+\lstinputlisting[caption=\texttt{Integer\_Limits.cpp}]{../code_in_book/2.1/Integer_Limits.cpp}
 在Coliru上，该程序代码的运行结果如下：\\\noindent\rule{\textwidth}{.2pt}\texttt{
 -32768\\
 32767\\
