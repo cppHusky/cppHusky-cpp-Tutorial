@@ -52,10 +52,10 @@
 \contentsline {section}{\numberline {8.4}成员的属性}{195}{section.8.4}%
 \contentsline {section}{\numberline {8.5}类型转换函数}{204}{section.8.5}%
 \contentsline {section}{\numberline {8.6}复合类型与对象}{214}{section.8.6}%
-\contentsline {part}{精讲篇}{217}{part*.155}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{217}{appendix.A}%
-\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{219}{appendix.B}%
-\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{221}{appendix.C}%
-\contentsline {section}{\numberline {C.1}数制转换}{221}{section.C.1}%
-\contentsline {section}{\numberline {C.2}布尔代数基础}{230}{section.C.2}%
-\contentsline {chapter}{跋}{231}{appendix*.163}%
+\contentsline {part}{精讲篇}{221}{part*.159}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{221}{appendix.A}%
+\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{223}{appendix.B}%
+\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{225}{appendix.C}%
+\contentsline {section}{\numberline {C.1}数制转换}{225}{section.C.1}%
+\contentsline {section}{\numberline {C.2}布尔代数基础}{234}{section.C.2}%
+\contentsline {chapter}{跋}{235}{appendix*.167}%

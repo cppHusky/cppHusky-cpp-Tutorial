@@ -1,1 +1,94 @@
 \section{复合类型与对象}
+前面五节，我们主要都在关注类与对象的内部特性。本节，我们转向它的外部特性来进行介绍。一个封装良好的类可以把内部特性全都隐藏起来，我们可以不管那些不为人知的细节，只要用它提供的公有成员来完成我们需要的工作就行了。\par
+\subsection*{此类的对象，彼类的成员}
+如果读者有这个闲情雅致，可以再扫视一遍第六章和本章前五节的内容；如果没有时间，也请回看一遍目录。我们会发现，自定义类型没有那么神秘，它只不过是各种基本类型（Fundamental types）和复合类型（Compound types）组合而成的产物。
+\begin{itemize}
+    \item 枚举，它是基于某种整型来实现的。我们可以人为改变它的枚举基。
+    \item 结构体，它是一种无机的数据整合体\footnote{\lstinline@struct@ 和 \lstinline@class@ 没有本质区别。严格说来，这里的``结构''指的是类似C语言中的结构体，它是没有成员函数，且所有成员变量均为公有成员的 \lstinline@struct@ 和 \lstinline@class@。}，把 \lstinline@int@, \lstinline@double@ 等各种数据类型堆砌到同一个单元中。
+    \item 联合体，它也是一种无机的数据整合体，可以用于特殊场合，以减少内存开支。
+    \item 类。它把成员变量和其它细节封装起来，我们只需要使用它的公有成员，而不需要在乎内部构造，方便简单。但实际上，这个类的内部还是那些 \lstinline@int@, \lstinline@double@，还有数组、指针之类的数据，而这些数据的操作，正是我们在前五章中讲到的内容。
+\end{itemize}
+我们还说过，在C++中，类（Class）与类型（Type）常常是对等概念。我们可以说 \lstinline@valarri@ 是一个类型，也可以说 \lstinline@int@ 是一个类。C++为我们提供了很多功能，比如运算符重载，来让我们在一定程度上消除内置类型和自定义类型的区别。事实证明，C++在这方面的努力还是很成功的。\par
+我们在类的定义中也可以把另一个类的对象，作为该类的成员——这就好像是把某个内置类型的变量作为该类的成员一样，是非常自然的事情。如果我们要定义一个类用来表示人的身份信息，那么让我们思考一下我们都可以用哪些成员：
+\begin{itemize}
+    \item 名字。我们可以用字符串 \lstinline@char[N]@ 来表示。但是限于名字长短不一，如果 \lstinline@N@ 太大，那就会浪费内存空间；如果 \lstinline@N@ 太小，那就有不能正常完成之虞。更好的选择是用 \lstinline@std::string@，它可以动态地管理内存，而且不需要我们去操心那些恼人的细节，诸如动态空间回收（因为已经写在 \lstinline@std::string@ 的析构函数中了）。
+    \item 编号，比如身份证号。我们可以用整型来表示它们，但是请注意，如果编号过长，这个值可能无法直接用整型来表示，我们可以改换策略，用字符串类型来表示。如果编号的位数是固定的，那就更好，直接用 \lstinline@char[N]@ 就可以；如果编号的位数是不固定的，那么 \lstinline@N@ 就要取其最大可能值。
+    \item 性别。我们直接以 \lstinline@bool@ 为枚举基，设置一个枚举类型就可以了。
+    \item 身高、体重。这些可能是浮点数，我们用 \lstinline@float@ 和 \lstinline@double@ 就行。
+    \item 年龄。它是非负的整数，所以可以用 \lstinline@unsigned@ 来表示\footnote{其实用 \lstinline@unsigned char@ 存储这个值，然后在需要的时候类型转换为整型，这才是最节省内存空间的方法；但是吧，我们没必要在节省内存空间这个问题上太强迫症了，毕竟现在已经不是那个内存空间寸土寸金的年代了。}。
+    \item ……
+\end{itemize}\par
+然后我们可以写这样一个类：
+\begin{lstlisting}
+class PersonalInfo {
+private:
+    const std::string name; //name是std::string类的对象，PersonalInfo类的成员
+    const enum : bool {male, female} sex; //这是比较省事的写法（代码多了显得乱）
+    double height;
+    double weight;
+    unsigned age;
+    //...更多
+public:
+    //...构造函数，以及其它功能的实现
+};
+\end{lstlisting}\par
+我们可以看到，这里的 \lstinline@name@ 既是 \lstinline@std::string@ 类的对象，又是 \lstinline@PersonalInfo@ 的成员。\par
+同样的道理，\lstinline@sex@ 既是一个（匿名的）枚举类的对象，又是 \lstinline@PersonalInfo@ 的成员。\lstinline@height@ 和 \lstinline@weight@ 是 \lstinline@double@ 类的对象；\lstinline@age@ 是 \lstinline@unsigned@ 类的对象。总而言之，我们看到，每个类的对象都可以与其它类的其它对象一起，共同构成新的类。所以此类的对象，也可以是彼类的成员。\par
+这些类的对象之间还可以继续组合，比如说 \lstinline@PersonalInfo@ 对象可以作为 \lstinline@Company@ 的成员，它的现实意义就是一个公司的雇员体系；除了这个雇员体系外，公司可能还有资金系统，物流系统等等。就这样，从小单元到大整体，面向对象概念为我们描述这个精彩的世界提供了无穷的可能性。\par
+\subsection*{示例：\texttt{std::string}对象数组}
+我们可以定义基本数据类型的数组，还可以定义复合数据类型的数组（二维数组，指针数组等）。对于自定义类型来说也是如此。我们可以定义 \lstinline@std::valarri@ 对象的数组，或者是 \lstinline@std::string@ 类型的数组。\par
+\begin{lstlisting}
+    std::string str[5]{
+        "Bjarne Stroustrup",
+        "Donald Ervin Knuth",
+        "Alexander Alexandrovich Stepanov",
+        "Alan Mathison Turing",
+        "Claude Elwood Shannon"
+    }; //定义由5个std::string对象构成的数组str
+\end{lstlisting}
+如果要访问它的单个元素，我们需要怎么做呢？很简单，用下标运算符就行了。
+\begin{lstlisting}
+    std::cout << str[0] << std::endl; //将输出Bjarne Stroustrup
+    std::cout << *(str+4) << std::endl; //将输出Claude Elwood Shannon
+\end{lstlisting}
+请读者关注它们的类型。既然 \lstinline@str@ 是一个 \lstinline@std::string[5]@ 类型，那么这个数组就可以在涉及加减法的场合下将隐式类型转换为指针\footnote{顺便一说，虽然 \lstinline@std::string@ 类型是自定义类型，但是 \lstinline@std::string@ 有关的数组和指针类型都不是自定义类型。它们只是``复合类型''，属于数组或指针家族。}。而对于指针来说，\lstinline@str+4@ 就意味着``第五个数组元素的地址''（别忘了，第一个元素是 \lstinline@str+0@，所以推算下来 \lstinline@str+4@ 就是第五个元素）。再取内容，得到的就是 \lstinline@std::string@ 类型的结果了。于是重载了这个输出的 \lstinline@std::cout@ 自然可以输出对应的结果。\par
+我们还可以输出单个字符，这是因为 \lstinline@std::string@ 类重载了下标运算符。
+\begin{lstlisting}
+    std::cout << str[1][0]; //将输出D
+    std::cout << (*str)[2]; //将输出a
+\end{lstlisting}
+我们还是来分析它的类型。\lstinline@str@ 的类型是 \lstinline@std::string[5]@ 自不必说，那么如同我们刚才分析的那样，无论 \lstinline@str[1]@ 还是 \lstinline@(*str)@ 都是 \lstinline@std::string@ 类型。而 \lstinline@str[1][0]@ 的后一个下标运算与前一个下标运算是有着根本不同的。后一个下标其实是成员函数 \lstinline@std::string::operator[](std::size_t)@。\par
+我们可以用 \lstinline@typeid@ 或 \lstinline@std::is_same@ 来判断它们的类型。（不过，GCC编译器的 \lstinline@typeid@ 信息太难懂了，所以我们还是用 \lstinline@std::is_same@ 吧）
+\begin{lstlisting}
+    std::cout << std::is_same<
+        decltype(str),
+        std::string[5]
+    >::value << std::endl << std::is_same<
+        decltype(str[0]),
+        std::string& //注意数组下标/取内容运算的返回值是都是引用
+    >::value << std::endl << std::is_same<
+        decltype(str[0][0]),
+        char& //注意std::string::operator[](std::size_t)的返回值是引用
+    >::value;
+\end{lstlisting}
+输出结果都是 \lstinline@1@，我就不再废话了。\par
+\subsection*{\texttt{valarray}与动态内存分配}
+之前我们写的 \lstinline@valarri@ 仅供教学用途，我们可以通过自己写出一个简易 \lstinline@valarri@ 的方式，初步了解 \lstinline@std::valarray@ 的内部机制。但是在实际编程中我们还是尽量用 \lstinline@std::valarray@，而不是我们自己写的版本。原因也很简单，毕竟它支持的功能不仅更完善，而且更稳定。\par
+在实际应用中，我们可能也会遇到需要动态内存分配的情况——不只是数组本身通过动态内存分配来实现可变大小，我们也可能需要``若干个这样的数组''——具体需要多少个，也是不确定的。
+\begin{lstlisting}
+    std::valarray<int> *p;
+    unsigned n;
+    std::cin >> n; //输入个数，然后我们就创建n个std::valarray<int>对象
+    p = new std::valarray<int>;
+    //...使用
+    delete p; //别忘了哦
+\end{lstlisting}
+这个过程看似简单，但是内部是非常复杂的。在我们分配一段动态内存的时候，每个 \lstinline@std::valarray<int>@ 也都有一个指针，等待分配动态内存，或者是已经分配到了动态内存；在我们改变数组内容的时候，就可能发生动态内存的重新分配。当我们释放动态内存的时候，这些对象的析构函数也会被调用，从而自动回收动态内存。这些内部细节全部对外不公开，这既能防止其内容被外界破坏，又能减少我们的工作量，这就是封装的优点。\par
+我们发现，把动态内存管理的工作交给 \lstinline@std::valarray@, \lstinline@std::vector@ 等类（类模版）来管理，显然要好过我们自己写 \lstinline@new[]@ 然后不小心忘了 \lstinline@delete[]@。所以我们还可以更进一步，把``动态数组的动态数组''也教给这些类来管理。
+\begin{lstlisting}
+    std::valarray<std::valarray<int>> arr;
+\end{lstlisting}
+读者现在未必能够理解这段代码，等到我们讲到第十一章，读者就可以很容易地理解了。\par
+\subsection*{智能指针简介}
+智能指针（Smart pointer）是为了解决我们``忘记回收动态内存''的问题而出现的。智能指针的一个对象就充当了一个指针。与普通指针最大的区别在于，在它的生存期结束时，智能指针将通过析构函数来回收动态内存空间——这样我们就不需要为了回收动态内存而操心。\par
+我们会在第十一章讲解，并自己写一个简单的智能指针。请读者尽情期待吧！\par
