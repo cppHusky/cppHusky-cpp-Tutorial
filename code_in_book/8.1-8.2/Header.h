@@ -15,7 +15,7 @@ private: //私有成员部分，注意成员变量定义的顺序
     private:
         int *_p; //私有指针成员_p，用来指向申请的动态内存空间
     public:
-        Arr(int *ptr) : _p{ptr} {} //构造函数，接收一个指针初始化
+        Arr(int *ptr) : _p {ptr} {} //构造函数，接收一个指针初始化
         int*& p() { return _p; } //返回类型是“对指针的引用”，其值为_p
         const int* p()const { return _p; } //返回类型是“指向常量的指针”，其值为_p
     }_arr {new int[_cap]}; //作为一个中介对象存在，是访问_p成员的窗口

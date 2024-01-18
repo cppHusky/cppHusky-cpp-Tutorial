@@ -1,0 +1,564 @@
+\section{实操：简单的\texttt{string}类}
+我们在本节的目的是：参照 \lstinline@std::string@ 类的功能，仿制一个 \lstinline@string@ 类。这个仿制版本不需要多么专业，也不需要多么复杂的功能。我们的目的在于学习与掌握，而不是拿出去实际使用。\par
+我们先来看看 \lstinline@std::string@ 有哪些常用功能——我们可以在 \href{https://en.cppreference.com/w/cpp/string/basic\_string}{std::basic\_string - cppreference.com} 中查到——知己知彼嘛。但是出于整理的目的，还是请允许我在书中花上一些篇幅来介绍。\par
+\subsection*{功能简介}
+\lstinline@std::string@ 的全称是 \lstinline@std::basic_string<char,std::char_traits<char>,std::allocator<char>>@。是不是很吓人？不过我们现在不用研究什么 \lstinline@char_traits@ 或者 \lstinline@allocator@，只需要盯着我们的目的——仿制一个 \lstinline@string@ 类，就足够了。所以我们就用简单一点的方法，不用什么所谓动态内存分配器之类的东西，直接用 \lstinline@new[]@/\lstinline@delete[]@，诸如此类。\par
+\lstinline@std::string@ 的构造函数非常多样：
+\begin{itemize}
+    \item 默认构造函数将建立一个空字符串。
+    \item 有的构造函数是建立 \lstinline@count@ 个 \lstinline@ch@ 字符构成的串。
+    \item 有的构造函数是在另一个字符串对象 \lstinline@other@ 中截取 \lstinline@pos@ 开始的 \lstinline@count@ 个字符。
+    \item 有的构造函数是以一个 \lstinline@char*@ 字符串的内容为内容建立起来的。
+    \item 有的构造函数是用一个列表来初始化的，我们在前面讲 \lstinline@valarri@ 时也介绍过。
+    \item ……
+\end{itemize}
+种种构造函数不一而足，我们当然也没有必要全部实现，拣一些常用的就行了。\par
+\lstinline@std::string@ 的析构函数只有一个（况且反正析构函数不能重载），目的就是回收这个对象分配的动态内存。\par
+\lstinline@at@ 和 \lstinline@operator[]@ 成员函数都可以用来访问内部数据。不同的在于，\lstinline@at@ 有更完善的异常检测\footnote{关于异常，我们将在第十二章和精讲篇中讲解。}，对于下标越界行为有所防范，但 \lstinline@operator[]@ 出于方便使用的目的，就没有这方面的功能；但这也就导致它相对危险，不适合真的用在类的内部（我们此前写的 \lstinline@valarri@ 类就像玩似的）。\par
+\lstinline@assign@ 和 \lstinline@operator=@ 成员函数都可以用来为一个 \lstinline@std::string@ 对象赋值，不过 \lstinline@assign@ 成员函数才是最好用的，尤其是在类的内部\footnote{把麻烦留在定义的时候，把方便留在使用的时候，这也是面向对象编程的理念。}。试想，赋值运算符只能接收一个参数，虽然它用起来很方便，但是局限性未免太大了点。而 \lstinline@assign@ 这种成员函数才真正适合用来实现内部功能。\par
+\lstinline@empty@ 成员函数用来返回一个 \lstinline@bool@ 数据，表示这个对象是不是空字符串。我们在前面用自定义转换函数 \lstinline@operator bool@ 实现了这个功能，但它不是STL容器及 \lstinline@std::string@ 中的标准做法。\par
+\lstinline@size@ 和 \lstinline@length@ 成员函数的作用完全等同，都是返回这个对象的字符串长度。\footnote{其中的 \lstinline@size@ 能与STL成员函数相兼容，而 \lstinline@lengh@ 与字符串原本的``长度''概念近同。或许是因此才有两个名称不同但实际作用一致的成员函数吧。}需要注意的是，我们应当有专门的成员变量来存储这个长度值，以此保证它的时间复杂度是常数级别\footnote{这里牵扯到时空复杂度的概念。简单来说，时空复杂度是衡量算法/数据结构性能的重要指标。常数复杂度意味着某个函数的运行时间与这个字符串的长度无关，一般来说这是最佳的时间复杂度。}。至于延迟标记，我们就不需要了，因为大多数成员函数都必须知道``长度''这个数据，所以我们几乎不会遇到``整个生存期内不需要计算长度''的情况。\par
+\lstinline@capacity@ 成员函数返回这个对象的容量——其实也就是动态内存的长度。注意，``容量''与``字符串长度''是两个概念，不能划等号！\par
+\lstinline@reserve@ 成员函数用于改变这个对象的容量，它接收一个参数。如果参数大于现有容量，那么就扩容；如果参数小于容量而大于等于字符串长度，那么就重新分配一个稍小的内存空间（相当于节省了部分不需要的内存空间）；如果参数小于字符串长度，那么就只把容量缩小到与 \lstinline@size()@ 相等，从而保证不会损失内容。\par
+\lstinline@resize@ 函数的作用是，改变内容的长度，但不会影响容量。如果 \lstinline@resize@ 想要把内容缩短，那么内容将会截尾；如果它把内容加长，那么内容将会填充 \lstinline@'\0'@ 或者我们指定的字符 \lstinline@ch@。\par
+\lstinline@append@ 和 \lstinline@+=@ 成员函数都可以用来在此对象后面继续添加内容；但是如前所述，运算符版本的作用还是比较有限，所以我们在类内部还是用 \lstinline@append@ 吧。\par
+\lstinline@insert@ 和 \lstinline@erase@ 成员函数有大量的重载，其中 \lstinline@insert@ 用于在指定位置插入字符或字符串，而 \lstinline@erase@ 函数相反，用于在特定范围内删除字符或字符串。其中部分重载会涉及到迭代器的相关知识，我们避开就好。另外，\lstinline@erase@ 函数的作用仅限于单纯的改变内容，不涉及动态内存的重新分配。\par
+\lstinline@clear@ 成员函数用于清理字符串内容，相当于把它变成空字符串。但是请注意，这个函数和刚才的 \lstinline@erase@ 很像，它不会改变容量，只是单纯改变内容及长度。\par
+\lstinline@copy@ 成员函数的作用是把本字符串的内容复制一部分到指定的 \lstinline@char*@ 字符串中，其作用有点像 \lstinline@cstring@ 库中的 \lstinline@std::memcpy@。\par
+\lstinline@swap@ 成员函数的作用是把此对象与另一个对象的内容完全交换，这算是我们的老朋友了。\par
+\lstinline@find@ 成员函数是一个查找函数。丰富而强大的查找功能是 \lstinline@std::string@ 的一大特色。通过 \lstinline@find@ 函数，我们可以在一个对象中查找其它字符、字符串或对象（其实还是在字符串中查找特定字符串）。\lstinline@std::string@ 还提供了 \lstinline@rfind@ 成员函数，它就是从后向前找而已。至于 \lstinline@find_first_of@ 这些，各有各的作用，太多了，我就不一个个说了。\par
+\lstinline@compare@ 成员函数和六个重载比较运算符（非成员函数）的作用是进行字典序比较。对于 \lstinline@compare@ 来说，如果此对象应排在彼对象之前，那么返回值为负数（具体多少，那就不一定了）；如果此对象应排在彼对象之后，那么返回值为正数；如果它们完全相同，那么返回值为 \lstinline@0@。\par
+还有一些其它类的成员函数与 \lstinline@std::string@ 类有着密不可分的关系。比如说 \lstinline@std::istream@ 类重载了 \lstinline@>>@ 运算符，可以接收外界到 \lstinline@std::string@ 的输入；\lstinline@std::ostream@ 类重载了 \lstinline@<<@ 运算符，可以直接输出 \lstinline@std::string@ 对象。\par
+好了，关于 \lstinline@std::string@ 的功能，我们先介绍到这里。\par
+实际上 \lstinline@std::string@ 的功能远比这些要多，但是我们没有必要做这么多（单纯只是刚才那一页，就已经是不小的工作量了），况且这里还有太多我们没学过的知识。\par
+读者看完了上述内容之后可能已经感到头疼了。但是不必担心，我们不需要把它``背下来''，只需要在将来我们写的时候，不时回来翻阅，或者到cppreference中查阅一下，看看它的功能是什么，注意可能的问题，这就足够了。\par
+\subsection*{规划}
+凡事预则立，不预则废。规划好这个类的定义部分，把需要的函数声明出来，然后再考虑具体的成员函数定义，这样比较好。\par
+\subsubsection*{私有成员部分}
+我们可以借用之前定义 \lstinline@valarri@ 的思路，在私有成员部分分别定义两个 \lstinline@std::size_t@ 变量，名为 \lstinline@_cap@ 和 \lstinline@_size@，记录本对象的字符串容量和长度。而 \lstinline@MAX_SIZE@，其实不是必需的，这里就不用了。\par
+至于指针，我们也可以沿用嵌套类 \lstinline@Arr@ 的思路来进行。另一种方法是私有继承——我们等到下一节再讲。\par
+读者需要注意它们的声明顺序，因为在初值列中，初始化的顺序会取决于成员的声明顺序。所以对于有依赖关系的 \lstinline@_arr@ 和 \lstinline@_cap@，要特别注意把 \lstinline@_cap@ 定义在前面。至于没有任何依赖关系的 \lstinline@_size@，放在哪里都行；但我们还是倾向于把它们安排得更有条理一些，而不是乱放。以下是我本人的习惯：
+\begin{lstlisting}
+class string { //class的默认成员访问权限是private，所以private可省略
+    static constexpr std::size_t npos = -1; //串尾指示器
+    std::size_t _cap {0}; //容量，默认初值为0
+    std::size_t _size {0}; //长度，默认初值为0
+    class Arr {
+        char *_p;
+    public:
+        Arr(char* ptr = {nullptr}) : _p {ptr} {} //Arr的构造函数
+        char*& p() { return _p; } //当arr不是常量时调用
+        const char* p()const { return _p; } //当arr是常量时调用
+    } _arr {new char[_cap]}; //象征指针的成员，默认用new char[_cap]初始化
+    void realloc(std::size_t cap, bool copy = true) { //重分配内存函数
+        char *tmp =_arr.p(); //临时指针，用以暂存当前内存地址
+        _arr.p() = new char[cap]; //分配新的内存地址
+        if (copy) //说明这个函数需要进行内容复制
+            for (std::size_t i = 0; i < std::min(cap, _size); i++)
+                _arr.p()[i] = tmp[i]; //转移内容
+        delete[] tmp; //回收原来的内存地址
+        _cap = cap; //更新_cap的值
+        if (_size > _cap)
+            _size = _cap; //保证_size不能大于_cap
+    }
+public:
+    //...待补充
+};
+\end{lstlisting}
+这里有一个特殊的静态常成员 \lstinline@npos@，它负责担任串尾指示器。举个实际例子你就懂了：假如我们要用 \lstinline@find@ 成员函数查找某个字符串中的字符，找到了就返回那个位置的下标\footnote{我们可以理解成字符串的下标，或者理解成该字符到首字符的距离，都可以。下标值一般是 \lstinline@std::size_t@ 类型的，表示非负整数。}。问题来了——没找到的话返回什么？返回 \lstinline@0@ 吗？不行，那就和``在下标 \lstinline@0@ 处找到''的意思冲突了。同理，返回任何一个正整数都有可能都会造成冲突，所以我们需要一个特殊值来返回。\par
+这里还有一个私有成员函数 \lstinline@realloc@，它比较特别，是辅助我们进行内存重分配的。简言之，我们在定义其它成员函数时经常因为内存空间不够，而需要进行内存重分配。\lstinline@realloc@ 可以帮助我们直接完成这项工作，我们不再需要一遍一遍地写动态内存分配和复制数据的代码，而是直接调用 \lstinline@realloc@ 函数，省时省力，经松解决！此外，因为 \lstinline@realloc@ 是私有成员函数，不会被外界滥用，这也保证了对象的安全。\par
+\lstinline@realloc@ 函数有一个带默认值 \lstinline@true@ 的参数 \lstinline@copy@，它是一个标记，表明我们在重分配内存时是否需要复制数据。什么意思呢？我们有的时候调用 \lstinline@realloc@ 是为了在保留内容的前提下重新分配内存空间，这时我们就需要在分配动态内存时把数据也一并复制到新的区域内；但有的时候调用 \lstinline@realloc@ 只是为了获得一个更大的内存空间，不需要在乎内容，所以这种情况下复制数据就是浪费时间。因此我们需要在二者之间进行选择，所以就需要一个 \lstinline@bool@ 型参数来帮助我们应对不同需求。\par
+\lstinline@npos@ 就是这样的一个值，这里的 \lstinline@-1@ 只是个象征性的值，它可以用来表示两种含义：一种是字符串末尾，一种是下标错误。\lstinline@find@ 函数使用的正是第二种含义。\par
+至于定义——为什么在这里初始化时不用花括号而是改用等号了呢？ 这是因为 \lstinline@std::size_t@ 不能接收 \lstinline@-1@ 这个值。我们的实际目的是要通过有符号到无符号转换\footnote{我们到精讲篇中再谈。}，把 \lstinline@-1@ 变成机器允许的最大无符号值——读者可能觉得有点头大了，看不懂也不要紧啦，直接抄代码就行。\par
+下面我就在 \lstinline@public@ 部分中补充成员函数。\par
+\subsubsection*{公有成员部分}
+先来看构造函数。我们不用把那十多个重载全都写出来；挑几个，意思一下就行了。虽然形参名是非必须的，但是为了方便阅读和解释代码，我们还是适当地把形参名写上比较好。
+\begin{lstlisting}
+public:
+    explicit string() {} //默认构造函数，定义成explicit防止被误用
+    string(std::size_t count, char ch); //重复count个ch
+    string(const string &other, std::size_t pos = {0},
+           std::size_t count = {npos}); //在other的pos位置起接收count个字符
+    string(const char *s); //用s字符串初始化
+    string(const char *s, std::size_t count); //用s字符串的前count个字符初始化
+    string(std::initializer_list<char>); //需要头文件initializer_list
+\end{lstlisting}
+其中第三个函数有默认值 \lstinline@0@ 和 \lstinline@npos@，如果都省略不写的话，它就相当于一个拷贝构造函数。\lstinline@npos@ 在这里充当串尾指示器，表明``\lstinline@other@ 有多长，我就要多长''——总之，\lstinline@npos@ 不意味着一个``特定的长度''，它有它的特殊意义。在实际操作的时候，我们应当把``\lstinline@pos@ 情况''单独考虑。\par
+至于析构函数，就没什么多说的了。反正它既没有返回值，又不能接收参数，还不能重载，所以只有这一种写法：
+\begin{lstlisting}
+public:
+    ~string(); //析构函数
+\end{lstlisting}\par
+接下来我们声明 \lstinline@at@ 和 \lstinline@operator=@。因为我们尚未学习异常处理，所以我们就不管 \lstinline@at@ 函数的那些细节。对于越界的下标，统一把下标改为 \lstinline@size()-1@；而 \lstinline@operator=@ 不作越界检测。\par
+其中的重载下标运算符非常简单，直接定义在此处。\par
+\begin{lstlisting}
+public:
+    char& at(std::size_t pos); //返回pos位置的字符
+    const char& at(std::size_t pos)const; //常成员函数版本
+    char& operator[](std::size_t pos) { return _arr.p()[pos]; } //下标运算符
+    const char& operator[](std::size_t pos)const { return _arr.p()[pos]; }
+\end{lstlisting}
+接下来我们声明 \lstinline@assign@ 和 \lstinline@operator=@。\lstinline@assign@ 成员函数也有很多重载，所幸它们和构造函数的要求很相像，我们甚至可以考虑用构造函数加 \lstinline@swap@ 配合来节省代码工作量（我们曾在 \lstinline@valarri::resize@ 中用过这类技俩）。\par
+\begin{lstlisting}
+public:
+    string& assign(std::size_t count, char ch); //赋值重复count个ch
+    string& assign(const string &str, std::size_t pos = {0},
+        std::size_t count = {npos}); //在str的pos位置起接收count个字符
+    string& assign(const char *s, std::size_t count); //接收s的前count个字符
+    string& assign(std::initializer_list<char>); //用列表赋值
+\end{lstlisting}
+\lstinline@operator=@ 只需要在 \lstinline@assign@ 的基础上，做一些方便使用的简化版本就可以了。
+\begin{lstlisting}
+public:
+    string& operator=(const string &str) { return assign(str); }
+    string& operator=(const char *s) { return assign(s, std::strlen(s)); }
+    //其中std::strlen需要头文件cstring
+    string& operator=(char ch) { return assign(1, ch); }
+    string& operator=(std::initializer_list<char> ilist)
+        { return assign(ilist); }
+\end{lstlisting}\par
+\lstinline@empty@, \lstinline@size@ 和 \lstinline@length@ 成员函数的实现都很简单，也不太需要讲解。我们可以直接在类内完成这些定义。
+\begin{lstlisting}
+public:
+    bool empty()const { return _size; } //用到了隐式类型转换
+    std::size_t size()const { return _size; } 
+    std::size_t length()const { return _size; }
+\end{lstlisting}
+注意它们都要是常成员函数，这样无论对象本身是不是常量，都可以调用这些成员函数。\par
+\lstinline@capacity@ 也是同理，只是它返回的是 \lstinline@_cap@ 成员变量。
+\begin{lstlisting}
+    std::size_t capacity()const { return _cap; }
+\end{lstlisting}\par
+接下来声明 \lstinline@reserve@ 和 \lstinline@resize@。我们先不管它们的细节，只声明出来就行。
+\begin{lstlisting}
+public:
+    void reserve(std::size_t new_cap); //改变容量到new_cap，除非影响内容
+    void resize(std::size_t count, char ch = {'\0'}); //改变内容长度
+\end{lstlisting}
+在 \lstinline@std::string::resize@ 的实际定义是把 \lstinline@(std::size_t)@ 和 \lstinline@(std::size_t,char)@ 作为重载出现的。在这里我们用默认值的方法，把它们定认成同一个函数，这样比较省事。\par
+\lstinline@append@ 函数也有许多重载，我们挑选其中几个就行。
+\begin{lstlisting}
+public:
+    string& append(std::size_t count, char ch);
+    string& append(string &str, std::size_t pos = {0},
+        std::size_t count = {npos});
+    string& append(const char *s, std::size_t count);
+    string& append(std::initializer_list<char>);
+\end{lstlisting}\par
+然后再 \lstinline@append@ 的基础上，做一些方便使用的简化版，这就是 \lstinline@operator+=@ 运算符了。
+\begin{lstlisting}
+public:
+    string& operator+=(char ch) { return append(1, ch); }
+    string& operator+=(const string &str) { return append(str); }
+    string& operator+=(const char *s) { return append(s,std::strlen(s)); }
+    string& operator+=(std::initializer_list<char> ilist)
+        { return append(ilist); }
+\end{lstlisting}\par
+\lstinline@insert@ 和 \lstinline@erase@ 也有很多重载，但是其中有大量需要用到迭代器，这些就省了；还有一些重载关系可以用默认值替代，我们就合并一下。所以最后我们只需要写四个 \lstinline@insert@ 和一个 \lstinline@erase@ 就可以了。
+\begin{lstlisting}
+public:
+    string& insert(std::size_t pos, std::size_t count, char ch);
+    string& insert(std::size_t pos, const char *s, std::size_t count);
+    string& insert(std::size_t pos, const string &str,
+        std::size_t s_pos = {0}, std::size_t count = {npos});
+    //在pos位置起，从str的s_pos位置起选取count个字符插入本字符串中
+    string& insert(std::size_t, std::initializer_list<char>);
+    string& erase(std::size_t pos = {0}, std::size_t count = {npos});
+\end{lstlisting}
+其中第三个的插入方式比较复杂，注释中已经加以说明。至于 \lstinline@clear@，只需要用 \lstinline@erase(0,npos)@——含义就是，从第 \lstinline@0@ 字符到末尾的字符全删除，那么自然就可以起到 \lstinline@clear@ 的预期效果了。
+\begin{lstlisting}
+public:
+    void clear() { erase(); } //传入erase函数的默认值，然后自然能起到clear作用
+\end{lstlisting}\par
+至于 \lstinline@copy@ 函数，它的作用是把 \lstinline@pos@ 开始的 \lstinline@count@ 个字符移入dest字符串内。换句话说，是在向外界字符串输出\footnote{对象之间也有``输入''``输出''概念。对于一个对象来说，从外界（其它对象等）接收信息是输入，而向外界（其它对象等）提供信息就是输出。}内容。至于返回值，就是实际复制进字符串中的字符个数。
+\begin{lstlisting}
+public:
+    std::size_t copy(char *dest, std::size_t count,
+        std::size_t pos = {0})const; //把pos起的count个字符移入dest
+\end{lstlisting}\par
+\lstinline@swap@ 还有 \lstinline@swap@ 函数，无需多言。
+\begin{lstlisting}
+public:
+    void swap(string&); //交换此对象与彼对象
+\end{lstlisting}
+至于 \lstinline@find@ 函数，它的重载也挺多的，我们挑三个就行，对别对应着根据 \lstinline@string@ 对象/\lstinline@char[N]@ 字符串/字符来查找。多余的功能支持就不做了。至于返回值，当然应当返回``位置''这个信息了，这样才能说明是在哪里找到的。如果找不到的话就要返回 \lstinline@npos@，这也是我们此前讲过的。
+\begin{lstlisting}
+public:
+    std::size_t find(const string &str, std::size_t pos = {0})const;
+    //从pos位置起找str
+    std::size_t find(const char *s, std::size_t pos,
+        std::size_t count )const; //以s的前count个字符为索引，从pos位置起找
+    std::size_t find(char ch, std::size_t pos = {0})const;
+    //这三个都是常成员函数，因为不需要改变对象的内容
+\end{lstlisting}\par
+\lstinline@compare@ 函数以及六个比较运算符都可以用来与另一对象进行字典序比较。读者可能会觉得这个工作有点太难了，但是不要担心，我们可以像之前那样，用C++算法库中的 \lstinline@std::lexicographical_compare@ 函数模版来解决它。只要实现了小于号，\lstinline@compare@ 和其它五个运算符就都可以实现了。
+\begin{lstlisting}
+public:
+    int compare(const string&)const;
+    bool operator<(const string&)const;
+    bool operator>(const string&)const;
+    bool operator<=(const string&)const;
+    bool operator>=(const string&)const;
+    bool operator==(const string&)const;
+    bool operator!=(const string&)const;
+\end{lstlisting}\par
+最后我们重载一下输入输出。因为第一个参数不是 \lstinline@string@ 类型，所以我们就定义为非成员函数，使其作为 \lstinline@string@ 的友元存在就好。
+\begin{lstlisting}
+public:
+    friend std::ostream& operator<<(std::ostream&, const string&); //输出
+    friend std::istream& operator>>(std::istream&, string&); //输入
+\end{lstlisting}\par
+以上就是我们的 \lstinline@string@ 类的全部内容。接下来就让我们逐个击破，把它们都实现出来吧。\par
+\subsection*{实现}
+我们首先把构造函数写出来。在其它很多函数的实现过程中，我们都必须要定义一些临时变量。所以完善的构造函数是不可或缺的。\par
+\begin{lstlisting}
+string::string(std::size_t count, char ch)
+    : _cap {count} //_arr就用默认初值new char[_cap]来初始化足矣
+{
+    for (; _size < count; _size++) //_size已经通过默认初值定为0，无需再赋值
+        at(_size) = ch; //这里用到了at成员函数，稍后我们会看到其定义
+}
+\end{lstlisting}
+读者可能发现，在 \lstinline@string@ 当中我们没有使用 \lstinline@char[]@/\lstinline@char*@ 字符串那样在字符串之后加入一个 \lstinline@'\0'@ 作为结束符。这是因为我们已经有了一个专门负责记录字符串长度的成员变量 \lstinline@_size@ 了，所以自然不需要使用结束符这种字符来标记字符串的结尾了。
+\begin{lstlisting}
+string::string(const string &other, std::size_t pos, std::size_t count)
+    : _cap {other._cap} //当pos和count都取默认值时它充当拷贝构造函数，故_cap要一致
+{
+    if (pos >= other._size) //为了防范pos越界的情况
+        at(0) = '\0'; //直接把第一个字符变成空字符，什么也不做
+    else {
+        if (count == npos //npos的意思是直接截到字符串末尾
+            || pos + count > other._size
+        ) //对于pos+count越界或者count==npos的情况
+            count = other._size - pos; //接下来count的值就合适了
+        for (; _size < count; _size++)
+            at(_size) = other.at(_size);
+    }
+}
+\end{lstlisting}
+这个版本的构造函数是从另一 \lstinline@string@ 对象拷贝内容，它也可以作为构贝构造函数存在。\par
+读者需要注意可能存在的访问越界情况，比如说起始位置 \lstinline@pos@ 或者是终止点 \lstinline@pos+count@ 已经超过了 \lstinline@other._size@，我们要采取相应的对策。还有一种可能就是 \lstinline@count==npos@，这意味着用户想要使用整个 \lstinline@string@ 的全部内容。对于这种情况，我们也可以人为地把 \lstinline@count@ 改成 \lstinline@other._size-pos@，从而满足 \lstinline@pos+count==other._size@——这样我们就指定了 \lstinline@pos@ 起 \lstinline@_size@ 止\footnote{在 \lstinline@std::string@ 及STL中，所有``\lstinline@a@ 起 \lstinline@b@ 止''的说法一般都是指``包含 \lstinline@a@ 而不包含 \lstinline@b@ 的中间区段''。下面不再重复。}的内容。
+\begin{lstlisting}
+string::string(const char *s) : _cap {std::strlen(s)} {
+    for (; _size < _cap; _size++)
+        at(_size) = s[_size];
+}
+string::string(const char* s, std::size_t count)
+    : _cap {std::min(std::strlen(s),count)} //防止count大于strlen(s)
+{
+    for (; _size < _cap; _size++)
+        at(_size) = s[_size];
+}
+\end{lstlisting}
+这个版本的构造函数是从一个 \lstinline@const char*@ 字符串拷贝内容。在这里我们不能通过默认参数的方法来把二者合并为同一个函数，因为默认参数的确定是编译时行为，而编译器是无法预测 \lstinline@std::strlen(s)@ 将会是多少的。
+\begin{lstlisting}
+string::string(std::initializer_list<char> ilist)
+    : _cap {ilist.size()}
+{
+    for (char ch : ilist) //范围for循环
+        at(_size++) = ch; //注意自增符号要用后缀
+}
+\end{lstlisting}
+这个版本的构造函数支持列表初始化，其中细节都是老生常谈，不再赘述。最后写一个很简单的析构函数，这方面的工作就宣告完成了！
+\begin{lstlisting}
+string::~string() {
+    delete[] _arr.p(); //别忘了用delete[]而不是delete
+}
+\end{lstlisting}\par
+接下来顺着我们定义的顺序完成其它成员函数即可。首先是 \lstinline@at@，有常成员函数和非常成员函数版本。注意，\lstinline@at@ 是有边界检测的。但我们还没有学异常处理，所以干脆把异常下标都变成 \lstinline@_size-1@。这个方法并不万全，万一 \lstinline@_size@ 为 \lstinline@0@ 那也不行；但是这是现阶段我们唯一能做出的努力了。\par
+\begin{lstlisting}
+char& string::at(std::size_t pos) {
+    if (pos >= _size) //防越界，但是对于pos==0的情况无能为力
+        pos = _size - 1;
+    return _arr.p()[_size];
+}
+const char& string::at(std::size_t pos)const { //注意返回类型是const char&
+    if (pos >= _size)
+        pos = _size - 1;
+    return _arr.p()[_size];
+}
+\end{lstlisting}\par
+接下来是赋值函数 \lstinline@assign@。
+\begin{lstlisting}
+string& string::assign(std::size_t count, char ch) {
+    if (count > _cap) //说明动态内存空间不足
+        realloc(count, false); //重新分配，这时不需要进行内容复制，故传入false
+    for (_size = 0; _size < count; _size++)
+        at(_size) = ch;
+    return *this;
+}
+\end{lstlisting}
+在这里 \lstinline@realloc@ 成员函数的第二个参数就发挥作用了。想想，在这个例子中，我们的目的只是重新分配一个动态内存；至于原来的内容，我们根本不需要保留——反正下一步就是用 \lstinline@char@ 来填充。
+\begin{lstlisting}
+string& string::assign(
+    const string &str,
+    std::size_t pos,
+    std::size_t count
+){ //这是一种效率比较低的做法，但是操作非常简单
+    string tmp {str, pos, count}; //用一个tmp暂存需要的内容
+    swap(tmp); //将此对象与tmp交换
+    return *this;
+}
+\end{lstlisting}
+对于这种参数当中含有 \lstinline@string@ 对象的赋值函数来说，一定要警惕``自我赋值''及类似现象。不过，在本例中我们选择了一种代码实现上更简单的做法，就是先利用构造函数产生一个符合条件的临时对象，然后再用 \lstinline@swap@ 成员函数交换这两个对象的成员。\footnote{虽然这么写很简单，但它只是个权宜之计。C++是一种很重视执行效率的语言，而我们的这个方法是很低效的（比如，有时会导致无谓的内存重分配），比C++自带的 \lstinline@std::string@ 就要更逊一筹了。}
+\begin{lstlisting}
+string& string::assign(const char *s, std::size_t count) {
+    std::size_t len {std::strlen(s)}; //防止多次调用std::strlen
+    if (count > len) //如果count大于len，那就越界了
+        count = len; //修正count的值
+    if (count > _cap) //说明动态内存空间不足
+        realloc(count, false); //这里也不需要保留原内容
+    for (_size = 0; _size < count; _size++)
+        at(_size) = s[_size];
+    return *this;
+}
+\end{lstlisting}
+这里我们定义 \lstinline@len@ 的目的是防止多次调用 \lstinline@std::strlen()@ 函数，避免浪费时间。
+\begin{lstlisting}
+string& string::assign(std::initializer_list<char> ilist) {
+    string tmp{ilist};
+    swap(tmp); //故技重施
+    return *this;
+}
+\end{lstlisting}
+这里我们故技重施，读者会发现这么写确实很方便。本例仅用于教学，如果读者想要自己练习，也可以用其它写法实现这个函数。\par
+赋值运算符及 \lstinline@empty@, \lstinline@size@, \lstinline@length@ 和 \lstinline@capacity@ 已经在类内定义了，这里就可以跳过。读者可以回看前面的代码来温习之。有些细节可能会疏于讲解，但以读者现有的知识，想必不难看懂。\par
+接下来是 \lstinline@reserve@ 和 \lstinline@resize@ 函数，二者一个改变容量，一个改变长度。其中的 \lstinline@reserve@ 和 \lstinline@realloc@ 非常相似，只不过前者不能在改变 \lstinline@_cap@ 时导致内容受损，所以要保证新的内存大小能容纳现有内容；而后者不在乎这些，允许内容量的损失。
+\begin{lstlisting}
+void string::reserve(std::size_t new_cap) {
+    if (new_cap < _size) //防止损失有效内容
+        new_cap = _size;
+    realloc(new_cap); //直接使用已有的realloc函数来实现
+}
+\end{lstlisting}
+而 \lstinline@resize@ 在改变长度时，要考虑内存空间不足的情况——如果需要的长度比真实容量还大，那么我们还需要扩容。所以我们可以把这步单独拎出来处理，先保证容量充足；然后再改变长度。这也是一种``分而治之''的思想。
+\begin{lstlisting}
+void string::resize(std::size_t count, char ch) {
+    if (_cap < count) //先保证动态内存空间充足
+        realloc(count); //这里传入第二个默认参数true，说明原内容需要保留
+    if (count > _size)
+        for (; _size < count; _size++)
+            at(_size) = ch; //从_size位置到count-1全部需要变成ch，注意范围
+    else
+        _size = count; //直接截尾即可，所以把_size变成count
+}
+\end{lstlisting}
+读者需要注意，在这里我们是需要\par
+下面是一系列 \lstinline@append@ 成员函数。
+\begin{lstlisting}
+string& string::append(std::size_t count, char ch) {
+    if (_size + count > _cap)
+        realloc(_size + count); //重分配
+    for (; _size < count; _size++)
+        at(_size) = ch;
+    return *this;
+}
+\end{lstlisting}
+在写 \lstinline@append@ 成员函数时要注意动态内存空间是否足够。如果不够，应当重新分配。其它的细节都不难，读者看了这么多，应该已经比较熟悉了。
+\begin{lstlisting}
+string& string::append(
+    const string &str,
+    std::size_t pos,
+    std::size_t count
+) {
+    if (pos >= str._size) //如果起点都没有意义，那就不用拼接了
+        return *this; //直接返回
+    if (pos + count > str._size || count == npos)
+        count = str._size - pos;
+    if(_size + count > _cap) //如果内存不够
+        realloc(_size+count); //那就重新分配内存，保留内容
+    for(std::size_t i = 0; i < count; i++)
+        at(_size+i) = str.at(pos+i);
+    return *this;
+}
+\end{lstlisting}
+在这个函数中，我们需要防范两种情况：一是 \lstinline@pos@ 或 \lstinline@count@ 的值不合理，二是 \lstinline@count==npos@ 需要特殊处理。其实还有第三个可能的问题：自我赋值。但是对于本例来说，即便 \lstinline@this==&str@ 也没有什么风险。读者可以自行分析之。
+\begin{lstlisting}
+string& string::append(const char *s, std::size_t count) {
+    return append(s, 0, count);
+    //先用构造函数把s转换成string对象，然后调用另一个append重载
+}
+string& string::append(std::initializer_list<char> ilist) {
+    return append(string{ilist});
+    //先用构造函数把s转换成string对象，然后调用另一个append重载，默认参数0, npos
+}
+\end{lstlisting}
+这里我们又进行了代码重用，通过另外两个成员函数，直接实现本函数的功能。在调用 \lstinline@append(const string&,std::size_t,std::size_t)@ 的过程中，函数期待传入 \lstinline@string@ 对象但我们提供了 \lstinline@const char*@ 或 \lstinline@std::initializer_list<char>@ 对象，这时就会发生隐式类型转换。\par
+有了 \lstinline@append@ 函数之后，\lstinline@operator+=@ 只是在此基础上做略微改动而已。我们已经在定义中完成它们，所以不用再多说了。\par
+下面是一系列 \lstinline@insert@ 成员函数。\lstinline@string@ 的 \lstinline@insert@ 与链表不同，我们能做的只有在插入字符之前把其余字符逐个后移，从而为新内容腾出空间。
+\begin{lstlisting}
+string& string::insert(std::size_t pos, std::size_t count, char ch) {
+    if (_size + count > _cap) //如果容量不够
+        realloc(_size+count); //扩容
+    for (std::size_t i = _size - 1; i >= pos; i--)
+        at(i+count) = at(i); //从后向前，依次把字符后移count位，以留出空间
+    for (std::size_t i = pos; i < pos+count; i++)
+        at(i) = ch; //把pos起的count个字符变为ch
+    _size += count; //最后别忘了更新_size的值！
+    return *this;
+}
+\end{lstlisting}
+这个插入的操作方法对于初学者来说可能有点难。首先，我们需要把待插入片段的字符逐个后移 \lstinline@count@ 位。这个移动必须从最后一个字符开始，否则就会出错。接下来我们再把 \lstinline@pos@ 起的 \lstinline@count@ 个字符变为 \lstinline@ch@，这样就能起到插入数据的效果了。\par
+%tbs 需要插图
+接下来我们完成一下 \lstinline@(std::size_t,const string&,std::size_t,std::size_t)@ 版本的成员函数。在此之后，我们就可以用有关构造函数配合这个成员函数，降低代码工作量。
+\begin{lstlisting}
+string& string::insert(
+    std::size_t pos,
+    const string &str,
+    std::size_t s_pos,
+    std::size_t count
+) {
+    if (s_pos >= str._size) //如果起始点已经越界
+        return *this; //那就直接返回
+    if (s_pos + count > str._size || count == npos)
+        count = str._size - s_pos; //调整count的值
+    if (_size + count > _cap)
+        realloc(_size+count); //必要的扩容
+    for (std::size_t i = _size - 1; i >= pos; i--)
+        at(i+count) = at(i); //数据后移
+    for (std::size_t i = 0; i < count; i++)
+        at(pos+i) = str.at(s_pos+i);
+    //从本对象的pos位置起，把str对象的s_pos位置起count个数据依次复制到此处
+    _size += count; //别忘了更新_size的值
+    return *this;
+}
+\end{lstlisting}
+这个函数的细节略显复杂，但是读者只要把握住每个参数的含义，并配合我提供的注释、插图，想必还是可以看懂的。看懂了这个之后，我们就没有必要再在剩的两个函数上继续磨蹭，直接重用之前的代码就好。
+\begin{lstlisting}
+string& string::insert(std::size_t pos, const char *s, std::size_t count) {
+    return insert(pos, s, 0, count);
+}
+string& string::insert(std::size_t pos, std::initializer_list<char> ilist) {
+    return insert(pos, ilist, 0, ilist.size());
+}
+\end{lstlisting}\par
+而 \lstinline@erase@ 函数的作用正相反。在用它移除数据时，我们只需要关注内容本身和 \lstinline@_size@ 成员的更新就足够了，至于 \lstinline@_cap@，那不是它应当关心的东西。所以这个函数就很简单了。
+\begin{lstlisting}
+string& string::erase(std::size_t pos, std::size_t count) {
+    if (pos >= _size)
+        return *this;
+    if (pos + count > _size || count == npos)
+        count = _size - pos;
+    for (std::size_t i = pos; i + count < _size; i++) //注意范围
+        at(i) = at(i+count);
+    _size -= count; //记得更新_size
+    return *this;
+}
+\end{lstlisting}
+\lstinline@copy@ 的功能也不复杂，很轻松就写出来了。
+\begin{lstlisting}
+std::size_t string::copy(
+    char *dest,
+    std::size_t count,
+    std::size_t pos
+)const {
+    if (pos >= _size)
+        return 0;
+    if (pos + count > _size || count == npos)
+        count = _size - pos;
+    for (std::size_t i = 0; i < count; i++) //把pos起的count个数据复制到字符串中
+        dest[i] = at(pos+i);
+    return count;
+}
+\end{lstlisting}\par
+接下来是 \lstinline@swap@ 成员函数。在交换二者的 \lstinline@_arr@ 成员时，我们直接用浅拷贝就行——也就是，把指针的指向交换，而不用麻烦我们再复制一遍内容。\par
+\begin{lstlisting}
+void string::swap(string &str) {
+    std::swap(_cap, str._cap);
+    std::swap(_size, str._size);
+    std::swap(_arr.p(), str._arr.p());
+}
+\end{lstlisting}\par
+接下来是一系列 \lstinline@find@ 函数。我们只写两个版本，一个是单字符查找，另一个是 \lstinline@string@ 对象查找。至于 \lstinline@char*@ 的查找，我们只需要套一层隐式类型转换的外壳就行了。
+\begin{lstlisting}
+std::size_t string::find(char ch, std::size_t pos)const {
+    for (std::size_t i = pos; i < _size; i++) //从pos位置起开始寻找
+        if(at(i) == ch) //找到了
+            return i; //把i作为返回值
+    //一直到_size处都没找到
+    return npos; //npos可以表示没找到
+}
+\end{lstlisting}
+其中的 \lstinline@npos@ 可以表示未找到，那么当我们实际使用这个函数的时候，只需检测返回值是否为 \lstinline@npos@ 就可以了。
+\begin{lstlisting}
+std::size_t string::find(string &str, std::size_t pos)const {
+    for (std::size_t i = pos; i + str._size < _size; i++){
+        bool equal {true}; //先假设片段[i,i+str._size)与片段str相等
+        for (std::size_t j = 0; j < _size; j++)
+            if (at(i+j) != str.at(j)) { //一旦发现一个不相等的字符
+                equal = false; //标记为不相等
+                break; //退出循环
+            } //可以想见，如果这个循环下来没有任何字符不相等，那么它就是我们要找的
+        if(equal) //euqal为真
+            return i;
+    }
+    //一直到找了一大圈都无果而终
+    return npos; //没找到
+}
+\end{lstlisting}
+这个函数涉及到的查找过程较为复杂\footnote{顺便一说，这是一种比较低效率的算法；但是更高效的KMP算法（Knuth–Morris–Pratt algorithm）比这个还要复杂一些。}，如果读者尚不能理解，那也无妨，我们可以先把代码抄过来跑了再说。
+\begin{lstlisting}
+std::size_t string::find(
+    const char *s,
+    std::size_t pos,
+    std::size_t count
+)const {
+    return find(string(s, count), pos);
+    //这里要调用的是string(const char*,std::size_t)，不是string(const char*)
+}
+\end{lstlisting}\par
+接下来是供以字典序比较的 \lstinline@compare@ 函数和比较运算符。我们只需要实现其中的小于号，剩下的就都不难了。
+\begin{lstlisting}
+bool string::operator<(const string &str)const {
+    return std::lexicographical_compare(
+        &at(0), &at(_size), &str.at(0), &str.at(str._size)
+    ); //利用std::lexicographical_compare算法，具体的细节就不讲了
+}
+bool string::operator>(const string &str)const {
+    return str < *this; //利用已经重载好的小于号
+}
+bool string::operator<=(const string &str)const {
+    return !(str < *this); //注意运算符的优先级
+}
+bool string::operator>=(const string &str)const {
+    return !(*this < str);
+}
+bool string::operator!=(const string &str)const {
+    return (*this < str) || (str < *this);
+}
+bool string::operator==(const string &str)const {
+    return !operator!=(str); //进一步利用已经重载好的operator!=
+}
+int string::compare(const string &str)const {
+    return -int(*this<str) + int(*this>str); //bool到int类型转换后再计算
+}
+\end{lstlisting}\par
+最后是两个重载运算符，供以输入和输出。输出比较简单，从 \lstinline@0@ 到 \lstinline@_size@ 逐个字符输出就好了。
+\begin{lstlisting}
+std::ostream& operator<<(std::ostream &out, const string &str) { //string的友元
+    for (std::size_t i = 0; i < str._size; i++)
+        out << str.at(i);
+    return out; //返回out以便连续输出
+}
+\end{lstlisting}
+输入就比较棘手了，要考虑的细节太多，我们还是放到第十三章再讲吧。读者可以先借鉴一下这段代码：
+\begin{lstlisting}
+std::istream& operator>>(std::istream &in, string &str) { //string的友元
+    char ch;
+    str.clear(); //先清理str中的已有内容
+    while (in.get(ch) && std::isspace(ch)) {
+        //空，什么也不做
+    } //这个循环的目的在于清理空白字符
+    if (in)
+        do { //注意，do-while结构会至少执行一次
+            str.append(1, ch); //把输入的单个字符加到str的末尾
+        } while (in.get(ch) && !std::isspace(ch));
+        //在while中读取下一个字符，并判断它是不是空白字符
+    if (in && !std::isspace(ch)) //如果这个字符不是空白字符，且属于下一个输入
+        in.unget(); //把这个字符还回去
+    return in; //返回in以便连续输入
+}
+\end{lstlisting}\par
+\subsection*{完整代码}
+\lstinputlisting[caption=\texttt{Header.h}]{../code_in_book/8.3-8.5/Header.h}
+\lstinputlisting[caption=\texttt{Definition.cpp}]{../code_in_book/8.3-8.5/Definition.cpp}

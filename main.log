@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  16 JAN 2024 19:32
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  18 JAN 2024 17:16
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -833,7 +833,8 @@ runsystem(for ^%i in (pygmentize.exe pygmentize.bat pygmentize.cmd) do set > mai
 
 runsystem(del main.aex)...executed.
 
- (./main.aux)
+
+No file main.aux.
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
@@ -912,7 +913,6 @@ LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
 (Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 4.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> TU/SourceCodePro(0)/b/n on input line 4.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -948,11 +948,13 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring ON on input line 4.
-(./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
- (c:/texlive/2023/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
+(c:/texlive/2023/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
  (c:/texlive/2023/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
 Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PDF (HO)
@@ -987,15 +989,28 @@ LaTeX Font Info:    Font shape `TU/SimSun(0)/m/sl' in size <10> not available
 (Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 16.
  [2
 
-] (./main.toc
-LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
- (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
+]
+No file main.toc.
+\tf@toc=\write6
+\openout6 = `main.toc'.
+
+[3] [4
+
+] (././generalized_part.tex [1
+
+] [2] (./generalized_parts/01_welcome_to_cpp.tex
+第一章
+LaTeX Font Info:    Trying to load font information for U+msa on input line 5.
+(c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 5.
  (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+LaTeX Font Info:    Calculating math sizes for size <8.33344> on input line 5.
+ (./generalized_parts/01_welcome_to_cpp/01_start_with_a_cpp_program.tex
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 4.
 
 Package fontspec Info: Could not resolve font "FangSong/BI" (it probably
 (fontspec)             doesn't exist).
@@ -1009,7 +1024,7 @@ Package fontspec Info: Could not resolve font "FangSong/I" (it probably
 (fontspec)             doesn't exist).
 
 LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 8.
+(Font)              scaled to size 10.0pt on input line 4.
 
 Package fontspec Info: Font family 'FangSong(0)' created for font 'FangSong'
 (fontspec)             with options [Script={CJK}].
@@ -1021,18 +1036,6 @@ Package fontspec Info: Font family 'FangSong(0)' created for font 'FangSong'
 (fontspec)             <->"FangSong/OT:script=hani;language=dflt;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
- [3])
-\tf@toc=\write6
-\openout6 = `main.toc'.
-
- [4] (././generalized_part.tex [1
-
-
-] [2] (./generalized_parts/01_welcome_to_cpp.tex
-第一章
-LaTeX Font Info:    Calculating math sizes for size <8.33344> on input line 5.
-(./generalized_parts/01_welcome_to_cpp/01_start_with_a_cpp_program.tex
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 4.
 LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/m/n' will be
 (Font)              scaled to size 9.0pt on input line 4.
  (./01_welcome_to_cpp/../code_in_book/1.1/Hello_World.cpp
@@ -1071,13 +1074,20 @@ Overfull \hbox (8.7171pt too wide) in paragraph at lines 55--55
 []\TU/SimSun(0)/m/n/10 整 型 数 据 的 字 面 量 同 样 有 很 多 后 缀 可 以 用 来 指 定 类 型，|  比 如 [][][] 后 缀 规 定 了 [][][][][][][][][][][][][]
  []
 
-[24] [25]) (./generalized_parts/02_basic_operation_on_data/03_operators.tex [26] [27] [28]
+[24] [25]
+
+LaTeX Warning: Hyper reference `lst:HelloWorld' on page 26 undefined on input line 89.
+
+) (./generalized_parts/02_basic_operation_on_data/03_operators.tex [26] [27] [28]
 File: ./02_basic_operation_on_data/../images/generalized_parts/02_Precedence_of_multiply_addition_and_assignment_300.png Graphic file (type bmp)
 <./02_basic_operation_on_data/../images/generalized_parts/02_Precedence_of_multiply_addition_and_assignment_300.png>
  [29]
 Overfull \hbox (8.99084pt too wide) in paragraph at lines 87--87
 []\TU/SimSun(0)/m/n/10 为 什 么 是 这 样 呢？|  原 因 在 于，| [][][] 的 优 先 级 要 高 于 这 一 系 列 的 比 较 运 算 符。|  所 以 如 果 按 照 [][][][]
  []
+
+
+LaTeX Warning: Hyper reference `ch:appendix_A' on page 30 undefined on input line 94.
 
 File: ./02_basic_operation_on_data/../images/generalized_parts/02_Associativity_of_division_and_assignment_300.png Graphic file (type bmp)
 <./02_basic_operation_on_data/../images/generalized_parts/02_Associativity_of_division_and_assignment_300.png>
@@ -1092,6 +1102,9 @@ File: ./02_basic_operation_on_data/../images/generalized_parts/02_Explicit_type_
 <./02_basic_operation_on_data/../images/generalized_parts/02_Explicit_type_cast_from_double_to_int_in_vain_300.png>
 )) (./generalized_parts/03_control_flow.tex [35] [36]
 第三章
+
+LaTeX Warning: Hyper reference `lst:calc1' on page 37 undefined on input line 3.
+
 (./generalized_parts/03_control_flow/01_introduction_to_structure_process_and_order.tex [37
 
 ] [38]
@@ -1111,7 +1124,11 @@ File: ./03_control_flow/../images/generalized_parts/03_how_compilers_interpret_p
  [43]
 File: ./03_control_flow/../images/generalized_parts/03_truth_table_of_logic_operators_300.png Graphic file (type bmp)
 <./03_control_flow/../images/generalized_parts/03_truth_table_of_logic_operators_300.png>
- [44]) (./generalized_parts/03_control_flow/02_choice.tex [45]
+
+
+LaTeX Warning: Hyper reference `con:boolean_conversions' on page 44 undefined on input line 158.
+
+[44]) (./generalized_parts/03_control_flow/02_choice.tex [45]
 File: ./03_control_flow/../images/generalized_parts/03_structure_of_odd_or_even_300.png Graphic file (type bmp)
 <./03_control_flow/../images/generalized_parts/03_structure_of_odd_or_even_300.png>
  (./03_control_flow/../code_in_book/3.2/odd_or_even.cpp [46])
@@ -1150,6 +1167,9 @@ File: ./04_introduction_to_functions/../images/generalized_parts/04_black_box_30
 Overfull \hbox (21.04272pt too wide) in paragraph at lines 25--25
 \TU/SimSun(0)/m/n/10 中，|  函 数 也 可 以 接 收 一 个 或 多 个 输 入，|  甚 至 接 收 空 输 入  |（我 们 在 前 面 用 到 的 [][][][][][][][][][]
  []
+
+
+LaTeX Warning: Hyper reference `lst:SumWithContinue' on page 66 undefined on input line 34.
 
 [66]) (./generalized_parts/04_introduction_to_functions/02_the_definition_and_use_of_functions.tex [67]
 File: ./04_introduction_to_functions/../images/generalized_parts/04_block_scope_and_function_scope_300.png Graphic file (type bmp)
@@ -1241,7 +1261,11 @@ File: ./05_composite_types_and_their_use/../images/generalized_parts/05_variable
  [98] [99]
 File: ./05_composite_types_and_their_use/../images/generalized_parts/05_variables_one_by_one_in_array_300.png Graphic file (type bmp)
 <./05_composite_types_and_their_use/../images/generalized_parts/05_variables_one_by_one_in_array_300.png>
- [100] [101] [102] (./05_composite_types_and_their_use/../code_in_book/5.1/输入数据求最大值.cpp [103]) [104] [105]
+ [100]
+
+LaTeX Warning: Hyper reference `lst:OddOrEvenWithWhileLoop' on page 101 undefined on input line 94.
+
+[101] [102] (./05_composite_types_and_their_use/../code_in_book/5.1/输入数据求最大值.cpp [103]) [104] [105]
 File: ./05_composite_types_and_their_use/../images/generalized_parts/05_array_to_pointer_conversion_300.png Graphic file (type bmp)
 <./05_composite_types_and_their_use/../images/generalized_parts/05_array_to_pointer_conversion_300.png>
 ) (./generalized_parts/05_composite_types_and_their_use/05_string_with_arrays.tex [106] [107]
@@ -1458,12 +1482,17 @@ Overfull \hbox (145.78337pt too wide) in paragraph at lines 77--77
 
 File: ./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_type_conversion_between_classes_300.png Graphic file (type bmp)
 <./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_type_conversion_between_classes_300.png>
-[206] [207] [208] [209] (./08_a_step_forward_in_classes_and_functions/../code_in_book/8.1-8.2/Header.h
+[206] [207]
+Overfull \hbox (26.70149pt too wide) in paragraph at lines 163--163
+[]\TU/SimSun(0)/m/n/10 至 于 [][][]，|  它 也 会 不 动 声 色 地 隐 式 类 型 转 换 为 [][][][]，|  于 是 我 们 不 需 要 为 了 [][][][][][][]
+ []
+
+[208] [209] (./08_a_step_forward_in_classes_and_functions/../code_in_book/8.1-8.2/Header.h
 Overfull \hbox (12.87729pt too wide) in paragraph at lines 20--21
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[210]) (./08_a_step_forward_in_classes_and_functions/../code_in_book/8.1-8.2/Definition.cpp
+[210]) (./08_a_step_forward_in_classes_and_functions/../code_in_book/8.1-8.2/Definition.cpp [211]
 Overfull \hbox (2.07718pt too wide) in paragraph at lines 31--32
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1478,7 +1507,7 @@ Overfull \hbox (7.47723pt too wide) in paragraph at lines 38--39
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[211]
+
 Overfull \hbox (2.07718pt too wide) in paragraph at lines 44--45
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1486,56 +1515,129 @@ Overfull \hbox (2.07718pt too wide) in paragraph at lines 44--45
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [212])) (./generalized_parts/08_a_step_forward_in_classes_and_functions/06_compound_types_and_objects.tex
+ [212]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [213] [214] [215]
+ [213])) (./generalized_parts/08_a_step_forward_in_classes_and_functions/06_compound_types_and_objects.tex [214] [215] [216]
 Overfull \hbox (16.98334pt too wide) in paragraph at lines 86--86
 \TU/SimSun(0)/m/n/10 这 个 过 程 看 似 简 单，|  但 是 内 部 是 非 常 复 杂 的。|  在 我 们 分 配 一 段 动 态 内 存 的 时 候，|  每 个 [][][][][][][][][][]
  []
 
-[216]) (./generalized_parts/08_a_step_forward_in_classes_and_functions/07_exercise_string_class.tex))) (././intensive_part.tex [217] [218
+) (./generalized_parts/08_a_step_forward_in_classes_and_functions/07_exercise_string_class.tex
+Overfull \hbox (5.65384pt too wide) in paragraph at lines 3--3
+[]\TU/SimSun(0)/m/n/10 我 们 先 来 看 看 [][][][][] 有 哪 些 常 用 功 能  |— —|  我 们 可 以 在 [][]\TU/lmr/m/n/10 std::basic_string - cppreference.com[][]
+ []
 
-] [219] [220]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
+
+Overfull \hbox (53.86743pt too wide) in paragraph at lines 5--5
+[][][][][][] \TU/SimSun(0)/m/n/10 的 全 称 是 [][][][][][][][][][][][][][][][][][][][][][][][][][]。|
+ []
+
+[217] [218]
+Overfull \hbox (1.19711pt too wide) in paragraph at lines 30--30
+[][][][] \TU/SimSun(0)/m/n/10 成 员 函 数 和 六 个 重 载 比 较 运 算 符  |（非 成 员 函 数）|  的 作 用 是 进 行 字 典 序 比 较。|  对 于 [][][]
+ []
+
+[219] [220] [221] [222]
+Overfull \hbox (37.26477pt too wide) in paragraph at lines 194--195
+\TU/SimSun(0)/m/n/10 工 作 有 点 太 难 了，|  但 是 不 要 担 心，|  我 们 可 以 像 之 前 那 样，|  用 \TU/lmr/m/n/10 C++ \TU/SimSun(0)/m/n/10 算 法 库 中 的 [][][][][]
+ []
+
+
+Overfull \hbox (7.47723pt too wide) in paragraph at lines 225--226
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[223]
+Overfull \hbox (10.46147pt too wide) in paragraph at lines 253--254
+\TU/SimSun(0)/m/n/10 来 把 二 者 合 并 为 同 一 个 函 数，|  因 为 默 认 参 数 的 确 定 是 编 译 时 行 为，|  而 编 译 器 是 无 法 预 测 [][][][][][][][]
+ []
+
+[224] [225] [226]
+Overfull \hbox (172.78333pt too wide) in paragraph at lines 386--386
+\TU/SimSun(0)/m/n/10 这 里 我 们 又 进 行 了 代 码 重 用，|  通 过 另 外 两 个 成 员 函 数，|  直 接 实 现 本 函 数 的 功 能。|  在 调 用 [][][][][][][][][][][][][][][][][][]
+ []
+
+
+Overfull \hbox (7.35712pt too wide) in paragraph at lines 386--386
+\TU/SimSun(0)/m/n/10 的 过 程 中，|  函 数 期 待 传 入 [][][] 对 象 但 我 们 提 供 了 [][][][][][][][][][] 或 [][][][][][][][][][]
+ []
+
+[227] [228]
+Overfull \hbox (7.47723pt too wide) in paragraph at lines 491--492
+[][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[229] [230] (./08_a_step_forward_in_classes_and_functions/../code_in_book/8.3-8.5/Header.h [231]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [232]) (./08_a_step_forward_in_classes_and_functions/../code_in_book/8.3-8.5/Definition.cpp
+Overfull \hbox (7.47723pt too wide) in paragraph at lines 10--11
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[233]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [234]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [235]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [236]
+Overfull \hbox (7.47723pt too wide) in paragraph at lines 205--206
+[][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [237]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [238])))) (././intensive_part.tex [239] [240
+
+] [241] [242]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
 附录 A
 
 Underfull \hbox (badness 6063) in paragraph at lines 16--16
 [][][]\TU/SimSun(0)/m/n/8.33344 对 于 内 置 类 型 数 组 [][][] 的 下 标 运 算，| [][][][][][] |（和 [][][][][][]）|  都 会 解 析 为 [][][][][][][]
  []
 
-[221
+[243
 
-]) (./other_parts/appendices/B.tex [222]
+]) (./other_parts/appendices/B.tex [244]
 附录 B
-[223
+[245
 
-]) (./other_parts/appendices/C.tex [224]
+]) (./other_parts/appendices/C.tex [246]
 附录 C
 File: appendices/../images/other_parts/C_digital_clock.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_digital_clock.png>
-[225
+[247
 
 ]
 File: appendices/../images/other_parts/C_from_counting_to_exponentiation_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_from_counting_to_exponentiation_300.png>
 File: appendices/../images/other_parts/C_duodecimal_multiplication_table.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_duodecimal_multiplication_table.png>
- [226]
+ [248]
 Underfull \vbox (badness 2753) has occurred while \output is active []
 
- [227] [228]
+ [249] [250]
 File: appendices/../images/other_parts/C_formatted_representation_of_a_number_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_formatted_representation_of_a_number_300.png>
- [229] [230]
+ [251] [252]
 File: appendices/../images/other_parts/C_short_division_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_short_division_300.png>
- [231] [232]
+ [253] [254]
 File: appendices/../images/other_parts/C_bin_to_oct_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_oct_300.png>
- [233]
+ [255]
 File: appendices/../images/other_parts/C_bin_to_hex_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_hex_300.png>
-)) (./other_parts/afterword.tex [234])
+)) (./other_parts/afterword.tex [256])
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1544,7 +1646,7 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [235
+ [257
 
 ]
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1553,21 +1655,34 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [236] (./main.aux)
+ [258] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2022/08/05>
  ***********
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B499C25EBDD1803CE63D1B9F7FC21F65;6216.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  2D3E05F2CE4A44A33DE86CEAE9872EEA;6357.
  ) 
 Here is how much of TeX's memory you used:
- 26836 strings out of 474924
- 675354 string characters out of 5765037
- 2023189 words of memory out of 5000000
- 47933 multiletter control sequences out of 15000+600000
- 571837 words of font info for 167 fonts, out of 8000000 for 9000
+ 26884 strings out of 474924
+ 677502 string characters out of 5765037
+ 2050189 words of memory out of 5000000
+ 47982 multiletter control sequences out of 15000+600000
+ 571829 words of font info for 166 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 93i,17n,111p,1239b,1918s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 93i,17n,114p,1239b,1918s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (242 pages).
+Output written on main.pdf (264 pages).

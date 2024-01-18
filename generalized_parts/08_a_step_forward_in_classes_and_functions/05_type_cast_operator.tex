@@ -136,12 +136,31 @@ public:
 valarri::operator vecint()const { //valarri到vecint的自定义转换函数
     vecint vec(_size); //调用了vecint的构造函数，直接指定vec的大小
     for (int i = 0; i < _size; i++)
-        vec[i] = operator[](i); //逐个赋值，不要用push_back，反复重分配太浪费
+        vec[i] = operator[](i); //逐个赋值，不要用push_back，反复重分配太费时
     return vec;
 }
 \end{lstlisting}
 这里我们调用 \lstinline@vecint@ 的构造函数时依然要注意，要用圆括号而不是方括号。\par
 有了这个类型转换函数之后，对于期待 \lstinline@vecint@ 的场合，我们也可以用 \lstinline@valarri@ 通过类型转换来传入参数；反之亦然。这样一来，我们就能可以在一定程度上打破这两个类型的隔绝状况。\par
+\subsection*{隐式类型转换与函数重载}
+有的时候用隐式类型转换可以帮助我们节省很多运算符/函数重载方面的压力。就以复数类而言吧，如果我们需要重载加法运算符，可能我们需要这些函数：
+\begin{lstlisting}
+Complex Complex::operator+(const Complex &com)const; //成员函数
+Complex Complex::operator+(double num)const; //成员函数
+Complex operator+(double num, const Complex com); //非成员函数
+\end{lstlisting}
+这三种情况分别对应着复数+复数/复数+实数/实数+复数。看上去真是又麻烦，又杂乱——我们还要为减法/乘法/除法等，对每个运算符都要定义三个版本才行。\par
+但是有了类型转换之后，我们只需要定义单个版本就够了：
+\begin{lstlisting}
+Complex Complex::Complex(double r, double i); //转换构造函数，其中i可以有默认值
+Complex operator+(const Complex &com1, const Complex &com2); //只此一个足够了
+\end{lstlisting}
+那么，在遇到复数加实数或者实数加复数的情况时会发生什么呢？答案是：传入的实数会隐式类型转换成复数。
+\begin{lstlisting}
+    Complex{1,2} + 1.5; //(1+2i)+1.5
+\end{lstlisting}
+在这里，\lstinline@Complex{1,2}@ 不是``构造函数的返回值''，因为构造函数是没有返回值的。这个语法的正确解读应为：\lstinline@Complex(1,2)@ 是构造函数创建的临时对象，这和 \lstinline@int@ 转换成 \lstinline@double@ 过程中创建了一个临时数据是同样的道理。\par
+至于 \lstinline@1.5@，它也会不动声色地隐式类型转换为 \lstinline@Complex{1.5,0}@，于是我们不需要为了 \lstinline@Complex+double@ 专门写一个运算符重载，只需要让它自己隐式类型转换就够了。\par
 \subsection*{\texttt{explicit}}
 隐式类型转换虽然方便，但是未必总能合我们的意。有些时候，隐式类型转换不能满足我们的需要，所以我们需要显式类型转换。比如说，当我们试图用 \lstinline@std::cout@ 输出一个 \lstinline@char*@ 指针的值时，实际的输出是一个字符串。为了输出地址值，我们应当用显式类型转换来实现：
 \begin{lstlisting}

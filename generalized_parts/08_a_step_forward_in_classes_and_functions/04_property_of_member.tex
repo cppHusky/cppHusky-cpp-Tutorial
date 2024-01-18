@@ -133,8 +133,8 @@ public:
 \end{lstlisting}
 这两个成员函数之间是重载关系。第一个函数接收一个隐藏的 \lstinline@valarri&@ 参数和一个 \lstinline@int@ 参数；第二个函数接收一个隐藏的 \lstinline@const valarri&@ 参数和一个 \lstinline@int@ 参数——所以它们是不一样的，编译器会有所选择\footnote{简单来说，编译器会对左值变量优先匹配 \lstinline@T&@ 参数，次优先匹配 \lstinline@const T&@ 参数；对左值常量优先匹配 \lstinline@const T&@ 参数，而不能匹配 \lstinline@T&@ 参数。我们在精讲篇中再谈。}。\par
 读者还需要注意，这里第二个函数的返回类型不是 \lstinline@int&@ 而是 \lstinline@int@。这同样是防止修改常量的一种方式。只不过，如果我们不慎将它的返回类型真的定义成了引用，编译器也无法检查出来。如果在这种情况下``越狱''修改常量，那就会引发不可预知的后果，同样属于未定义行为。所以读者也勿必多留个心眼，不要在这里失误。\par
-\lstinline@valarri@ 类中还有许多函数可以定为常成员函数，比如 \lstinline@valarri::max@, \lstinline@valarri::min@, \lstinline@valarri::sum@，还有 \lstinline@valarri::operator+(const valarri&)@ 之类的运算符，只要它们不需要修改 \lstinline@*this@ 本身，我们就可以把它们都定义成常成员函数——这样总是没有坏处的，毕竟可变对象可以调用常成员函数，但常量对象就真的不能调用非常成员函数了。
-\begin{lstlisting}
+\lstinline@valarri@ 类中还有许多函数可以定为常成员函数，比如 \lstinline@valarri::max@, \lstinline@valarri::min@, \lstinline@valarri::sum@，还有 \lstinline@valarri::operator+(const valarri&)@ 之类的运算符，只要它们不需要修改 \lstinline@*this@ 本身，我们就可以把它们都定义成常成员函数——这样总是没有坏处的，毕竟可变对象可以调用常成员函数，但常量对象就真的不能调用非常成员函数（注意断句：非/常成员函数）了。
+\begin{lstlisting}  
 //声明
 public:
     int sum()const; //总和
