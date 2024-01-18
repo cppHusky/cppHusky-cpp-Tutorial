@@ -53,10 +53,11 @@
 \contentsline {section}{\numberline {8.5}类型转换函数}{204}{section.8.5}%
 \contentsline {section}{\numberline {8.6}复合类型与对象}{214}{section.8.6}%
 \contentsline {section}{\numberline {8.7}实操：简单的\texttt {string}类}{217}{section.8.7}%
-\contentsline {part}{精讲篇}{243}{part*.166}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{243}{appendix.A}%
-\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{245}{appendix.B}%
-\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{247}{appendix.C}%
-\contentsline {section}{\numberline {C.1}数制转换}{247}{section.C.1}%
-\contentsline {section}{\numberline {C.2}布尔代数基础}{256}{section.C.2}%
-\contentsline {chapter}{跋}{257}{appendix*.174}%
+\contentsline {chapter}{\numberline {第九章\hspace {.3em}}类的继承}{241}{chapter.9}%
+\contentsline {part}{精讲篇}{245}{part*.166}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{245}{appendix.A}%
+\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{247}{appendix.B}%
+\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{249}{appendix.C}%
+\contentsline {section}{\numberline {C.1}数制转换}{249}{section.C.1}%
+\contentsline {section}{\numberline {C.2}布尔代数基础}{258}{section.C.2}%
+\contentsline {chapter}{跋}{259}{appendix*.174}%
