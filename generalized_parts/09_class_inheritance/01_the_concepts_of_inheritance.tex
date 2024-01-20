@@ -30,6 +30,27 @@ T user::max(const T& lhs, const T& rhs) {
 这时你就会发现一个问题：好像我家的哈士奇同时属于``家犬''和``哈士奇''哎。其实不只如此，它还属于``狼种（Canis lupus）''``犬属（Canis）''``犬科（Canidae）''``食肉目（Carnivora）''``	哺乳纲（Mammalia）''``脊索动物门（Chordata）''``动物界（Animalia）''。看上去是不是很复杂？很吓人？\par
 问题来了。在我们既有的认知中，一个对象只能是单个类的对象，那么现在它同时是这么多类的对象，这岂不是乱套了？其实并不会，因为这些类之间存在着一种\textbf{``属与种''的关系。用英文可以阐述为``Is-a relationship''，在C++中可以诠释为``基类与派生类''。\footnote{值得一提的是，一般我们只用公开继承/受保护继承来表示``Is-a relationship''；至于私有继承，它更适合用来表示``Has-a relationship''。}}\par
 ``属与种''的关系描述的是两个类的关系，它们有点像数学上的集合间包含关系——如果一个对象是类 \lstinline@A@ 的对象，那么它一定也是类 \lstinline@B@ 的对象。在这个关系当中，\lstinline@A@ 就是基类，而 \lstinline@B@ 是派生类。对于派生类的对象来说，它既有基类的共性——比如我家哈士奇能``汪汪''叫，王五家的泰迪也能，又有派生类的独特性——比如我家哈士奇是拆家小能手，但王五家的泰迪就不能胜任了。\par
-\subsection*{继承的优点}
+\subsection*{何为继承？}
 \textbf{继承（Inheritance）}是一种代码重用的好方法。如果我们已经写了一个类 \lstinline@Dog@，而我们想要再写一个 \lstinline@Husky@ 类，那么我们没必要把 \lstinline@Dog@ 已有的那部分功能再写一遍，直接让 \lstinline@Husky@ 类继承 \lstinline@Dog@ 类就足够了——然后我们只需要集中精力去写诸如``拆家''之类的独特功能即可。\par
-继承也使得多态变得可能。我们会在第十章讲到这点。\par
+\begin{lstlisting}
+struct Dog { //狗类
+    unsigned age; //所有的狗都有年龄属性
+    double weight; //所有的狗都有体重属性
+    //...
+};
+struct Husky : Dog { //哈士奇类，公开继承自狗类
+    void destroy() { /*...*/ } //哈士奇独特的拆家本领
+};
+int main() {
+    Husky mine {5, 27}; //哈士奇类的对象拥有狗类的成员
+    std::cout << mine.age << ' '; //输出mine的年龄
+    std::cout << mine.weight; //输出mine的体重
+    mine.destroy(); //拆家，开始执行
+}
+\end{lstlisting}
+在这个继承操作当中，\lstinline@Husky@ 类继承自 \lstinline@Dog@ 类。其中的 \lstinline@Husky@ 称为\textbf{派生类（Derived class）}，而 \lstinline@Dog@ 称为\textbf{基类（Base class）}。派生类的对象拥有基类的成员，所以 \lstinline@mine@ 可以使用 \lstinline@age@, \lstinline@weight@ 等基类成员，就好像它们定义在了 \lstinline@Husky@ 类当中一样，如图所示。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.8\textwidth]{../images/generalized_parts/09_dog_and_husky_relationship_300.png}
+    \caption{\lstinline@Dog@ 类的成员与 \lstinline@Husky@ 类的成员}
+\end{figure}\par

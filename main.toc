@@ -3,7 +3,7 @@
 \contentsline {chapter}{\numberline {第一章\hspace {.3em}}初识C++}{3}{chapter.1}%
 \contentsline {section}{\numberline {1.1}开始一个C++程序}{3}{section.1.1}%
 \contentsline {section}{\numberline {1.2}数据与信息}{6}{section.1.2}%
-\contentsline {section}{\numberline {1.3}数据的定义和使用}{8}{section.1.3}%
+\contentsline {section}{\numberline {1.3}数据的定义和使用}{7}{section.1.3}%
 \contentsline {section}{\numberline {1.4}运算符与类型}{11}{section.1.4}%
 \contentsline {section}{\numberline {1.5}\texttt {sizeof}与内存空间}{13}{section.1.5}%
 \contentsline {section}{\numberline {1.6}类与对象}{16}{section.1.6}%
@@ -55,10 +55,11 @@
 \contentsline {section}{\numberline {8.7}实操：简单的\texttt {string}类}{217}{section.8.7}%
 \contentsline {chapter}{\numberline {第九章\hspace {.3em}}类的继承}{241}{chapter.9}%
 \contentsline {section}{\numberline {9.1}概念介绍}{241}{section.9.1}%
-\contentsline {part}{精讲篇}{247}{part*.170}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{247}{appendix.A}%
-\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{249}{appendix.B}%
-\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{251}{appendix.C}%
-\contentsline {section}{\numberline {C.1}数制转换}{251}{section.C.1}%
-\contentsline {section}{\numberline {C.2}布尔代数基础}{260}{section.C.2}%
-\contentsline {chapter}{跋}{261}{appendix*.178}%
+\contentsline {section}{\numberline {9.2}公开继承与受保护成员}{243}{section.9.2}%
+\contentsline {part}{精讲篇}{251}{part*.175}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{251}{appendix.A}%
+\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{253}{appendix.B}%
+\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{255}{appendix.C}%
+\contentsline {section}{\numberline {C.1}数制转换}{255}{section.C.1}%
+\contentsline {section}{\numberline {C.2}布尔代数基础}{264}{section.C.2}%
+\contentsline {chapter}{跋}{265}{appendix*.183}%
