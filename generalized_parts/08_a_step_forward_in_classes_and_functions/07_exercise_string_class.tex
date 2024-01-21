@@ -10,6 +10,7 @@
     \item 有的构造函数是在另一个字符串对象 \lstinline@other@ 中截取 \lstinline@pos@ 开始的 \lstinline@count@ 个字符。
     \item 有的构造函数是以一个 \lstinline@char*@ 字符串的内容为内容建立起来的。
     \item 有的构造函数是用一个列表来初始化的，我们在前面讲 \lstinline@valarri@ 时也介绍过。
+    \item 还有各种拷贝构造函数/移动构造函数\footnote{泛讲篇不讲移动构造，详见精讲篇。}。
     \item ……
 \end{itemize}
 种种构造函数不一而足，我们当然也没有必要全部实现，拣一些常用的就行了。\par
@@ -560,5 +561,5 @@ std::istream& operator>>(std::istream &in, string &str) { //string的友元
 }
 \end{lstlisting}\par
 \subsection*{完整代码}
-\lstinputlisting[caption=\texttt{Header.h}]{../code_in_book/8.3-8.5/Header.h}
-\lstinputlisting[caption=\texttt{Definition.cpp}]{../code_in_book/8.3-8.5/Definition.cpp}
+\lstinputlisting[caption=\texttt{Header.h}]{../code_in_book/8.3-8.4/Header.h}
+\lstinputlisting[caption=\texttt{Definition.cpp}]{../code_in_book/8.3-8.4/Definition.cpp}

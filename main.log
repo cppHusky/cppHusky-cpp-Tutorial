@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  20 JAN 2024 21:27
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  21 JAN 2024 17:44
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1510,44 +1510,44 @@ Overfull \hbox (53.86743pt too wide) in paragraph at lines 5--5
  []
 
 [217] [218]
-Overfull \hbox (1.19711pt too wide) in paragraph at lines 30--30
+Overfull \hbox (1.19711pt too wide) in paragraph at lines 31--31
 [][][][] \TU/SimSun(0)/m/n/10 成 员 函 数 和 六 个 重 载 比 较 运 算 符  |（非 成 员 函 数）|  的 作 用 是 进 行 字 典 序 比 较。|  对 于 [][][]
  []
 
 [219] [220] [221] [222]
-Overfull \hbox (37.26477pt too wide) in paragraph at lines 194--195
+Overfull \hbox (37.26477pt too wide) in paragraph at lines 195--196
 \TU/SimSun(0)/m/n/10 工 作 有 点 太 难 了，|  但 是 不 要 担 心，|  我 们 可 以 像 之 前 那 样，|  用 \TU/lmr/m/n/10 C++ \TU/SimSun(0)/m/n/10 算 法 库 中 的 [][][][][]
  []
 
-
-Overfull \hbox (7.47723pt too wide) in paragraph at lines 225--226
+[223]
+Overfull \hbox (7.47723pt too wide) in paragraph at lines 226--227
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[223]
-Overfull \hbox (10.46147pt too wide) in paragraph at lines 253--254
+
+Overfull \hbox (10.46147pt too wide) in paragraph at lines 254--255
 \TU/SimSun(0)/m/n/10 来 把 二 者 合 并 为 同 一 个 函 数，|  因 为 默 认 参 数 的 确 定 是 编 译 时 行 为，|  而 编 译 器 是 无 法 预 测 [][][][][][][][]
  []
 
 [224] [225] [226]
-Overfull \hbox (172.78333pt too wide) in paragraph at lines 386--386
+Overfull \hbox (172.78333pt too wide) in paragraph at lines 387--387
 \TU/SimSun(0)/m/n/10 这 里 我 们 又 进 行 了 代 码 重 用，|  通 过 另 外 两 个 成 员 函 数，|  直 接 实 现 本 函 数 的 功 能。|  在 调 用 [][][][][][][][][][][][][][][][][][]
  []
 
 
-Overfull \hbox (7.35712pt too wide) in paragraph at lines 386--386
+Overfull \hbox (7.35712pt too wide) in paragraph at lines 387--387
 \TU/SimSun(0)/m/n/10 的 过 程 中，|  函 数 期 待 传 入 [][][] 对 象 但 我 们 提 供 了 [][][][][][][][][][] 或 [][][][][][][][][][]
  []
 
 [227] [228]
-Overfull \hbox (7.47723pt too wide) in paragraph at lines 491--492
+Overfull \hbox (7.47723pt too wide) in paragraph at lines 492--493
 [][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[229] [230] (./08_a_step_forward_in_classes_and_functions/../code_in_book/8.3-8.5/Header.h [231]
+[229] [230] (./08_a_step_forward_in_classes_and_functions/../code_in_book/8.3-8.4/Header.h [231]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [232]) (./08_a_step_forward_in_classes_and_functions/../code_in_book/8.3-8.5/Definition.cpp
+ [232]) (./08_a_step_forward_in_classes_and_functions/../code_in_book/8.3-8.4/Definition.cpp
 Overfull \hbox (7.47723pt too wide) in paragraph at lines 10--11
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1588,48 +1588,71 @@ File: ./09_class_inheritance/../images/generalized_parts/09_protected_members_30
  [244]
 File: ./images/generalized_parts/09_built_in_base_class_object_in_derived_class_300.png Graphic file (type bmp)
 <./images/generalized_parts/09_built_in_base_class_object_in_derived_class_300.png>
- [245] [246]) (./generalized_parts/09_class_inheritance/03_private_inheritance.tex) (./generalized_parts/09_class_inheritance/04_sequential_inheriance.tex))) (././intensive_part.tex [247] [248
+ [245] [246]) (./generalized_parts/09_class_inheritance/03_private_inheritance.tex [247] [248] [249] [250]
+File: ./09_class_inheritance/../images/generalized_parts/09_lifo_stack.png Graphic file (type bmp)
+<./09_class_inheritance/../images/generalized_parts/09_lifo_stack.png>
 
-] [249] [250]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
+Overfull \hbox (13.44775pt too wide) in paragraph at lines 134--135
+[]\TU/SimSun(0)/m/n/10 注 意，|  这 些 [][][][][] 的 功 能 仅 限 [][][] 类 内 部 使 用；|  而 对 于 外 部 来 说，|  不 是 所 有 的 [][][][][]
+ []
+
+
+Overfull \hbox (61.0329pt too wide) in paragraph at lines 147--148
+[]\TU/SimSun(0)/m/n/10 有 的 构 造 函 数 接 收 一 个 [][][] 类 对 象  |— —|  对 于 我 们 来 说，|  这 个 [][][] 指 的 就 是 [][][][][][][][][][]。| 
+ []
+
+[251] [252]
+Overfull \hbox (19.5571pt too wide) in paragraph at lines 228--228
+\TU/SimSun(0)/m/n/10 这 里 的 构 造 函 数 调 用 了 [][][][][][][][][][] 的 拷 贝 构 造 函 数，|  用 以 为 [][][] 类 内 嵌 的 [][][][][][][][][][]
+ []
+
+[253]
+Overfull \hbox (119.46495pt too wide) in paragraph at lines 262--262
+\TU/SimSun(0)/m/n/10 以 无 风 险 转 换 为 基 类 对 象[][][][][]，|  但 基 类 对 象 就 不 能 隐 式 转 换 为 派 生 类 对 象。|  所 以 对 于 [][][][][][][][][][][][][][][][][][][][][]
+ []
+
+[254]) (./generalized_parts/09_class_inheritance/04_sequential_inheriance.tex))) (././intensive_part.tex [255] [256
+
+] [257] [258]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
 附录 A
 
 Underfull \hbox (badness 6063) in paragraph at lines 16--16
 [][][]\TU/SimSun(0)/m/n/8.33344 对 于 内 置 类 型 数 组 [][][] 的 下 标 运 算，| [][][][][][] |（和 [][][][][][]）|  都 会 解 析 为 [][][][][][][]
  []
 
-[251
+[259
 
-]) (./other_parts/appendices/B.tex [252]
+]) (./other_parts/appendices/B.tex [260]
 附录 B
-[253
+[261
 
-]) (./other_parts/appendices/C.tex [254]
+]) (./other_parts/appendices/C.tex [262]
 附录 C
 File: appendices/../images/other_parts/C_digital_clock.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_digital_clock.png>
-[255
+[263
 
 ]
 File: appendices/../images/other_parts/C_from_counting_to_exponentiation_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_from_counting_to_exponentiation_300.png>
 File: appendices/../images/other_parts/C_duodecimal_multiplication_table.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_duodecimal_multiplication_table.png>
- [256]
+ [264]
 Underfull \vbox (badness 2753) has occurred while \output is active []
 
- [257] [258]
+ [265] [266]
 File: appendices/../images/other_parts/C_formatted_representation_of_a_number_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_formatted_representation_of_a_number_300.png>
- [259] [260]
+ [267] [268]
 File: appendices/../images/other_parts/C_short_division_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_short_division_300.png>
- [261] [262]
+ [269] [270]
 File: appendices/../images/other_parts/C_bin_to_oct_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_oct_300.png>
- [263]
+ [271]
 File: appendices/../images/other_parts/C_bin_to_hex_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_hex_300.png>
-)) (./other_parts/afterword.tex [264])
+)) (./other_parts/afterword.tex [272])
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1638,7 +1661,7 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [265
+ [273
 
 ]
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1647,21 +1670,21 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [266] (./main.aux)
+ [274] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A29A4BBD5C2F87F975BCF40C8C6DEA23;6662.
+(rerunfilecheck)             Checksum: A87D296F898DE61932965827E4B33255;6749.
  ) 
 Here is how much of TeX's memory you used:
- 27025 strings out of 474924
- 683754 string characters out of 5765037
+ 27073 strings out of 474924
+ 685927 string characters out of 5765037
  2050189 words of memory out of 5000000
- 48083 multiletter control sequences out of 15000+600000
+ 48130 multiletter control sequences out of 15000+600000
  571829 words of font info for 166 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,18n,111p,1239b,1918s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (272 pages).
+Output written on main.pdf (280 pages).

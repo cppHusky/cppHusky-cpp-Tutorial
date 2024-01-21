@@ -54,12 +54,13 @@
 \contentsline {section}{\numberline {8.6}复合类型与对象}{214}{section.8.6}%
 \contentsline {section}{\numberline {8.7}实操：简单的\texttt {string}类}{217}{section.8.7}%
 \contentsline {chapter}{\numberline {第九章\hspace {.3em}}类的继承}{241}{chapter.9}%
-\contentsline {section}{\numberline {9.1}概念介绍}{241}{section.9.1}%
+\contentsline {section}{\numberline {9.1}基本概念}{241}{section.9.1}%
 \contentsline {section}{\numberline {9.2}公开继承与受保护成员}{243}{section.9.2}%
-\contentsline {part}{精讲篇}{251}{part*.175}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{251}{appendix.A}%
-\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{253}{appendix.B}%
-\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{255}{appendix.C}%
-\contentsline {section}{\numberline {C.1}数制转换}{255}{section.C.1}%
-\contentsline {section}{\numberline {C.2}布尔代数基础}{264}{section.C.2}%
-\contentsline {chapter}{跋}{265}{appendix*.183}%
+\contentsline {section}{\numberline {9.3}私有继承}{248}{section.9.3}%
+\contentsline {part}{精讲篇}{259}{part*.181}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{259}{appendix.A}%
+\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{261}{appendix.B}%
+\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{263}{appendix.C}%
+\contentsline {section}{\numberline {C.1}数制转换}{263}{section.C.1}%
+\contentsline {section}{\numberline {C.2}布尔代数基础}{272}{section.C.2}%
+\contentsline {chapter}{跋}{273}{appendix*.189}%
