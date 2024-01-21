@@ -1,1 +1,16 @@
-% "Multiple inheritance ... was widely supposed to be very difficult to implement efficiently. For example, in a summary of C++ in his book on Objective C, Brad Cox actually claimed that adding multiple inheritance to C++ was impossible. Thus, multiple inheritance seemed more of a challenge. Since I had considered multiple inheritance as early as 1982 and found a simple and efficient implementation technique in 1984, I couldn't resist the challenge. I suspect this to be the only case in which fashion affected the sequence of events." -Bjarne Stroustrup
+\chapter{继承中的常见问题}
+在上一章中，我们讲解了继承的基本语法和基本概念。本章我们继续深入，以期进一步搞清楚继承概念之下的许多常见问题——
+\begin{itemize}
+    \item 继承关系中的类型转换是怎么进行的？又有什么规则？\par
+    \item 多态又是怎么一回事？虚函数到底在做什么？\par
+    \item 如果描述基类所需要的成员比描述派生类的还要多，那怎么办？\par
+    \item 多重继承是什么？怎么理解？又有什么用？\par
+    \item 棱形继承关系中，基类的成员重复了怎么办？\par
+\end{itemize}
+这些问题在实际编程中很常见，所以我们需要好好研究一下，以防将来真的用的时候你突然一拍脑门说：``哎呀，我没学过这玩意。''那就有点麻烦了。\par
+本章的内容量非常大。硬度和第八章相仿，也请读者做好心理准备。\par
+\import{10_common_problems_in_inheritance/}{01_type_cast_in_inheritance_relationship.tex}
+\import{10_common_problems_in_inheritance/}{02_virtual_function_and_polymorphism.tex}
+\import{10_common_problems_in_inheritance/}{03_abstract_base_class_and_pure_virtual_function.tex}
+\import{10_common_problems_in_inheritance/}{04_mutiple_inheritance.tex}
+\import{10_common_problems_in_inheritance/}{05_virtual_inheritance.tex}

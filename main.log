@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  21 JAN 2024 20:57
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  21 JAN 2024 21:57
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1611,73 +1611,77 @@ Overfull \hbox (119.46495pt too wide) in paragraph at lines 262--262
 \TU/SimSun(0)/m/n/10 以 无 风 险 转 换 为 基 类 对 象[][][][][]，|  但 基 类 对 象 就 不 能 隐 式 转 换 为 派 生 类 对 象。|  所 以 对 于 [][][][][][][][][][][][][][][][][][][][][]
  []
 
-[254]) (./generalized_parts/09_class_inheritance/04_sequential_inheriance.tex [255]
+[254] (./09_class_inheritance/../code_in_book/9.1-9.2/Header.h [255]) (./09_class_inheritance/../code_in_book/9.1-9.2/Definition.cpp [256])) (./generalized_parts/09_class_inheritance/04_sequential_inheriance.tex
 File: ./09_class_inheritance/../images/generalized_parts/09_taxonomic_rank_graph_of_red_fox.png Graphic file (type bmp)
 <./09_class_inheritance/../images/generalized_parts/09_taxonomic_rank_graph_of_red_fox.png>
- [256]
+ [257]
 Overfull \hbox (3.59898pt too wide) in paragraph at lines 56--56
 \TU/SimSun(0)/m/n/10 像 这 样，|  我 们 就 可 以 通 过 继 承 关 系 建 立 起 一 个 复 杂 的 树 状 结 构。|  所 以 一 个 赤 狐 种 的 对 象 具 有 从 [][][]
  []
 
-
+[258]
 Overfull \hbox (23.90549pt too wide) in paragraph at lines 71--71
 []\TU/lmr/m/n/10 C++ \TU/SimSun(0)/m/n/10 的 流 输 入\TU/lmr/m/n/10 /\TU/SimSun(0)/m/n/10 输 出 库 是 一 个 系 统，|  包 含 [][][]\TU/lmr/m/n/10 , [][][], [][][] \TU/SimSun(0)/m/n/10 等 许 多 库 文 件，| [][][][][]\TU/lmr/m/n/10 ,
  []
 
 File: ./09_class_inheritance/../images/generalized_parts/09_inheritance_diagram_of_io_library.png Graphic file (type bmp)
 <./09_class_inheritance/../images/generalized_parts/09_inheritance_diagram_of_io_library.png>
-[257]
+
 Overfull \hbox (44.3571pt too wide) in paragraph at lines 78--78
 []\TU/SimSun(0)/m/n/10 我 们 也 曾 用 过 [][][][][][][][] 这 样 的 写 法，|  这 里 的 [][][] 是 定 义 在 [][][][][][][][][][]
  []
 
-
+[259]
 Overfull \hbox (2.33713pt too wide) in paragraph at lines 79--79
 []\TU/SimSun(0)/m/n/10 敏 锐 的 读 者 可 能 发 现 了，|  图 \TU/lmr/m/n/10 9.6 \TU/SimSun(0)/m/n/10 中 的 [][][][][] 类 同 时 继 承 了 [][][][][]
  []
 
-))) (././intensive_part.tex [258] [259
+)) (./generalized_parts/10_common_problems_in_inheritance.tex [260]
+第十章
+(./generalized_parts/10_common_problems_in_inheritance/01_type_cast_in_inheritance_relationship.tex) (./generalized_parts/10_common_problems_in_inheritance/02_virtual_function_and_polymorphism.tex) (./generalized_parts/10_common_problems_in_inheritance/03_abstract_base_class_and_pure_virtual_function.tex) (./generalized_parts/10_common_problems_in_inheritance/04_mutiple_inheritance.tex) (./generalized_parts/10_common_problems_in_inheritance/05_virtual_inheritance.tex))) (././intensive_part.tex [261
 
-] [260]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
+] [262
+
+] [263] [264]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
 附录 A
 
 Underfull \hbox (badness 6063) in paragraph at lines 16--16
 [][][]\TU/SimSun(0)/m/n/8.33344 对 于 内 置 类 型 数 组 [][][] 的 下 标 运 算，| [][][][][][] |（和 [][][][][][]）|  都 会 解 析 为 [][][][][][][]
  []
 
-[261
+[265
 
-]) (./other_parts/appendices/B.tex [262]
+]) (./other_parts/appendices/B.tex [266]
 附录 B
-[263
+[267
 
-]) (./other_parts/appendices/C.tex [264]
+]) (./other_parts/appendices/C.tex [268]
 附录 C
 File: appendices/../images/other_parts/C_digital_clock.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_digital_clock.png>
-[265
+[269
 
 ]
 File: appendices/../images/other_parts/C_from_counting_to_exponentiation_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_from_counting_to_exponentiation_300.png>
 File: appendices/../images/other_parts/C_duodecimal_multiplication_table.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_duodecimal_multiplication_table.png>
- [266]
+ [270]
 Underfull \vbox (badness 2753) has occurred while \output is active []
 
- [267] [268]
+ [271] [272]
 File: appendices/../images/other_parts/C_formatted_representation_of_a_number_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_formatted_representation_of_a_number_300.png>
- [269] [270]
+ [273] [274]
 File: appendices/../images/other_parts/C_short_division_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_short_division_300.png>
- [271] [272]
+ [275] [276]
 File: appendices/../images/other_parts/C_bin_to_oct_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_oct_300.png>
- [273]
+ [277]
 File: appendices/../images/other_parts/C_bin_to_hex_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_hex_300.png>
-)) (./other_parts/afterword.tex [274])
+)) (./other_parts/afterword.tex [278])
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1686,7 +1690,7 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [275
+ [279
 
 ]
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1695,21 +1699,21 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [276] (./main.aux)
+ [280] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 499F6199049836AB425C32E1C3A3A51B;6836.
+(rerunfilecheck)             Checksum: 5C0D778C3D1D97B0F466CEDFA939225A;6952.
  ) 
 Here is how much of TeX's memory you used:
- 27138 strings out of 474924
- 688409 string characters out of 5765037
+ 27197 strings out of 474924
+ 692815 string characters out of 5765037
  2050189 words of memory out of 5000000
- 48193 multiletter control sequences out of 15000+600000
+ 48224 multiletter control sequences out of 15000+600000
  571829 words of font info for 166 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,18n,111p,1239b,1918s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (282 pages).
+Output written on main.pdf (286 pages).

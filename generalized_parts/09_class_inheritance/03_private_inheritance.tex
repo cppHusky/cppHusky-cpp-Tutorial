@@ -297,3 +297,6 @@ bool stack::operator!=(const stack &s)const {
     \item 继承方式还为多态提供了可能，我们会在下一节中讲到。
 \end{itemize}\par
 如果要我描述的话，我认为私有继承相较于组合方式来说，有点像 \lstinline@mutable@ 成员相较于普通成员——如果没有什么这方面的专门需求，就不要用它。虽说如此，但是私有继承作为一种行之有效的表示``整体与部分''关系的方式，仍是读者应知应会的内容。\par
+\subsection*{\lstinline@stack@ 类的初步实现代码}
+\lstinputlisting[caption=\texttt{Header.h}]{../code_in_book/9.1-9.2/Header.h}
+\lstinputlisting[caption=\texttt{Definition.h}]{../code_in_book/9.1-9.2/Definition.cpp}
