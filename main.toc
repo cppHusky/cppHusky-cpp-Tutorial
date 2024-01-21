@@ -57,10 +57,11 @@
 \contentsline {section}{\numberline {9.1}基本概念}{241}{section.9.1}%
 \contentsline {section}{\numberline {9.2}公开继承与受保护成员}{243}{section.9.2}%
 \contentsline {section}{\numberline {9.3}私有继承}{248}{section.9.3}%
-\contentsline {part}{精讲篇}{259}{part*.181}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{259}{appendix.A}%
-\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{261}{appendix.B}%
-\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{263}{appendix.C}%
-\contentsline {section}{\numberline {C.1}数制转换}{263}{section.C.1}%
-\contentsline {section}{\numberline {C.2}布尔代数基础}{272}{section.C.2}%
-\contentsline {chapter}{跋}{273}{appendix*.189}%
+\contentsline {section}{\numberline {9.4}多级继承}{255}{section.9.4}%
+\contentsline {part}{精讲篇}{261}{part*.183}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{261}{appendix.A}%
+\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{263}{appendix.B}%
+\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{265}{appendix.C}%
+\contentsline {section}{\numberline {C.1}数制转换}{265}{section.C.1}%
+\contentsline {section}{\numberline {C.2}布尔代数基础}{274}{section.C.2}%
+\contentsline {chapter}{跋}{275}{appendix*.191}%
