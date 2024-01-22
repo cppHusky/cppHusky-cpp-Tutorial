@@ -97,7 +97,7 @@ public:
     const char* p()const { return _p; } //当Arr的对象是常量时调用
 };
 \end{lstlisting}
-但是这里存在另一个问题：C++17标准并没有保证不同访问权限的成员间的初始化顺序——换句话说，这样会把初始化变成一个未定义行为。为了预防这种情况的发生，我们还是要把 \lstinline@_arr@ 和 \lstinline@_p@ 都放在同一访问权限之下。\par
+但是这里存在另一个问题：C++17标准并没有保证不同访问权限的成员间的初始化顺序\footnote{这个问题貌似在C++23标准中得到了解决。}——换句话说，这样会把初始化变成一个未定义行为。为了预防这种情况的发生，我们还是要把 \lstinline@_arr@ 和 \lstinline@_p@ 都放在同一访问权限之下。\par
 然而，如果把它们都放在 \lstinline@private@ 访问权限下，那么 \lstinline@_cap@ 就不能被派生类使用，这不符合我们的初衷；如果把它们都放在 \lstinline@protected@ 访问权限下，那么 \lstinline@_p@ 就可以被 \lstinline@string@ 类直接接触，起不到隔离的作用。为此，我们还需要更加取巧的方法才行，那就是——引用。
 \begin{lstlisting}
 class Arr {
