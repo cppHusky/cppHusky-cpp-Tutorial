@@ -61,10 +61,11 @@
 \contentsline {chapter}{\numberline {第十章\hspace {.3em}}继承中的常见问题}{261}{chapter.10}%
 \contentsline {section}{\numberline {10.1}继承中的类型转换}{261}{section.10.1}%
 \contentsline {section}{\numberline {10.2}虚函数与多态}{265}{section.10.2}%
-\contentsline {part}{精讲篇}{273}{part*.191}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{273}{appendix.A}%
-\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{275}{appendix.B}%
-\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{277}{appendix.C}%
-\contentsline {section}{\numberline {C.1}数制转换}{277}{section.C.1}%
-\contentsline {section}{\numberline {C.2}布尔代数基础}{286}{section.C.2}%
-\contentsline {chapter}{跋}{287}{appendix*.199}%
+\contentsline {section}{\numberline {10.3}抽象基类与纯虚函数}{270}{section.10.3}%
+\contentsline {part}{精讲篇}{279}{part*.195}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{279}{appendix.A}%
+\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{281}{appendix.B}%
+\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{283}{appendix.C}%
+\contentsline {section}{\numberline {C.1}数制转换}{283}{section.C.1}%
+\contentsline {section}{\numberline {C.2}布尔代数基础}{292}{section.C.2}%
+\contentsline {chapter}{跋}{293}{appendix*.203}%
