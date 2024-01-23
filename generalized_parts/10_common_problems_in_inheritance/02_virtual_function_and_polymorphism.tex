@@ -1,0 +1,186 @@
+\section{虚函数与多态}
+在上一节中我们遗留了有关动态类型转换的问题。不过请读者先不要迷失在语法之中，我们先把思绪拉回来，思考一下我们使用向下类型转换的目的。\par
+\subsection*{为何要向下类型转换？}
+我们说过，如果一个基类指针原本就指向一个基类对象的话，那么向下类型转换没有任何意义；只有当基类指针原本就指向一个派生类对象时，我们使用向下类型转换才有意义。\par
+但是，你有没有在心里纳闷过哪怕一秒——这么转上去再转下来有意思吗？如果我们一开始就有一个派生类的指针/对象，那么为什么要先把它向上转换成基类的指针/引用，再向下转回去呢？我们直接用原来的指针/引用不就完了？
+\begin{lstlisting}
+void fun(Base *pb) {
+    Derived *pd {static_cast<Derived*>(pb)}; //Base*类的pb再转换成Derived*
+    //...
+}
+int main() {
+    Derived de;
+    fun(&de); //传入参数时&de被转换成Base*
+}
+\end{lstlisting}
+这是何苦呢？如果只是为了完成这个功能，我们直接把形参改成 \lstinline@Derived*@ 就好了。
+\begin{lstlisting}
+void fun(Derived *pd) { //更省事了
+    //...
+}
+int main() {
+    Derived de;
+    fun(&de);
+}
+\end{lstlisting}
+所以如果单纯是为了使用某个派生类的对象，那么咱犯不着还要通过基类指针/引用倒一遍。\par
+那么向下转换是为了使用某个派生类独有的成员对象吗？问题同样在于，如果这个成员对象是派生类独有的，那么我们应该传入派生类的指针/引用，而不是拿基类来做文章；如果这个成员对象是所有派生类都有的呢，我们应该在设计之初就把它写到基类的成员对象当中，使它成为所有派生类的共性，而不是像刚才说的那样，把它写成每个派生类``共同的独特性''。
+\begin{lstlisting}
+class Base {
+protected:
+    int common; //共性，使用它不需要向下类型转换
+};
+class Derived : public Base {
+    int special; //独特性，如果是为了使用它，就不应当传入基类指针
+};
+\end{lstlisting}
+我们发现，这个时候也是用不到向下类型转换的——不是不能用，而是太没必要了。\par
+读者可能想到了另一种情况——静态成员。确实，不同的派生类可能有同名的静态成员。如果我们希望这个静态成员在不同派生类中有不同的值（举个例子吧，\lstinline@_object_number@ 表示这个类的对象数），那么我们就不能把它定义在基类当中——因为静态成员对象有内部链接，同一个类只能有同一个静态成员。那么不同派生类的同名静态成员就要定义在各自的派生类中。
+\begin{lstlisting}
+class Base {
+public:
+    static std::size_t _object_number; //Base类的静态成员对象
+protected:
+    int common; //共性
+}
+class Derived : public Base {
+public:
+    static std::size_t _object_number; //Derived类的静态成员对象
+}
+\end{lstlisting}
+这里候如果我们还想要根据 \lstinline@Base*@ 指针来访问派生类独有成员的话，就需要用向下类型转换了。\par
+但是——实际上，如果我们想要访问静态成员的话，可以直接用作用域解析操作来完成。
+\begin{lstlisting}
+    std::cout << Derived::_object_number;
+\end{lstlisting}
+所以说这里其实也没有类型转换什么事。\par
+最后还有一种可能，那就是成员函数。试想一种情况——我们需要为不同的派生类写同样名字的函数；但是，这些函数的定义又有所不同，所以我们不能把它们作为共性，合并到基类当中。
+\begin{lstlisting}
+struct Shape { //这个类用来表示各种几何图形
+    static constexpr double Pi {3.1415926}; //常量表达式Pi
+    static constexpr double Deg2Rad(double deg) { //常成员函数，用于角度转弧度
+        return deg * Pi / 180;
+    }
+    static constexpr double Rad2Deg(double rad) { //常成员函数，用于弧度转角度
+        return rad * 180 / Pi;
+    }
+};
+class Triangle : public Shape { //三角形是一类几何图形
+    double _a;
+    double _b;
+    double _c;
+public:
+    Triangle(double a, double b, double c)
+        : _a {a}, _b {b}, _c {c} {}
+    double perimeter()const { return _a + _b + _c; } //周长
+    double area()const { //面积
+        double s {(_a + _b + _c) / 2};
+        return std::sqrt(s * (s - _a) * (s - _b) * (s - _c));
+    }
+};
+class Circle : public Shape { //圆形是一类几何图形
+    double _r;
+public:
+    Circle(double r) : _r {r} {}
+    double perimeter()const { return 2 * Pi * _r; } //周长
+    double area()const { return Pi * _r * _r; } //面积
+};
+class Parallelogram : public Shape { // 平行四边形是一类几何图形
+    double _a;
+    double _b;
+    double _theta; //表示一个夹角的角度值
+public:
+    Parallelogram(double a, double b, double theta)
+        : _a {a}, _b {b}, _theta {theta} {}
+    double perimeter()const { return 2 * (_a + _b); } //周长
+    double area()const { return _a * _b * std::sin(Deg2Rad(_theta)); } //面积
+    //注意C++标准库中三角函数接收的参数都是弧度值
+};
+\end{lstlisting}
+读者可以看到，这里的三个派生类，每个类的 \lstinline@perimeter@ 函数和 \lstinline@area@ 函数都不尽相同——所以我们不能直接把这些函数写到 \lstinline@Shape@ 类中。所以在面对基类指针/引用时，我们进行向下类型转换就是必要的了。\par
+\subsection*{多态与动态类型转换}
+基类指针/引用到派生类指针/引用的动态类型转换有一个前置条件，即基类必须是\textbf{多态（Polymorphism）}的。在继承场合下，多态意味着一个基类指针会指向它的派生类对象，并且允许程序在运行时判断这个指针的实际指向，进而转换为指向其派生类的指针。
+\begin{lstlisting}
+    Shape *ps[3] {
+        new Triangle{2,3,2},
+        new Circle{2},
+        new Parallelogram{1,5,90}   
+    }; //定义一个指针数组用来分配新内容
+    std::cout << dynamic_cast<Triangle*>(ps[0])->area() << std::endl;
+    std::cout << dynamic_cast<Circle&>(*ps[1]).area() << std::endl;
+    for (auto p : ps)
+        delete p; //记得回收
+\end{lstlisting}
+保证了基类的多态性后，我们就可以通过动态类型转换来实现这个功能了。无论指针还是引用均可以如此。\par
+最简单的多态化方法就是把基类的析构函数变成 \lstinline@virtual@ 的虚函数。
+\begin{lstlisting}
+    virtual ~Shape() {} //虚函数
+\end{lstlisting}
+只要有哪怕一个虚函数，这个类就是多态的——所以把析构函数定义成虚函数是我所认为的最佳方法。我们稍后再讲虚函数的有关细节。\par
+如果我们需要写一个函数，它可以输出任何一个 \lstinline@Shape@ 派生类对象的面积信息，目前的方案就是把这个派生类对象的地址通过向上类型转换变成 \lstinline@Shape*@——这样我们只需要写一个函数就可以了，不用写一大堆重载。
+\begin{lstlisting}
+void output_shape_info(const Shape *sh) {
+    //...待补充
+}
+\end{lstlisting}
+这个方法还有点粗糙，因为我们需要在函数体中再判断它到底指向哪个派生类。为此我们就不得不再写一大堆代码。
+\begin{lstlisting}
+double shape_area(const Shape *sh) {
+    if (dynamic_cast<Triangle*>(sh)) //如果sh不指向Triangle对象，返回值为nullptr
+        return dynamic_cast<Triangle*>(sh).area(); //调用Triangle::area()
+    if (dynamic_cast<Circle*>(sh)) //如果sh不指向Circle对象，返回值为nullptr
+        return dynamic_cast<Circle*>(sh).area(); //调用Circle::area()
+    if (dynamic_cast<Parallelogram*>(sh)) //同上
+        return dynamic_cast<Parallelogram*>(sh).area(); //同上
+}
+\end{lstlisting}
+这样看上去……好像和我们分别写三个重载的工作量也没大差啊。
+\begin{lstlisting}
+void shape_area(const Triangle &tri) {
+    return tri.area();
+}
+//还有两个重载
+\end{lstlisting}\par
+这样单纯地用动态类型转换并没有让我们写代码变得多么方便；反而，\lstinline@dynamic_cast@ 加上各种信息和判断就够我们喝一壶的了。所以我们还需要寻求更简化的方法。这也就是虚函数最大的妙用，我们现在就来讲它。\par
+\subsection*{\texttt{virtual}虚函数}
+让我们从头开始思考关于 \lstinline@shape_area@ 函数的问题。\par
+显然，因为不同派生类的 \lstinline@area@ 函数彼此有一些差异（而且它们多少用到了派生类当中的成员），所以我们不能把这些函数定义在基类中。这也就导致我们不能用 \lstinline@sh->area()@ 之类的写法——基类当中没有这个函数的定义。\par
+那么我们在基类中添加一个 \lstinline@area@ 函数的定义，可否？答案是好像不行，因为这样一来，我们在使用 \lstinline@sh->area()@ 时也只能做到调用 \lstinline@Shape::area()@，而根本就不是在调用 \lstinline@Triangle::area()@ 或者别的派生类成员函数。\par
+而虚函数为我们提供了这种可能性——当我们用基类的指针/引用调用基类的虚函数时，程序会进行运行时检测，判断这个指针实际指向哪个类型的对象，然后调用这个类中的成员函数（如果存在的话）。
+还是以 \lstinline@Shape@ 为例，我们可以在 \lstinline@Shape@ 当中声明虚函数 \lstinline@perimeter@ 和 \lstinline@area@。这样，我们就可以用基类的指针调用 \lstinline@area@ 函数；而在运行时，程序会根据这个指针指向对象的类型，判断该用 \lstinline@Triangle::area()@, \lstinline@Circle::area()@ 还是 \lstinline@Parallelogram::area()@。
+\begin{lstlisting}
+struct Shape { //这个类用来表示各种几何图形
+    //...
+    virtual double perimeter()const { return 0; }
+    virtual double area()const { return 0; }
+    //虚函数，如果通过指针/引用调用它，程序会进行运行时类型判断，决定调用哪个函数
+    virtual ~Shape() {} 
+};
+\end{lstlisting}
+那么我们就可以用基类的虚函数作为媒介，通过基类指针调用派生类的成员函数。
+\begin{lstlisting}
+    Shape *ps[3] {
+        new Triangle{2,3,2},
+        new Circle{2},
+        new Parallelogram{1,5,90}
+    };
+    std::cout << ps[0]->area() << std::endl;
+    //ps[0]指向Triangle对象，所以调用Triangle::area()
+    std::cout << ps[1]->area() << std::endl;
+    //ps[1]指向Circle对象，所以调用Circle::area()
+    for (auto p : ps)
+        delete p;
+\end{lstlisting}
+瞧，连动态类型转换都可以省了。我们不再需要自行判断基类指针究竟指向什么，程序会帮我们判断。\par
+\subsection*{虚函数的性质}
+在没有虚函数的情况下，编译器根据调用成员函数的对象/指针/引用就知道要调用哪个类的成员函数。举个例子，对于一个 \lstinline@std::string@ 类的对象 \lstinline@str@ 来说，当我们调用 \lstinline@size()@ 成员函数时，编译器根据对象的类型就可以推测出它要调用的是 \lstinline@std::string::size()@，而不是 \lstinline@std::vector<int>::size@ 或者别的。\par
+编译器知道了要调用哪个成员函数之后，它就会把这个函数与该语句绑定（或者说，链接）起来，这样程序就知道该调用什么函数了。\par
+对于指针来说亦如此。如果没有虚函数的话，一切都很简单：对于 \lstinline@Type*@ 类型的指针，当我们使用 \lstinline@->@ 进行指针的成员访问时，编译器会把 \lstinline@Type@ 类型的成员与其绑定。这种绑定是在编译期完成的，我们把这种方式称为\textbf{早绑定（Early binding）}。\par
+虚函数为我们提供了另一种可能：用派生类的成员函数覆盖基类的成员函数。如果基类指针指向派生类对象，并且这个派生类有同名的成员函数，那么程序可以使用派生类成员覆盖基类成员。那么这两个条件——是否有同名函数，这是可以在编译时确定下来的；但是，基类指针究竟指向什么，这是不可能在编译时确定下来的\footnote{除非这个基类指针是 \lstinline@constexpr@ 之类的}。正因如此，这个调用不能在编译期进行早绑定，而必须在运行期根据实际情况绑定到相应的成员函数中。我们把这种方式称为\textbf{迟绑定（Late binding）}。
+用 \lstinline@virtual@ 声明的虚函数就拥有这种性质，它允许被派生类的同名成员函数覆盖。这样一来，当我们使用指针/引用来调用这个函数时，它就会被迟绑定。\footnote{注意，如果我们使用基类的对象调用这个成员函数，那么它照样会被早绑定；只有用指针/引用才可以进行迟绑定。}\par
+虚函数要求基类和派生类中的成员函数同名，所以构造函数不能被定义为虚函数。\par
+然而，析构函数能被定义成虚函数。当我们用基类指针调用析构函数，或者是用 \lstinline@delete@ 回收基类指针指向的派生类内存空间时，派生类与基类的析构函数会被先后调用\footnote{注意顺序。对于这种情况来说，派生类的析构函数先调用，然后才是基类的析构函数。这个顺序与派生类对象的析构很相似。}。如果基类的析构函数不是虚函数，那么在回收内存空间时，程序将不会调用派生类的析构函数——这可能暗藏危险。所以我的建议是：只要你想写一个多态的基类，就请务必定义一个虚析构函数。\par
+静态成员函数不能定义成虚函数。\par
+除构造函数、析构函数和静态成员函数之外的成员函数都可以用 \lstinline@virtual@ 关键字定义成虚函数。只要是虚函数，它就有了被派生类对象覆盖的可能\footnote{虚析构函数不是``被覆盖''了。它只是先调用了派生类的析构函数而已。}。前文定义的 \lstinline@area@ 成员函数便是如此。\par
+虚函数描述的是单个成员函数的性质——某个成员函数是虚函数，并不意味着该类的其它成员函数都是虚函数。但是只要这个类有一个虚函数，它就是一个多态的类，其对象可以进行动态类型转换。\par
+虚函数的性质可以顺着继承关系传递给派生类的同名函数。换句话说，只要 \lstinline@Shape::area()@ 是虚函数，那么 \lstinline@Triangle::area()@, \lstinline@Circle::area@ 和 \lstinline@Parallelogram::area()@ 都是虚函数，而无论我们是否使用了 \lstinline@virtual@ 关键字。虽说如此，但是我依然建议读者在这些类中也加上 \lstinline@virtual@ 关键字，这样可以提高代码的可读性，避免我们在不知情的状况下犯一些不易查出的错误。\par
