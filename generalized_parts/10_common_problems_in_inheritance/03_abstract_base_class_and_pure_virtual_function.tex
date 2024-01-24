@@ -57,15 +57,14 @@ struct Shape { //抽象基类，这个类用来表示各种几何图形
         return rad * 180 / Pi;
     }
     virtual double perimeter()const = 0; //周长，纯虚函数
-    virtual double area()const = 0; //周长，纯虚函数
-    virtual ~Shape() {} //析构，虚函数
+    virtual double area()const = 0; //面积，纯虚函数
 };
 \end{lstlisting}
 这里的 \lstinline@Shape@ 用 \lstinline@struct@ 来定义，这样可以少写一个 \lstinline@public@ 了。\par
 接下来我们就用 \lstinline@Shape@ 派生其它类，如图4.5所示。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=.8\textwidth]{../images/generalized_parts/10_abstract_shape_class_300.png}
+    \includegraphics[width=.6\textwidth]{../images/generalized_parts/10_abstract_shape_class_300.png}
     \caption{\lstinline@Shape@ 之下派生的各个类}
 \end{figure}
 三角形和圆形的定义很简单，没什么可说的。
@@ -77,8 +76,8 @@ class Triangle : public Shape { //三角形
 public:
     Triangle(double a, double b, double c)
         : _a {a}, _b {b}, _c {c} {} //构造函数
-    virtual double perimeter()const { return _a + _b + _c; } //周长
-    virtual double area()const { //面积
+    double perimeter()const { return _a + _b + _c; } //周长
+    double area()const { //面积
         double s {(_a + _b + _c) / 2};
         return std::sqrt(s * (s - _a) * (s - _b) * (s - _c));
     }
@@ -87,8 +86,8 @@ class Circle : public Shape { //圆形
     double _r; //圆的半径
 public:
     Circle(double r) : _r {r} {}
-    virtual double perimeter()const { return 2 * Pi * _r; } //周长
-    virtual double area()const { return Pi * _r * _r; } //面积
+    double perimeter()const { return 2 * Pi * _r; } //周长
+    double area()const { return Pi * _r * _r; } //面积
 };
 \end{lstlisting}
 至于平行四边形这边，就要更复杂一点。我们先把抽象平行四边形基类写出来吧。
@@ -153,7 +152,4 @@ struct Square : Rhombus_abc { //正方形
     double area()const { return _a * _a; }
 };
 \end{lstlisting}
-而当调用 \lstinline@Rhombus@ 或者 \lstinline@square@ 的 \lstinline@perimeter()@ 函数时，编译器自然能根据名称查找规则找到 \lstinline@Rhombus_abc::perimeter()@ 来。总之，不必为此操心。\par
-\subsection*{完整代码}
-以下是本例的完整代码。因为所有成员函数都定义在类内了，所以我只提供一个头文件。读者可以自行写源文件并验证其效果。
-\lstinputlisting[caption=\texttt{Header.h}]{code_in_book/10.1/Header.h}\par
+而当调用 \lstinline@Rhombus@ 或者 \lstinline@square@ 的 \lstinline@perimeter()@ 函数时，编译器自然能根据名称查找规则找到 \lstinline@Rhombus_abc::perimeter()@ 来。总而言之，不必为此操心。\par

@@ -1,6 +1,6 @@
 \section{多重继承}
 在上一章中，我们看到了C++流输入/输出库中复杂的继承关系。其中的 \lstinline@std::basic_iostream@ 尤为引人注目。你没看错，这个类同时继承自 \lstinline@std::basic_ostream@ 和 \lstinline@std::basic_istream@。这种继承多个基类的操作叫做\textbf{多重继承（Multiple Inheritance）}。\par
-多重继承并不神秘。如果我们把继承视作是单纯的内嵌一个基类对象的话（私有继承是这样做的），那么多重继承就意味着在派生类对象中同时内嵌两个基类对象；如果我们把继承视作是共性成员的代码重用的话（公开继承是这样做的），那么多重继承就意味着派生类同时拥有这两个基类的特怔。\par
+多重继承并不神秘。如果我们把继承视作是单纯的内嵌一个基类对象的话（私有继承是这样做的），那么多重继承就意味着在派生类对象中同时内嵌两个基类对象；如果我们把继承视作是共性成员的代码重用的话（公开继承是这样做的），那么多重继承就意味着派生类同时拥有这两个基类的特征。\par
 以 \lstinline@std::stringstream@ 为例，它继承自 \lstinline@std::iostream@，而 \lstinline@std::iostream@ 多重继承自 \lstinline@std::istream@ 和 \lstinline@std::ostream@，所以它同时拥有 \lstinline@>>@ 和 \lstinline@<<@ 运算符的重载。于是这个类的对象既有输入功能又有输出功能。\par
 \begin{lstlisting}
     std::stringstream ss;
@@ -98,7 +98,7 @@ int main() {
 换句话说，虽然 \lstinline@Derived@ 从根本上来说继承自 \lstinline@Base@，但是因为多重继承的缘故，它实际上有了两份 \lstinline@Base::num@ 成员，一个来自基类 \lstinline@A@，另一个来自基类 \lstinline@B@。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=.5\textwidth]{../images/generalized_parts/10_diamond_inheritance_300.png}
-    \caption{菱形继承关系下，\lstinline@Derived@ 类内嵌了两份 \lstinline@Base@ 类的对象}
+    \includegraphics[width=.56\textwidth]{../images/generalized_parts/10_diamond_inheritance_300.png}
+    \caption{菱形继承关系下，\lstinline@Derived@ 类内嵌了两份 \lstinline@Base@ 类对象}
 \end{figure}
 在多数情况下，这并不是我们想要的结果，而且还会引发无数的麻烦——比如说，内存空间的浪费，我们明明只需要一份数据，但多重继承为我们搞出了两份数据；再比如说，名称的歧义和冲突，我们不能单纯写成 \lstinline@d.num@，必须写成 \lstinline@d.A::num@ 或 \lstinline@d.B::num@。它们本应该相同的。而在C++中，解决这个问题的对策，就是下一节中要讲到的虚继承。\par

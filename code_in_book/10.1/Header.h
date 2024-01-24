@@ -9,8 +9,7 @@ struct Shape { //抽象基类，这个类用来表示各种几何图形
         return rad * 180 / Pi;
     }
     virtual double perimeter()const = 0; //周长，纯虚函数
-    virtual double area()const = 0; //周长，纯虚函数
-    virtual ~Shape() {} //析构，虚函数
+    virtual double area()const = 0; //面积，纯虚函数
 };
 class Triangle : public Shape { //三角形
     double _a;
@@ -19,8 +18,8 @@ class Triangle : public Shape { //三角形
 public:
     Triangle(double a, double b, double c)
         : _a {a}, _b {b}, _c {c} {} //构造函数
-    virtual double perimeter()const { return _a + _b + _c; } //周长
-    virtual double area()const { //面积
+    double perimeter()const { return _a + _b + _c; } //周长
+    double area()const { //面积
         double s {(_a + _b + _c) / 2};
         return std::sqrt(s * (s - _a) * (s - _b) * (s - _c));
     }
@@ -29,8 +28,8 @@ class Circle : public Shape { //圆形
     double _r; //圆的半径
 public:
     Circle(double r) : _r {r} {}
-    virtual double perimeter()const { return 2 * Pi * _r; } //周长
-    virtual double area()const { return Pi * _r * _r; } //面积
+    double perimeter()const { return 2 * Pi * _r; } //周长
+    double area()const { return Pi * _r * _r; } //面积
 };
 class Parallelogram_abc : public Shape { // 抽象平行四边形基类
 protected:
@@ -47,17 +46,34 @@ public:
     double perimeter()const { return 2 * (_a + _b); }
     double area()const { return _a * _b * std::sin(Deg2Rad(_theta)); }
 };
-struct Rhombus_abc : Parallelogram_abc { //抽象菱形基类
-    double perimeter()const { return 4 * _a; }
-    Rhombus_abc(double a) : Parallelogram_abc {a} {} //构造函数
+struct Rhombus_abc : virtual public Parallelogram_abc { //抽象菱形基类
+    Rhombus_abc(double a) : Parallelogram_abc {a} {}
+    double perimeter()const { return 4 * _a; } //菱形、正方形通用的周长公式
+};
+struct Rectangle_abc : virtual public Parallelogram_abc { //抽象矩形基类
+    Rectangle_abc(double a) : Parallelogram_abc {a} {}
 };
 class Rhombus : public Rhombus_abc { //菱形
     double _theta;
 public:
-    Rhombus(double a, double theta) : Rhombus_abc {a}, _theta {theta} {}
+    Rhombus(double a, double theta)
+        : Parallelogram_abc {a}, Rhombus_abc {a}, _theta {theta} {}
+    //因为Rhombus_abc虚继承自Parallelogram_abc，我们必须单独调用后者的构造函数
+    //又因为Rhombus继承自Rhombus_abc，我们必须调用后者的构造函数
     double area()const { return _a * _a * std::sin(Deg2Rad(_theta)); }
 };
-struct Square : Rhombus_abc { //正方形
-    Square(double a) : Rhombus_abc {a} {}
+class Rectangle : public Rectangle_abc { //矩形
+    double _b;
+public:
+    Rectangle(double a, double b)
+        : Parallelogram_abc {a}, Rectangle_abc {a}, _b {b} {}
+    //同上，不再赘述
+    double perimeter()const { return 2 * (_a + _b); }
+    double area()const { return _a * _b; }
+};
+struct Square : Rhombus_abc, Rectangle_abc { //正方形
+    Square(double a)
+        : Parallelogram_abc {a}, Rhombus_abc {a}, Rectangle_abc {a} {}
     double area()const { return _a * _a; }
+    //perimeter函数继承自Rhombus_abc足矣，不必再写
 };

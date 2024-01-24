@@ -66,7 +66,7 @@ class Canis_lupus_familaries : public Canis_lupus { //家犬亚种，公有继�
     //...
 };
 \end{lstlisting}\par
-这样一来，赤狐种 \lstinline@Vulpes_vulpes@ 和家犬亚种 \lstinline@Canis_lupus_familaries@ 就在相同的特怔方面继承同一个类，而在各自的特性上又有自己的一套。就这样，面对这样错综复杂的关系，C++可以通过继承功能，把它们梳理得十分清晰。\par
+这样一来，赤狐种 \lstinline@Vulpes_vulpes@ 和家犬亚种 \lstinline@Canis_lupus_familaries@ 就在相同的特征方面继承同一个类，而在各自的特性上又有自己的一套。就这样，面对这样错综复杂的关系，C++可以通过继承功能，把它们梳理得十分清晰。\par
 \subsection*{C++流输入/输出库}
 C++的流输入/输出库是一个系统，包含 \lstinline@iostream@, \lstinline@fstream@, \lstinline@sstream@ 等许多库文件，\lstinline@std::istream@, \lstinline@std::ostream@ 等许多我们已经熟知的类模版或类。它们之间有一套复杂的继承关系，见图9.6。其中，\lstinline@std::istream@ 是 \lstinline@std::basic_istream@ 类模版的一个实例，定义为 \lstinline@std::basic_istream<char>@；\lstinline@std::ostream@ 是 \lstinline@std::basic_ostream@ 类模版的一个实例，定义为 \lstinline@std::basic_ostream<char>@。\par
 \begin{figure}[htbp]

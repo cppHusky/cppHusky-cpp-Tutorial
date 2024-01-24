@@ -1,0 +1,55 @@
+<mxfile host="Electron" modified="2024-01-24T06:14:17.834Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.21 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="EiJNs_yWyr0N0NBxITna" version="22.1.21" type="device">
+  <diagram name="Page-1" id="o9wBVmuPF-BfS5Mu2OIw">
+    <mxGraphModel dx="965" dy="659" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="8g4pSloKbr1zPTXRMnoa-20" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="8g4pSloKbr1zPTXRMnoa-1" target="8g4pSloKbr1zPTXRMnoa-17" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8g4pSloKbr1zPTXRMnoa-1" value="&lt;font face=&quot;consolas&quot;&gt;抽象平行四边形基类&lt;br&gt;_a&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EEEEEE;strokeColor=#36393D;" parent="1" vertex="1">
+          <mxGeometry x="360" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8g4pSloKbr1zPTXRMnoa-4" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="8g4pSloKbr1zPTXRMnoa-2" target="8g4pSloKbr1zPTXRMnoa-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8g4pSloKbr1zPTXRMnoa-2" value="&lt;font face=&quot;consolas&quot;&gt;平行四边形&lt;br&gt;_a&lt;br&gt;_b&lt;br&gt;_theta&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;" parent="1" vertex="1">
+          <mxGeometry x="280" y="380" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8g4pSloKbr1zPTXRMnoa-5" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="8g4pSloKbr1zPTXRMnoa-13" target="8g4pSloKbr1zPTXRMnoa-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8g4pSloKbr1zPTXRMnoa-14" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="8g4pSloKbr1zPTXRMnoa-3" target="8g4pSloKbr1zPTXRMnoa-13" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8g4pSloKbr1zPTXRMnoa-3" value="&lt;font face=&quot;consolas&quot;&gt;菱形&lt;br&gt;_a&lt;br&gt;_theta&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fad7ac;strokeColor=#b46504;" parent="1" vertex="1">
+          <mxGeometry x="360" y="500" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8g4pSloKbr1zPTXRMnoa-13" value="&lt;font face=&quot;consolas&quot;&gt;抽象菱形基类&lt;br&gt;_a&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EEEEEE;strokeColor=#36393D;" parent="1" vertex="1">
+          <mxGeometry x="440" y="380" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8g4pSloKbr1zPTXRMnoa-16" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="8g4pSloKbr1zPTXRMnoa-15" target="8g4pSloKbr1zPTXRMnoa-13" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8g4pSloKbr1zPTXRMnoa-15" value="&lt;font face=&quot;consolas&quot;&gt;正方形&lt;br&gt;_a&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fad9d5;strokeColor=#ae4132;" parent="1" vertex="1">
+          <mxGeometry x="520" y="500" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8g4pSloKbr1zPTXRMnoa-17" value="&lt;font face=&quot;consolas&quot;&gt;抽象图形基类&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EEEEEE;strokeColor=#36393D;" parent="1" vertex="1">
+          <mxGeometry x="360" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8g4pSloKbr1zPTXRMnoa-21" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="8g4pSloKbr1zPTXRMnoa-18" target="8g4pSloKbr1zPTXRMnoa-17" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8g4pSloKbr1zPTXRMnoa-18" value="&lt;font face=&quot;consolas&quot;&gt;三角形&lt;br&gt;_a&lt;br&gt;_b&lt;br&gt;_c&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B0F9E0;strokeColor=#0E8088;" parent="1" vertex="1">
+          <mxGeometry x="200" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8g4pSloKbr1zPTXRMnoa-22" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="8g4pSloKbr1zPTXRMnoa-19" target="8g4pSloKbr1zPTXRMnoa-17" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8g4pSloKbr1zPTXRMnoa-19" value="&lt;font face=&quot;consolas&quot;&gt;圆形&lt;br&gt;_r&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B0F9E0;strokeColor=#0E8088;" parent="1" vertex="1">
+          <mxGeometry x="520" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
