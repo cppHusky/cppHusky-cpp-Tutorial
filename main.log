@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  24 JAN 2024 19:32
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  24 JAN 2024 20:23
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1696,48 +1696,52 @@ File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_diamond
  [278] [279]
 File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_shape_class_with_multiple_inheritance_300.png Graphic file (type bmp)
 <./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_shape_class_with_multiple_inheritance_300.png>
- [280] [281] [282] [283] (./code_in_book/10.1/Header.h [284])))) (././intensive_part.tex [285] [286
+ [280] [281] [282] [283] (./code_in_book/10.1/Header.h [284]))) (./generalized_parts/11_templates_and_fundamental_generic_programming.tex [285] [286
 
-] [287] [288]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
+]
+第十一章
+(./generalized_parts/11_templates_and_fundamental_generic_programming/01_function_templates.tex) (./generalized_parts/11_templates_and_fundamental_generic_programming/02_instantiation_and_specialization_of_function_templates.tex) (./generalized_parts/11_templates_and_fundamental_generic_programming/03_class_templates.tex) (./generalized_parts/11_templates_and_fundamental_generic_programming/04_instantiation_and_specialization_of_class_templates.tex) (./generalized_parts/11_templates_and_fundamental_generic_programming/05_exercise_smart_pointers.tex) (./generalized_parts/11_templates_and_fundamental_generic_programming/06_introduction_to_STL.tex))) (././intensive_part.tex [287] [288
+
+] [289] [290]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
 附录 A
 
 Underfull \hbox (badness 6063) in paragraph at lines 16--16
 [][][]\TU/SimSun(0)/m/n/8.33344 对 于 内 置 类 型 数 组 [][][] 的 下 标 运 算，| [][][][][][] |（和 [][][][][][]）|  都 会 解 析 为 [][][][][][][]
  []
 
-[289
-
-]) (./other_parts/appendices/B.tex [290]
-附录 B
 [291
 
-]) (./other_parts/appendices/C.tex [292]
+]) (./other_parts/appendices/B.tex [292]
+附录 B
+[293
+
+]) (./other_parts/appendices/C.tex [294]
 附录 C
 File: appendices/../images/other_parts/C_digital_clock.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_digital_clock.png>
-[293
+[295
 
 ]
 File: appendices/../images/other_parts/C_from_counting_to_exponentiation_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_from_counting_to_exponentiation_300.png>
 File: appendices/../images/other_parts/C_duodecimal_multiplication_table.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_duodecimal_multiplication_table.png>
- [294]
+ [296]
 Underfull \vbox (badness 2753) has occurred while \output is active []
 
- [295] [296]
+ [297] [298]
 File: appendices/../images/other_parts/C_formatted_representation_of_a_number_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_formatted_representation_of_a_number_300.png>
- [297] [298]
+ [299] [300]
 File: appendices/../images/other_parts/C_short_division_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_short_division_300.png>
- [299] [300]
+ [301] [302]
 File: appendices/../images/other_parts/C_bin_to_oct_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_oct_300.png>
- [301]
+ [303]
 File: appendices/../images/other_parts/C_bin_to_hex_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_hex_300.png>
-)) (./other_parts/afterword.tex [302])
+)) (./other_parts/afterword.tex [304])
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1746,7 +1750,7 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [303
+ [305
 
 ]
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1755,21 +1759,21 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [304] (./main.aux)
+ [306] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B436B14BF5C1D96B67963504FB1893B3;7477.
+(rerunfilecheck)             Checksum: 045B39A2EA75FA4D91980A204A90334C;7601.
  ) 
 Here is how much of TeX's memory you used:
- 27380 strings out of 474924
- 703971 string characters out of 5765037
+ 27431 strings out of 474924
+ 708748 string characters out of 5765037
  2050189 words of memory out of 5000000
- 48387 multiletter control sequences out of 15000+600000
+ 48414 multiletter control sequences out of 15000+600000
  571829 words of font info for 166 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,18n,111p,1239b,1918s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (312 pages).
+Output written on main.pdf (314 pages).

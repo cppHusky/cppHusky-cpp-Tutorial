@@ -4,7 +4,7 @@
 
 此项目第一阶段计划（泛讲篇前七章）已经完成！
 
-### 当前进度：泛讲篇第九章完成。参见[Preview](https://github.com/cppHusky/cppHusky-cpp-Tutorial/releases/tag/preview-0-0-9)。
+### 当前进度：泛讲篇第十章完成。参见[Preview](https://github.com/cppHusky/cppHusky-cpp-Tutorial/releases/tag/preview-0-0-9)。
 
 我为此规划了一个大致的编章结构，参见[Structure.md](https://github.com/cppHusky/cppHusky-cpp-Tutorial/blob/main/Structure.md)。
 
