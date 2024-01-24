@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  23 JAN 2024 15:03
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  24 JAN 2024 13:00
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1670,48 +1670,68 @@ File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_abstrac
  [271]
 File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_shape_class_300.png Graphic file (type bmp)
 <./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_shape_class_300.png>
- [272] [273] [274] (./code_in_book/10.1/Header.h [275])) (./generalized_parts/10_common_problems_in_inheritance/04_mutiple_inheritance.tex) (./generalized_parts/10_common_problems_in_inheritance/05_virtual_inheritance.tex))) (././intensive_part.tex [276] [277
+ [272] [273] [274] (./code_in_book/10.1/Header.h [275])) (./generalized_parts/10_common_problems_in_inheritance/04_multiple_inheritance.tex
+Overfull \hbox (0.61789pt too wide) in paragraph at lines 2--2
+[]\TU/SimSun(0)/m/n/10 在 上 一 章 中，|  我 们 看 到 了 \TU/lmr/m/n/10 C++ \TU/SimSun(0)/m/n/10 流 输 入\TU/lmr/m/n/10 /\TU/SimSun(0)/m/n/10 输 出 库 中 复 杂 的 继 承 关 系。|  其 中 的 [][][][][]
+ []
 
-] [278]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
+
+Overfull \hbox (32.96149pt too wide) in paragraph at lines 4--4
+[]\TU/SimSun(0)/m/n/10 以 [][][][][] 为 例，|  它 继 承 自 [][][][][]，|  而 [][][][][] 多 重 继 承 自 [][][][][]
+ []
+
+[276] [277]
+Overfull \hbox (80.47179pt too wide) in paragraph at lines 46--46
+\TU/SimSun(0)/m/n/10 作 用 域 解 析 运 算 符 拥 有 最 高 优 先 级，|  所 以 [][][][][][][][][][][][][][] 的 含 义 是 [][][][][][][][][][][][][][]。|
+ []
+
+File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_multiple_inheritance_example_300.png Graphic file (type bmp)
+<./10_common_problems_in_inheritance/../images/generalized_parts/10_multiple_inheritance_example_300.png>
+[278]
+File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_diamond_inheritance_300.png Graphic file (type bmp)
+<./10_common_problems_in_inheritance/../images/generalized_parts/10_diamond_inheritance_300.png>
+ [279]) (./generalized_parts/10_common_problems_in_inheritance/05_virtual_inheritance.tex))) (././intensive_part.tex [280] [281
+
+] [282]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
 附录 A
 
 Underfull \hbox (badness 6063) in paragraph at lines 16--16
 [][][]\TU/SimSun(0)/m/n/8.33344 对 于 内 置 类 型 数 组 [][][] 的 下 标 运 算，| [][][][][][] |（和 [][][][][][]）|  都 会 解 析 为 [][][][][][][]
  []
 
-[279
+[283
 
-]) (./other_parts/appendices/B.tex [280]
+]) (./other_parts/appendices/B.tex [284]
 附录 B
-[281
+[285
 
-]) (./other_parts/appendices/C.tex [282]
+]) (./other_parts/appendices/C.tex [286]
 附录 C
 File: appendices/../images/other_parts/C_digital_clock.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_digital_clock.png>
-[283
+[287
 
 ]
 File: appendices/../images/other_parts/C_from_counting_to_exponentiation_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_from_counting_to_exponentiation_300.png>
 File: appendices/../images/other_parts/C_duodecimal_multiplication_table.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_duodecimal_multiplication_table.png>
- [284]
+ [288]
 Underfull \vbox (badness 2753) has occurred while \output is active []
 
- [285] [286]
+ [289] [290]
 File: appendices/../images/other_parts/C_formatted_representation_of_a_number_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_formatted_representation_of_a_number_300.png>
- [287] [288]
+ [291] [292]
 File: appendices/../images/other_parts/C_short_division_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_short_division_300.png>
- [289] [290]
+ [293] [294]
 File: appendices/../images/other_parts/C_bin_to_oct_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_oct_300.png>
- [291]
+ [295]
 File: appendices/../images/other_parts/C_bin_to_hex_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_hex_300.png>
-)) (./other_parts/afterword.tex [292])
+)) (./other_parts/afterword.tex [296])
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1720,7 +1740,7 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [293
+ [297
 
 ]
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1729,21 +1749,21 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [294] (./main.aux)
+ [298] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 7E98F8BD38B67CBC8EEC47AB70733FCF;7307.
+(rerunfilecheck)             Checksum: AB1D014B8E5E3DDD55B94A449D66FD79;7396.
  ) 
 Here is how much of TeX's memory you used:
- 27322 strings out of 474924
- 699530 string characters out of 5765037
+ 27350 strings out of 474924
+ 701590 string characters out of 5765037
  2050189 words of memory out of 5000000
- 48333 multiletter control sequences out of 15000+600000
+ 48359 multiletter control sequences out of 15000+600000
  571829 words of font info for 166 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,18n,111p,1239b,1918s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (302 pages).
+Output written on main.pdf (306 pages).
