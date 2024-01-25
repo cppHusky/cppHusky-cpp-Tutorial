@@ -65,10 +65,11 @@
 \contentsline {section}{\numberline {10.4}多重继承}{275}{section.10.4}%
 \contentsline {section}{\numberline {10.5}虚继承}{278}{section.10.5}%
 \contentsline {chapter}{\numberline {第十一章\hspace {.3em}}模版与泛型编程基础}{287}{chapter.11}%
-\contentsline {part}{精讲篇}{291}{part*.201}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{291}{appendix.A}%
-\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{293}{appendix.B}%
-\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{295}{appendix.C}%
-\contentsline {section}{\numberline {C.1}数制转换}{295}{section.C.1}%
-\contentsline {section}{\numberline {C.2}布尔代数基础}{304}{section.C.2}%
-\contentsline {chapter}{跋}{305}{appendix*.209}%
+\contentsline {section}{\numberline {11.1}函数模版与\texttt {constexpr}}{287}{section.11.1}%
+\contentsline {part}{精讲篇}{295}{part*.205}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{295}{appendix.A}%
+\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{297}{appendix.B}%
+\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{299}{appendix.C}%
+\contentsline {section}{\numberline {C.1}数制转换}{299}{section.C.1}%
+\contentsline {section}{\numberline {C.2}布尔代数基础}{308}{section.C.2}%
+\contentsline {chapter}{跋}{309}{appendix*.213}%
