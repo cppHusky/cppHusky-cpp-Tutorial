@@ -5,7 +5,7 @@ using namespace std;
 void input_clear(istream& = {cin}); //在声明中就给出默认参数，注意类型是引用
 template<typename T>
 T maximum(T[], int); //T[]写成T*也没问题，不过习惯上还是写成数组形式
-template<typename T> //注意：每次声明（定义）模版时必须写一个template
+template<typename T> //注意：每次声明（定义）模板时必须写一个template
 unsigned input_arr(T[], const unsigned);
 //定义部分
 int main() { //主函数

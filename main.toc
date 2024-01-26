@@ -25,7 +25,7 @@
 \contentsline {section}{\numberline {4.3}函数重载}{73}{section.4.3}%
 \contentsline {section}{\numberline {4.4}默认参数的设置}{76}{section.4.4}%
 \contentsline {section}{\numberline {4.5}函数递归}{78}{section.4.5}%
-\contentsline {section}{\numberline {4.6}函数模版简介}{80}{section.4.6}%
+\contentsline {section}{\numberline {4.6}函数模板简介}{80}{section.4.6}%
 \contentsline {chapter}{\numberline {第五章\hspace {.3em}}复合类型及其使用}{83}{chapter.5}%
 \contentsline {section}{\numberline {5.1}指针}{83}{section.5.1}%
 \contentsline {section}{\numberline {5.2}``常量指针''与``指向常量的指针''}{92}{section.5.2}%
@@ -64,12 +64,13 @@
 \contentsline {section}{\numberline {10.3}抽象基类与纯虚函数}{270}{section.10.3}%
 \contentsline {section}{\numberline {10.4}多重继承}{275}{section.10.4}%
 \contentsline {section}{\numberline {10.5}虚继承}{278}{section.10.5}%
-\contentsline {chapter}{\numberline {第十一章\hspace {.3em}}模版与泛型编程基础}{287}{chapter.11}%
-\contentsline {section}{\numberline {11.1}函数模版与\texttt {constexpr}}{287}{section.11.1}%
-\contentsline {part}{精讲篇}{295}{part*.205}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{295}{appendix.A}%
-\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{297}{appendix.B}%
-\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{299}{appendix.C}%
-\contentsline {section}{\numberline {C.1}数制转换}{299}{section.C.1}%
-\contentsline {section}{\numberline {C.2}布尔代数基础}{308}{section.C.2}%
-\contentsline {chapter}{跋}{309}{appendix*.213}%
+\contentsline {chapter}{\numberline {第十一章\hspace {.3em}}模板与泛型编程基础}{287}{chapter.11}%
+\contentsline {section}{\numberline {11.1}函数模板与\texttt {constexpr}}{287}{section.11.1}%
+\contentsline {section}{\numberline {11.2}函数模板的实例化与特化}{292}{section.11.2}%
+\contentsline {part}{精讲篇}{301}{part*.209}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{301}{appendix.A}%
+\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{303}{appendix.B}%
+\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{305}{appendix.C}%
+\contentsline {section}{\numberline {C.1}数制转换}{305}{section.C.1}%
+\contentsline {section}{\numberline {C.2}布尔代数基础}{314}{section.C.2}%
+\contentsline {chapter}{跋}{317}{appendix*.218}%

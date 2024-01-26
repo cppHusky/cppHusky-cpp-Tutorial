@@ -139,7 +139,7 @@ int main() {
 再看地址，\lstinline@num@ 和 \lstinline@ref@ 的地址也永远相同，它们的内存大小可以用 \lstinline@sizeof@ 求得，这也是相同的。\par
 看了这么多，我们发现，引用好像是一个分身，或者是真假美猴王那样的关系，我们根本分辨不清谁是本体，谁是别名。\par
 那么，变量与引用的类型一样吗？其实是不一样的。\lstinline@num@ 是 \lstinline@int@ 类型无疑，而 \lstinline@ref@ 和 \lstinline@rref@ 都是 \lstinline@int&@ 类型的。这几个名字看似一模一样，但正主还是原变量，六耳也终究不是孙悟空。\footnote{其实从汇编代码中看，C++中的引用全都是通过指针实现的。所以说，在定义引用的过程中，程序上会创建一个我们看不见的指针，包括传引用参数等操作，本质上都是传指针。关于这里的细节，我就不多谈了。}\par
-那么如何检验类型呢？我们可以用 \lstinline@type_traits@ 库的 \lstinline@is_same@ 来检验之。它是一个类模版，可以接收两个模版参数，并检验它们是否是同一类型。如果相同话，其静态成员 \lstinline@value@ 的值就是 \lstinline@true@；如果不同的话，其静态成员 \lstinline@value@ 的值就是 \lstinline@false@。\footnote{这里出现了很多新概念，比如类模版，模版参数、静态成员等。读者无须知道细节，我们会在后面慢慢道来。}
+那么如何检验类型呢？我们可以用 \lstinline@type_traits@ 库的 \lstinline@is_same@ 来检验之。它是一个类模板，可以接收两个模板参数，并检验它们是否是同一类型。如果相同话，其静态成员 \lstinline@value@ 的值就是 \lstinline@true@；如果不同的话，其静态成员 \lstinline@value@ 的值就是 \lstinline@false@。\footnote{这里出现了很多新概念，比如类模板，模板参数、静态成员等。读者无须知道细节，我们会在后面慢慢道来。}
 \begin{lstlisting}
     //需要包含头文件type_traits
     cout << is_same<int, int>::value << endl; //int与int相同，故输出1

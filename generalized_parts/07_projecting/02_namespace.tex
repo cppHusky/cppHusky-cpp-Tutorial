@@ -29,7 +29,7 @@ void swap( T& a, T& b ) noexcept( /* ... */ );
     \item \lstinline@function@, \lstinline@future@, \lstinline@thread@, \lstinline@yield@;
     \item \ldots\ldots
 \end{itemize}
-以上这些，有些是类模版，有些是函数模版，或者还有别的。这些名字你可能未必都知道，但是总会有些单词是你熟悉的吧！一旦我们不慎使用了这些名字，那么要么程序报错，你找了半天才知道问题所在；要么程序不报错，但至于究竟使用了哪个名字，做了什么，就不敢保证了。\par
+以上这些，有些是类模板，有些是函数模板，或者还有别的。这些名字你可能未必都知道，但是总会有些单词是你熟悉的吧！一旦我们不慎使用了这些名字，那么要么程序报错，你找了半天才知道问题所在；要么程序不报错，但至于究竟使用了哪个名字，做了什么，就不敢保证了。\par
 试想，当你在用这些名字定义函数的时候，你是在重载它们；而当你在用这些名字定义类的时候，你会被编译器禁止（因为类不能重载）。被编译器禁止还是更好的选择，因为它在编译期就能帮你检查出错误来；但如果把这些错误留到运行期，那就很难说会发生什么了！\par
 解决这个问题的方法很多样。我们可以自己有意识地避开这些名字（一般来说，只要你经验丰富，就不太容易在这个问题上翻车）；或者干脆点，不用 \lstinline@using namespace std@ 了\footnote{不过我并不建议读者彻底杜绝 \lstinline@using namespace std@ 的使用。这种语法并不像 \lstinline@bits/stdc++.h@ 库或 \lstinline@goto@ 语句那样饱受诟病，仍然是许多程序员图省事的最佳选择。}。那么究竟什么是 \lstinline@namespace@，我们为什么要用它，又怎么用它呢？本节就来讲解这些问题。\par
 \subsection*{什么是命名空间？}
@@ -69,11 +69,11 @@ namespace cppHusky {
     template<typename T>
     T max(T a, T b) {
         return a > b ? a : b;
-    } //定义函数模版max
+    } //定义函数模板max
     template<typename T>
     T min(T a, T b) {
         return a < b ? a : b;
-    } //定义函数模版min
+    } //定义函数模板min
 }; //注意分号结尾
 \end{lstlisting}
 在 \lstinline@cppHusky@ 命名空间中定义的 \lstinline@max@ 就不同于 \lstinline@algorithm@ 库中，在 \lstinline@std@ 命名空间中定义的 \lstinline@max@。

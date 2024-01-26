@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  25 JAN 2024 16:33
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  26 JAN 2024 17:16
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1405,7 +1405,7 @@ File: ./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/0
 <./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_operator_overloading_as_member_function_300.png>
 [182] [183] [184] [185]) (./generalized_parts/08_a_step_forward_in_classes_and_functions/03_constructor_and_destructor.tex [186] [187]
 Overfull \hbox (21.20021pt too wide) in paragraph at lines 53--54
-[]\TU/SimSun(0)/m/n/10 这 就 不 得 不 谈 到 [][][][][] 了。|  它 是 一 个 类 模 版，|  可 以 存 储 一 个 常 量 数 组  |（[][][][][][][][][][]
+[]\TU/SimSun(0)/m/n/10 这 就 不 得 不 谈 到 [][][][][] 了。|  它 是 一 个 类 模 板，|  可 以 存 储 一 个 常 量 数 组  |（[][][][][][][][][][]
  []
 
 
@@ -1707,7 +1707,7 @@ Overfull \hbox (2.25177pt too wide) in paragraph at lines 30--30
 
 [288]
 Overfull \hbox (109.22652pt too wide) in paragraph at lines 89--89
-\TU/SimSun(0)/m/n/10 长 度 的 数 组。|  如 果 我 们 需 要 处 理 一 个 [][][][][] 数 组 呢？|  必 须 重 载 另 一 个 非 模 版 函 数 [][][][][][][][][][][][][][][][]
+\TU/SimSun(0)/m/n/10 长 度 的 数 组。|  如 果 我 们 需 要 处 理 一 个 [][][][][] 数 组 呢？|  必 须 重 载 另 一 个 非 模 板 函 数 [][][][][][][][][][][][][][][][]
  []
 
 [289]
@@ -1715,80 +1715,97 @@ Overfull \hbox (14.20634pt too wide) in paragraph at lines 121--121
 []\TU/SimSun(0)/m/n/10 我 们 想，| [][][] 和 [][][] 都 是 [][][][][][] 类 型 的。|  在 调 用 [][][] 时，|  编 译 器 会 选 中 [][][][][][][][][][][][][][][][][]来
  []
 
-(./code_in_book/11.1/swap.h [290]) [291]) (./generalized_parts/11_templates_and_fundamental_generic_programming/02_instantiation_and_specialization_of_function_templates.tex) (./generalized_parts/11_templates_and_fundamental_generic_programming/03_class_templates.tex) (./generalized_parts/11_templates_and_fundamental_generic_programming/04_instantiation_and_specialization_of_class_templates.tex) (./generalized_parts/11_templates_and_fundamental_generic_programming/05_exercise_smart_pointers.tex) (./generalized_parts/11_templates_and_fundamental_generic_programming/06_introduction_to_STL.tex))) (././intensive_part.tex [292] [293
+(./code_in_book/11.1/swap.h [290]) [291]) (./generalized_parts/11_templates_and_fundamental_generic_programming/02_instantiation_and_specialization_of_function_templates.tex
+Overfull \hbox (62.47493pt too wide) in paragraph at lines 18--18
+\TU/SimSun(0)/m/n/10 这 说 明 程 序 需 要 一 个 [][][][][][][] 的 函 数，|  那 么 编 译 器 就 会 生 成 一 个 这 样 的 函 数，|  它 的 全 名 叫 作 [][][][][][][][][][]，|
+ []
 
-] [294]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
+
+Overfull \hbox (0.25928pt too wide) in paragraph at lines 18--18
+[][][][][] \TU/SimSun(0)/m/n/10 数 据，|  那 么 编 译 器 就 会 推 导 出 [][][][][][][]，|  然 后 生 成 一 个 这 样 的 函 数，|  它 的 全 名 叫 作 [][][][][][][][][][]，|
+ []
+
+[292] [293]
+Overfull \hbox (6.47464pt too wide) in paragraph at lines 66--67
+[]\TU/SimSun(0)/m/n/10 代 码 \TU/lmr/m/n/10 11.1 \TU/SimSun(0)/m/n/10 中 的 两 个 [][][][][] 函 数 之 间 也 有 重 载 关 系。|  当 我 们 不 加 模 板 实 参 地 调 用 [][][][][]
+ []
+
+[294] (./11_templates_and_fundamental_generic_programming/../code_in_book/11.2-11.3/is_same.h [295]) (./11_templates_and_fundamental_generic_programming/../code_in_book/11.2-11.3/main.cpp) [296]) (./generalized_parts/11_templates_and_fundamental_generic_programming/03_class_templates.tex) (./generalized_parts/11_templates_and_fundamental_generic_programming/04_instantiation_and_specialization_of_class_templates.tex) (./generalized_parts/11_templates_and_fundamental_generic_programming/05_exercise_smart_pointers.tex) (./generalized_parts/11_templates_and_fundamental_generic_programming/06_introduction_to_STL.tex))) (././intensive_part.tex [297] [298
+
+] [299] [300]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
 附录 A
 
 Underfull \hbox (badness 6063) in paragraph at lines 16--16
 [][][]\TU/SimSun(0)/m/n/8.33344 对 于 内 置 类 型 数 组 [][][] 的 下 标 运 算，| [][][][][][] |（和 [][][][][][]）|  都 会 解 析 为 [][][][][][][]
  []
 
-[295
+[301
 
-]) (./other_parts/appendices/B.tex [296]
+]) (./other_parts/appendices/B.tex [302]
 附录 B
-[297
+[303
 
-]) (./other_parts/appendices/C.tex [298]
+]) (./other_parts/appendices/C.tex [304]
 附录 C
 File: appendices/../images/other_parts/C_digital_clock.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_digital_clock.png>
-[299
+[305
 
 ]
 File: appendices/../images/other_parts/C_from_counting_to_exponentiation_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_from_counting_to_exponentiation_300.png>
 File: appendices/../images/other_parts/C_duodecimal_multiplication_table.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_duodecimal_multiplication_table.png>
- [300]
+ [306]
 Underfull \vbox (badness 2753) has occurred while \output is active []
 
- [301] [302]
+ [307] [308]
 File: appendices/../images/other_parts/C_formatted_representation_of_a_number_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_formatted_representation_of_a_number_300.png>
- [303] [304]
+ [309] [310]
 File: appendices/../images/other_parts/C_short_division_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_short_division_300.png>
- [305] [306]
+ [311] [312]
 File: appendices/../images/other_parts/C_bin_to_oct_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_oct_300.png>
- [307]
+ [313]
 File: appendices/../images/other_parts/C_bin_to_hex_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_hex_300.png>
-)) (./other_parts/afterword.tex [308])
-File: images/other_parts/back_cover.pdf Graphic file (type pdf)
-<use images/other_parts/back_cover.pdf>
-File: images/other_parts/back_cover.pdf Graphic file (type pdf)
-<use images/other_parts/back_cover.pdf>
-File: images/other_parts/back_cover.pdf Graphic file (type pdf)
-<use images/other_parts/back_cover.pdf, page 1>
-File: images/other_parts/back_cover.pdf Graphic file (type pdf)
-<use images/other_parts/back_cover.pdf, page 1>
- [309
+File: appendices/../images/other_parts/C_maya_numbers.png Graphic file (type bmp)
+<appendices/../images/other_parts/C_maya_numbers.png>
+ [314])) (./other_parts/afterword.tex [315] [316
 
-]
+])
+File: images/other_parts/back_cover.pdf Graphic file (type pdf)
+<use images/other_parts/back_cover.pdf>
+File: images/other_parts/back_cover.pdf Graphic file (type pdf)
+<use images/other_parts/back_cover.pdf>
+File: images/other_parts/back_cover.pdf Graphic file (type pdf)
+<use images/other_parts/back_cover.pdf, page 1>
+File: images/other_parts/back_cover.pdf Graphic file (type pdf)
+<use images/other_parts/back_cover.pdf, page 1>
+ [317]
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [310] (./main.aux)
+ [318] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 46E6FFB374A2FAD2017FCF6CC644E311;7743.
+(rerunfilecheck)             Checksum: F85E6B1B714E1FF9E6C91487C3FCECB9;7888.
  ) 
 Here is how much of TeX's memory you used:
- 27467 strings out of 474924
- 710058 string characters out of 5765037
+ 27514 strings out of 474924
+ 712087 string characters out of 5765037
  2050189 words of memory out of 5000000
- 48444 multiletter control sequences out of 15000+600000
+ 48482 multiletter control sequences out of 15000+600000
  571829 words of font info for 166 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,18n,111p,1239b,1918s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (318 pages).
+Output written on main.pdf (326 pages).

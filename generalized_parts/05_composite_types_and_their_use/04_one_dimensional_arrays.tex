@@ -67,7 +67,7 @@
 }\\\noindent\rule{\linewidth}{0.2pt}
 它的运行结果也很符合我们的预期。\par
 \subsection*{数组参数传递}
-我们在前面写了一个 \lstinline@maximum@ 函数模版，它可以求两个数的最大值。现在我们想要求大量数据的最大值，再用 \lstinline@maximum@ 重载的方法就显得太不合适了（即便我们有一个能传递任意数量参数的函数，我们也要衡量一下调用的时候是不是要把一个个参数全都写进去）。为了解决这个问题，我们需要考虑能否用数组来实现这个功能。\par
+我们在前面写了一个 \lstinline@maximum@ 函数模板，它可以求两个数的最大值。现在我们想要求大量数据的最大值，再用 \lstinline@maximum@ 重载的方法就显得太不合适了（即便我们有一个能传递任意数量参数的函数，我们也要衡量一下调用的时候是不是要把一个个参数全都写进去）。为了解决这个问题，我们需要考虑能否用数组来实现这个功能。\par
 在C++中，我们可以传递一个数组的首地址，作为函数的参数。这里``数组的首地址''，指的就是数组在内存空间中的第一个字节对应的地址。从地址值上讲，它就等于 \lstinline@&array[0]@——我们之后再来谈它们在类型上的区别，目前读者这样理解就足够了。\par
 以下是一个实现此功能的代码，可以接收5个浮点数输入，然后给出其中最大的数。读者可以先试着运行它，然后我将分别对语法和语义进行讲解。
 \begin{lstlisting}
@@ -87,7 +87,7 @@ int main() {
     return 0;
 }
 \end{lstlisting}\par
-从语法上，我们可以看到，\lstinline@maximum@ 是一个函数模版，它可以接收一个 \lstinline@arr@ 数组和一个 \lstinline@n@ 无符号整数作为参数。你可能会好奇，为什么我们要把形参写成 \lstinline@arr[]@ 的形状呢？写成 \lstinline@arr[5]@ 不行吗？\par
+从语法上，我们可以看到，\lstinline@maximum@ 是一个函数模板，它可以接收一个 \lstinline@arr@ 数组和一个 \lstinline@n@ 无符号整数作为参数。你可能会好奇，为什么我们要把形参写成 \lstinline@arr[]@ 的形状呢？写成 \lstinline@arr[5]@ 不行吗？\par
 可以，但没有意义。在数组参数传递的过程中，我们传递的不是数组本身，而是它的首地址——换句话说，传递的是一个指针。在编译器进行编译的时候，它会把 \lstinline@T arr[]@ 参数视同 \lstinline@T *arr@，所以即便我们在 \lstinline@arr[]@ 中写了 \lstinline@5@，也会被忽略，没有意义。\par
 也正因为数组参数传递过程中只传递了指针，所以函数不能判断这个数组的大小，因此我们必须再加一个参数，来描述这个数组的大小。这就是 \lstinline@n@ 存在的意义。\par
 再来看语义，\lstinline@maximum@ 函数中的这段代码是如何做到我们希望的功能的呢？其实就是用 \lstinline@for@ 循环读取 \lstinline@arr@ 中的每个数，然后逐一比较。如果发现了一个更大的数，那就说明最大值至少应该是这个数，所以 \lstinline@ref=arr[i]@ 赋值一下。如果之后又发现了一个更大的数，那就说明最大值至少应该是这个数，所以 \lstinline@ref=arr[i]@ 再赋值。这样一直找到最后，\lstinline@res@ 就是所有数的最大值了。读者若是还未明白，可以把自己想像成程序，以输入 \lstinline@2,1,4,5,3@ 为例，模拟一下这个过程。\par
@@ -123,7 +123,7 @@ unsigned input_arr(T arr[], const unsigned max_size) {
 }
 \end{lstlisting}
 这个函数略显复杂，注意事项也比较多，我们慢慢道来。\par
-首先，它是一个函数模版，会根据我们的需要生成对应类型的函数实例。这里没什么可说的。\par
+首先，它是一个函数模板，会根据我们的需要生成对应类型的函数实例。这里没什么可说的。\par
 \lstinline@max_size@ 是数组最大容量。它只是一个副本，我们改动它也不会影响原变量，但是我依然建议使用 \lstinline@const@，以避免在函数中误修改它的值。至于数组传递，它本身就是一种指针传递，所以我们直接在 \lstinline@input_arr@ 函数中修改 \lstinline@arr@ 数组的数据就行了，而不需要什么所谓``对数组的引用''。\par
 在 \lstinline@while@ 语句中我们只判断 \lstinline@real_size@ 是否越界。而对于异常输入的情况，我们选择使用 \lstinline@if(!cin)@ 判断加 \lstinline@break@ 语句来退出循环。\par
 语法正确还不够。你还需要考虑清楚 \lstinline@while@ 循环中各语句的执行顺序，以免出现语义错误。例如 \lstinline@++real_size@ 这一句，必须要在 \lstinline@if(!cin)@ 之后，这两句的顺序是不能调换的。这是因为，只有当 \lstinline@cin@ 正常的时候，\lstinline@arr[real_size]@ 才能得到有效输入，这时 \lstinline@real_size@ 才应该自增；否则，\lstinline@arr[real_size]@ 得不到有效输入，\lstinline@real_size@ 也不该自增，所以应当直接用 \lstinline@if(!cin)@ 中的 \lstinline@break@ 语句退出这个循环，避免执行 \lstinline@++real_size@。\par

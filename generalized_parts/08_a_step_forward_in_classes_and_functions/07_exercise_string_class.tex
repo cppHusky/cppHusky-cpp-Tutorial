@@ -192,7 +192,7 @@ public:
     std::size_t find(char ch, std::size_t pos = {0})const;
     //这三个都是常成员函数，因为不需要改变对象的内容
 \end{lstlisting}\par
-\lstinline@compare@ 函数以及六个比较运算符都可以用来与另一对象进行字典序比较。读者可能会觉得这个工作有点太难了，但是不要担心，我们可以像之前那样，用C++算法库中的 \lstinline@std::lexicographical_compare@ 函数模版来解决它。只要实现了小于号，\lstinline@compare@ 和其它五个运算符就都可以实现了。
+\lstinline@compare@ 函数以及六个比较运算符都可以用来与另一对象进行字典序比较。读者可能会觉得这个工作有点太难了，但是不要担心，我们可以像之前那样，用C++算法库中的 \lstinline@std::lexicographical_compare@ 函数模板来解决它。只要实现了小于号，\lstinline@compare@ 和其它五个运算符就都可以实现了。
 \begin{lstlisting}
 public:
     int compare(const string&)const;

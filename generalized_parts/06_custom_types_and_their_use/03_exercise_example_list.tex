@@ -184,7 +184,7 @@ Data* find_tail(Data* head) { //从head开始找
     return find_tail(head->next); //否则就从head->next开始找
 }
 \end{lstlisting}\par
-其二，这里转移操作的写法很独特（也很简洁，不是吗）。这里用文字很难讲清楚，读者可以直接看图6.9，很直观。在这里我们用标准库中的 \lstinline@swap@ 函数，它可以交换两个指针的值\footnote{实际上 \lstinline@swap@ 是一个函数模版，当我们尝试使用它时，程序会生成一个关于 \lstinline@Data*@ 类型的实例。我们会在第十一章中介绍相关的知识。}，也就相当于交换它们的指向。于是我们可以通过先交换 \lstinline@tail->next@ 和 \lstinline@dest->next@，再交换 \lstinline@head->next@ 和 \lstinline@dest->next@ 的方式来实现这个功能。\par
+其二，这里转移操作的写法很独特（也很简洁，不是吗）。这里用文字很难讲清楚，读者可以直接看图6.9，很直观。在这里我们用标准库中的 \lstinline@swap@ 函数，它可以交换两个指针的值\footnote{实际上 \lstinline@swap@ 是一个函数模板，当我们尝试使用它时，程序会生成一个关于 \lstinline@Data*@ 类型的实例。我们会在第十一章中介绍相关的知识。}，也就相当于交换它们的指向。于是我们可以通过先交换 \lstinline@tail->next@ 和 \lstinline@dest->next@，再交换 \lstinline@head->next@ 和 \lstinline@dest->next@ 的方式来实现这个功能。\par
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{../images/generalized_parts/06_range_transfer_between_lists_300.png}

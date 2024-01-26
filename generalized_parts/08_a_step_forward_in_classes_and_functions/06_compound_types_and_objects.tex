@@ -84,7 +84,7 @@ public:
     delete p; //别忘了哦
 \end{lstlisting}
 这个过程看似简单，但是内部是非常复杂的。在我们分配一段动态内存的时候，每个 \lstinline@std::valarray<int>@ 也都有一个指针，等待分配动态内存，或者是已经分配到了动态内存；在我们改变数组内容的时候，就可能发生动态内存的重新分配。当我们释放动态内存的时候，这些对象的析构函数也会被调用，从而自动回收动态内存。这些内部细节全部对外不公开，这既能防止其内容被外界破坏，又能减少我们的工作量，这就是封装的优点。\par
-我们发现，把动态内存管理的工作交给 \lstinline@std::valarray@, \lstinline@std::vector@ 等类（类模版）来管理，显然要好过我们自己写 \lstinline@new[]@ 然后不小心忘了 \lstinline@delete[]@。所以我们还可以更进一步，把``动态数组的动态数组''也教给这些类来管理。
+我们发现，把动态内存管理的工作交给 \lstinline@std::valarray@, \lstinline@std::vector@ 等类（类模板）来管理，显然要好过我们自己写 \lstinline@new[]@ 然后不小心忘了 \lstinline@delete[]@。所以我们还可以更进一步，把``动态数组的动态数组''也教给这些类来管理。
 \begin{lstlisting}
     std::valarray<std::valarray<int>> arr;
 \end{lstlisting}

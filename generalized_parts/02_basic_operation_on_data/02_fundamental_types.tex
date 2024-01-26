@@ -16,7 +16,7 @@ C++还有另一种更简便的方法，那就是直接使用 \lstinline@limits@ 
 4294967295
 }\\\noindent\rule{\textwidth}{.2pt}\par
 这里需要介绍几点：\par
-首先，\lstinline@numeric_limits@ 是一个类模版\footnote{关于类模版的有关知识，我们将在第十一章中讲解。}，它要接收一个``类''作为模版参数。比如说，在这个例子中，我们分别使用了 \lstinline@short@ 和 \lstinline@unsigned@ 作为模版参数，然后用 \lstinline@lowest()@ 和 \lstinline@max()@ 成员函数\footnote{关于函数的基本知识，我们将在第四章中讲解；而关于类的成员函数，我们将在第八章讲解。}来求出我们想要知道的值。如果你愿意，也可以把这段代码中的类型改成其它任何一个基本数据类型，然后观察输出，比如 \lstinline@double@ 或 \lstinline@char@。\par
+首先，\lstinline@numeric_limits@ 是一个类模板\footnote{关于类模板的有关知识，我们将在第十一章中讲解。}，它要接收一个``类''作为模板参数。比如说，在这个例子中，我们分别使用了 \lstinline@short@ 和 \lstinline@unsigned@ 作为模板参数，然后用 \lstinline@lowest()@ 和 \lstinline@max()@ 成员函数\footnote{关于函数的基本知识，我们将在第四章中讲解；而关于类的成员函数，我们将在第八章讲解。}来求出我们想要知道的值。如果你愿意，也可以把这段代码中的类型改成其它任何一个基本数据类型，然后观察输出，比如 \lstinline@double@ 或 \lstinline@char@。\par
 其次是``输出换行''的问题。当我们的代码中有多个输出语句的时候，程序会在运行时按顺序执行这些输出语句。但是程序不会自己添加分隔符\footnote{分隔符（Delimiter），指的是将一系列内容按同样的格式分开的符号，它有点像标点符号，但又不尽然。分隔符既方便人类阅读，又让计算机能够分辨不同的数据。比如说，我们用空格将一系列词语分开，这时空格就是它们的分隔符。}，它会这样输出（以刚才程序为例）：\\\noindent\rule{\textwidth}{.2pt}\texttt{
 -327683276704294967295
 }\\\noindent\rule{\textwidth}{.2pt}\\
@@ -105,7 +105,7 @@ abcd
 \subsection*{布尔型}
 布尔型是一种特殊的整型，它一般用来表示一种逻辑判断的信息。举例来说，``\lstinline@2>3@''是一个逻辑判断，它的值为``假''（False）；而``\lstinline@"Hello World!"@ 的内存占用为13字节''也是一个逻辑判断，它的值为``真''（True）。\par
 布尔型数据用关键字 \lstinline@bool@ 来定义，它只有两个可能的取值：\lstinline@true@ 和 \lstinline@false@。在编码时，它们分别被编为 \lstinline@1@ 和 \lstinline@0@。\par
-按理说，我们只需要一个比特就能表示一个布尔变量。然而，内存当中的比特并不是独立的寻址单元，所以一个布尔型变量必须要用一整个字节来存储。\footnote{标准模版库中的 \lstinline@vector<bool>@ 采用了优化方法，使得每个字节可以存储8个布尔数据，这就提升了存储空间的利用率。}读者可以用 \lstinline@sizeof@ 来验证它。\par
+按理说，我们只需要一个比特就能表示一个布尔变量。然而，内存当中的比特并不是独立的寻址单元，所以一个布尔型变量必须要用一整个字节来存储。\footnote{标准模板库中的 \lstinline@vector<bool>@ 采用了优化方法，使得每个字节可以存储8个布尔数据，这就提升了存储空间的利用率。}读者可以用 \lstinline@sizeof@ 来验证它。\par
 布尔型数据在输出时默认以整型数据的格式输出，于是 \lstinline@false@ 会被输出为 \lstinline@0@，而 \lstinline@true@ 会被输出为 \lstinline@1@。
 \begin{lstlisting}
     bool judgement {2>3}; //定义bool型变量judgement，其值为false

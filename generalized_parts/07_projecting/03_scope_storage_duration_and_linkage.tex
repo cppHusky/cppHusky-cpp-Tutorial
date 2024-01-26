@@ -82,7 +82,7 @@ struct Device{
 \subsection*{名称查找}
 C++允许我们在不同的作用域中使用相同的名字。毕竟，我们划分命名空间和作用域的一个主要目的正是避免名称冲突。在互不相干的作用域中自然可以使用同样的名字，比如我们定义一些函数时就经常用 \lstinline@a@, \lstinline@b@ 这样的名字。
 \begin{lstlisting}
-template<typename T> //这是一个函数模版
+template<typename T> //这是一个函数模板
 T max(T a, T b) { return a > b ? a : b; } //在这个作用域中使用a和b
 template<typename T>
 T min(T a, T b) { return a < b ? a : b; } //在另一个作用域中也用a和b

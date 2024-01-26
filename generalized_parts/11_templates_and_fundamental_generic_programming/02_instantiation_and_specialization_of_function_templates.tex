@@ -1,0 +1,139 @@
+\section{函数模板的实例化与特化}
+我们讲过``模板与实例''的关系。一个类就是一个广义的模板，这个类的对象则是这一模板所产生的实例，它们拥有相同的成员，表示同类事物。同样地，函数模板也是一个抽象的概念，它不代表任何实体。只有在\textbf{实例化（Instantiation）}之后产生的实例——也就是一个个具体的函数，它们才是真正意义上的实体。\par
+\subsection*{实例化}
+以 \lstinline@swap@ 为例，我们在上一节中写了两个 \lstinline@swap@ 函数模板，它们的声明分别是
+\begin{lstlisting}
+namespace user{
+template<typename T>
+void swap(T&, T&);
+template<typename T, std::size_t N>
+void swap(T(&)[N], T(&)[N]);
+}; //end namespace user
+\end{lstlisting}\par
+当我们调用函数时，编译器会根据我们提供的实参的类型，推导出模板参数。
+\begin{lstlisting}
+    double a {1}, b{2};
+    user::swap(a, b); //编译器推导出T=double
+\end{lstlisting}
+这说明程序需要一个 \lstinline@T=double@ 的函数，那么编译器就会生成一个这样的函数，它的全名叫作 \lstinline@user::swap<double>@，尖括号里的内容就是它的模板实参；参数列表是 \lstinline@(double&,double&)@。同理，如果我们传入的是两个 \lstinline@int@ 数据，那么编译器就会推导出 \lstinline@T=int@，然后生成一个这样的函数，它的全名叫作 \lstinline@user::swap<int>@，参数列表是 \lstinline@(int&,int&)@。\par
+我们可以用全名来调用它，这样就不用麻烦编译器做模板参数推导了（毕竟，它的推导结果可能并不是我们想要的样子）。
+\begin{lstlisting}
+    int a {1}, b {2};
+    user::swap<int>(a, b); //指名道姓地调用user::swap<int>
+\end{lstlisting}
+这样，编译器就不需要做模板参数推导，就可以直接生成一份 \lstinline@std::swap<int>@ 函数实例，并在之后的操作中直接调用它。\par
+你可以在全名的模板参数中省略一部分\footnote{但是必须从右到左，比如你可以把 \lstinline@fun<int,int>@ 省略成 \lstinline@fun<int>@，但不能省略成 \lstinline@fun<,int>@。}，乃至全部模板参数，乃至把尖括号都省了。总之，只要你提供的函数参数信息足够编译器用来做参数推导，那就足够了。
+\begin{lstlisting}
+    char s1[10]{ "Husky" }, s2[10]{ "Samoyed" };
+    user::swap<char, 10>(s1, s2); //使用全名调用
+    user::swap<char>(s1, s2); //指定char，另一个模板参数交由编译器推导
+    user::swap<>(s1, s2); //两个模板参数都交由编译器推导
+    user::swap(s1, s2); //编译器没有找到同名的非模板函数，所以开始考虑模板函数
+\end{lstlisting}
+在没有其它同名函数/模板定义的情况下，这四个语句的执行效果完全一致。\par
+以上过程都属于\textbf{隐式实例化（Implicit Instantiation）}。隐式实例化可以概括为：编译器根据我们在代码中的实际需要，生成对应的函数实例。\par
+除了隐式实例化以外，我们还可以进行\textbf{显式实例化（Explicit Instantiation）}。显式实例化的语法很简单，一个 \lstinline@template@ 关键字加上正常的函数格式就行了，其中的函数名必须用全名。
+\begin{lstlisting}
+template void user::swap<int>(int&,int&);
+//显式实例化user::swap<int>(int&,int&)
+template void user::swap<double>(double&,double&);
+//显式实例化user::swap<double>(double&,double&)
+\end{lstlisting}\par
+一般来说，显式实例化的工作都可以用隐式实例化来替代；而且只要我们用的是全名，那么隐式实例化不会出现任何问题。所以当我们写一些小规模代码时，完全没有进行显式实例化的必要。不过，显式实例化并非毫无用处，读者可以参阅\href{https://stackoverflow.com/q/2351148/22112284}{Explicit template instantiation - when is it used? - Stack Overflow}，这里的内容相当详细，本书就不讲了。\par
+\subsection*{函数模板的重载}
+先不急看特化，我来插一小节函数模板重载的知识。函数模板重载方面的知识其实相当杂，但是我们只拣常见问题来说。\par
+函数模板重载是比函数重载更上位的概念，对于函数模板来说，无论是在函数形参列表方面，还是在模板形参列表方面，都可以进行重载。\par
+\begin{lstlisting}
+namespace user {
+template<typename T> //模板形参为<typename>
+T max(T a, T b) { //函数形参为(T,T)
+    return a > b ? a : b;
+}
+template<typename T> //模板形参为<typename>
+T max(T a, T b, T c) { //函数形参为(T,T,T)
+    return a > b ? (a > c ? a : c) : (b > c ? b : c);
+}
+template<typename T, std::size_t N1, std::size_t N2>
+//模板形参为<typename,std::size_t,std::size_t>
+T max(const T (&a)[N1], const T (&b)[N2]) {
+//函数形参为(const T(&)[N1],const T(&)[N2])
+    T suma {std::accumulate(a, a+N1, 0)}; //调用了algorithm库中的求和函数
+    T sumb {std::accumulate(b, b+N2, 0)};
+    return suma > sumb ? suma : sumb;
+}
+};
+\end{lstlisting}\par
+代码11.1中的两个 \lstinline@user::swap@ 函数之间也有重载关系。当我们不加模板实参地调用 \lstinline@user::swap@ 时，编译器会根据一套复杂的重载决议规则，选择最匹配的函数模板，并调用相应的函数实例。这套规则的简化版（足够对付日常编程中的常见情况了）是这样的：
+\begin{enumerate}
+    \item 如果同一个名字下有一个参数类型相匹配\footnote{这个匹配过程可能涉及隐式类型转换，比如数组到指针的类型转换等。}的非模板函数，那么将优先调用非模板函数。
+    \item 如果这个名字之下都是函数模板，那么将优先调用函数形参更特殊\footnote{实际上，重载函数模板之间存在一种偏序关系，编译器将根据它们之间的偏序关系来决定各个重载的优先级。}的模板重载。举例来说，\lstinline@fun(T*)@ 就比 \lstinline@fun(T)@ 更特殊，因为前者的限制比后者多，虽然两者都可以接收各种指针\footnote{包括一阶指针，高阶指针，数组指针等各种指针。}，但是前者不能接收指针以外的类型（比如非指针的数据）——所以 \lstinline@fun(T*)@ 更特殊，而 \lstinline@fun(T)@ 更一般。
+    \item 在找到了最适合的函数模板之后，如果有特化，调用其特化；如果无特化，按照模板生成对应的实例，并调用之。
+\end{enumerate}\par
+至于更多有关函数模板重载的问题，我们到了精讲篇再谈。\par
+\subsection*{特化}
+函数模板为编译器生成函数实例提供了比较一般的方法，但是我们难免遇到一些特殊情况，需要特殊处理。举个例子吧，我们可以写一个 \lstinline@less@ 函数，它可以比较两个参数的大小，并返回``参数1是否小于参数2''的 \lstinline@bool@ 结果。实现这个功能的最佳方案是用类模创建一个函数对象，不过我们退而求其次使用函数模板也未为不可。
+\begin{lstlisting}
+namespace user {
+template<typename T>
+bool less(T lhs, T rhs) {
+    return lhs < rhs;
+}
+};
+\end{lstlisting}
+通过这个，我们就可以比较任何两个数、两个对象（只要这个对象有重载小于号）、两个指针的小于号关系了。\par
+不过有一种情况比较特殊，那就是 \lstinline@bool less<const char*>(const char*,const char*)@，即两个 \lstinline@const char*@ 比较大小。事实上，我们一般都是把 \lstinline@char*@ 当作字符串来用的，而不是单纯指向单个字符的指针——这也就是为什么 \lstinline@std::ostream::operator<<@ 在遇到 \lstinline@char*@ 类型操作数时会输出一个字符串而不是地址值。\par
+当我们比较字符串的大小时，我们也不希望它仍然在进行指针大小比较，而是应该按照字典序来进行比较。所以我们应当对于 \lstinline@T=const char*@ 的情形进行特殊处理，这就是\textbf{模板特化（Template specialization）}。\par
+\begin{lstlisting}
+namespace user {
+template<> //一定不要遗漏！
+bool less<const char*>(const char *lhs, const char *rhs) {
+    return std::lexicographical_compare( //需要algorithm库
+        lhs, lhs + std::strlen(lhs), //需要cstring库
+        rhs, rhs + std::strlen(rhs)
+    );
+}
+};
+\end{lstlisting}\par
+读者一定要分清实例化和特化的语法。模板特化的 \lstinline@template@ 之后是根着一对尖括号的\footnote{对于类模板来说，部分特化时还可以在尖括号中添加其它的模板参数，详见后文。函数模板没有部分特化，故只能是一对尖括号。}，而实例化没有这样的尖括号。
+\begin{lstlisting}
+template<> bool less<const char*>(const char*, const char*); //声明一个特化
+template<>
+bool less<const char*>(const char *lhs, const char *rhs) { //定义一个特化
+    //...
+}
+template bool less<const char*>(const char*, const char*); //实例化
+\end{lstlisting}\par
+特化的函数模板仍然属于函数模板的一个实例，这种关系是不会变的。\par
+其实除了定义模板特化之外我们还有一种方法，就是定义非模板函数。非模板函数不是函数模板的实例，它们是重载关系。
+\begin{lstlisting}
+bool less(const char *lhs, const char *rhs) { //定义非模板函数
+    return std::lexicographical_compare(
+        lhs, lhs + std::strlen(lhs),
+        rhs, rhs + std::strlen(rhs)
+    );
+}
+\end{lstlisting}\par
+既然函数重载和函数模板特化都能实现我们的目的，那么我们选择哪个呢？一般我们选择重载而不是特化，因为函数模板特化有太多的局限性，而且在重载决议中的优先级也不如函数重载高，总之容易引发许多我们意想不到的问题。所以编程界的共识是倾向于使用重载而非特化。如果读者想要了解这方面的更多内容，可以参考 \href{http://www.gotw.ca/publications/mill17.htm}{Why Not Specialize Function Templates?} 这篇文章。\par
+\subsection*{实操：自制 \lstinline@is_same@ 函数模板}
+让我们再来看看 \lstinline@std::is_same@ 吧。我们曾用 \lstinline@std::is_same@ 来判断两个类是否相同——这也是它作为一个元编程类的本来用途。不过我们偶尔也拿它来判断两个对象是否同类，或者某个对象是否是某个类。这时我们就必须对那个对象取 \lstinline@decltype@，然后才能放在模板参数中进行判断，像这样：
+\begin{lstlisting}
+    int (*p)[3];
+    std::cout << std::is_same<decltype(*p), int(&)[3]>::value;
+\end{lstlisting}\par
+看上去这也挺麻烦的，我们干脆自己写一个 \lstinline@user::is_same@ 函数模板，并加以优化，让我们可以方便地进行类与类、类与对象、对象与对象的类型比较。
+\lstinputlisting[caption=\texttt{is\_same.h}]{../code_in_book/11.2-11.3/is_same.h}
+这里有三个函数模板重载，对于第一个重载来说，我们无法通过函数参数提供任何信息，编译器不能进行模板参数推导，所以我们必须把两个模板参数都写出来才行；对于第二个重载，编译器可以根据我们提供的实参来推导第二个模板参数，所以我们可以省去第二个模板参数；对于第三个重载，编译器可以根据我们提供的两个实参来推导所有模板参数，所以我们可以把它们全都省去了。\par
+下面就展示这三个模板的调用过程：当我们需要比较两个类时，就把这两个类都放到模板参数中；当我们需要比较两个对象时，就把这两个对象都放到函数参数中；当我们需要比较一个类和一个对象时，就把类放到模板参数中，对象放到函数参数中。\par
+\lstinputlisting[caption=\texttt{main.cpp}]{../code_in_book/11.2-11.3/main.cpp}
+读者可能注意到了一些新的问题：这里我们判断 \lstinline@*p1@ 和 \lstinline@int(&)[3]@ 的时候，结果并没有如同预期那样输出 \lstinline@1@。这是因为，\lstinline@user::is_same@ 接收参数 \lstinline@p1@ 时会进行数组到指针的隐式类型转换，所以到了函数内部，\lstinline@obj@ 形参的类型已经是 \lstinline@int*@ 了，我们只有提供 \lstinline@int*@ 参数才能得到 \lstinline@true@ 的返回值。\par
+我们可以添加一个专为数组而设计的函数模板，从而解决这个类型转换的问题。
+\begin{lstlisting}
+namespace user { //namespace是可以拼接的
+template<typename T1, typename T2, std::size_t N>
+constexpr bool is_same(const T2(&arr)[N]) { //为防止数组-指针转换而设计的模板
+    return std::is_same<T1, T2[N]>::value;
+}
+};
+\end{lstlisting}
+不过，这种传递函数参数的方式还是会导致部分信息的损失，比如让我们无法判断引用类型。\par
+总之，如果需要最严格的类型判断，模板参数无疑是比函数参数更为严格和可靠的。\par

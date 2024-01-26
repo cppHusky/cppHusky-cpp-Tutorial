@@ -101,8 +101,8 @@ private:
 在 \lstinline@str2@ 调用 \lstinline@assign@ 的时候，程序会把 \lstinline@"Bjarne Stroustrup"@ 作为 \lstinline@const char*@ 数据传给 \lstinline@assign@ 函数\footnote{实际被传递的还有 \lstinline@&str2@，作为隐藏参数 \lstinline@this@ 传递。详见第八章。}。在函数调用期间，\lstinline@strncpy@ 会改变私有成员 \lstinline@_str@ 的内容，而 \lstinline@strlen@ 会计算 \lstinline@_str@ 的有效长度并以此改变 \lstinline@_length@。\par
 初学者，尤其是从C语言过渡到C++的学习者，往往会觉得 \lstinline@class@ 这种设置访问权限的写法实在是太麻烦了，还不如 \lstinline@struct@ 那样一切默认用 \lstinline@public@ 的方法好。这种想法对于小规模的工程来说还好，但是对于大规模的工程来说，如果没有成员函数加以封装，没有私有访问权限加以保护，那么我们很容易在复杂的工程中写很多冗余代码，或者是犯一些低级错误。这就像是我们用函数——我们当然可以不用函数，但用了函数能让我们的生活更轻松；或者像是我们用 \lstinline@const@——我们当然可以不用 \lstinline@const@，只要你能确保自己写代码时不犯误修改某个值的错误。但是我们还是会选择用它们，也会选择用 \lstinline@class@ 代替 \lstinline@struct@，道理也是一样的。等到读者有了更多的编码经验之后，想必也会体会到这一点。\par
 \subsection*{\texttt{vector}简介与示例}
-C++中有一个动态数组类模版 \lstinline@vector@，它定义在头文件 \lstinline@vector@ 中，是STL的一部分。我们暂时不讲STL，但可以以它为例，讲一下类的成员函数的应用。
-它是一个类模版，我们需要指定具体的类型，比如 \lstinline@int@ 或者 \lstinline@double@，从而让它变为一个类实例。为了避免过多无关信息干扰读者的思路，我们直接这么写吧：
+C++中有一个动态数组类模板 \lstinline@vector@，它定义在头文件 \lstinline@vector@ 中，是STL的一部分。我们暂时不讲STL，但可以以它为例，讲一下类的成员函数的应用。
+它是一个类模板，我们需要指定具体的类型，比如 \lstinline@int@ 或者 \lstinline@double@，从而让它变为一个类实例。为了避免过多无关信息干扰读者的思路，我们直接这么写吧：
 \begin{lstlisting}
 #include <vector> //包含头文件vector
 using vecint = vector<int>; //vecint相当于vector<int>类的别名

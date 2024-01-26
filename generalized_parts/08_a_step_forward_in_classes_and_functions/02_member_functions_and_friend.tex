@@ -5,7 +5,7 @@
     \item 一些运算符只能定义为成员函数，不能作为非成员函数存在，比如下标运算符。
 \end{itemize}
 很容易想到的解决方法当然是——把我们想要重载的运算符定义为成员函数。\par
-我们就以 \lstinline@std::valarray@ 为例吧。它是一个类模版，和 \lstinline@std::vector@ 一样近似于数组。它们的区别在于，\lstinline@std::vector@ 更关注数据的存储和动态操作，而对计算性质的支持较少；而 \lstinline@std::valarray@ 则在数据的批量计算方面支持了更丰富的功能，但在数据存储和动态操作方面几乎没有什么功能。下面的例子展示了 \lstinline@std::valarray@ 在批量计算方面的效果，这是原生 \lstinline@std::vector@ 无法做到的。
+我们就以 \lstinline@std::valarray@ 为例吧。它是一个类模板，和 \lstinline@std::vector@ 一样近似于数组。它们的区别在于，\lstinline@std::vector@ 更关注数据的存储和动态操作，而对计算性质的支持较少；而 \lstinline@std::valarray@ 则在数据的批量计算方面支持了更丰富的功能，但在数据存储和动态操作方面几乎没有什么功能。下面的例子展示了 \lstinline@std::valarray@ 在批量计算方面的效果，这是原生 \lstinline@std::vector@ 无法做到的。
 \begin{lstlisting}
 //需要包含valarray库
     std::valarray<double> arr {-2.57,-0.987,0.57,2.14159};
@@ -196,7 +196,7 @@ public:
     }
 \end{lstlisting}
 这里的返回类型是 \lstinline@int&@，所以如果我们修改下标运算符的返回值，那么我们也就直接修改了数组当中的内容。\par
-下标运算符的返回值并不局限于整型，或者可以隐式转换为整型的类型。任何类型都可以作为下标存在。举个例子来说，\lstinline@std::map@ 是定义在头文件 \lstinline@map@ 当中的类模版，它表示的是一种映射关系。对于 \lstinline@std::map<Key,T>@ 来说，我们可以用 \lstinline@Key@ 类的键（或者说，索引）数据来找到对应的 \lstinline@T@ 类数据。\lstinline@std::map@ 重载了下标运算符 \lstinline@[]@：
+下标运算符的返回值并不局限于整型，或者可以隐式转换为整型的类型。任何类型都可以作为下标存在。举个例子来说，\lstinline@std::map@ 是定义在头文件 \lstinline@map@ 当中的类模板，它表示的是一种映射关系。对于 \lstinline@std::map<Key,T>@ 来说，我们可以用 \lstinline@Key@ 类的键（或者说，索引）数据来找到对应的 \lstinline@T@ 类数据。\lstinline@std::map@ 重载了下标运算符 \lstinline@[]@：
 \begin{lstlisting}
 T& operator[](const Key &key);
 T& operator[](Key &&key);

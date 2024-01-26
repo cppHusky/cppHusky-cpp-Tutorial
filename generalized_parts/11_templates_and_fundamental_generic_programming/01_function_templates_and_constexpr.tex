@@ -1,4 +1,4 @@
-\section{函数模版与\texttt{constexpr}}
+\section{函数模板与\texttt{constexpr}}
 \subsection*{什么是泛型？}
 在尚未接触泛型的时候，我们为了完成某个函数/类，必须指明一种欲处理的数据类型。比如要写一个 \lstinline@max@ 函数，就要写一个 \lstinline@double@ 版本的；或者要写一个 \lstinline@valarray@ 数组，就要写一个 \lstinline@int@ 版本的。但是，作为一套通用的操作，它应该能处理不同类型的数据。比如说 \lstinline@max@ 函数，它应当可以处理各种基本数据类型的值才对。为此我们能做的就是重载。\par
 而类是不允许重载的。以 \lstinline@valarray@ 为例，无论 \lstinline@int@ 数据，还是 \lstinline@double@ 数据，还是 \lstinline@long long@ 数据，它们都是按照相同方式来存储的。如果我们希望有一个能处理 \lstinline@double@ 数据的版本，那么很不幸，我们必须把 \lstinline@valarri@ 的代码抄一遍，把其中的许多 \lstinline@int@ 改成 \lstinline@double@\footnote{未必全部 \lstinline@int@ 都需要改成 \lstinline@double@，因为有些 \lstinline@int@ 值可能只是用来作循环结构变量的。虽然我们统一使用了 \lstinline@std::size_t@ 类型，但是难免会因为习惯的缘故而不小心写出个别的 \lstinline@int@ 来。}，然后再改一个类名，比如用 \lstinline@valarrd@。\par
@@ -10,31 +10,31 @@ T max(T a, T b) {
 }
 \end{lstlisting}
 这样一来，当我们在代码当中调用 \lstinline@max(int,int)@ 时，编译器就会察觉到这个需求，并为我们生成一个 \lstinline@int max(int,int)@ 函数来。当我们在代码当中调用 \lstinline@max(double,doule)@ 时，编译器也会察觉到这个需求，并为我们生成一个 \lstinline@double max(double,double)@ 函数来。\par
-定义一个函数模版的基本语法是
+定义一个函数模板的基本语法是
 \begin{lstlisting}
-template<[模版参数列表]>
+template<[模板参数列表]>
 [返回类型] [函数名]([函数参数列表]) {
     [函数体]
 }
 \end{lstlisting}
-在 \lstinline@template@ 块内的部分称为模版参数。模版参数可以是 \lstinline@typename@/\lstinline@class@ 关键字引出的类名\footnote{\lstinline@typename@ 和 \lstinline@class@ 关键字在这方面的作用相同，没有任何区别。但从习惯上讲，我们还是倾向于使用 \lstinline@typename@。}，也可以是任何一个类的数据。
-至于其它的部分，都和一般的函数没什么差别。只不过我们可以使用模版参数来指代一个``待定''的类名或者数据。
+在 \lstinline@template@ 块内的部分称为模板参数。模板参数可以是 \lstinline@typename@/\lstinline@class@ 关键字引出的类名\footnote{\lstinline@typename@ 和 \lstinline@class@ 关键字在这方面的作用相同，没有任何区别。但从习惯上讲，我们还是倾向于使用 \lstinline@typename@。}，也可以是任何一个类的数据。
+至于其它的部分，都和一般的函数没什么差别。只不过我们可以使用模板参数来指代一个``待定''的类名或者数据。
 \begin{lstlisting}
-template<typename T> //T是模版参数，作为待定的类名
+template<typename T> //T是模板参数，作为待定的类名
 void swap(T &a, T &b) { //交换a和b的值
     T tmp {a};
     a = b;
     b = tmp;
 }
 \end{lstlisting}
-在这里，\lstinline@T@ 就是一个待定的类名。编译器会根据我们在代码中的实际需要，生成\lstinline@T=int@ 的版本、\lstinline@T=double@ 的版本、\lstinline@T=char@ 的版本等等。我们也可以为模版参数设定默认值，不过对于大多数函数模版来说，默认值是不怎么需要的东西。\par
+在这里，\lstinline@T@ 就是一个待定的类名。编译器会根据我们在代码中的实际需要，生成\lstinline@T=int@ 的版本、\lstinline@T=double@ 的版本、\lstinline@T=char@ 的版本等等。我们也可以为模板参数设定默认值，不过对于大多数函数模板来说，默认值是不怎么需要的东西。\par
 我们当然也可以交换两个指针的值。不过请读者注意，这时我们交换的就是指针的指向（也即，指针存储的地址值）而非内容了。比如，这样调用：
 \begin{lstlisting}
     int *p1 {new int [10]}, *p2 {new int[5]};
     swap(p1, p2); //调用自定义的swap(T&,T&)
 \end{lstlisting}
 这样做会让 \lstinline@p1@ 与 \lstinline@p2@ 调换指向。\par
-\subsection*{数据模版参数}
+\subsection*{数据模板参数}
 不过如果我们想要调换两个数组，问题就出现了：
 \begin{lstlisting}
 void swap(T &a, T &b){
@@ -85,9 +85,9 @@ int main() {
     std::cout << a[0];
 }
 \end{lstlisting}
-这个 \lstinline@swap(int(&)[3],int(&)[3])@ 函数没有 \lstinline@template@ 关键字，这意味着它不是模版函数——或者说，它是非模版函数（Non-template function）。\par
-不过我们发现这个非模版函数的适用范围还是太窄了。它只能接收 \lstinline@int@ 数组的，而且还只能是 \lstinline@3@ 长度的数组。如果我们需要处理一个 \lstinline@double@ 数组呢？必须重载另一个非模版函数 \lstinline@void swap(double(&)[3],double(&)[3])@——那么我们又陷入到类型的麻烦之中了。\par
-所以我们还是需要使用模版来把类型抽象起来，写成这样：
+这个 \lstinline@swap(int(&)[3],int(&)[3])@ 函数没有 \lstinline@template@ 关键字，这意味着它不是模板函数——或者说，它是非模板函数（Non-template function）。\par
+不过我们发现这个非模板函数的适用范围还是太窄了。它只能接收 \lstinline@int@ 数组的，而且还只能是 \lstinline@3@ 长度的数组。如果我们需要处理一个 \lstinline@double@ 数组呢？必须重载另一个非模板函数 \lstinline@void swap(double(&)[3],double(&)[3])@——那么我们又陷入到类型的麻烦之中了。\par
+所以我们还是需要使用模板来把类型抽象起来，写成这样：
 \begin{lstlisting}
 template<typename T>
 void swap(T (&a)[3], T (&b)[3]) { //把类型抽象起来，变成T[3]
@@ -99,9 +99,9 @@ void swap(T (&a)[3], T (&b)[3]) { //把类型抽象起来，变成T[3]
     }
 }
 \end{lstlisting}
-但是这样还不够。我们只是有了 \lstinline@T[3]@ 的版本，那么 \lstinline@T[4]@ 怎么办，\lstinline@T[5]@ 乃至其它的怎么办？所以我们还需要把数组长度这则信息抽象起来，变成一个模版参数 \lstinline@N@，其类型为 \lstinline@std::size_t@。
+但是这样还不够。我们只是有了 \lstinline@T[3]@ 的版本，那么 \lstinline@T[4]@ 怎么办，\lstinline@T[5]@ 乃至其它的怎么办？所以我们还需要把数组长度这则信息抽象起来，变成一个模板参数 \lstinline@N@，其类型为 \lstinline@std::size_t@。
 \begin{lstlisting}
-template<typename T, std::size_t N> //模版参数N表示这个数组的长度
+template<typename T, std::size_t N> //模板参数N表示这个数组的长度
 void swap(T (&a)[N], T (&b)[N]) { //参数是两个T(&)[N]
     T tmp[N];
     for (int i = 0; i < N; i++) {
@@ -111,31 +111,31 @@ void swap(T (&a)[N], T (&b)[N]) { //参数是两个T(&)[N]
     }
 }
 \end{lstlisting}
-这样我们就完成了一个针对一般数据类型的 \lstinline@swap@ 函数模版和一个针对一维数组的 \lstinline@swap@ 函数模版。\par
-\subsection*{函数模版中的代码重用}
+这样我们就完成了一个针对一般数据类型的 \lstinline@swap@ 函数模板和一个针对一维数组的 \lstinline@swap@ 函数模板。\par
+\subsection*{函数模板中的代码重用}
 不知读者有没有想过，二维数组乃至更高维数组要怎么办？
 \begin{lstlisting}
     int a[2][3] {}, b[2][3] {{1,2,3},{4,5,6}};
     swap(a, b); //相同的问题再次出现
 \end{lstlisting}\par
-我们想，\lstinline@a@ 和 \lstinline@b@ 都是 \lstinline@int[2][3]@ 类型的。在调用 \lstinline@swap@ 时，编译器会选中 \lstinline@swap(T(&)[N],T(&)[N])@\footnote{对于函数重载/模版来说，C++规定了一套很复杂的函数选取过程（重载决议）。总之结果是选中了它。}来调用，此时应有 \lstinline@T=int[3]@, \lstinline@N=2@。问题来了：\lstinline@int[3]@ 类型的 \lstinline@a[i]@ 和 \lstinline@b[i]@ 仍然不支持直接赋值，那么我们岂不是还要再写一个二维数组的版本咯？\par
+我们想，\lstinline@a@ 和 \lstinline@b@ 都是 \lstinline@int[2][3]@ 类型的。在调用 \lstinline@swap@ 时，编译器会选中 \lstinline@swap(T(&)[N],T(&)[N])@\footnote{对于函数重载/模板来说，C++规定了一套很复杂的函数选取过程（重载决议）。总之结果是选中了它。}来调用，此时应有 \lstinline@T=int[3]@, \lstinline@N=2@。问题来了：\lstinline@int[3]@ 类型的 \lstinline@a[i]@ 和 \lstinline@b[i]@ 仍然不支持直接赋值，那么我们岂不是还要再写一个二维数组的版本咯？\par
 其实不必，因为我们有更好的实现方法：
 \lstinputlisting[caption=\texttt{swap.h}]{code_in_book/11.1/swap.h}
-这样就够了吗？没错，这样就够了。在实现数组交换的时候，我们对每个数组对应位置的元素调用 \lstinline@user::swap@ 函数来进行交换。试想，当我们传入两个 \lstinline@int[3]@ 参数的时候，编译器会根据我们的需要，生成一个 \lstinline@T=int@, \lstinline@N=3@ 版本的 \lstinline@user::swap@ 函数；这个函数又需要调用一个 \lstinline@T=int@ 版本的 \lstinline@user::swap@ 函数（属于另一个函数模版），所以编译器也会生成之。\par
+这样就够了吗？没错，这样就够了。在实现数组交换的时候，我们对每个数组对应位置的元素调用 \lstinline@user::swap@ 函数来进行交换。试想，当我们传入两个 \lstinline@int[3]@ 参数的时候，编译器会根据我们的需要，生成一个 \lstinline@T=int@, \lstinline@N=3@ 版本的 \lstinline@user::swap@ 函数；这个函数又需要调用一个 \lstinline@T=int@ 版本的 \lstinline@user::swap@ 函数（属于另一个函数模板），所以编译器也会生成之。\par
 而当传入两个 \lstinline@int[2][3]@ 参数的时候，会发生什么呢？首先，编译器生成一个 \lstinline@T=int[3]@, \lstinline@N=2@ 版本的函数，而这个函数需要调用一个 \lstinline@T=int@, \lstinline@N=3@ 版本的函数，所以编译器也会生成之。同上，这个函数又会调用 \lstinline@T=int@ 版本的函数，编译器也会生成之。\par
 总而言之，通过这样的写法，我们就保证了：只要能交换一维数组，就能交换二维数组；只要能交换二维数组，就能交换三维数组……以至任意高维的数组。有点像数学归纳法。这也是代码重用的魅力。\par
 \subsection*{\texttt{constexpr}的使用}
-通过上述内容，读者应该发现，函数模版不是一个函数，而是一套方案。编译器会根据这套方案，按照我们在代码中调用函数的情况——也就是实际需求，来生成相应的函数。这个过程自始至终完成在编译期，所以它们全都是编译时行为。\par
-编译时行为就意味着，我们不能把变量等运行时才能确定的信息作为模版参数。
+通过上述内容，读者应该发现，函数模板不是一个函数，而是一套方案。编译器会根据这套方案，按照我们在代码中调用函数的情况——也就是实际需求，来生成相应的函数。这个过程自始至终完成在编译期，所以它们全都是编译时行为。\par
+编译时行为就意味着，我们不能把变量等运行时才能确定的信息作为模板参数。
 \begin{lstlisting}
     int n;
     std::cin >> n;
     int a[n] {}, b[n] {}; //部分编译器支持这种语法，但它是不标准的
-    user::swap<int,n>(a, b); //不可以用变量作为模版参数
+    user::swap<int,n>(a, b); //不可以用变量作为模板参数
 //error: the value of 'n' is not usable in a constant expression
 \end{lstlisting}
-对于模版参数来说，它们只能接收类型名和常量表达式作为模版参数，所以我们要么传入字面量，要么传入常量表达式，总之不能传入在运行时才能确定的量。\par
-对于一般情况来说，把字面量作为模版参数就是最好的选择了；如果出于统一的目的，可以用 \lstinline@constexpr@ 数据。\par
+对于模板参数来说，它们只能接收类型名和常量表达式作为模板参数，所以我们要么传入字面量，要么传入常量表达式，总之不能传入在运行时才能确定的量。\par
+对于一般情况来说，把字面量作为模板参数就是最好的选择了；如果出于统一的目的，可以用 \lstinline@constexpr@ 数据。\par
 不过有些时候我们难免要用到一点复杂的常量表达式，如果还要写成字面量的话就不太方便了——比如说，\lstinline@48@ 和 \lstinline@32@ 的最小公倍数。我们必须要人工把这个结果算出来，然后再把它写成一个 \lstinline@constexpr@ 数据。更可怕的是，如果我们需要很多组这样的最小公倍数，我们需要进行大量的人工计算——其实我们可以自己写一个函数，然而这些函数只能在运行时进行计算，但我们在编译时就需要这个值，那就不行了。\par
 从C++11起，我们可以用 \lstinline@constexpr@ 说明符来允许函数在编译期进行求值。简单点说，如果它的所有实参都是常量表达式，那么它将在编译期进行计算\footnote{实际的条件非常复杂，但是不会本书不打算在这里深究。另外，这个编译期计算的计算量也是有限制的，如果计算量过大，编译器将报错。}；否则，它将在运行期进行计算，一切如常。以下是几个例子：
 \begin{lstlisting}
@@ -164,4 +164,4 @@ constexpr unsigned lcm(unsigned a, unsigned b) { //最小公倍数
     int n {5};
     std::cout << factorial(n); //实参n不是常量表达式，这个函数将在运行期调用
 \end{lstlisting}\par
-这样一来，我们可以直接把 \lstinline@constexpr@ 函数的返回值当作模版参数了（前提是这个函数能在编译期计算）。\par
+这样一来，我们可以直接把 \lstinline@constexpr@ 函数的返回值当作模板参数了（前提是这个函数能在编译期计算）。\par
