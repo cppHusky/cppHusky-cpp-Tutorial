@@ -120,7 +120,7 @@ void swap(T (&a)[N], T (&b)[N]) { //参数是两个T(&)[N]
 \end{lstlisting}\par
 我们想，\lstinline@a@ 和 \lstinline@b@ 都是 \lstinline@int[2][3]@ 类型的。在调用 \lstinline@swap@ 时，编译器会选中 \lstinline@swap(T(&)[N],T(&)[N])@\footnote{对于函数重载/模板来说，C++规定了一套很复杂的函数选取过程（重载决议）。总之结果是选中了它。}来调用，此时应有 \lstinline@T=int[3]@, \lstinline@N=2@。问题来了：\lstinline@int[3]@ 类型的 \lstinline@a[i]@ 和 \lstinline@b[i]@ 仍然不支持直接赋值，那么我们岂不是还要再写一个二维数组的版本咯？\par
 其实不必，因为我们有更好的实现方法：
-\lstinputlisting[caption=\texttt{swap.h}]{code_in_book/11.1/swap.h}
+\lstinputlisting[caption=\texttt{swap.hpp}]{code_in_book/11.1/swap.hpp}
 这样就够了吗？没错，这样就够了。在实现数组交换的时候，我们对每个数组对应位置的元素调用 \lstinline@user::swap@ 函数来进行交换。试想，当我们传入两个 \lstinline@int[3]@ 参数的时候，编译器会根据我们的需要，生成一个 \lstinline@T=int@, \lstinline@N=3@ 版本的 \lstinline@user::swap@ 函数；这个函数又需要调用一个 \lstinline@T=int@ 版本的 \lstinline@user::swap@ 函数（属于另一个函数模板），所以编译器也会生成之。\par
 而当传入两个 \lstinline@int[2][3]@ 参数的时候，会发生什么呢？首先，编译器生成一个 \lstinline@T=int[3]@, \lstinline@N=2@ 版本的函数，而这个函数需要调用一个 \lstinline@T=int@, \lstinline@N=3@ 版本的函数，所以编译器也会生成之。同上，这个函数又会调用 \lstinline@T=int@ 版本的函数，编译器也会生成之。\par
 总而言之，通过这样的写法，我们就保证了：只要能交换一维数组，就能交换二维数组；只要能交换二维数组，就能交换三维数组……以至任意高维的数组。有点像数学归纳法。这也是代码重用的魅力。\par

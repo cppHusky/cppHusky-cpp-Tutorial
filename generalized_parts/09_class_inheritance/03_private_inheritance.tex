@@ -186,14 +186,14 @@ public:
 \end{lstlisting}\par
 \lstinline@empty@ 成员函数和 \lstinline@size@ 成员函数也不难。唯独需要注意一点——
 \begin{lstlisting}
-    bool empty()const { return size(); } //调用谁的size函数？
+    bool empty()const { return !size(); } //调用谁的size函数？
     std::size_t size()const { return std::vector<int>::size(); }
     //调用std::vector<int>的size()函数
 \end{lstlisting}
 先来看看这个 \lstinline@size@ 成员函数。我们发现，这个函数的名字与 \lstinline@std::vector<int>::size()@ 相互冲突。如果我们直接写 \lstinline@size()@ 的话，编译器会根据名称查找规则，找到 \lstinline@stack::size()@，所以在这里就会发生 \lstinline@stack::size()@ 的无穷递归调用，进而发生错误。\par
 为了解决这个问题，我们必须显式地让编译器知道我们真正想调用的是哪个函数，所以我们要写成 \lstinline@std::vector<int>::size()@。至于 \lstinline@empty@ 函数，我们可以有很多种实现方法。除了上文中调用 \lstinline@stack::size()@ 加隐式类型转换的方法以外，还有这些选择：
 \begin{lstlisting}
-    bool empty()const { return std::vector<int>::size(); }
+    bool empty()const { return !std::vector<int>::size(); }
     //调用std::vector<int>的成员函数，再隐式类型转换
     bool empty()const { return std::vector<int>::empty(); }
     //std::vector<int>也有empty()成员函数，可以直接用它
@@ -298,5 +298,5 @@ bool stack::operator!=(const stack &s)const {
 \end{itemize}\par
 如果要我描述的话，我认为私有继承相较于组合方式来说，有点像 \lstinline@mutable@ 成员相较于普通成员——如果没有什么这方面的专门需求，就不要用它。虽说如此，但是私有继承作为一种行之有效的表示``整体与部分''关系的方式，仍是读者应知应会的内容。\par
 \subsection*{\lstinline@stack@ 类的初步实现代码}
-\lstinputlisting[caption=\texttt{Header.h}]{../code_in_book/9.1-9.2/Header.h}
-\lstinputlisting[caption=\texttt{Definition.h}]{../code_in_book/9.1-9.2/Definition.cpp}
+\lstinputlisting[caption=\texttt{Header.hpp}]{../code_in_book/9.1-9.2/Header.hpp}
+\lstinputlisting[caption=\texttt{Definition.cpp}]{../code_in_book/9.1-9.2/Definition.cpp}

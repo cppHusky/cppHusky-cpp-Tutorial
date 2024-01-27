@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  26 JAN 2024 17:16
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  27 JAN 2024 12:46
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1359,21 +1359,21 @@ Overfull \hbox (13.86275pt too wide) in paragraph at lines 123--124
 第七章
 (./generalized_parts/07_projecting/01_separate_compilation.tex [149
 
-] (./07_projecting/../code_in_book/7.1-7.3/Header.h) (./07_projecting/../code_in_book/7.1-7.3/Definition.cpp) [150] (./07_projecting/../code_in_book/7.1-7.3/Test.cpp)
-Overfull \hbox (47.09216pt too wide) in paragraph at lines 44--44
-\TU/SimSun(0)/m/n/10 我 们 注 意 到，|  当 包 含 了 \TU/SourceCodePro(0)/m/n/10 Header.h \TU/SimSun(0)/m/n/10 之 后，|  在 \TU/SourceCodePro(0)/m/n/10 Test.cpp \TU/SimSun(0)/m/n/10 中 就 不 需 要 包 含 [][][] 和 [][][][][][][][][][][]了。|
+] (./07_projecting/../code_in_book/7.1-7.3/Header.hpp) (./07_projecting/../code_in_book/7.1-7.3/Definition.cpp) [150] (./07_projecting/../code_in_book/7.1-7.3/Test.cpp)
+Overfull \hbox (59.09216pt too wide) in paragraph at lines 44--44
+\TU/SimSun(0)/m/n/10 我 们 注 意 到，|  当 包 含 了 \TU/SourceCodePro(0)/m/n/10 Header.hpp \TU/SimSun(0)/m/n/10 之 后，|  在 \TU/SourceCodePro(0)/m/n/10 Test.cpp \TU/SimSun(0)/m/n/10 中 就 不 需 要 包 含 [][][] 和 [][][][][][][][][][][]了。|
  []
 
 File: ./07_projecting/../images/generalized_parts/07_separate_compilation_300.png Graphic file (type bmp)
 <./07_projecting/../images/generalized_parts/07_separate_compilation_300.png>
-[151] (./07_projecting/../code_in_book/7.4-7.6/Header.h) (./07_projecting/../code_in_book/7.4-7.6/Definition.cpp [152]) (./07_projecting/../code_in_book/7.4-7.6/main.cpp [153])
+[151] (./07_projecting/../code_in_book/7.4-7.6/Header.hpp) (./07_projecting/../code_in_book/7.4-7.6/Definition.cpp [152]) (./07_projecting/../code_in_book/7.4-7.6/main.cpp [153])
 Overfull \hbox (45.04604pt too wide) in paragraph at lines 71--71
 \TU/SimSun(0)/m/n/10 请 读 者 注 意 各 文 件 之 间 使 用 [][][][][][][][] 的 关 系。|  因 为 在 \TU/SourceCodePro(0)/m/n/10 Definition.cpp \TU/SimSun(0)/m/n/10 中 没 有 使 用 [][][][][][][][][][][]，|
  []
 
 ) (./generalized_parts/07_projecting/02_namespace.tex
 Overfull \hbox (0.58308pt too wide) in paragraph at lines 23--23
-\TU/SimSun(0)/m/n/10 也 就 是 从 这 个 时 期 起，|  我 逐 渐 改 掉 了 使 用 [][][][][][][][][][][] 和 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]这
+\TU/SimSun(0)/m/n/10 也 就 是 从 这 个 时 期 起，|  我 逐 渐 放 弃 了 使 用 [][][][][][][][][][][] 和 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]这
  []
 
 
@@ -1464,7 +1464,7 @@ Overfull \hbox (26.70149pt too wide) in paragraph at lines 163--163
 []\TU/SimSun(0)/m/n/10 至 于 [][][]，|  它 也 会 不 动 声 色 地 隐 式 类 型 转 换 为 [][][][]，|  于 是 我 们 不 需 要 为 了 [][][][][][][]
  []
 
-[208] [209] (./08_a_step_forward_in_classes_and_functions/../code_in_book/8.1-8.2/Header.h
+[208] [209] (./08_a_step_forward_in_classes_and_functions/../code_in_book/8.1-8.2/Header.hpp
 Overfull \hbox (12.87729pt too wide) in paragraph at lines 20--21
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1545,7 +1545,7 @@ Overfull \hbox (7.47723pt too wide) in paragraph at lines 492--493
 [][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[229] [230] (./08_a_step_forward_in_classes_and_functions/../code_in_book/8.3-8.4/Header.h [231]
+[229] [230] (./08_a_step_forward_in_classes_and_functions/../code_in_book/8.3-8.4/Header.hpp [231]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [232]) (./08_a_step_forward_in_classes_and_functions/../code_in_book/8.3-8.4/Definition.cpp
@@ -1612,7 +1612,7 @@ Overfull \hbox (119.46495pt too wide) in paragraph at lines 262--262
 \TU/SimSun(0)/m/n/10 以 无 风 险 转 换 为 基 类 对 象[][][][][]，|  但 基 类 对 象 就 不 能 隐 式 转 换 为 派 生 类 对 象。|  所 以 对 于 [][][][][][][][][][][][][][][][][][][][][]
  []
 
-[254] (./09_class_inheritance/../code_in_book/9.1-9.2/Header.h [255]) (./09_class_inheritance/../code_in_book/9.1-9.2/Definition.cpp [256])) (./generalized_parts/09_class_inheritance/04_sequential_inheriance.tex
+[254] (./09_class_inheritance/../code_in_book/9.1-9.2/Header.hpp [255]) (./09_class_inheritance/../code_in_book/9.1-9.2/Definition.cpp [256])) (./generalized_parts/09_class_inheritance/04_sequential_inheriance.tex
 File: ./09_class_inheritance/../images/generalized_parts/09_taxonomic_rank_graph_of_red_fox.png Graphic file (type bmp)
 <./09_class_inheritance/../images/generalized_parts/09_taxonomic_rank_graph_of_red_fox.png>
  [257] [258]
@@ -1696,7 +1696,7 @@ File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_diamond
  [278] [279]
 File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_shape_class_with_multiple_inheritance_300.png Graphic file (type bmp)
 <./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_shape_class_with_multiple_inheritance_300.png>
- [280] [281] [282] [283] (./code_in_book/10.1/Header.h [284]))) (./generalized_parts/11_templates_and_fundamental_generic_programming.tex [285] [286
+ [280] [281] [282] [283] (./code_in_book/10.1/Header.hpp [284]))) (./generalized_parts/11_templates_and_fundamental_generic_programming.tex [285] [286
 
 ]
 第十一章
@@ -1715,7 +1715,7 @@ Overfull \hbox (14.20634pt too wide) in paragraph at lines 121--121
 []\TU/SimSun(0)/m/n/10 我 们 想，| [][][] 和 [][][] 都 是 [][][][][][] 类 型 的。|  在 调 用 [][][] 时，|  编 译 器 会 选 中 [][][][][][][][][][][][][][][][][]来
  []
 
-(./code_in_book/11.1/swap.h [290]) [291]) (./generalized_parts/11_templates_and_fundamental_generic_programming/02_instantiation_and_specialization_of_function_templates.tex
+(./code_in_book/11.1/swap.hpp [290]) [291]) (./generalized_parts/11_templates_and_fundamental_generic_programming/02_instantiation_and_specialization_of_function_templates.tex
 Overfull \hbox (62.47493pt too wide) in paragraph at lines 18--18
 \TU/SimSun(0)/m/n/10 这 说 明 程 序 需 要 一 个 [][][][][][][] 的 函 数，|  那 么 编 译 器 就 会 生 成 一 个 这 样 的 函 数，|  它 的 全 名 叫 作 [][][][][][][][][][]，|
  []
@@ -1730,50 +1730,70 @@ Overfull \hbox (6.47464pt too wide) in paragraph at lines 66--67
 []\TU/SimSun(0)/m/n/10 代 码 \TU/lmr/m/n/10 11.1 \TU/SimSun(0)/m/n/10 中 的 两 个 [][][][][] 函 数 之 间 也 有 重 载 关 系。|  当 我 们 不 加 模 板 实 参 地 调 用 [][][][][]
  []
 
-[294] (./11_templates_and_fundamental_generic_programming/../code_in_book/11.2-11.3/is_same.h [295]) (./11_templates_and_fundamental_generic_programming/../code_in_book/11.2-11.3/main.cpp) [296]) (./generalized_parts/11_templates_and_fundamental_generic_programming/03_class_templates.tex) (./generalized_parts/11_templates_and_fundamental_generic_programming/04_instantiation_and_specialization_of_class_templates.tex) (./generalized_parts/11_templates_and_fundamental_generic_programming/05_exercise_smart_pointers.tex) (./generalized_parts/11_templates_and_fundamental_generic_programming/06_introduction_to_STL.tex))) (././intensive_part.tex [297] [298
+[294] (./11_templates_and_fundamental_generic_programming/../code_in_book/11.2-11.3/is_same.hpp [295]) (./11_templates_and_fundamental_generic_programming/../code_in_book/11.2-11.3/main.cpp) [296]) (./generalized_parts/11_templates_and_fundamental_generic_programming/03_class_templates.tex
+Overfull \hbox (48.54523pt too wide) in paragraph at lines 12--12
+[][][][][][][][][][][] \TU/SimSun(0)/m/n/10 是 一 个 类 实 例，|  简 称 类。|  这 个 类 的 对 象 所 存 储 的 元 素 均 为 [][][][][] 数 据；| [][][][][][][][][][]
+ []
 
-] [299] [300]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
+
+Overfull \hbox (11.29227pt too wide) in paragraph at lines 25--26
+[][][][][][] \TU/SimSun(0)/m/n/10 和 [][][][][] 都 属 于 \TU/lmr/m/n/10 STL \TU/SimSun(0)/m/n/10 的 一 部 分，|  它 们 对 迭 代 器 的 支 持 很 完 备；| [][][][][]
+ []
+
+[297] [298]
+Overfull \hbox (52.60336pt too wide) in paragraph at lines 80--80
+\TU/SimSun(0)/m/n/10 要 类 模 板 参 数 有 一 点 不 同，|  它 们 就 不 是 同 一 个 类 型。|  比 如 说 吧，| [][][][][][][][][][] 和 [][][][][][][][][][]
+ []
+
+[299] [300] [301]
+Overfull \hbox (58.62335pt too wide) in paragraph at lines 213--215
+\TU/SimSun(0)/m/n/10 提 醒 读 者，|  只 要 模 板 参 数 有 一 点 不 同，|  两 个 类 实 例 就 不 是 同 类。|  所 以 [][][][][][][][][][] 和 [][][][][][][][][][]
+ []
+
+[302]) (./generalized_parts/11_templates_and_fundamental_generic_programming/04_friend_instantiation_and_specialization_of_class_templates.tex) (./generalized_parts/11_templates_and_fundamental_generic_programming/05_exercise_smart_pointers.tex) (./generalized_parts/11_templates_and_fundamental_generic_programming/06_introduction_to_STL.tex))) (././intensive_part.tex [303] [304
+
+] [305] [306]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
 附录 A
 
 Underfull \hbox (badness 6063) in paragraph at lines 16--16
 [][][]\TU/SimSun(0)/m/n/8.33344 对 于 内 置 类 型 数 组 [][][] 的 下 标 运 算，| [][][][][][] |（和 [][][][][][]）|  都 会 解 析 为 [][][][][][][]
  []
 
-[301
+[307
 
-]) (./other_parts/appendices/B.tex [302]
+]) (./other_parts/appendices/B.tex [308]
 附录 B
-[303
+[309
 
-]) (./other_parts/appendices/C.tex [304]
+]) (./other_parts/appendices/C.tex [310]
 附录 C
 File: appendices/../images/other_parts/C_digital_clock.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_digital_clock.png>
-[305
+[311
 
 ]
 File: appendices/../images/other_parts/C_from_counting_to_exponentiation_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_from_counting_to_exponentiation_300.png>
 File: appendices/../images/other_parts/C_duodecimal_multiplication_table.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_duodecimal_multiplication_table.png>
- [306]
+ [312]
 Underfull \vbox (badness 2753) has occurred while \output is active []
 
- [307] [308]
+ [313] [314]
 File: appendices/../images/other_parts/C_formatted_representation_of_a_number_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_formatted_representation_of_a_number_300.png>
- [309] [310]
+ [315] [316]
 File: appendices/../images/other_parts/C_short_division_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_short_division_300.png>
- [311] [312]
+ [317] [318]
 File: appendices/../images/other_parts/C_bin_to_oct_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_oct_300.png>
- [313]
+ [319]
 File: appendices/../images/other_parts/C_bin_to_hex_300.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_hex_300.png>
 File: appendices/../images/other_parts/C_maya_numbers.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_maya_numbers.png>
- [314])) (./other_parts/afterword.tex [315] [316
+ [320])) (./other_parts/afterword.tex [321] [322
 
 ])
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1784,28 +1804,35 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [317]
+ [323]
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [318] (./main.aux)
+ [324] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2022/08/05>
  ***********
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: F85E6B1B714E1FF9E6C91487C3FCECB9;7888.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: D86871CE7CF36D734043232C9D9FDC91;7969
+(rerunfilecheck)             After:  A1CE604B83310E5DCE82C97EDE0728FA;8130.
  ) 
 Here is how much of TeX's memory you used:
- 27514 strings out of 474924
- 712087 string characters out of 5765037
+ 27522 strings out of 474924
+ 712306 string characters out of 5765037
  2050189 words of memory out of 5000000
- 48482 multiletter control sequences out of 15000+600000
+ 48490 multiletter control sequences out of 15000+600000
  571829 words of font info for 166 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,18n,111p,1239b,1918s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (326 pages).
+Output written on main.pdf (332 pages).

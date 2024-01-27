@@ -215,5 +215,5 @@ int main() {
 最后，我们可以把前五节已有的知识串联起来，完善一下我们的 \lstinline@valarri@ 代码。\par
 下面是我修改完善过后的完整代码，只有头文件和定义部分。读者可以自行写一个主函数并测试其主要功能。\par
 相比于之前断断续续写的代码，这里的内容更详细，更具体，改动了部分代码（比如，在构造函数中添加 \lstinline@size@ 超过 \lstinline@MAX_SIZE@ 的检测，把循环变量改成统一的 \lstinline@std::size_t@ 类，还把依靠 \lstinline@_arr.p()[]@ 成员实现的部分用 \lstinline@operator[]()@ 实现），新增了 \lstinline@resize@ 和 \lstinline@swap@ 成员函数，对注释部分也做了相当大的调整。
-\lstinputlisting[caption=\texttt{Header.h}]{../code_in_book/8.1-8.2/Header.h}
+\lstinputlisting[caption=\texttt{Header.hpp}]{../code_in_book/8.1-8.2/Header.hpp}
 \lstinputlisting[caption=\texttt{Definition.cpp}]{../code_in_book/8.1-8.2/Definition.cpp}

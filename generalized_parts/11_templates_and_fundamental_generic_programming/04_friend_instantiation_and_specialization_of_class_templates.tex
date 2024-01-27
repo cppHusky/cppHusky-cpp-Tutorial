@@ -1,0 +1,9 @@
+\section{类模板的友元、实例化与特化}
+\subsection*{类模板中的友元}
+让我们以 \lstinline@get@ 和 \lstinline@swap@ 为例了解一下友元。\par
+首先读者不要忘记，\lstinline@user::array@ 不是一个类，而是一个类模板；\lstinline@user::get@ 也不是一个函数，而是一个函数模板。\textbf{把一个函数模板作为友元，不等于把一个函数实例作为友元。}对于 \lstinline@user::get@ 来说，我们只希望它的 \lstinline@user::get<T,N>@ 实例能够一对一地访问 \lstinline@user::array<T,N>@ 的私有成员，而不要求它对于另一个类 \lstinline@user::array<U,M>@ 的私有成员也有访问权限。所以我们写成这样就好：
+\begin{lstlisting}
+namespace user{
+
+}; //end namespace user
+\end{lstlisting}

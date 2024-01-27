@@ -67,10 +67,12 @@
 \contentsline {chapter}{\numberline {第十一章\hspace {.3em}}模板与泛型编程基础}{287}{chapter.11}%
 \contentsline {section}{\numberline {11.1}函数模板与\texttt {constexpr}}{287}{section.11.1}%
 \contentsline {section}{\numberline {11.2}函数模板的实例化与特化}{292}{section.11.2}%
-\contentsline {part}{精讲篇}{301}{part*.209}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{301}{appendix.A}%
-\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{303}{appendix.B}%
-\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{305}{appendix.C}%
-\contentsline {section}{\numberline {C.1}数制转换}{305}{section.C.1}%
-\contentsline {section}{\numberline {C.2}布尔代数基础}{314}{section.C.2}%
-\contentsline {chapter}{跋}{317}{appendix*.218}%
+\contentsline {section}{\numberline {11.3}类模板}{297}{section.11.3}%
+\contentsline {section}{\numberline {11.4}类模板的友元、实例化与特化}{303}{section.11.4}%
+\contentsline {part}{精讲篇}{307}{part*.215}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{307}{appendix.A}%
+\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{309}{appendix.B}%
+\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{311}{appendix.C}%
+\contentsline {section}{\numberline {C.1}数制转换}{311}{section.C.1}%
+\contentsline {section}{\numberline {C.2}布尔代数基础}{320}{section.C.2}%
+\contentsline {chapter}{跋}{323}{appendix*.224}%

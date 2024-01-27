@@ -121,7 +121,7 @@ bool less(const char *lhs, const char *rhs) { //定义非模板函数
     std::cout << std::is_same<decltype(*p), int(&)[3]>::value;
 \end{lstlisting}\par
 看上去这也挺麻烦的，我们干脆自己写一个 \lstinline@user::is_same@ 函数模板，并加以优化，让我们可以方便地进行类与类、类与对象、对象与对象的类型比较。
-\lstinputlisting[caption=\texttt{is\_same.h}]{../code_in_book/11.2-11.3/is_same.h}
+\lstinputlisting[caption=\texttt{is\_same.hpp}]{../code_in_book/11.2-11.3/is_same.hpp}
 这里有三个函数模板重载，对于第一个重载来说，我们无法通过函数参数提供任何信息，编译器不能进行模板参数推导，所以我们必须把两个模板参数都写出来才行；对于第二个重载，编译器可以根据我们提供的实参来推导第二个模板参数，所以我们可以省去第二个模板参数；对于第三个重载，编译器可以根据我们提供的两个实参来推导所有模板参数，所以我们可以把它们全都省去了。\par
 下面就展示这三个模板的调用过程：当我们需要比较两个类时，就把这两个类都放到模板参数中；当我们需要比较两个对象时，就把这两个对象都放到函数参数中；当我们需要比较一个类和一个对象时，就把类放到模板参数中，对象放到函数参数中。\par
 \lstinputlisting[caption=\texttt{main.cpp}]{../code_in_book/11.2-11.3/main.cpp}
@@ -136,4 +136,4 @@ constexpr bool is_same(const T2(&arr)[N]) { //为防止数组-指针转换而设
 };
 \end{lstlisting}
 不过，这种传递函数参数的方式还是会导致部分信息的损失，比如让我们无法判断引用类型。\par
-总之，如果需要最严格的类型判断，模板参数无疑是比函数参数更为严格和可靠的。\par
+总之，如果需要最严格的类型判断，模板参数无疑是比函数参数更为严格和可靠的。对于模板参数来说，一是一，二是二，类型参数不会进行转换。\par

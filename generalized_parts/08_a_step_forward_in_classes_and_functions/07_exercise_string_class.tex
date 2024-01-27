@@ -121,7 +121,7 @@ public:
 \lstinline@empty@, \lstinline@size@ 和 \lstinline@length@ 成员函数的实现都很简单，也不太需要讲解。我们可以直接在类内完成这些定义。
 \begin{lstlisting}
 public:
-    bool empty()const { return _size; } //用到了隐式类型转换
+    bool empty()const { return !_size; } //用到了隐式类型转换
     std::size_t size()const { return _size; } 
     std::size_t length()const { return _size; }
 \end{lstlisting}
@@ -561,5 +561,5 @@ std::istream& operator>>(std::istream &in, string &str) { //string的友元
 }
 \end{lstlisting}\par
 \subsection*{完整代码}
-\lstinputlisting[caption=\texttt{Header.h}]{../code_in_book/8.3-8.4/Header.h}
+\lstinputlisting[caption=\texttt{Header.hpp}]{../code_in_book/8.3-8.4/Header.hpp}
 \lstinputlisting[caption=\texttt{Definition.cpp}]{../code_in_book/8.3-8.4/Definition.cpp}

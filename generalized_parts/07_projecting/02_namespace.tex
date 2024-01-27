@@ -20,7 +20,7 @@ int main() {
 template< class T >
 void swap( T& a, T& b ) noexcept( /* ... */ );
 \end{lstlisting}
-也就是从这个时期起，我逐渐改掉了使用 \lstinline@using namespace std@ 和 \lstinline@#include<bits/stdc++.h>@\footnote{\lstinline@bits/stdc++.h@ 是GCC编译器中允许的一个不标准的头文件。使用这个头文件可以让我们一次性包含许多常见头文件。这种用法被普遍认为是``不好的习惯''，详见\href{https://stackoverflow.com/questions/31816095/why-should-i-not-include-bits-stdc-h}{Why should I not \#include <bits/stdc++.h>? - Stack Overflow}。}这两个习惯。\par
+也就是从这个时期起，我逐渐放弃了使用 \lstinline@using namespace std@ 和 \lstinline@#include<bits/stdc++.h>@\footnote{\lstinline@bits/stdc++.h@ 是GCC编译器中允许的一个不标准的头文件。使用这个头文件可以让我们一次性包含许多常见头文件。这种用法被普遍认为是``不好的习惯''，详见\href{https://stackoverflow.com/questions/31816095/why-should-i-not-include-bits-stdc-h}{Why should I not \#include <bits/stdc++.h>? - Stack Overflow}。}这两个习惯。\par
 几乎所有初学者都会无一例外地认为 \lstinline@using namespace std@ 是很方便的；而通篇累牍的 \lstinline@std::cin@ 和 \lstinline@std::cout@ 则显得十分麻烦。但是当我们的代码量非常大之后，我们难免会起一些与标准库中名字相冲突的变量、函数、枚举、结构和类。举几个例子吧：
 \begin{itemize}
     \item \lstinline@list@, \lstinline@map@, \lstinline@array@, \lstinline@queue@, \lstinline@set@, \lstinline@string@, \lstinline@pair@;
@@ -109,7 +109,7 @@ int main() {
 这里我们定义了两个 \lstinline@x@，读者可能会感到困惑。不要担心，我们会在下一节中介绍它。\par
 \lstinline@namespace@ 块有一个特点，它是可以扩展的。
 \begin{lstlisting}
-//以下是Header.h
+//以下是Header.hpp
 namespace cppHusky {
 extern std::stringstream cin; //声明，其中的stringstream需要sstream库
 template<typename T>
@@ -122,14 +122,14 @@ constexpr const char* Tname()noexcept{
 }
 };
 //以下是main.cpp
-#include "Header.h"
+#include "Header.hpp"
 int main() {/*...*/}
 namespace cppHusky {
 std::stringstream cin {"1024"}; //定义
 };
 \end{lstlisting}
 我自己写代码的时候，常常会用这里的 \lstinline@cppHusky::cin@ 和 \lstinline@cppHusky::Tname@ 来进行测试。读者尚且不需要知道它们是用来干什么的，只需要关注整个代码的结构就可以了。\par
-我们曾介绍过文件包含的机制。在源文件中，\lstinline@#include"Header.h"@ 指令会被预处理器替换成\texttt{Header.h}中的内容，所以我们可以认为，头文件中的指令被复制到了源文件中。那么在这里，就出现了两个命名空间的定义：
+我们曾介绍过文件包含的机制。在源文件中，\lstinline@#include"Header.hpp"@ 指令会被预处理器替换成\texttt{Header.hpp}中的内容，所以我们可以认为，头文件中的指令被复制到了源文件中。那么在这里，就出现了两个命名空间的定义：
 \begin{lstlisting}
 //等效于以下写法：
 namespace cppHusky {

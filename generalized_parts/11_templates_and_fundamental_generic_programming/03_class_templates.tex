@@ -1,0 +1,267 @@
+\section{类模板}
+类模板的内容比函数模板更加复杂；但读者已经有了函数模板的基础，学起类模板也就不那么困难了。\par
+\subsection*{什么是类模板？}
+我们已经多次使用过 \lstinline@std::vector@ 了，它就是一个定义在 \lstinline@vector@ 库中的类模板。
+\begin{lstlisting}
+template<
+    class T,
+    class Allocator = std::allocator<T>
+> class vector;
+\end{lstlisting}
+其中的 \lstinline@Allocator@ 模板参数已经有默认值，如果我们没有特殊需要，也没必要管它。而这里的 \lstinline@T@，就是这个数组所存元素的类型。\par
+\lstinline@std::vector<int>@ 是一个类实例，简称类。这个类的对象所存储的元素均为 \lstinline@int@ 数据；\lstinline@std::vector<bool>@ 也是一个类实例，这个类的对象所存储的元素均为 \lstinline@bool@ 数据。类模板的概念就是这么简单。\par
+\lstinline@array@ 库中有一个 \lstinline@std::array@ 类模板，它的定义是
+\begin{lstlisting}
+template<
+    class T,
+    std::size_t N
+> struct array;
+\end{lstlisting}
+这个类模板表示的是元素类型为 \lstinline@T@，长度为 \lstinline@N@ 的数组。因为 \lstinline@N@ 是模板参数，它必须在编译时确定，所以 \lstinline@std::array@ 不同于 \lstinline@std::vector@ 和 \lstinline@std::valarray@，它表示的是定长数组，长度不可改变。\par
+读者可能好奇这三个类模板之间的区别，我简要介绍一下：
+\begin{itemize}
+    \item \lstinline@std::array@ 的容量是定值，长度不可改变；另两个的长度可以改变。
+    \item \lstinline@std::valarray@ 在数值计算方面支持非常丰富的功能，而另两者在这方面支持的功能很少。
+    \item \lstinline@std::array@ 和 \lstinline@std::vector@ 都属于STL的一部分，它们对迭代器的支持很完备；\lstinline@std::valarray@ 不支持迭代器。
+\end{itemize}
+定义一个类模板的对象时，如果不提供类的全名（除非有默认模板参数），编译器也会进行模板参数推导。但我的建议是，在使用类模板时尽可能提供默认参数以外的全名。
+\begin{lstlisting}
+    std::array<int, 5> arr {1,2,3,4,5}; //定义一个5长度int数组
+\end{lstlisting}
+就这么简单。那么我们接下来就尝试自己写一个简单版的 \lstinline@user::array@ 吧，我将边做边讲，带领读者完成这个小工程。
+\subsection*{实操：简易\texttt{array}类模板}
+首先要提醒读者的是，我们一般把函数模板\footnote{不要担心，函数模板自带 \lstinline@inline@ 属性，所以不会出现违反单一定义规则的情况。}和类模板定义在头文件中，而不是声明在头文件中再定义到源文件中。如果你嫌弃这种写法会导致头文件过于冗长难看，那么我们可以换一种方式，把函数声明在\texttt{.hpp}头文件中，定义在\texttt{.tpp}模板文件\footnote{具体的扩展名不重要，我们的目的只是为了让头文件包含它。你也可以用\texttt{.impl}, \texttt{.ipp}, \texttt{.hpp}或者其它的，但最好不要用\texttt{.cpp}。}中，然后让头文件包含模板文件。
+\begin{lstlisting}
+//array.hpp
+#pragma once
+//...一些内容
+#include"Definition.tpp" 会把Definition.tpp中的内容复制到此处
+
+//Definition.tpp
+#pragma once
+//...一些内容
+\end{lstlisting}
+还记得我们在第七章是怎么说的吗，文件包含操作会把目标文件中的内容复制到该文件中。所以我们只需要这一句 \lstinline@#include@，就可以把另一个文件中的内容复制至此——这就和直接在\texttt{.hpp}头文件中写出这些代码的效果等同。\par
+好了，接下来我们就来看看 \lstinline@std::array@ 有哪些功能吧。相关的细节可以在 \href{https://en.cppreference.com/w/cpp/container/array}{std::array - cppreference.com} 中找到，我只在这里作简要介绍。
+\subsubsection*{功能简介}
+\lstinline@std::array@ 的构造函数、析构函数和赋值运算符是隐式声明的，我们不能直接看到它们。但是，根据其对象的初始化方式可以推测它们支持使用 \lstinline@std::initializer_list@ 来构造，也支持拷贝构造和拷贝赋值。\par
+\lstinline@at@ 成员函数有边界检测，\lstinline@operator[]@ 没有，这些都是老生常谈了。\par
+\lstinline@front@ 和 \lstinline@back@ 成员函数分别返回第一个数据和最后一个数据。\par
+\lstinline@size@ 和 \lstinline@max_size@ 是同义的，因为这个数组的长度必须是 \lstinline@N@。至于 \lstinline@empty@ 成员，它返回的是这个数组是否非空，那么只要 \lstinline@N@ 不为 \lstinline@0@，这个返回值都是 \lstinline@false@ 了。\par
+\lstinline@fill@ 成员函数用于填充，把所有的数组元素都变成某个值。\par
+\lstinline@swap@ 成员函数用于交换，这也是我们的老朋友了。\par
+\lstinline@std::get@ 是一个特殊的函数模板，它可以用于取某个 \lstinline@std::array@ 对象的第 \lstinline@I@ 个元素的值，如下面的代码所示：
+\begin{lstlisting}
+    std::array arr {1,2,3}; //编译器会进行模板参数推导；但是建议读者不要省略着写
+    std::cout << std::get<0>(arr); //用模板参数的方式获取第0号（第1个）元素
+\end{lstlisting}\par
+至于六个比较运算符，也不用我再多说了。\par
+\subsubsection*{规划}
+\lstinline@std::array@ 的定义已经在上文给出，我们可以仿照它来完成一份 \lstinline@user::array@ 的定义。
+\begin{lstlisting}
+namespace user {
+template<typename T, std::size_t N>
+class array {
+    T _elem[N]; //既然是定长数组，那就不必再用动态内存分配了
+public:
+    //...待补充
+};
+}; //end namespace user
+\end{lstlisting}
+接下来我们只需要完成公有成员/非成员函数部分就好。篇幅有限，我尽量说得言简意赅。至于小细节，就用注释形式写在代码中了。\par
+构造函数接收一个 \lstinline@std::initializer_list@；拷贝构造函数接收另一个 \lstinline@user::array@ 对象；赋值运算符把元素的值逐个复制过去就行。
+\begin{lstlisting}
+public:
+    array(std::initializer_list<T>); //构造函数
+    array(const array&); //拷贝构造函数，这里的array也是array<T,N>
+    array& operator=(const array&); //赋值运算符
+\end{lstlisting}
+在类模板的内部，如果我们不加说明的话，所有的 \lstinline@array@ 都是指 \lstinline@array<T,N>@，其中的 \lstinline@T@ 和 \lstinline@N@ 正是这个类的模板参数。\par
+读者需要留意，不同类型的类模板对象是不可以相互赋值/拷贝构造的。什么叫``不同类型''呢？只要类模板参数有一点不同，它们就不是同一个类型。比如说吧，\lstinline@user::array<int,5>@ 和 \lstinline@user::array<double,5>@ 当然是不同类型；而 \lstinline@user::array<int,5>@ 和 \lstinline@user::array<int,3>@ 也不是同一个类型！\par
+然后是 \lstinline@at@ 和 \lstinline@operator[]@ 函数。注意，它们都分为常成员函数版本和非常成员函数版本。
+\begin{lstlisting}
+public:
+    constexpr T& at(std::size_t pos); //尽可能设置成constexpr吧
+    constexpr const T& at(std::size_t pos)const;
+    //注意返回类型也要保证常量性
+    constexpr T& operator[](std::size_t pos);
+    constexpr const T& operator[](std::size_t pos)const; //同上
+\end{lstlisting}
+如果有可能，我们可以尽量把这些求值的成员函数都设置成 \lstinline@constexpr@。原因很简单：如果能在编译期求值，那么我们就不需要浪费运行期的宝贵时间；即便不能在编译期求值，\lstinline@constexpr@ 函数依然可以在运行期正常运行。何乐而不为呢？\par
+\lstinline@front@ 和 \lstinline@back@ 成员非常简单，我们直接声明带定义一起写了。
+\begin{lstlisting}
+public:
+    constexpr T& front() { return _elem[0]; }
+    constexpr const T& front()const { return _elem[0]; }
+    constexpr T& back() { return _elem[N - 1]; }
+    constexpr const T& back()const { return _elem[N - 1]; }
+\end{lstlisting}\par
+接下来的 \lstinline@size@ 和 \lstinline@empty@ 也是同理。\lstinline@max_size@ 我们就不写了。
+\begin{lstlisting}
+public:
+    constexpr bool empty()const { return !N; }
+    constexpr std::size_t size()const { return N; }
+\end{lstlisting}\par
+\lstinline@fill@ 和 \lstinline@swap@ 成员函数也声明在这里。
+\begin{lstlisting}
+public:
+    void fill(const T&);
+    void swap(array&);
+\end{lstlisting}\par
+接下来是非成员函数，我们把它们声明/定义在 \lstinline@user@ 命名空间作用域就好。
+\begin{lstlisting}
+template<std::size_t I, typename T, std::size_t N>
+constexpr T& get(array<T, N>&); //可以接收非常量对象，能够修改元素
+template<std::size_t I, typename T, std::size_t N>
+constexpr const T& get(const array<T, N>&); //可以接收常量对象，不能修改元素
+\end{lstlisting}
+这个函数模板稍有技巧性，我们来分析一下。如果我们希望像 \lstinline@user::get<0>(arr)@ 那样调用一个函数，那么我们需要知道两则信息：一是下标的值，二是这个 \lstinline@arr@ 究竟属于哪个类。而一个 \lstinline@user::array@ 类模板有两个模板参数，只有知道了这两个模板参数，我们才可以确定一个类。因此，\lstinline@get@ 函数需要知道三个信息：下标的值、\lstinline@user::array@ 的元素类型和 \lstinline@user::array@ 的数组长度。\par
+因此，\lstinline@user::get@ 函数需要三个模板参数，第一个是下标参数 \lstinline@I@，而第二、三两个用来确定 \lstinline@arr@ 的类型。这样一来，只要我们提供了函数参数，编译器就可以自行推导出后两个模板参数，我们只需要提供第一个模板参数就可以了。\par
+这种利用函数模板来进行类模板对象处理的思路普遍存在于泛型编程中，读者会慢慢熟悉更多例子。\par
+接下来是六个比较运算符，它们也声明/定义在 \lstinline@user@ 命名空间中。每一个运算符都是模板函数，因为它们要能处理 \lstinline@user::array@ 类模板的所有类实例。
+\begin{lstlisting}
+template<typename T, std::size_t N>
+constexpr bool operator<(const array<T, N>&, const array<T, N>&);
+template<typename T, std::size_t N>
+constexpr bool operator>(const array<T, N>&, const array<T, N>&);
+template<typename T, std::size_t N>
+constexpr bool operator<=(const array<T, N>&, const array<T, N>&);
+template<typename T, std::size_t N>
+constexpr bool operator>=(const array<T, N>&, const array<T, N>&);
+template<typename T, std::size_t N>
+constexpr bool operator==(const array<T, N>&, const array<T, N>&);
+template<typename T, std::size_t N>
+constexpr bool operator!=(const array<T, N>&, const array<T, N>&);
+\end{lstlisting}\par
+\subsubsection*{实现}
+接下来我们逐一完成各个成员函数的定义。注意，函数的定义可以在命名空间作用域之外进\footnote{如果是跨文件编译的话，那么几乎是必须的。}。只要我们提供了函数的全名，那么编译器自然能知道这个函数是什么。
+\begin{lstlisting}
+template<typename T, std::size_t N>
+user::array<T, N>::array(std::initializer_list<T> ilist) : _elem{} {
+//指明我们要定义的函数是user::array<T,N>的成员array
+    std::size_t i {0};
+    for (auto item : ilist) {
+        _elem[i++] = item;
+        if (i == N) //防止ilist长度超过N，避免数组越界
+            break;
+    } //若ilist长度不足N，那么_elem后面的部分保留初值列中的初始化值，即0
+};
+\end{lstlisting}
+我们在定义时必须指明这个函数的归属，比如写成 \lstinline@user::array<T,N>@ 而不能省略模板参数列表。严格意义上说，这个成员函数并不是函数模板，它只是``类模板的成员`非模板'函数''。我们在这就不细究了。\par
+\begin{lstlisting}
+template<typename T, std::size_t N>
+user::array<T, N>::array(const array &arr) {
+    for (std::size_t i = 0; i < N; i++)
+        _elem[i] = arr._elem[i];
+}
+\end{lstlisting}
+读者还会发现我们在这里没有使用初值列语法，原因也很简单：我们不需要初始化，反正另一个 \lstinline@user::array<T,N>@ 对象的所有元素都会赋值给它，那么这个数组中就没有未定的数据。\par
+\begin{lstlisting}
+template<typename T, std::size_t N>
+user::array<T,N>& user::array<T, N>::operator=(const array &arr) {
+    if (this == &arr) //防止自我赋值
+        return *this;
+    for (std::size_t i = 0; i < N; i++)
+        _elem[i] = arr._elem[i];
+    return *this;
+}
+\end{lstlisting}
+这里的返回类型必须写成 \lstinline@user::array<T,N>&@ 而不是 \lstinline@user::array@，这是因为编译器在读取到返回类型的时候尚不清楚这个函数属于谁，所以无法进行模板参数推导。而当读取完了函数名以后，在后文中（如函数参数列表）就知道 \lstinline@array@ 意味着 \lstinline@user@ 命名空间中的类模板，模板参数为 \lstinline@<T,N>@。\par
+如果我们想要让编译器根据函数名/参数列表来判断返回类型，那么我们就需要用尾随返回类型的写法：
+\begin{lstlisting}
+template<typename T, std::size_t N>
+auto user::array<T, N>::operator=(const array &arr) -> array& { /*...*/ }
+//auto占位，->后接返回类型，编译器将会自行推导auto意味着什么
+\end{lstlisting}
+接下来是 \lstinline@at@ 和 \lstinline@operator[]@ 成员函数，套路相同。
+\begin{lstlisting}
+template<typename T, std::size_t N>
+constexpr T& user::array<T, N>::at(std::size_t pos) {
+    if (pos >= N) //本来应该有异常抛出机制，但是我们还没学，所以先这样湊合下
+        pos = N - 1;
+    return _elem[pos];
+}
+template<typename T, std::size_t N>
+constexpr const T& user::array<T, N>::at(std::size_t pos)const {
+    if (pos >= N)
+        pos = N - 1;
+    return _elem[pos];
+}
+template<typename T, std::size_t N>
+constexpr T& user::array<T, N>::operator[](std::size_t pos) {
+    return _elem[pos];
+}
+template<typename T, std::size_t N>
+constexpr const T& user::array<T, N>::operator[](std::size_t pos)const {
+    return _elem[pos];
+}
+\end{lstlisting}
+读者需要留意，\lstinline@constexpr@ 必须在每个声明/定义中都写出，不能遗漏。这与我们之前遇到的函数默认参数（只需写在声明中）和初值列（只需写在定义中）都不相同。\par
+\lstinline@fill@ 和 \lstinline@swap@ 成员函数的实现都很简单。
+\begin{lstlisting}
+template<typename T, std::size_t N>
+void user::array<T, N>::fill(const T &val) {
+    for (std::size_t i = 0; i < N; i++)
+        _elem[i] = val;
+}
+template<typename T, std::size_t N>
+void user::array<T, N>::swap(array &arr) {
+    for (std::size_t i = 0; i < N; i++)
+        std::swap(_elem[i], arr._elem[i]);
+}
+\end{lstlisting}
+提醒读者，只要模板参数有一点不同，两个类实例就不是同类。所以 \lstinline@user::array<int,3>@ 和 \lstinline@user::array<int,5>@ 对象之间不能使用 \lstinline@swap@ 来交换内容。我们稍后来专门讲讲这个问题，现在先放过它。
+\lstinline@get@ 非成员模板函数看上去很复杂，但它的实现很简单。
+\begin{lstlisting}
+template<std::size_t I, typename T, std::size_t N>
+T& user::get(array<T, N> &arr) {
+    return arr[I]; //因为非成员函数不能访问私有数据，所以就用operator[]
+}
+template<std::size_t I, typename T, std::size_t N>
+const T& user::get(const array<T, N> &arr) {
+    return arr[I];
+}
+\end{lstlisting}
+只需注意，这里的 \lstinline@get@ 是不能访问私有数据的。如果我们希望它访问私有数据，那么我们应该用友元。我们也等稍后再进行讲解。总之，我们通过公有成员 \lstinline@operator[]@ 实现了对指定元素的访问，这样也未为不可。\par
+\begin{lstlisting}
+template<typename T, std::size_t N>
+constexpr bool user::operator<(
+    const array<T, N> &lhs, const array<T, N> &rhs
+) {
+    return std::lexicographical_compare(
+        lhs._elem, lhs._elem + N,
+        rhs._elem, rhs._elem + N
+    );
+}
+template<typename T, std::size_t N>
+constexpr bool user::operator>(
+    const array<T, N> &lhs, const array<T, N> &rhs
+) {
+    return rhs < lhs;
+}
+template<typename T, std::size_t N>
+constexpr bool user::operator<=(
+    const array<T, N> &lhs, const array<T, N> &rhs
+) {
+    return !(rhs < lhs);
+}
+template<typename T, std::size_t N>
+constexpr bool user::operator>=(
+    const array<T, N> &lhs, const array<T, N> &rhs
+) {
+    return !(lhs < rhs);
+}
+template<typename T, std::size_t N>
+constexpr bool user::operator==(
+    const array<T, N> &lhs, const array<T, N> &rhs
+) {
+    return !(lhs != rhs);
+}
+template<typename T, std::size_t N>
+constexpr bool user::operator!=(
+    const array<T, N> &lhs, const array<T, N> &rhs
+) {
+    return lhs < rhs || rhs < lhs;
+}
+\end{lstlisting}
+这些还是一如既往的代码重用，我就不赘述了。\par

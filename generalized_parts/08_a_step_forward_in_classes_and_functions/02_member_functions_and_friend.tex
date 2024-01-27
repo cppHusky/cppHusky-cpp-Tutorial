@@ -82,7 +82,7 @@ public:
 但是当我们真的把一大堆成员函数的定义都写在类定义中的时候，我们就会发现这些内容非常冗长，即便我们把排版做得再好，也还是会有重点不突出的感觉。回想一下我们在7.1节中讲过的例子，那时我们在一个头文件中声明函数，在一个源文件中定义函数，而又在另一个源文件的主函数中调用这些函数。这种结构多么清晰，多么一目了然啊。\par
 在定义成员函数的时候，我们也可以把声明和定义分开写，成员声明写在类的定义内部，而成员定义写在类的定义外部。所以我们可以把这个类的定义写成这样：
 \begin{lstlisting}
-//头文件部分Header.h
+//头文件部分Header.hpp
 #pragma once
 #include <initializer_list>
 class valarri {
@@ -107,7 +107,7 @@ int max() {/*...*/} //这是在定义::max
 这样编译器就会把它当作是一个非成员函数来看待，这不是我们想要的。为了区分，我们需要用作用域解析运算符来指明：我们是在定义 \lstinline@valarri@ 类的 \lstinline@max@ 成员函数。
 \begin{lstlisting}
 //源文件部分Definition.cpp
-#include "Header.h"
+#include "Header.hpp"
 int valarri::max() { 我们定义的函数是valarri::max，不是::max；而返回类型是int
         int maximum {_arr[0]};
     for (int i = 1; i < _size; i++)

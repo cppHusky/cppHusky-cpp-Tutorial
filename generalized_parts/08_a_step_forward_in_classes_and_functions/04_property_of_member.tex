@@ -25,17 +25,17 @@ int main() {
 （非常量的）静态成员变量不能在类当中定义，只能声明；所以我们要把它放在类外定义，就像上面这段代码中写的那样。而在定义的时候呢，我们不能再写 \lstinline@static@ 了。\par
 \lstinline@C::sta@ 定义在全局作用域，所以它不仅对于 \lstinline@C@ 类来说是静态成员，而且还具有外部链接——我们可以在一个源文件中为 \lstinline@C::sta@ 进行定义，而在另一源文件中不定义就可以使用它。
 \begin{lstlisting}
-//Header.h
+//Header.hpp
 struct C {
     static int sta; //静态成员变量
 };
 
 //Definition.cpp
-#include "Header.h"
+#include "Header.hpp"
 int C::sta {}; //它具有外部链接
 
 //main.cpp
-#include "Header.h"
+#include "Header.hpp"
 int main() {
     std::cout << C::sta; //此C::sta与Definition.cpp中的C::sta一致
 }
@@ -48,7 +48,7 @@ int main() {
 \end{figure}
 所幸，从C++17起我们可以通过定义内联变量的方式来解决这个问题。
 \begin{lstlisting}
-//Header.h
+//Header.hpp
 struct C {
     static int sta;
 }

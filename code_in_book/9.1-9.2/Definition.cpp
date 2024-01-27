@@ -1,4 +1,4 @@
-#include "Header.h"
+#include "Header.hpp"
 stack::stack(const std::vector<int> &v) : std::vector<int>{v} {}
 //构造函数
 stack::stack(const stack &s) : std::vector<int>{s} {}
