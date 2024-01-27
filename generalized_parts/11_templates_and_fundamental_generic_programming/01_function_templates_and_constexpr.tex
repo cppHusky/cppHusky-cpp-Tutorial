@@ -17,7 +17,7 @@ template<[模板参数列表]>
     [函数体]
 }
 \end{lstlisting}
-在 \lstinline@template@ 块内的部分称为模板参数。模板参数可以是 \lstinline@typename@/\lstinline@class@ 关键字引出的类名\footnote{\lstinline@typename@ 和 \lstinline@class@ 关键字在这方面的作用相同，没有任何区别。但从习惯上讲，我们还是倾向于使用 \lstinline@typename@。}，也可以是任何一个类的数据。
+在 \lstinline@template@块内的部分称为模板参数。模板参数可以是 \lstinline@typename@/\lstinline@class@ 关键字引出的类名\footnote{\lstinline@typename@ 和 \lstinline@class@ 关键字在这方面的作用相同，没有任何区别。但从习惯上讲，我们还是倾向于使用 \lstinline@typename@。}，也可以是任何一个类的数据。
 至于其它的部分，都和一般的函数没什么差别。只不过我们可以使用模板参数来指代一个``待定''的类名或者数据。
 \begin{lstlisting}
 template<typename T> //T是模板参数，作为待定的类名
@@ -122,7 +122,7 @@ void swap(T (&a)[N], T (&b)[N]) { //参数是两个T(&)[N]
 其实不必，因为我们有更好的实现方法：
 \lstinputlisting[caption=\texttt{swap.hpp}]{code_in_book/11.1/swap.hpp}
 这样就够了吗？没错，这样就够了。在实现数组交换的时候，我们对每个数组对应位置的元素调用 \lstinline@user::swap@ 函数来进行交换。试想，当我们传入两个 \lstinline@int[3]@ 参数的时候，编译器会根据我们的需要，生成一个 \lstinline@T=int@, \lstinline@N=3@ 版本的 \lstinline@user::swap@ 函数；这个函数又需要调用一个 \lstinline@T=int@ 版本的 \lstinline@user::swap@ 函数（属于另一个函数模板），所以编译器也会生成之。\par
-而当传入两个 \lstinline@int[2][3]@ 参数的时候，会发生什么呢？首先，编译器生成一个 \lstinline@T=int[3]@, \lstinline@N=2@ 版本的函数，而这个函数需要调用一个 \lstinline@T=int@, \lstinline@N=3@ 版本的函数，所以编译器也会生成之。同上，这个函数又会调用 \lstinline@T=int@ 版本的函数，编译器也会生成之。\par
+而当传入两个 \lstinline@int[2][3]@ 参数的时候，会发生什么呢？首先，编译器生成一个 \lstinline@T=int[3]@, \lstinline@N=2@ 版本的函数，而这个函数需要调用一个 \lstinline@T=int@, \lstinline@N=3@ 版本的函数，所以编译器也会生成之。同上，这个函数又会调用 \lstinline@T=int@ 版本的函数，编译器也会生成之——这就像是一种``递归''操作。\par
 总而言之，通过这样的写法，我们就保证了：只要能交换一维数组，就能交换二维数组；只要能交换二维数组，就能交换三维数组……以至任意高维的数组。有点像数学归纳法。这也是代码重用的魅力。\par
 \subsection*{\texttt{constexpr}的使用}
 通过上述内容，读者应该发现，函数模板不是一个函数，而是一套方案。编译器会根据这套方案，按照我们在代码中调用函数的情况——也就是实际需求，来生成相应的函数。这个过程自始至终完成在编译期，所以它们全都是编译时行为。\par

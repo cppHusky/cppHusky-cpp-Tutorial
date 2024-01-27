@@ -260,7 +260,7 @@ valarri& valarri::operator+=(int n) {
     return *this = *this + n; //利用已经重载的赋值运算符和加法运算符
 }
 \end{lstlisting}\par
-\subsection*{友元函数}
+\subsection*{友元（函数）}
 在重载加法运算符时，我们只有``数组+单个数字''的版本：
 \begin{lstlisting}
 valarri valarri::operator+(int n);
@@ -287,7 +287,7 @@ valarri operator+(int n,const valarri &a) {
 }
 \end{lstlisting}\par
 但我们还是需要一种方法，让我们可以在特定条件下，从外界访问某个类的私有成员。我们的答案是友元\footnote{以笔者的观点看，友元（Friend）这个名字实在容易让人误会。友元是一种单向关系不是双向关系，但friend几乎都是表示双向关系的。对于友元函数来说单向双向无所谓，但是对于友元类来说是有所谓的。}。\par
-声明一个友元函数的方法很简单，就是在类当中，用 \lstinline@friend@ 关键字加这个函数，以此表示``该函数可以访问此类的私有/受保护对象''。
+声明一个友元的方法很简单，就是在类当中，用 \lstinline@friend@ 关键字加这个函数，以此表示``该函数可以访问此类的私有/受保护对象''。
 \begin{lstlisting}
 //友元声明部分
 class valarri {
@@ -304,7 +304,7 @@ valarri operator+(int n, const valarri &a) { //定义valarri的友元函数opera
     return v;
 } //一切顺利
 \end{lstlisting}\par
-我们还可以把友元声明和定义放到一起。
+我们还可以把友元声明和函数定义放到一起\footnote{需要提醒读者，``声明一个友元''不等于``声明这个函数''，尤其是在命名空间作用域内。笔者建议，把函数声明、友元声明和函数定义三者分开写；即便要合并，也务必把函数声明在类外。}。
 \begin{lstlisting}
 class valarri {
     //...
@@ -317,7 +317,7 @@ class valarri {
     }
 };
 \end{lstlisting}
-但是请读者注意，\textbf{即便友元函数的定义写在 \lstinline@class@ 内部，它也是非成员函数}（如果是成员函数的话那就没必要友元了嘛），因此参数列表必须写两个形参（而不是一个形参加一个不具名参数），而且函数体中不能使用 \lstinline@this@。\par
+但是请读者注意，\textbf{即便友元函数的定义写在 \lstinline@class@ 内部，它也是非成员函数}（如果是成员函数的话那就没必要用友元了嘛），因此参数列表必须写两个形参（而不是一个形参加一个不具名参数），而且函数体中不能使用 \lstinline@this@。\par
 \subsubsection*{友元是二者的关系，而非一者的性质}
 还有一个常见的例子是输入。我们可以用 \lstinline@std::istream@ 类的对象 \lstinline@cin@ 来为一个 \lstinline@int@ 型变量或者 \lstinline@double@ 型变量输入其值，但是我们不能直接输入一个 \lstinline@valarri@ 类的对象。有的时候我们会有这方面的需要，所以我们需要写一个运算符，能够直接实现 \lstinline@std::cin>>a@。\par
 让我们考虑一下——要实现这个目的的主要困难在于，其一，我们不能修改标准库代码\footnote{任何时候都不要修改标准库中的代码。——笔者的忠告}，所以我们肯定不能把这个功能写成 \lstinline@std::istream@ 的成员函数；其二，因为左操作数是 \lstinline@std::cin@，不是 \lstinline@valarri@ 类，所以我们也不能把这个功能写成 \lstinline@valarri@ 的成员函数。\par

@@ -1,9 +1,240 @@
 \section{类模板的友元、实例化与特化}
-\subsection*{类模板中的友元}
-让我们以 \lstinline@get@ 和 \lstinline@swap@ 为例了解一下友元。\par
-首先读者不要忘记，\lstinline@user::array@ 不是一个类，而是一个类模板；\lstinline@user::get@ 也不是一个函数，而是一个函数模板。\textbf{把一个函数模板作为友元，不等于把一个函数实例作为友元。}对于 \lstinline@user::get@ 来说，我们只希望它的 \lstinline@user::get<T,N>@ 实例能够一对一地访问 \lstinline@user::array<T,N>@ 的私有成员，而不要求它对于另一个类 \lstinline@user::array<U,M>@ 的私有成员也有访问权限。所以我们写成这样就好：
+\subsection*{类模板的实例化}
+同函数模板一样，类模板也有显式和隐式实例化。只有在代码中进行了实例化，编译器才会生成对应的类实例，并加以编译。这里没什么需要特别讲解的内容，我们就来看看 \lstinline@std::integral_constant@ 吧。它是一个类模板，定义在 \lstinline@type_traits@ 库中。以下是这个类模板的简化定义：
 \begin{lstlisting}
-namespace user{
-
-}; //end namespace user
+//namespace std
+template <class _Ty, _Ty _Val>
+struct integral_constant {
+    static constexpr _Ty value  = _Val;
+    using value_type            = _Ty;
+    using type                  = integral_constant;
+    constexpr operator value_type()const noexcept { return value; }
+    constexpr value_type operator()()const noexcept { return value; }
+};
 \end{lstlisting}
+读者或许只能看懂其中的一部分，但是我们也没打算用全部——只需要一个静态常成员 \lstinline@value@ 就可以了。\par
+\lstinline@std::integral_constant@ 有自己的静态常量表达式 \lstinline@value@，我们可以取它的任何实例的 \lstinline@value@ 成员。
+\begin{lstlisting}
+template class std::integral_constant<bool, true>; //显式实例化
+int main() {
+    std::integral_constant<int, 1> one; //隐式实例化
+    std::cout << std::integral_constant<bool, false>::value; //输出0
+\end{lstlisting}
+\lstinline@type_traits@ 库中已经有两个实例，我们将在后面用到它们。
+\begin{lstlisting}
+template <bool _Val>
+using bool_constant = integral_constant<bool, _Val>; //这是一个模板别名，作为中介
+using true_type  = bool_constant<true>; //这是一个类别名，我们可以当它是一个实例
+using false_type = bool_constant<false>; //同上
+\end{lstlisting}
+总而言之，\lstinline@true_type@ 意味着 \lstinline@std::integral_constant<bool,true>@，那么它的 \lstinline@value@ 成员就是 \lstinline@true@；而 \lstinline@false_type@ 意味着 \lstinline@std::integral_constant<bool,false>@，那么它的 \lstinline@value@ 成员就是 \lstinline@false@。\par
+其它关于类模板实例化的内容，我们就不在泛讲篇中讲了。\par
+\subsection*{类模板中的友元}
+回到我们的 \lstinline@user::array@。让我们以 \lstinline@get@ 和 \lstinline@swap@ 为例来了解一下友元。\par
+\subsubsection*{函数友元}
+首先读者不要忘记，\lstinline@user::array@ 不是一个类，而是一个类模板；\lstinline@user::get@ 也不是一个函数，而是一个函数模板。\textbf{把一个函数模板作为友元，不等于把一个函数实例作为友元。}如果我们想把 \lstinline@user::get@ 的一个实例作为 \lstinline@user::array@ 的友元，那么我们应该这样写：
+\begin{lstlisting}
+//namespace user
+template<typename T, std::size_t N>
+class array{
+    //...
+public:
+    friend T& get<0, T, N>(array&); //get<0,T,N>是array<T,N>的友元
+    friend T& get<1, T, N>(array&); //get<1,T,N>是array<T,N>的友元
+    friend T& get<2, T, N>(array&); //get<2,T,N>是array<T,N>的友元
+    //...
+};
+template<std::size_t I, typename T, std::size_t N>
+T& get(array<T, N>&);
+//...
+\end{lstlisting}
+但是这样写有一个问题：我们把 \lstinline@get@ 声明在了 \lstinline@array@ 的后头，所以在声明友元时，编译器还不知道 \lstinline@get@ 这个函数模板的存在。为此我们需要把 \lstinline@get@ 声明在 \lstinline@array@ 之前。
+\begin{lstlisting}
+template<std::size_t I, typename T, std::size_t N>
+T& get(array<T, N>&); //声明get
+template<typename T, std::size_t N>
+class array { /*...*/ }; //定义array，其中有依赖于get的友元
+\end{lstlisting}
+但是这样就会出现新的问题，编译器不知道 \lstinline@get@ 函数当中的 \lstinline@array@ 是什么。为此，我们还需要把 \lstinline@array@ 类模板声明在 \lstinline@get@ 之前，写成这样：
+\begin{lstlisting}
+template<typename T, std::size_t N>
+class array; //声明类模板array
+template<std::size_t I, typename T, std::size_t N>
+T& get(array<T, N>&); //声明函数模板get，其中有依赖于array的参数
+template<typename T, std::size_t N>
+class array { /*...*/ }; //定义array，其中有依赖于get的友元
+template<std::size_t I, typename T, std::size_t N>
+T& get(array<T, N>&) { /*...*/ } //定义get，部分语句依赖array的成员
+\end{lstlisting}
+这四则声明（定义）之间的依赖关系非常强，不能任意改动，读者一定要梳理清楚，并多加注意。\par
+\subsubsection*{函数模板友元}
+接下来还有一个问题：我们在 \lstinline@user::array@ 中定义了这么多友元函数实例，但是实际操作中的 \lstinline@I@ 可能有很多取值，我们总不能写成百上千个这样的友元吧。所以我们还有另一种选择，那就是直接把一个模板作为友元。
+\begin{lstlisting}
+public:
+    template<std::size_t I, typename U, std::size_t M>
+    friend U& get(array<U,M>&);
+    //声明模板友元，所有的get<U,M>函数实例都是类实例array<T,N>的友元
+\end{lstlisting}
+这里使用 \lstinline@U@ 和 \lstinline@M@ 作为模板参数，是为了避免与类模板参数 \lstinline@T@ 和 \lstinline@N@ 混淆。实际上它们的名字是什么并不重要，就像函数形参那样，只要能够对号入座，名字可以随便起。\par
+只要把 \lstinline@user::get<I,U,M>@ 这个模板作为友元，那么它的所有实例（包括隐式实例化、显式实例化及显式特化得到的任何实例）都是 \lstinline@user::array<T,N>@ 的友元，它们就具备了访问任何一个 \lstinline@user::array@ 类实例的私有成员之权限。
+\begin{lstlisting}
+template<std::size_t I, typename T, std::size_t N>
+T& user::get(array<T, N> &arr) {
+    return arr._elem[I]; //这样，它就可以访问arr的私有成员_elem了
+}
+\end{lstlisting}\par
+接下来我们再写一个友元函数，它支持元素类型相同但长度不同的 \lstinline@user::array@ 对象进行交换。这个函数会交换两个数组的公共部分。它的函数声明是这样的：
+\begin{lstlisting}
+//namespace user
+template<typename T, std::size_t N, std::size_t M>
+void swap(array<T, N>&, array<T, M>&); //交换不同长度的数组
+\end{lstlisting}
+它的友元声明\footnote{再次提醒读者，函数声明与友元声明是不同的，友元声明只是一种关系声明，它并不会产生函数声明。我们最好把函数声明单独写出来。}是这样的：
+\begin{lstlisting}
+public:
+    template<typename T, std::size_t N, std::size_t M>
+    friend void swap(array<T, N>&, array<T, M>&);
+    //声明友元（非成员函数），任何两个array<T,N>和array<T,M>可用swap函数交换
+\end{lstlisting}
+它的定义是这样的：
+\begin{lstlisting}
+//global namespace
+template<typename T, std::size_t N, std::size_t M>
+void user::swap(array<T, N> &lhs, array<T, M> &rhs) {
+    constexpr std::size_t minlen {std::min(N, M)}; //这个结果将在编译时求出
+    for (std::size_t i = 0; i < minlen; i++)
+        std::swap(lhs._elem[i], rhs._elem[i]); //可以访问私有成员
+}
+\end{lstlisting}
+这个 \lstinline@swap@ 函数接收三个参数，其中，我们用 \lstinline@T@ 表示二者公共的元素类型，而用 \lstinline@N@ 和 \lstinline@M@ 分别表示二者的长度。这种方法在泛型编程中是很常见的。至于函数实现的具体方式，想必我无需再讲了。\par
+\subsubsection*{类友元/类模板友元}
+我们说过，两个不同的类实例就是两个不同的类。既然是不同的类，那么 \lstinline@user::array<int,3>@ 的成员函数就不能访问 \lstinline@user::array<int,5>@ 的私有成员，反之亦然。这种限制有时会给我们造成麻烦，比如说如果我想要实现两个元素类型相同但长度不同的数组对象交换，就只能用非成员函数配合友元来实现。有没有一种方法能让它们互相可以访问私有成员呢？当然有，那就是类（类模板）友元。\par
+定义一个类友元的方式很简单，就是直接 \lstinline@friend@ 加类名就行\footnote{在C++11以前的标准中，我们必须在 \lstinline@friend@ 与类名之间加一个 \lstinline@class@/\lstinline@struct@/\lstinline@union@ 关键字；C++11起支持这种语法。}。
+\begin{lstlisting}
+//class array
+    friend array<T, 0>;
+    friend array<T, 1>;
+    //...
+\end{lstlisting}\par
+当然，这种写法也有同样的问题，所以我们需要的不是单纯的类友元，而是类模板友元。
+\begin{lstlisting}
+    template<typename, std::size_t>
+    friend class array;
+    //声明友元类模板，任意一个array实例都是array<T,N>的友元
+\end{lstlisting}
+接下来我们就可以声明和定义一个 \lstinline@swap@ 成员函数了，它允许元素类型相同但长度不同的数组对象进行交换。
+\begin{lstlisting}
+public:
+    template<std::size_t M>
+    void swap(array<T, M>&);
+    //作为array<T,N>的成员函数，它可与array<T,M>对象交换
+\end{lstlisting}
+这个成员函数其实是一个函数模板，它的模板参数 \lstinline@M@ 表示它将要调用的对象的值。至于那个 \lstinline@T@，我们已经在类模板 \lstinline@user::array<T,N>@ 的模板参数中给出了。这里我们要保证它们的元素类型相同，因而就不应该再设置一个 \lstinline@typename U@ 之类的模板参数。\par
+接下来看看它的定义吧，这个定义也显得有些复杂。
+\begin{lstlisting}
+template<typename T, std::size_t N> //类模板参数，用来指定user::array<T,N>
+template<std::size_t M> //函数模板参数，用来指定函数参数user::array<T,M>&
+void user::array<T, N>::swap(array<T, M> &arr) {
+    constexpr std::size_t minlen {std::min(N, M)};
+    for (std::size_t i = 0; i < minlen; i++)
+        std::swap(_elem[i], arr._elem[i]);
+}
+\end{lstlisting}
+这是一个 \lstinline@template@ 双层嵌套的结构。这里出现的两行 \lstinline@template@ 语句是不可以调换顺序的，因为它们有各自的含义。\par
+我们思考一下，\lstinline@user::array::swap@ 是一个```类模板'的成员`函数模板'''。这里的第一个 \lstinline@template@ 指定的是它的类模板参数，而第二个 \lstinline@template@ 指定的是它的函数模板参数。它们是分工明确的，既不可以合并，也不可以颠倒，更不可以随意拆分——你说``我要把它们合并成单个 \lstinline@template@''或者``我要把它们拆分成三个 \lstinline@template@''，那都是不对的。\par
+\subsection*{类模板的特化}
+类模板特化这里的规则比函数模板特化复杂得多，也好用得多。类不像函数那样可以重载，所以我们在绝大多数时候都必须依赖特化。函数不允许使用部分特化——换言之就是函数特化语法中，尖括号内不能再有任何模板参数了，所有的模板参数必须是确定的值；但是类可以进行\textbf{部分特化（Partial specialization）}，这就大大丰富了我们对类模板使用方式的可能性。\par
+类模板\textbf{完全特化（Full specialization）}的语法与函数模板的特化大同小异。
+\begin{lstlisting}
+//namespace user
+template<typename T>
+class vector { /*...*/ }; //自定义vector<T>类模板
+template<>
+class vector<bool> { /*...*/ }; //vector<bool>类型特化
+\end{lstlisting}\par
+\lstinline@std::vector@ 有一个针对 \lstinline@bool@ 类型的特化\footnote{实际上 \lstinline@std::vector@ 针对 \lstinline@bool@ 的特化是部分特化，因为它还有一个带默认值的类模板参数 \lstinline@Allocator@。不过，倘若不考虑这个参数，我们就可以把它当作一个完全特化。}，它用更密集的方式来排布 \lstinline@bool@ 数组中的数据，从而为我们大幅节省了内存空间。\par
+由于取址单元的缘故，一个 \lstinline@bool@ 类型数据必须占用一个字节内存空间；这会导致其余7比特被浪费掉。对于原始的 \lstinline@bool[]@ 数组来说也是如此。而特化的 \lstinline@std::vector<bool>@ 采取了一些不同于其它实例的存储方式，充分利用了每一字节的全部8个比特，这样就能减少空间的浪费。\par
+\lstinline@std::array@ 并没有提供对于 \lstinline@bool@ 类型的特化，不过我们也可以自己动手写一个 \lstinline@user::array<bool,N>@ 特化来。然而限于篇幅，我们就不在这里写了，放到本节末尾。至于更多特化中的细节，我们就放到精讲篇再谈。\par
+再来看几个部分特化的例子吧。还记得我们常常用的 \lstinline@std::is_same@ 吗？它的定义其实很简单，我们自己都可以写一份相似的出来。以下就是一个例子：
+\begin{lstlisting}
+namespace user {
+template<typename T, typename U>
+struct is_same ：std::false_type {};
+template<typename T>
+struct is_same<T, T> : std::true_type {}; //这是对is_same<T,U>的部分特化
+};
+int main() {
+    std::cout << user::is_same<int, double>::value; //0
+    //匹配到is_same<T,U>
+    std::cout << user::is_same<int, int>::value; //1
+    //可以匹配is_same<T,U>或is_same<T,T>，但优先匹配特化程度高的
+    return 0;
+}
+\end{lstlisting}\par
+第一个 \lstinline@is_same@ 是原始的类模板，它直接继承自 \lstinline@std::false_type@；第二个 \lstinline@is_same@ 是对第一个的特化，这里的 \lstinline@template@ 只有一个 \lstinline@typename T@，这并不是意味着该特化只需要接收一个模板参数，只是因为这个特化只需要一个模板参数就可以描述\footnote{再次强调，类不能重载。无论完全特化还是部分特化，它们都属于这个类模板，是这个类模板的一部分。}。\par
+所以说 \lstinline@is_same<T,T>@ 仍然是一个类模板，它接收两个相同的模板参数。如果我们传入了两个相同的模板参数，那么编译器会优先调用这个特化版本。\par
+那么我们再回来看看这里的继承操作意味着什么吧。前文已经介绍过 \lstinline@std::false_type@ 了，它有一个静态常成员 \lstinline@value@，其值为 \lstinline@false@。既然 \lstinline@user::is_same<T,U>@ 公开继承自它，那么它当然也有一个静态常成员 \lstinline@value@，其值为 \lstinline@false@；同理，既然 \lstinline@user::is_same<T,T>@ 公开继承自 \lstinline@std::true_type@，那么它当然也有一个静态常成员 \lstinline@value@，其值为 \lstinline@true@。所以你发现了吗？当我们输出 \lstinline@user::is_same<int,int>::value@ 的时候，我们输出的就是 \lstinline@user::is_same<T,T>@ 的那个值为 \lstinline@true@ 的静态成员；当我们输出 \lstinline@user::is_same<int,double>::value@ 的时候，我们输出的就是 \lstinline@user::is_same<T,U>@ 的那个值为 \lstinline@false@ 的静态成员。\par
+元编程库中还有很多这类供我们进行类型判断的类模板，其中不乏一些很容易实现的版本，我们可以拿来实践一下：
+\lstinline@std::is_pointer@ 可以判断一个``类型''是不是指针。我们实现它的思路是把指针特化的版本挑出来，让它们继承 \lstinline@std::true_type@；其它的继承 \lstinline@std::false_type@。
+\begin{lstlisting}
+namespace user {
+template<typename T>
+struct is_pointer : std::false_type {}; //将拥有成员value=false
+template<typename T>
+struct is_pointer<T*> : std::true_type {}; //将拥有成员value=true
+//这也是一种部分特化，即针对一切指针类型的特化
+template<typename T>
+struct is_pointer<T *const> : std::true_type {}; //同上
+//模板参数对于类型非常敏感，T*和T *const不是同一类型！
+//还有两个涉及voltile的版本，我们就不写了
+};
+int main() {
+    std::cout << user::is_pointer<void*>::value << '\n' //1
+              << user::is_pointer<float>::value;        //0
+\end{lstlisting}\par
+对于每个实例，编译器会根据我们提供的模板参数，在类型匹配的类模板及其特化之间进行选择。对于 \lstinline@float@ 参数来说，编译器选择了 \lstinline@user::is_pointer<T>@，所以其 \lstinline@value@ 成员为 \lstinline@false@；对于 \lstinline@void*@ 参数来说，编译器选择了 \lstinline@user::is_pointer<T*>@（特化）。这不是偶然或巧合，而是因为C++规定了一套关于``编译器如何选择模板/特化''的偏序规则。在这套规则下，\lstinline@T*@ 是比 \lstinline@T@ 更特殊的版本，所以编译器选择了前者。至于更多相关的信息，这里就不讲了，我们等到精讲篇再谈。\par
+读者可能还会想到另一件事——既然我们需要为 \lstinline@T*const@ 单独写一个特化，那么我们岂不是需要为 \lstinline@const T*@ 也单独写一个？其实不需要。举个例子吧，如果我们以 \lstinline@const char*@ 作为模板参数，那么编译器会选择 \lstinline@T*@ 特化版本，其中 \lstinline@T=const char@。\par
+接下来还有 \lstinline@std::is_array@，我们也可以自己写一个，样式相仿。
+\begin{lstlisting}
+namespace user {
+template<typename T>
+struct is_array : std::false_type {};
+template<typename T>
+struct is_array<T[]> : std::true_type {};
+//T[]是不完整类型，没有长度信息；但它确实是数组类型无疑
+template<typename T, std::size_t N>
+struct is_array<T[N]> : std::true_type {};
+};
+int main() {
+    std::cout << user::is_array<const int[]>::value << '\n' //T=const int
+              << user::is_array<int*[3]>::value; //T=int*
+\end{lstlisting}\par
+最后我们来看一个稍微复杂一点的——\lstinline@std::rank@。这个函数的意思是``秩''，也就是数组的维数。一维数组的秩当然是 \lstinline@1@；二维数组的秩是 \lstinline@2@；指针数组本质上是一维数组，只是它由指针构成，所以其秩为 \lstinline@1@；数组指针不是数组，它是一个指向数组的指针，秩为 \lstinline@0@。\par
+我们的实现方法是这样的：
+\begin{lstlisting}
+namespace user {
+template<typename T>
+struct rank : std::integral_constant<std::size_t, 0> {};
+//默认的情况：秩为0
+template<typename T>
+struct rank<T[]> : std::integral_constant <
+    std::size_t,
+    rank<T>::value + 1 //T数组的秩加一就是T[]的秩；这种操作有点像递归
+> {};
+template<typename T, std::size_t N>
+struct rank<T[N]> : std::integral_constant <
+    std::size_t,
+    rank<T>::value + 1 //同上
+> {};
+};
+int main() {
+    std::cout << user::rank<int(*)[3]>::value << '\n' //0
+              << user::rank<int[][1][2]>::value << '\n' //3
+              << user::rank<int*[2]>::value << '\n'; //1
+\end{lstlisting}\par
+\subsection*{完整代码：\texttt{user::array}类模板及其对\texttt{bool}类型的特化}
+我把有关 \lstinline@user::array@ 类模板及其重载的代码列到此处。在这里，我重新梳理了代码的排版，并把部分成员函数的定义和声明分开到不同文件中；我还把 \lstinline@user::array<bool,N>@ 单独列入另一文件中，这样能使代码看上去更简洁（虽然也好不到哪里去）。\par
+另外，我还调整了代码的结构和排版，并补充了一些注释。希望这能使你阅读代码更加容易！\par
+\lstinputlisting[caption=\texttt{array.hpp}]{../code_in_book/11.4-11.6/array.hpp}
+\lstinputlisting[caption=\texttt{Specification.tpp}]{../code_in_book/11.4-11.6/Specification.tpp}
+\lstinputlisting[caption=\texttt{Definition.tpp}]{../code_in_book/11.4-11.6/Definition.tpp}

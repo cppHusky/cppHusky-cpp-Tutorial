@@ -1,6 +1,6 @@
 \section{函数模板的实例化与特化}
 我们讲过``模板与实例''的关系。一个类就是一个广义的模板，这个类的对象则是这一模板所产生的实例，它们拥有相同的成员，表示同类事物。同样地，函数模板也是一个抽象的概念，它不代表任何实体。只有在\textbf{实例化（Instantiation）}之后产生的实例——也就是一个个具体的函数，它们才是真正意义上的实体。\par
-\subsection*{实例化}
+\subsection*{函数模板的实例化}
 以 \lstinline@swap@ 为例，我们在上一节中写了两个 \lstinline@swap@ 函数模板，它们的声明分别是
 \begin{lstlisting}
 namespace user{
@@ -24,7 +24,7 @@ void swap(T(&)[N], T(&)[N]);
 这样，编译器就不需要做模板参数推导，就可以直接生成一份 \lstinline@std::swap<int>@ 函数实例，并在之后的操作中直接调用它。\par
 你可以在全名的模板参数中省略一部分\footnote{但是必须从右到左，比如你可以把 \lstinline@fun<int,int>@ 省略成 \lstinline@fun<int>@，但不能省略成 \lstinline@fun<,int>@。}，乃至全部模板参数，乃至把尖括号都省了。总之，只要你提供的函数参数信息足够编译器用来做参数推导，那就足够了。
 \begin{lstlisting}
-    char s1[10]{ "Husky" }, s2[10]{ "Samoyed" };
+    char s1[10] {"Husky"}, s2[10] {"Samoyed"};
     user::swap<char, 10>(s1, s2); //使用全名调用
     user::swap<char>(s1, s2); //指定char，另一个模板参数交由编译器推导
     user::swap<>(s1, s2); //两个模板参数都交由编译器推导
@@ -70,7 +70,7 @@ T max(const T (&a)[N1], const T (&b)[N2]) {
     \item 在找到了最适合的函数模板之后，如果有特化，调用其特化；如果无特化，按照模板生成对应的实例，并调用之。
 \end{enumerate}\par
 至于更多有关函数模板重载的问题，我们到了精讲篇再谈。\par
-\subsection*{特化}
+\subsection*{函数模板的特化}
 函数模板为编译器生成函数实例提供了比较一般的方法，但是我们难免遇到一些特殊情况，需要特殊处理。举个例子吧，我们可以写一个 \lstinline@less@ 函数，它可以比较两个参数的大小，并返回``参数1是否小于参数2''的 \lstinline@bool@ 结果。实现这个功能的最佳方案是用类模创建一个函数对象，不过我们退而求其次使用函数模板也未为不可。
 \begin{lstlisting}
 namespace user {
