@@ -1,5 +1,4 @@
 #pragma once //千万不要遗漏
-#include "array.hpp" //这句可以没有，但是为了编译器检查方便，还是包含一下吧
 #include <bitset> //user::array内部的数据需要利用std::bitset来管理
 namespace user{
 //array类模板特化部分
@@ -31,8 +30,8 @@ public:
     template<std::size_t I, typename U, std::size_t M>
     friend const U& get(const array<U, M>&);
     //同上
-    template<std::size_t N, std::size_t M>
-    friend void swap(array<bool, N>&, array<bool, M>&);
+    template<std::size_t N1, std::size_t N2>
+    friend void swap(array<bool, N1>&, array<bool, N2>&);
     template<typename, std::size_t>
     friend class array;
     //声明友元类模板，任何一个array实例都是array<bool,N>的友元

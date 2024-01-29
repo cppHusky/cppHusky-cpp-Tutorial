@@ -70,10 +70,11 @@
 \contentsline {section}{\numberline {11.3}类模板}{297}{section.11.3}%
 \contentsline {section}{\numberline {11.4}类模板的友元、实例化与特化}{303}{section.11.4}%
 \contentsline {section}{\numberline {11.5}STL简介}{316}{section.11.5}%
-\contentsline {part}{精讲篇}{331}{part*.230}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{331}{appendix.A}%
-\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{333}{appendix.B}%
-\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{335}{appendix.C}%
-\contentsline {section}{\numberline {C.1}数制转换}{335}{section.C.1}%
-\contentsline {section}{\numberline {C.2}布尔代数基础}{344}{section.C.2}%
-\contentsline {chapter}{跋}{347}{appendix*.239}%
+\contentsline {section}{\numberline {11.6}实操：智能指针}{328}{section.11.6}%
+\contentsline {part}{精讲篇}{343}{part*.236}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{343}{appendix.A}%
+\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{345}{appendix.B}%
+\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{347}{appendix.C}%
+\contentsline {section}{\numberline {C.1}数制转换}{347}{section.C.1}%
+\contentsline {section}{\numberline {C.2}布尔代数基础}{356}{section.C.2}%
+\contentsline {chapter}{跋}{359}{appendix*.245}%

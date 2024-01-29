@@ -92,9 +92,9 @@ void swap(array<T, N>&, array<T, M>&); //交换不同长度的数组
 它的友元声明\footnote{再次提醒读者，函数声明与友元声明是不同的，友元声明只是一种关系声明，它并不会产生函数声明。我们最好把函数声明单独写出来。}是这样的：
 \begin{lstlisting}
 public:
-    template<typename T, std::size_t N, std::size_t M>
-    friend void swap(array<T, N>&, array<T, M>&);
-    //声明友元（非成员函数），任何两个array<T,N>和array<T,M>可用swap函数交换
+    template<typename U, std::size_t N1, std::size_t N2>
+    friend void swap(array<U, N1>&, array<U, N2>&);
+    //声明友元（非成员函数），任何两个array<U,N1>和array<U,N2>可用swap函数交换
 \end{lstlisting}
 它的定义是这样的：
 \begin{lstlisting}

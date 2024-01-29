@@ -1,5 +1,4 @@
 #pragma once //千万不要遗漏
-#include "array.hpp" //这句可以没有，但是为了编译器检查方便，还是包含一下吧
 #include <algorithm> //包含std::min等实用函数
 //类模板std::array<T,N>的成员函数及一些非成员函数的定义
 template<typename T, std::size_t N>

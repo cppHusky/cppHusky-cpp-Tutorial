@@ -50,8 +50,8 @@ public:
     template<std::size_t I, typename U, std::size_t M>
     friend const U& get(const array<U, M>&);
     //同上
-    template<typename T, std::size_t N, std::size_t M>
-    friend void swap(array<T, N>&, array<T, M>&);
+    template<typename U, std::size_t N1, std::size_t N2>
+    friend void swap(array<U, N1>&, array<U, N2>&);
     //声明友元（非成员函数），任何两个array<T,N>和array<T,M>可用swap函数交换
     template<typename, std::size_t>
     friend class array;

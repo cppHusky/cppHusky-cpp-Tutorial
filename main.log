@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  29 JAN 2024 10:38
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  29 JAN 2024 21:08
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1774,10 +1774,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [313]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [314]
+ [314])
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [315])) (./generalized_parts/11_templates_and_fundamental_generic_programming/05_introduction_to_STL.tex
+ [315]) (./generalized_parts/11_templates_and_fundamental_generic_programming/05_introduction_to_STL.tex
 Overfull \hbox (6.41899pt too wide) in paragraph at lines 15--16
 [][][][][][] \TU/SimSun(0)/m/n/10 表 示 一 个 双 端 队 列，|  它 允 许 我 们 在 容 器 的 首 尾 快 速 插 入\TU/lmr/m/n/10 /\TU/SimSun(0)/m/n/10 删 除 元 素。|  虽 然 [][][][][]
  []
@@ -1821,9 +1821,50 @@ Overfull \hbox (32.56332pt too wide) in paragraph at lines 170--170
 [322] [323] [324]
 File: ./11_templates_and_fundamental_generic_programming/../images/generalized_parts/11_algorithm_copy.png Graphic file (type bmp)
 <./11_templates_and_fundamental_generic_programming/../images/generalized_parts/11_algorithm_copy.png>
- [325] [326] [327]) (./generalized_parts/11_templates_and_fundamental_generic_programming/06_exercise_smart_pointers.tex))) (././intensive_part.tex [328] [329
+ [325] [326] [327]) (./generalized_parts/11_templates_and_fundamental_generic_programming/06_exercise_smart_pointers.tex
+Overfull \hbox (1.7443pt too wide) in paragraph at lines 4--4
+[]\TU/lmr/m/n/10 C++17 \TU/SimSun(0)/m/n/10 有 三 种 智 能 指 针：| [][][][][] 禁 止 不 同 智 能 指 针 指 向 相 同 地 址；| [][][][][]
+ []
 
-] [330]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
+
+Overfull \hbox (33.02986pt too wide) in paragraph at lines 11--11
+|\TU/SimSun(0)/m/n/10 — —| \TU/lmr/m/n/10 C++ \TU/SimSun(0)/m/n/10 绝 对 不 允 许 我 们 对 未 经 分 配  |（包 括 已 经 回 收 的）|  的 动 态 内 存 和 任 何 静 态 内 存 进 行 [][][][][]\TU/lmr/m/n/10 /[][][][][][]
+ []
+
+[328] [329]
+Overfull \hbox (105.9727pt too wide) in paragraph at lines 62--62
+[]\TU/SimSun(0)/m/n/10 我 们 会 为 每 一 个 [][][][][][][][] 类 和 [][][][][][][][] 类 设 计 一 个 静 态 的 [][][][][][][][]
+ []
+
+
+Overfull \hbox (25.04771pt too wide) in paragraph at lines 71--71
+\TU/SimSun(0)/m/n/10 这 样 一 来，|  我 们 就 可 以 在 类 内 用 [][][] 指 代 [][][][] 类 型；|  而 在 类 外，|  我 们 也 可 以 用 [][][][][][][]
+ []
+
+[330] [331] [332] [333] [334] (./code_in_book/11.8-11.9/unique_ptr.hpp [335]
+Overfull \hbox (7.47723pt too wide) in paragraph at lines 21--22
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (2.07718pt too wide) in paragraph at lines 44--45
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [336]) (./code_in_book/11.8-11.9/Definition.tpp
+Overfull \hbox (2.07718pt too wide) in paragraph at lines 13--14
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[337]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [338])))) (././intensive_part.tex [339] [340
+
+] [341] [342]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
 附录 A
 
 Underfull \hbox (badness 6063) in paragraph at lines 16--16
@@ -1835,41 +1876,41 @@ Underfull \hbox (badness 7468) in paragraph at lines 46--46
 [][][]\TU/SimSun(0)/m/n/8.33344 注 意，|  重 载 运 算 符 对 参 数 有 特 殊 要 求：|  必 须 接 收 至 少 一 个 自 定 义 类 型 的 参 数，|  可 以 是 类 或 枚 举 类。|  比 如 说，|
  []
 
-[331
+[343
 
-]) (./other_parts/appendices/B.tex [332]
+]) (./other_parts/appendices/B.tex [344]
 附录 B
-[333
+[345
 
-]) (./other_parts/appendices/C.tex [334]
+]) (./other_parts/appendices/C.tex [346]
 附录 C
 File: appendices/../images/other_parts/C_digital_clock.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_digital_clock.png>
-[335
+[347
 
 ]
 File: appendices/../images/other_parts/C_from_counting_to_exponentiation.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_from_counting_to_exponentiation.png>
 File: appendices/../images/other_parts/C_duodecimal_multiplication_table.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_duodecimal_multiplication_table.png>
- [336]
+ [348]
 Underfull \vbox (badness 2753) has occurred while \output is active []
 
- [337] [338]
+ [349] [350]
 File: appendices/../images/other_parts/C_formatted_representation_of_a_number.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_formatted_representation_of_a_number.png>
- [339] [340]
+ [351] [352]
 File: appendices/../images/other_parts/C_short_division.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_short_division.png>
- [341] [342]
+ [353] [354]
 File: appendices/../images/other_parts/C_bin_to_oct.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_oct.png>
- [343]
+ [355]
 File: appendices/../images/other_parts/C_bin_to_hex.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_hex.png>
 File: appendices/../images/other_parts/C_maya_numbers.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_maya_numbers.png>
- [344])) (./other_parts/afterword.tex [345] [346
+ [356])) (./other_parts/afterword.tex [357] [358
 
 ])
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1880,28 +1921,28 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [347]
+ [359]
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [348] (./main.aux)
+ [360] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C5F7930117E4794A7B5D693A70E5B55F;8218.
+(rerunfilecheck)             Checksum: 57A0CAC6D409FB5A3D513C8D608A6107;8331.
  ) 
 Here is how much of TeX's memory you used:
- 27764 strings out of 474924
- 719177 string characters out of 5765037
+ 27802 strings out of 474924
+ 720073 string characters out of 5765037
  2050189 words of memory out of 5000000
- 48706 multiletter control sequences out of 15000+600000
+ 48736 multiletter control sequences out of 15000+600000
  571829 words of font info for 166 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,18n,111p,1239b,1918s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (356 pages).
+Output written on main.pdf (368 pages).

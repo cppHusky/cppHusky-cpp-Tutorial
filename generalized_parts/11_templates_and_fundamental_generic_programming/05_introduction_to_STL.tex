@@ -360,7 +360,8 @@ UnaryFunction for_each(
 \begin{lstlisting}
     for (InputIt it = first; it != last; ++it) //效果相同
         f(*it);
-\end{lstlisting}\par
+\end{lstlisting}
+\lstinline@std::for_each@ 的用途很多，不过主要是靠函数指针和闭包来实现的，所以我们就放到精讲篇再讲它吧。\par
 \lstinline@std::lexicographical_compare@ 也是一个算法。
 \begin{lstlisting}
 template<class InputIt1, class InputIt2>
