@@ -21,14 +21,14 @@ class Complex : public Real {
 抽象类生来就是用来当基类的，所以我们就叫它抽象基类。仍以实数、复数间的关系为例，原本它们是直接继承关系，但如果用直接继承的关系来描述，就会在代码层面引发诸多不便。为此，我们可以把实数和复数的共性（实部）提取出来，作为``抽象复数基类''的成员；然后让复数类和实数类都继承自它，如图10.3所示。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth]{../images/generalized_parts/10_abstract_complex_class_300.png}
+    \includegraphics[width=\textwidth]{../images/generalized_parts/10_abstract_complex_class.png}
     \caption{用抽象基类表示 \lstinline@Complex@ 与 \lstinline@Real@ 的关系}
 \end{figure}
 这样，我们就在保证逻辑关系的条件下避免了让 \lstinline@Real@ 类多出一个 \lstinline@_i@ 成员。\par
 对于多级继承的情况来说也可以如此。图10.4就是一个多级继承的例子。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=.64\textwidth]{../images/generalized_parts/10_abstract_parallelogram_class_300.png}
+    \includegraphics[width=.64\textwidth]{../images/generalized_parts/10_abstract_parallelogram_class.png}
     \caption{用抽象基类表示平行四边形、菱形和正方形的关系}
 \end{figure}
 \subsection*{纯虚函数}
@@ -64,7 +64,7 @@ struct Shape { //抽象基类，这个类用来表示各种几何图形
 接下来我们就用 \lstinline@Shape@ 派生其它类，如图4.5所示。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=.6\textwidth]{../images/generalized_parts/10_abstract_shape_class_300.png}
+    \includegraphics[width=.6\textwidth]{../images/generalized_parts/10_abstract_shape_class.png}
     \caption{\lstinline@Shape@ 之下派生的各个类}
 \end{figure}
 三角形和圆形的定义很简单，没什么可说的。

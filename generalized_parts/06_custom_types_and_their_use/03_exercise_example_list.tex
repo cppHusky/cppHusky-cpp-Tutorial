@@ -3,13 +3,13 @@
 单链表是一种线性的数据结构\footnote{数据结构（Data structure），是一种组织、存储和管理数据的方式，它把一些数据通过某种特定的方式组织起来，以便于我们高效地访问和处理数据。}。它的数据存储方式是这样的：每个数据单元有两部分，其中一部分存储数据；而另一部分是一个指针，它指向下一个单元所在的位置。下一个单元也是两部分，其中一部分存储数据，而另一部分是一个指针，它指向下一个单元所在的位置。它和数组的区别在于，数组不需要单独的指针来存储下一个数据的位置，因为下一个位置就是取地址加一；而链表的各个单元可能分布于内存的各个区域，所以只有通指针才能找到下一数据的位置。图6.2展示了这种关系。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.6\textwidth]{../images/generalized_parts/06_list_in_the_memory_300.png}
+    \includegraphics[width=0.6\textwidth]{../images/generalized_parts/06_list_in_the_memory.png}
     \caption{链表单元可以在内存中分散于各处}
 \end{figure}
 那么我们为什么要用链表而不是更容易实现的数组呢？这取决于我们的需求。在实际操作中，如果我们需要对一个数组的内容进行频繁的插入、删除操作，那么我们就需要在插入数据之前把对应位置之后的所有数据都向后挪一位；而如果要删除某个数据，我们就需要在删除数据之前把此位置之后的所有数据都向前递补。这是非常麻烦的。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth]{../images/generalized_parts/06_operation_on_list_300.png}
+    \includegraphics[width=\textwidth]{../images/generalized_parts/06_operation_on_list.png}
     \caption{链表的插入和删除操作}
     \footnotesize{蓝色的单元是待插入单元，红色的单元是待删除单元}
 \end{figure}
@@ -17,7 +17,7 @@
 不止如此，单链表更大的优点在于可以方便地插入或删除一段数据，或者是把原链表中的一段转移到其它链表中。图6.4展示了片段转移的过程。无论这个片段有多长，我们都可以只通过两个起止点把待转移的片段摘下来，然后插入到另一个链表的某单元之后。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth]{../images/generalized_parts/06_advanced_operation_on_list_300.png}
+    \includegraphics[width=\textwidth]{../images/generalized_parts/06_advanced_operation_on_list.png}
     \caption{链表的整段数据转移操作}
     \footnotesize{将绿色段从黄色链表中转移到蓝色链表中}
 \end{figure}
@@ -73,7 +73,7 @@ void clear_list(Data *head) { //递归回收*head之后的所有动态内存
 而它的递归思路是：每次调用时，先用 \lstinline@clear_list(head->next)@ 把 \lstinline@*head->next@（不含）之后的内存回收，然后回收 \lstinline@*head->next@。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth]{../images/generalized_parts/06_process_of_clear_list_300.png}
+    \includegraphics[width=\textwidth]{../images/generalized_parts/06_process_of_clear_list.png}
     \caption{递归回收链表的过程示意图}
 \end{figure}
 \subsection*{链表的基础功能}
@@ -88,7 +88,7 @@ void insert_after(Data *head, int n) { //在*head下一位置插入n
 \end{lstlisting}
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.4\textwidth]{../images/generalized_parts/06_insertion_into_a_list_300.png}
+    \includegraphics[width=0.4\textwidth]{../images/generalized_parts/06_insertion_into_a_list.png}
     \caption{插入数据的过程}
 \end{figure}\par
 读者一定要注意这些操作的顺序安排。如果我把 \lstinline@head->next=p@ 放在前面，那就会出现一个问题，\lstinline@head->next@ 赋值之后，它原本所指向的单元就找不到了。\par
@@ -114,7 +114,7 @@ bool delete_after(Data *head) {
 \end{lstlisting}
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.45\textwidth]{../images/generalized_parts/06_deletion_operation_on_a_list_300.png}
+    \includegraphics[width=0.45\textwidth]{../images/generalized_parts/06_deletion_operation_on_a_list.png}
     \caption{删除数据的过程}
 \end{figure}\par
 这里指得一提的是返回值。按理说删除操作只是 \lstinline@delete_after@ 函数的副作用，不需要求值。但是有些情况下我们可能需要根据返回值的实际情况来调整其它值。例如，我可能有另外一个值用来记录这个单链表的长度，那么返回值就决定了我们要不要在删除操作之后让这个长度减一。
@@ -150,7 +150,7 @@ bool delete_after(Data *head, Data *tail) {
 现在我们再来考虑一般的情况——\lstinline@head@ 和 \lstinline@tail@ 都是这个链表中的单元。\footnote{实际的情况远比这个复杂，比如说 \lstinline@head==nullptr@ 的时候怎么处理；\lstinline@head@ 和 \lstinline@tail@ 不在同一链表中的情况怎么处理，诸如此类。不过我们在这里只是用代码来进行演示和学习，不需要像实际工程中那样做得面面俱到。那太复杂了。}我们的思路是把这个片段给剥离出来，变成一个单独的临时链表，然后用 \lstinline@clear_list@ 直接清理这个单独的链表，如图6.8所示。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{../images/generalized_parts/06_range_deletion_operation_on_a_list_300.png}
+    \includegraphics[width=0.9\textwidth]{../images/generalized_parts/06_range_deletion_operation_on_a_list.png}
     \caption{链表的片段删除操作}
 \end{figure}
 在剥离操作中，我们定义了一个临时的链表头 \lstinline@tmp_head@，并且用 \lstinline@*head@ 来初始化它\footnote{在后面我们会讲到，这里用到了默认拷贝构造函数。}，这样 \lstinline@tmp_head@ 和 \lstinline@*head@ 就有了相同的值，只是它们地址不同。我们就打算把待删除的片段转移到以 \lstinline@tmp_head@ 为首的链表中。\par
@@ -187,6 +187,6 @@ Data* find_tail(Data* head) { //从head开始找
 其二，这里转移操作的写法很独特（也很简洁，不是吗）。这里用文字很难讲清楚，读者可以直接看图6.9，很直观。在这里我们用标准库中的 \lstinline@swap@ 函数，它可以交换两个指针的值\footnote{实际上 \lstinline@swap@ 是一个函数模板，当我们尝试使用它时，程序会生成一个关于 \lstinline@Data*@ 类型的实例。我们会在第十一章中介绍相关的知识。}，也就相当于交换它们的指向。于是我们可以通过先交换 \lstinline@tail->next@ 和 \lstinline@dest->next@，再交换 \lstinline@head->next@ 和 \lstinline@dest->next@ 的方式来实现这个功能。\par
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{../images/generalized_parts/06_range_transfer_between_lists_300.png}
+    \includegraphics[width=\textwidth]{../images/generalized_parts/06_range_transfer_between_lists.png}
     \caption{片段转移操作的示意图}
 \end{figure}

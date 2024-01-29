@@ -181,7 +181,7 @@ valarri valarri::operator+(int n) { //重载valarri成员函数operator+
 如果放在 \lstinline@arr1+arr2@ 的情境下，那么 \lstinline@_size@, \lstinline@a._size@ 和 \lstinline@v._size@ 分别对应 \lstinline@arr1._size@\footnote{这只是象怔性的写法，实际上 \lstinline@arr1._size@ 的写法相当于在 \lstinline@valarri@ 的类作用域外部访问该类的私有成员，这是禁止的。}, \lstinline@arr2._size@ 和 \lstinline@(arr1+arr2)._size@\footnote{初学者可能对 \lstinline@(arr1+arr2)._size@ 这种写法感到困惑，但是不要忘记，\lstinline@arr1+arr2@ 的返回值也是一个 \lstinline@valarri@ 类型的对象，所以它当然也有自己的成员咯。}。图8.1展示了它们之间的关系。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth]{../images/generalized_parts/08_operator_overloading_as_member_function_300.png}
+    \includegraphics[width=\textwidth]{../images/generalized_parts/08_operator_overloading_as_member_function.png}
     \caption{\lstinline@arr1+arr2@ 调用过程中的三个对象及其成员}
     \footnotesize{以红色、橙色、蓝色区分这三个对象的相关信息}
 \end{figure}

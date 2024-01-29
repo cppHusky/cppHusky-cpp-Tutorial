@@ -25,7 +25,7 @@
 一个十进制整数的每一位都满足这样``逢10进一''的规则，所以我们对每一位都可以仿照此理来进行推导。于是我们把计数推广到加法（加法就是重复若干次的计数过程），再把加法推广到乘法（若干次同样的加法过程），再把乘法推广到乘方（若干次同样的乘法过程），乃至高德纳箭头\footnote{高德纳箭头（Knuth's up-arrow notation），由高德纳在1976年提出，它是一种表示巨大整数的方法，可以视作是对重复乘方的迭代扩展。}。图C.2展示了这样一个过程，我们就是从这里开始学习数学的。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.75\textwidth]{../images/other_parts/C_from_counting_to_exponentiation_300.png}
+    \includegraphics[width=0.75\textwidth]{../images/other_parts/C_from_counting_to_exponentiation.png}
     \caption{从计数到乘方}
 \end{figure}
 我们在小学时都背过加法表和乘法表，它就是10进制整数的计算规则。但是如果换一套进制呢，情况就会发生变化了。图C.3就是一个12进制乘法表，仅供读者开拓眼界。\par
@@ -103,7 +103,7 @@ a=\sum_{n=-\infty}^{+\infty}a_n16^n
 这里的$(10)_{10}$与$(1010)_2$是相等的，$(0.75)_{10}$与$(0.c)_{16}$也是相等的，读者可以自行计算验证。\footnote{我们把$[\;]$内的数字都用十进制来表示，这样会方便我们计算。毕竟我们还是最熟悉十进制。}而$(1a.c3)_{16}$的表示可以参考图C.4来理解。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.6\textwidth]{../images/other_parts/C_formatted_representation_of_a_number_300.png}
+    \includegraphics[width=0.6\textwidth]{../images/other_parts/C_formatted_representation_of_a_number.png}
     \caption{$(1a.c3)_{16}$的形式化表示}
 \end{figure}
 \subsection*{进位与借位}
@@ -200,7 +200,7 @@ a=\sum_{n=-\infty}^{+\infty}a_n16^n
 我们不难发现，整个过程的关键其实就是反复对着上一步的商值除以$R$，然后把每一步的余数按照个位、十位、百位的顺序排起来。实际操作中，我们更倾向于用短除法来进行转换，如图C.5所示。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.75\textwidth]{../images/other_parts/C_short_division_300.png}
+    \includegraphics[width=0.75\textwidth]{../images/other_parts/C_short_division.png}
     \caption{通过短除法把十进制数转换成$R$进制}
 \end{figure}
 使用短除法时只需注意，先算出来的余数在个位，后算出来的在十位，以此类推，从低到高。\par
@@ -257,7 +257,7 @@ x_m=a_{3m+2}2^2+a_{3m+1}2^1+a_{3m}2^0
 具体来说，如何操作呢？我们可以在分号左右两边，每三位一组（如果不到三个数字，不妨在两侧补0），把它转换成八进制。以$(10101.1101)_2$为例，我们把$[1,0,1,0,1;1,1,0,1]_2$以分号为界，向左向右每三位一组，转换成八进制，这就是图C.6中从上到下的过程。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.5\textwidth]{../images/other_parts/C_bin_to_oct_300.png}
+    \includegraphics[width=0.5\textwidth]{../images/other_parts/C_bin_to_oct.png}
     \caption{二进制与八进制的转换}
 \end{figure}
 那么拿到$(25.64)_8$之后我们也可以反过来，把每一位转换成三位一组的二进制形式，也就是图C.6中从下到上的过程。\par
@@ -273,7 +273,7 @@ x_m=a_{4m+3}2^3+a_{4m+2}2^2+a_{4m+1}2^1+a_{4m}2^0
 具体操作和二进制转八进制相似，只是三位一组变成了四位一组。还以$(10101.1101)_2$为例，我们把$[1,0,1,0,1;1,1,0,1]_2$以分号为界，向左向右每四位一组（如果不到四个数字，不妨在两侧补0），转换成十六进制，这就是图C.7中从上到下的过程。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.5\textwidth]{../images/other_parts/C_bin_to_hex_300.png}
+    \includegraphics[width=0.5\textwidth]{../images/other_parts/C_bin_to_hex.png}
     \caption{二进制与十六进制的转换}
 \end{figure}
 那么拿到$(15.d)_{16}$之后我们也可以反过来，把每一位转换成四位一组的二进制形式，也就是图C.7中从下到上的过程。\par

@@ -53,7 +53,7 @@ basic_istream& basic_istream::operator>>(int &value);
 #include <vector> //头文件
 using vecint = std::vector<int>; //类型别名
 \end{lstlisting}
-接下来我们把 \lstinline@vecint@ 当作一个数组类型就行了，它拥有 \lstinline@std::vector@ 的一般特怔，其中存储的数据都是整数。\par
+接下来我们把 \lstinline@vecint@ 当作一个数组类型就行了，它拥有 \lstinline@std::vector@ 的一般特征，其中存储的数据都是整数。\par
 \subsubsection*{移位运算符的重载}
 \lstinline@vecint@ 允许我们在数组尾部用 \lstinline@push_back@ 成员函数插入新数据，它的声明形式是
 \begin{lstlisting}
@@ -203,7 +203,7 @@ bool operator==(const std::vector<T>& a, const std::vector<T>& b) {
     \item 有些运算符的重载受到限制，它们只能作为成员函数来定义，不能作为非成员函数来定义，包括（复合）赋值运算符、函数调用运算符和下标运算符。\\——到此为止我们都在定义非成员函数，这主要是因为我们不能撬开 \lstinline@vecint@ 的定义来修改它（这也是封装的优点）。在后文中，我们会自己试着写一个简易的 \lstinline@valarray@ 类，这样就可以定义成员函数了。
     \item 有些运算符是不允许重载的：作用域解析运算符 \lstinline@::@ 、成员访问运算符 \lstinline@.@ 、成员指针访问运算符 \lstinline@.*@ 、条件运算符 \lstinline@? :@ ，以及 \lstinline@sizeof@ 等。附录A中都有所介绍。\\——毕竟，有些东西还是要保留其本意的，不然就会出现很大的麻烦。C++已经给了我们足够的余裕，剩下的运算符都可以无条件重载，或是在有限条件下重载。
     \item 不能创建新的运算符，也即附录A之外的运算符，比如 \lstinline@$@, \lstinline@**@\footnote{在有些情况下，我们可能连用某个一元运算符，比如对于二阶指针写成 \lstinline@**pp@。但这不意味着我们是在``使用 \lstinline@**@ 运算符''；这其实应该叫作``两次使用 \lstinline@*@ 运算符''！}, \lstinline@<>@。\\——这更容易理解，因为我们是在``重载''运算符，当然就是重新定义已经存在的运算符，而不是自行开发新的。
-    \item 运算符的优先级、结合性和操作数的数量不会发生变化。\\——当然，不然编译器就不知道如何理解代码了。这些属于运算符本来的特怔既不会变化，也不应该变化。
+    \item 运算符的优先级、结合性和操作数的数量不会发生变化。\\——当然，不然编译器就不知道如何理解代码了。这些属于运算符本来的特征既不会变化，也不应该变化。
     \item 重载的运算符 \lstinline@->@ 必须要么返回裸指针，要么（按引用或值）返回同样重载了运算符 \lstinline@->@ 的对象。
     \item 重载的运算符 \lstinline@&&@ 与 \lstinline@||@ 在使用时不会再有短路求值特性。\\——这也好理解，毕竟重载之候它就不一定实现与原来相同的功能了，所以短路求值作为一个``针对原本目的而做的优化''就没有必要，更不应该保留了。
 \end{itemize}\par

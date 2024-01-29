@@ -5,7 +5,7 @@
 我不知道$\sin$的内部构造，也不知道计算器是用什么原理来实现的，但是我给它某个输入，它就会给我对应的输出，这就是一个\textbf{黑盒（Black box）}（见图4.1）。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.4\textwidth]{../images/generalized_parts/04_black_box_300.png}
+    \includegraphics[width=0.4\textwidth]{../images/generalized_parts/04_black_box.png}
     \caption{$\sin$函数就是一个黑盒，给定某个输入信息就会有对应的输出信息}
 \end{figure}
 在编程当中，函数的概念可以借用数学上的函数概念来阐释。举个例子，\lstinline@cmath@ 库中有一个函数 \lstinline@sin@，它可以接收一个 \lstinline@double@ 类型的参数，并返回一个 \lstinline@double@ 类型的结果。所以我们可以说它的定义域$\mathbb{X}$就是 \lstinline@double@ 型的所有数据，到达域$\mathbb{Y}$也是 \lstinline@double@ 型的所有数据。\par

@@ -23,6 +23,7 @@ template<typename T, std::size_t N>
 constexpr bool operator==(const array<T, N>&, const array<T, N>&);
 template<typename T, std::size_t N>
 constexpr bool operator!=(const array<T, N>&, const array<T, N>&);
+
 //类模板定义部分
 template<typename T, std::size_t N>
 class array {
@@ -59,7 +60,6 @@ public:
     void swap(array<T, M>&);
     //作为array<T,N>的成员函数，它可与array<T,M>对象交换
 };
-//#include "Specialization_of_bool.hpp"
 }; //end namespace user
-#include "Specification.tpp"
-#include "Definition.tpp"
+#include "Specification.tpp" //包含Specification.tpp文件的代码
+#include "Definition.tpp" //同上

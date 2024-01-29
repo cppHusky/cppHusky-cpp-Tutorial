@@ -1,5 +1,5 @@
 \chapter{C++运算符基本属性}\label{ch:appendix_A}
-表A.1列出了截至C++17的所有运算符的优先级、结合性和重载要求。\footnote{值得注意的是，虽然双引号\texttt{""}不被视为运算符，但它可以用在重载自定义字面量的语法中。本书不予以介绍，对此感兴趣的读者可以阅读 \href{https://zh.cppreference.com/w/cpp/language/user_literal}{用户定义字面量-cppreference} 。}\par%tbs
+表A.1按C++17标准，列出了所有运算符的优先级、结合性和重载要求。\footnote{值得注意的是，虽然双引号\texttt{""}不被视为运算符，但它可以用在重载自定义字面量的语法中。本书不予以介绍，对此感兴趣的读者可以阅读 \href{https://zh.cppreference.com/w/cpp/language/user_literal}{用户定义字面量-cppreference} 。}\par%tbs
 \begin{longtable}{|c|c|c|c|c|}
 \caption{截至C++17的所有运算符}\label{tab:A-1}\\
 \hline
@@ -11,15 +11,15 @@
 \cline{2-3}\cline{5-5}
 & \lstinline@type() type{}@ & 函数风格类型转换\footnote{函数风格类型转换、C风格类型转换和 \lstinline@static_cast@ 在静态类型转换时是等价的。换言之，只需定义一个转换函数，就可以使用这三种类型转换语法。} &  & 可重载\\
 \cline{2-3}\cline{5-5}
-& \lstinline@fun()@ & 函数调用 &  & 只能是成员函数\\
+& \lstinline@fun()@ & 函数调用 &  & 非静态成员函数\\
 \cline{2-3}\cline{5-5}
-& \lstinline@arr[index]@ & 下标运算\footnote{对于内置类型数组 \lstinline@arr@ 的下标运算， \lstinline@arr[index]@（和 \lstinline@index[arr]@）都会解析为 \lstinline@*(arr+index)@（和\lstinline@*(index+arr)@），而自定义类型的下标重载版本不会如此。} &  & 只能是成员函数\\
+& \multirow{2}{*}{\lstinline@arr[index]@} & \multirow{2}{*}{下标运算\footnote{对于内置类型数组 \lstinline@arr@ 的下标运算， \lstinline@arr[index]@（和 \lstinline@index[arr]@）都会解析为 \lstinline@*(arr+index)@（和\lstinline@*(index+arr)@），而自定义类型的下标重载版本不会如此。}} &  & 非静态成员函数\\
+& & & & 仅接收单个参数\footnote{C++23标准起，重载下标运算符可以接收多个参数。在此之前，如有接收多个参数需求，一般建议重载函数调用运算符代替之。}\\
 \cline{2-3}\cline{5-5}
 & \lstinline@obj.member@ & 成员访问 &  & 不可重载\\
 \cline{2-3}\cline{5-5}
-& \multirow{3}{*}{\lstinline@p_obj->member@} & \multirow{3}{*}{指针的成员访问} &  & 返回类型受限\footnote{返回类型必须是裸指针或对象。返回对象时，必须返回同样重载了运算符 \lstinline@->@ 的对象。}\\
-&  &  &  & 只能是成员函数\\
-&  &  &  & 不能是静态函数\\
+& \multirow{2}{*}{\lstinline@p_obj->member@} & \multirow{2}{*}{指针的成员访问} &  & 返回类型受限\footnote{返回类型必须是裸指针或对象。返回对象时，必须返回同样重载了运算符 \lstinline@->@ 的对象。}\\
+&  &  &  & 非静态成员函数\\
 \hline
 \multirow{9}{*}{3} & \lstinline@++var --var@ & 前缀自增/自减 & \multirow{9}{*}{从右到左} & 可重载\\
 \cline{2-3}\cline{5-5}
@@ -39,19 +39,19 @@
 \cline{2-3}\cline{5-5}
 & \lstinline@sizeof a@\footnote{不使用括号的 \lstinline@sizeof a@ 只适用于数据或对象；如果要对类型求内存空间大小，必须用 \lstinline@sizeof(type)@ 形式。} & 求内存空间大小 &  & 不可重载\\
 \hline
-\multirow{2}{*}{4} & \lstinline@obj.*p@ & 成员指针访问 & \multirow{4}{*}{从左到右} & 不可重载\\
+\multirow{2}{*}{4} & \lstinline@obj.*p@ & 成员指针访问 & \multirow{5}{*}{从左到右} & 不可重载\\
 \cline{2-3}\cline{5-5}
 & \lstinline@p_obj->*p@ & 指针的成员指针访问 &  & 可重载\\
 \cline{1-3}\cline{5-5}
-5 & \lstinline@lhs*rhs lhs/rhs lhs%rhs@ & 乘法/除法/模运算 &  & 可重载\footnote{注意，一些重载运算符对参数有特殊要求：必须接收至少一个自定义类型的参数，可以是类或枚举类。比如说， \lstinline@double operator\%\(double,double)@ 就是不允许的。并非所有重载都有这个限制，比如下标运算可以接收 \lstinline@int@ 类型的参数。}\\
+5 & \lstinline@lhs*rhs lhs/rhs lhs%rhs@ & 乘法/除法/模运算 &  & 可重载\footnote{注意，重载运算符对参数有特殊要求：必须接收至少一个自定义类型的参数，可以是类或枚举类。比如说， \lstinline@double operator\%\(double,double)@ 就是不允许的。}\\
 \cline{1-3}\cline{5-5}
 6 & \lstinline@lhs+rhs lhs-rhs@ & 加法/减法 &  & 可重载\\
+\cline{1-3}\cline{5-5}
+7 & \lstinline@lhs<<rhs lhs>>rhs@ & 左移位/右移位 &  & 可重载\\
 \hline
 \textbf{优先级} & \textbf{运算符} & \textbf{运算符含义} & \textbf{结合性} & \textbf{重载要求}\\
 \hline\hline
-7 & \lstinline@lhs<<rhs lhs>>rhs@ & 左移位/右移位 & \multirow{9}{*}{从左到右} & 可重载\\
-\cline{1-3}\cline{5-5}
-\multirow{2}{*}{8} & \lstinline@lhs<rhs lhs<=rhs@ & 小于/小于或等于&  & 可重载\\
+\multirow{2}{*}{8} & \lstinline@lhs<rhs lhs<=rhs@ & 小于/小于或等于& \multirow{8}{*}{从左到右} & 可重载\\
 \cline{2-3}\cline{5-5}
 & \lstinline@lhs>rhs lhs>=rhs@ & 大于/大于或等于 &  & 可重载\\
 \cline{1-3}\cline{5-5}

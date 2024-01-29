@@ -1,6 +1,6 @@
-#pragma once
-#include "array.hpp"
-#include <algorithm>
+#pragma once //千万不要遗漏
+#include "array.hpp" //这句可以没有，但是为了编译器检查方便，还是包含一下吧
+#include <algorithm> //包含std::min等实用函数
 //类模板std::array<T,N>的成员函数及一些非成员函数的定义
 template<typename T, std::size_t N>
 user::array<T, N>::array(std::initializer_list<T> ilist) : _elem{} {
@@ -111,6 +111,7 @@ void user::swap(array<T, N> &lhs, array<T, M> &rhs) {
     for (std::size_t i = 0; i < minlen; i++)
         std::swap(lhs._elem[i], rhs._elem[i]); //可以访问私有成员
 }
+
 //类模板特化std::array<bool,N>的成员函数及部分相关非成员函数的定义
 template<std::size_t N>
 user::array<bool, N>::array(std::initializer_list<bool> ilist) : _elem {} {

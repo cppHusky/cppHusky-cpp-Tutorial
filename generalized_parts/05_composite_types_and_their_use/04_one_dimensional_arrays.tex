@@ -3,7 +3,7 @@
 且慢。我在本章中一再提醒读者，变量名并不是变量的本质。如果要读取或者存储某个变量的信息，我们是可以不需要变量名的。假如说现在有三个 \lstinline@float@ 型的变量（每个变量占4字节内存），我暂且用 \lstinline@a@, \lstinline@b@, \lstinline@c@ 来称呼它们，如果它们在内存中的地址是挨着的，比如图5.10中的这种情况，我们可以定义一个 \lstinline@float*@ 类型的指针 \lstinline@pf=&a@，让它指向 \lstinline@a@。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.4\textwidth]{../images/generalized_parts/05_variables_one_by_one_in_memory_300.png}
+    \includegraphics[width=0.4\textwidth]{../images/generalized_parts/05_variables_one_by_one_in_memory.png}
     \caption{如果三个变量在内存中的地址是挨着的，我们可以用一个指针来访问这三个数据}
 \end{figure}
 接下来我们就可以用这一个指针访问这三个数据。还记得我们讲过指针的运算吧，\lstinline@pf+1@ 相对于 \lstinline@pf@ 偏移了一个数据（而非一个字节）。既然 \lstinline@pf@ 是 \lstinline@a@ 的地址，那么 \lstinline@pf+1@ 就是 \lstinline@b@ 的地址，\lstinline@pf+2@ 就是 \lstinline@c@ 的地址。\par
@@ -49,7 +49,7 @@
 用 \lstinline@*(array+i)@ 这样的方式来访问显得有点麻烦了。在C/C++中，我们还有一种方式可以访问数组的数据，那就是用下标运算符 \lstinline@[]@ 来实现这个功能。在C/C++中，如果 \lstinline@arr@ 是一个数组类型，那么我们可以用 \lstinline@arr[i]@ 的方式来替代 \lstinline@*(arr+i)@，效果相同。这个语法还可以扩展到指针层面，如果 \lstinline@p@ 是一个指针，我们也可以用 \lstinline@p[0]@ 的方式来替代 \lstinline@*p@。\footnote{实际上，对于数组名或指针来说，\lstinline@p[i]@ 形式的表达式都会被编译器当作\lstinline@*(p+i)@ 来处理，所以这么写只是会让我们自己方便一点而已，对于编译器来说没会么区别。}\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.6\textwidth]{../images/generalized_parts/05_variables_one_by_one_in_array_300.png}
+    \includegraphics[width=0.6\textwidth]{../images/generalized_parts/05_variables_one_by_one_in_array.png}
     \caption{用 \lstinline@array[i]@ 效果等同于 \lstinline@*(array+i)@}
 \end{figure}
 有了数组之后我们就可以只需要一个名字 \lstinline@array@，然后通过下标来读取或修改大量数据了。当然，不要忘记数组下标是从 \lstinline@0@ 开始的，所以 \lstinline@array@ 数组的第一个数是 \lstinline@array[0]@ 而不是 \lstinline@array[1]@。下面是一个对数组中各数字进行求和的例子，我们需要用户先输入 \lstinline@10@ 个数，然后求出它们的和。
@@ -212,7 +212,7 @@ Pi Pc
 最后输出的 \lstinline@Pi@ 和 \lstinline@Pc@ 分别是两个指针类型的名字，其实就是在原类型名字前面加上了 \lstinline@P@ ，代表指针（Pointer）。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.3\textwidth]{../images/generalized_parts/05_array_to_pointer_conversion_300.png}
+    \includegraphics[width=0.3\textwidth]{../images/generalized_parts/05_array_to_pointer_conversion.png}
     \caption{数组到指针的类型转换}    
 \end{figure}
 也就是说，数组比指针多出了一个``长度''信息。虽然我们一般看不出这个信息来，但是它确实存在。不信的话，你还可以用 \lstinline@sizeof@ 取数组的内存空间大小看一下，它是不是与数组长度挂钩。

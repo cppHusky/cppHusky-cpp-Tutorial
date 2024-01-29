@@ -43,7 +43,7 @@ int main() {
 所以我们不难发现，因为 \lstinline@Base@ 对象是内嵌在 \lstinline@Derived@ 对象当中的，我们就可以用 \lstinline@Base*@ 指针来取 \lstinline@Derived@ 对象中的基类部分，如图10.1所示。
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=.7\textwidth]{../images/generalized_parts/10_derived_class_object_and_subobject_in_memory_300.png}
+    \includegraphics[width=.7\textwidth]{../images/generalized_parts/10_derived_class_object_and_subobject_in_memory.png}
     \caption{用基类指针指向内嵌于派生类中的基类对象}
 \end{figure}
 所以对于公有继承来说，我们可以把派生类的指针隐式类型转换为基类的指针。
@@ -70,7 +70,7 @@ int main() {
 为什么编译器要把这个功能限制地如此严格呢？这是因为，这种\textbf{基类指针/引用到派生类指针/引用的向下类型转换（Downcasting）}存在着访问越界的潜在风险。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=.7\textwidth]{../images/generalized_parts/10_possible_issues_in_downcasting_300.png}
+    \includegraphics[width=.7\textwidth]{../images/generalized_parts/10_possible_issues_in_downcasting.png}
     \caption{用派生类指针指向基类对象，这是未定义行为}
 \end{figure}
 如图10.2所示，如果我们定义了一个 \lstinline@Base@ 类对象而用 \lstinline@Derived*@ 指针指向它，那么这个 \lstinline@Derived*@ 指针指向的内存范围除了这个 \lstinline@Base@ 对象以外，还有4个字节的其它空间。这4个字节可能存储了其它变量的部分信息，或者只是一些存储着杂乱无章信息的未使用空间。但夫论如何，当我们试图访问这些空间中的内容时，将会得到不确定的结果——这是一种未定义行为。\par

@@ -2,7 +2,7 @@
 \textbf{虚继承（Virtual inheritance）}用于对症解决菱形继承关系中公共基类重复的问题。如果两个基类虚继承自同一个公共基类，那么当其它类继承这两个类时，其公共基类部分的内容只会保留单独的一份，如图10.8所示。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=.56\textwidth]{../images/generalized_parts/10_diamond_virtual_inheritance_300.png}
+    \includegraphics[width=.56\textwidth]{../images/generalized_parts/10_diamond_virtual_inheritance.png}
     \caption{虚继承的情况下，\lstinline@Derived@ 类只含有一份 \lstinline@Base@ 类对象}
 \end{figure}
 请读者务必注意虚继承使用的位置。不是 \lstinline@Derived@ 虚继承了 \lstinline@A@ 和 \lstinline@B@，而是 \lstinline@A@ 和 \lstinline@B@ 虚继承了 \lstinline@Base@。
@@ -71,7 +71,7 @@ Derived::Derived()\\
 ``基类比派生类更复杂''的情况，需要用抽象基类的方式来建立继承结构，见图10.9。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=.7\textwidth]{../images/generalized_parts/10_abstract_shape_class_with_multiple_inheritance_300.png}
+    \includegraphics[width=.7\textwidth]{../images/generalized_parts/10_abstract_shape_class_with_multiple_inheritance.png}
     \caption{从 \lstinline@Shape@ 到各个图形之间的继承关系}
 \end{figure}
 其中的三角形、圆形之类，我们已经在第三节中完成了，所以这里从抽象平行四边形基类开始重写就好。

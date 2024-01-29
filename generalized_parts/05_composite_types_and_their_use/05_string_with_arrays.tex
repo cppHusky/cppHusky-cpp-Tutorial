@@ -72,7 +72,7 @@ C/C++有更好的解决方法，那就是用 \lstinline@name@ 数组内的信息
 这时它的33个字节全部都是有效信息，如图5.13第一行所示。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth]{../images/generalized_parts/05_Information_in_the_string_300.png}
+    \includegraphics[width=\textwidth]{../images/generalized_parts/05_Information_in_the_string.png}
     \caption{字符串 \lstinline@name@ 中信息的变化情况}
 \end{figure}
 那么接下来我通过 \lstinline@strcpy@\footnote{MSVC会默认阻止我们使用 \lstinline@strcpy@ 和 \lstinline@strncpy@ 函数。为了解决这个问题，我们可以更改设置，或直接在源代码的最前面加一行 \texttt{\#define \_CRT\_SECURE\_NO\_WARNINGS 1}。}把另一个名字复制到 \lstinline@name@ 中，这样做会修改原来字符串的信息。

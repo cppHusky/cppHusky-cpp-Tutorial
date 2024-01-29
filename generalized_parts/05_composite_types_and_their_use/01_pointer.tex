@@ -12,7 +12,7 @@
 \end{itemize}
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.25\textwidth]{../images/generalized_parts/05_layout_of_memory_300.png}
+    \includegraphics[width=0.25\textwidth]{../images/generalized_parts/05_layout_of_memory.png}
     \caption{程序的内存布局}
 \end{figure}\par
 内存中有无数字节，不同的数据需要不同的字节数量来存储，我们可以用 \lstinline@sizeof@ 来计算字节数量的值。\par
@@ -34,7 +34,7 @@ int main() {
 这是因为，对于任何一种类型，在取地址时\textbf{只会返回它的第一个字节的地址}。因为任何一个变量占据的内存都是连续的一段，所以我们只要知道了第一个字节在哪里，当然就知道整个变量占据了哪个区间的内存了。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.6\textwidth]{../images/generalized_parts/05_address_of_types_in_memory_300.png}
+    \includegraphics[width=0.6\textwidth]{../images/generalized_parts/05_address_of_types_in_memory.png}
     \caption{\lstinline@d@ 在内存空间中的示意图}
 \end{figure}
 如图5.2所示，既然 \lstinline@0x7ffccff275b8@ 是 \lstinline@d@ 的地址，而 \lstinline@sizeof(double)@ 又是 \lstinline@8@，那么自然而然，\lstinline@d@ 的信息应当存储在从 \lstinline@0x7ffccff275b8@ 开始的8个字节，一直到 \lstinline@0x7ffccff275bf@ 为止。\par
@@ -78,7 +78,7 @@ int main() {
 这里我们需要一个运算符：取内容运算符 \lstinline@*@\footnote{也有很多资料将其称为解引用运算符。}。读者可能会困惑——这不是乘法运算符吗？其实你可以把它当作一种重载！当它接收两个操作数时，它的含义就是乘法运算；当它接收一个操作数时，它的含义就是取指针的内容（见图5.3）。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.45\textwidth]{../images/generalized_parts/05_operator_dereference_or_multiplication_300.png}
+    \includegraphics[width=0.45\textwidth]{../images/generalized_parts/05_operator_dereference_or_multiplication.png}
     \caption{我们可以把 \lstinline@*@ 接收不同数量操作数的情况当成一种重载}
 \end{figure}
 说回原来的话题。通过 \lstinline@*@ 运算符，我们可以无需变量名就可以读取一个指针的内容；而且在允许的情况下，我们还可以修改其内容，这个修改是直接对内存中的内容进行修改，和修改 \lstinline@d@ 的值一样直截了当。\par
@@ -94,7 +94,7 @@ int main() {
 但计算机还是要把这些名字还原成内存中的一个个信息，然后再处理。变量名对于计算机来说，只是一个绑定了相应内存地址的名字罢了。于是 \lstinline@d@ 和 \lstinline@*pd@ 没什么分别；\lstinline@&d@ 和 \lstinline@pd@ 也没什么分别。图5.4阐述了它们的关系。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.4\textwidth]{../images/generalized_parts/05_relationship_between_variables_and_pointers_300.png}
+    \includegraphics[width=0.4\textwidth]{../images/generalized_parts/05_relationship_between_variables_and_pointers.png}
     \caption{变量 \lstinline@d@、地址 \lstinline@&d@、指针 \lstinline@pd@ 与内容\lstinline@*pd@ 的相互关系}
 \end{figure}
 这个关系是循环的，我们可以先取地址再取内容，最后得到的东西和 \lstinline@d@ 是一回事。所以我们还可以对这个东西再取地址，再取内容，再取地址，再取内容……以至无穷。
@@ -126,13 +126,13 @@ int main() {
 回想一下我们之前讲过的内容。每次程序调用一个函数的时候，都会在栈区压入一层堆栈帧。这个堆栈帧中就含有在本次调用过程中创建的变量，如图5.5所示，这时调用栈中发生修改的是 \lstinline@exchange@ 对应内存空间中的 \lstinline@a@ 和 \lstinline@b@，而不是 \lstinline@main@ 函数中的 \lstinline@a@ 和 \lstinline@b@。这两对变量虽然同名，但它们对应的是内存空间中完全不同的区域。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{../images/generalized_parts/05_parameter_pass_by_value_300.png}
+    \includegraphics[width=0.9\textwidth]{../images/generalized_parts/05_parameter_pass_by_value.png}
     \caption{在调用 \lstinline@exchange@ 函数时，调用栈中发生的变化}
 \end{figure}
 所以在函数参数传递的过程中，程序并没有把``整个变量''传递给目标函数，而只传递了它的``值''。至于被调用的那个函数，它会另外定义一个新的变量（它在内存空间中另一自己的一席之地）来接收传入的值。很多资料会把它称为\textbf{副本（Copy）}。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.75\textwidth]{../images/generalized_parts/05_process_of_pass_by_value_300.png}
+    \includegraphics[width=0.75\textwidth]{../images/generalized_parts/05_process_of_pass_by_value.png}
     \caption{\lstinline@main@ 向 \lstinline@exchange@ 中传入的信息只有值}
 \end{figure}
 我们会发现，不同函数之间只能共享值，这种现象好像一种屏障——在某些时候，它显得十分安全，我们不会在一个函数中乱改其它函数中的信息；但在另一些时候，它显得非常不灵活，如果我们用别的函数只能读取而不能修改此函数中的值，函数的功能就会受到很大限制——比如我们试图写一个值交换函数而不能。\par
@@ -207,7 +207,7 @@ int main() {
 指针和整型的加减法并不是单纯地移动多少个字节，而是移动了多少个数据（可以理解为，偏移量乘以单个数据占用的字节数），如图5.7所示。这样设计是有它的道理的，等我们讲到数组，读者就会很容易理解了。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.7\textwidth]{../images/generalized_parts/05_arithmetic_of_pointer_300.png}
+    \includegraphics[width=0.7\textwidth]{../images/generalized_parts/05_arithmetic_of_pointer.png}
     \caption{指针加法运算的偏移量是以数据为单位的，而不是地址值}
 \end{figure}
 两个同类型指针可以相减，其返回值是一个特殊的类型，叫作 \lstinline@ptrdiff_t@。不过我们也无需纠结这种细节，因为 \lstinline@ptrdiff_t@ 可以隐式类型转换为整型，所以我们可以直接把它当作整型来用，比如输出。

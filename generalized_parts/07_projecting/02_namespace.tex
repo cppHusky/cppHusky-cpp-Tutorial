@@ -37,7 +37,7 @@ void swap( T& a, T& b ) noexcept( /* ... */ );
 那么我们是不是可以这样认为：这两个文件虽然重名，但它们存在于不同的空间中，所以不会有什么冲突。如果我们想访问这两个文件，我们也肯定会通过不同路径来找。这样，一切可能的冲突都解决了。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.5\textwidth]{../images/generalized_parts/07_file_explorer_and_namespaces_300.png}
+    \includegraphics[width=0.5\textwidth]{../images/generalized_parts/07_file_explorer_and_namespaces.png}
     \caption{Windows文件资源管理器中的重名文件}
 \end{figure}
 命名空间也是这样的道理。在不同的命名空间中，我们可以按我们的需要来给变量、函数和类起名字，而不必担心与其它命名空间中的什么东西重名。\par

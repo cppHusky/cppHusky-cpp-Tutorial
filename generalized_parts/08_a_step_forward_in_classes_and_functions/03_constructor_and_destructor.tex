@@ -282,7 +282,7 @@ void fun(valarri a) { //在传递参数时会进行拷贝构造
 \textbf{深拷贝（Deep copy）}的特点在于，它不是复制地址而是复制内容。图8.2展示了它们之间的区别。
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{../images/generalized_parts/08_shallow_copy_and_deep_copy_300.png}
+    \includegraphics[width=0.8\textwidth]{../images/generalized_parts/08_shallow_copy_and_deep_copy.png}
     \caption{浅拷贝与深拷贝}
 \end{figure}\par
 要实现深拷贝其实很简单，就像一般的构造函数那样写就行了，只是参数类型变成了 \lstinline@const valarri&@ 而已，剩下的只是按我们的需要复制值或内容而已。

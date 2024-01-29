@@ -43,7 +43,7 @@ int main() {
 我们还可能会图方便，直接把 \lstinline@C::sta@ 定义在头文件中，但是我们会立刻发现一个问题：如果把 \lstinline@C::sta@ 定义在头文件中，那么两个源文件在包含此头文件后，就会在两个文件中分别产生两个定义，这就违反了单一定义规则（ODR），如图8.3所示。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=.8\textwidth]{../images/generalized_parts/08_file_inclusion_300.png}
+    \includegraphics[width=.8\textwidth]{../images/generalized_parts/08_file_inclusion.png}
     \caption{把 \lstinline@C::sta@ 定义在头文件中将导致具有外部链接的变量被定义两次}
 \end{figure}
 所幸，从C++17起我们可以通过定义内联变量的方式来解决这个问题。
@@ -258,7 +258,7 @@ std::size_t strlen(const char *start) {
 延迟标记在这个基础上更进一步。它连一开始的那次计算都不做了，只是打一个``搁置再议''的标签而已。什么时候开始计算呢？等我们需要这个值的时候再算。这样的好处是，如果在这个对象的整个生存期内都不需要用到这个值，那我们岂不是连第一次的计算都省了？（图8.4）\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=.8\textwidth]{../images/generalized_parts/08_lazy_tag_300.png}
+    \includegraphics[width=.8\textwidth]{../images/generalized_parts/08_lazy_tag.png}
     \caption{延迟标记的作用}
 \end{figure}
 对于常量对象来说，我们为它设计的延迟标记也需要有修改的机会。就不拿 \lstinline@valarri@ 来举例了，我们换个例子。\par

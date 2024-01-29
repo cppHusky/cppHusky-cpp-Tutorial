@@ -10,7 +10,7 @@
 为什么把 \lstinline@int*@ 类型转换成 \lstinline@char*@ 类型之后再输出就会得到这么奇怪的内容呢？原因就出在类型上。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth]{../images/generalized_parts/06_0_1_string_to_int_or_char_300.png}
+    \includegraphics[width=\textwidth]{../images/generalized_parts/06_0_1_string_to_int_or_char.png}
     \caption{对同一段比特串，不同类型会解读出不同内容}
 \end{figure}
 内存中的32个比特如图所示。如果用 \lstinline@int@ 类型去解读它，就会得到 \lstinline@1668893495@；而如果用 \lstinline@char@ 类型去解读它，就会分别得到四个字符 \lstinline@'7'@, \lstinline@'K'@, \lstinline@'y'@, \lstinline@'c'@。而当我们以 \lstinline@char*@ 类型输出时，因为这里没有结束符 \lstinline@'\0'@，所以它还会继续输出后面内存中的无意义内容，直到碰到结束符为止。\par

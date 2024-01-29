@@ -65,7 +65,7 @@
 C++中的赋值运算符优先级很低，比四则运算都要低。那么按照我们的思路，如果加法，乘法和赋值运算符同时出现，我们应该先给乘法套括号，然后是加法，最后才是赋值。如图2.1所示。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.5\textwidth]{../images/generalized_parts/02_Precedence_of_multiply_addition_and_assignment_300.png}
+    \includegraphics[width=0.5\textwidth]{../images/generalized_parts/02_Precedence_of_multiply_addition_and_assignment.png}
     \caption{代码 \lstinline@num=a*b+c*d;@ 的套括号解释}
 \end{figure}
 再看这段代码：
@@ -103,7 +103,7 @@ C++中规定了每个运算符的\textbf{结合性（Associativity）}。对于�
 除法运算符所在的优先级，其结合性是从左向右的，所以在乘法、除法和取模混合运算时，它就会从左向右套括号，而直观表现上就是``从左向右算''。赋值运算符所在的优先级，其结合性是从右向左的，所以在连续赋值的时候，它就会从右向左套括号，而直观表现上就是``从右向左算''。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.4\textwidth]{../images/generalized_parts/02_Associativity_of_division_and_assignment_300.png}
+    \includegraphics[width=0.4\textwidth]{../images/generalized_parts/02_Associativity_of_division_and_assignment.png}
     \caption{除法运算符和赋值运算符的结合性}
 \end{figure}
 所以连续除法中 \lstinline@8/4/2@ 就应该解释成 \lstinline@(8/4)/2@ 而非 \lstinline@8/(4/2)@；而连续赋值中 \lstinline@a=b=0@ 就应该解释成 \lstinline@a=(b=0)@ 而非 \lstinline@(a=b)=0@。如图2.2所示。\par

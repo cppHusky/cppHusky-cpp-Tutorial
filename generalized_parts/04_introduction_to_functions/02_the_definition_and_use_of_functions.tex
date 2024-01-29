@@ -46,7 +46,7 @@ int main() {
 每一个函数体都是一个独立的作用域，各个函数作用域之间互相没有嵌套关系——这点和块作用域很不相同。在讲块作用域的时候我们说，内层作用域中可以使用外层作用域里定义的变量。但是函数作用域彼此独立，一个函数中定义的变量在另一个函数中不可见\footnote{一个函数作用域的变量对另一个函数不可见，这并非意味着生存期结束且变量被销毁。我们在第七章中会再谈及此类问题。}，如图4.2所示。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.6\textwidth]{../images/generalized_parts/04_block_scope_and_function_scope_300.png}
+    \includegraphics[width=0.6\textwidth]{../images/generalized_parts/04_block_scope_and_function_scope.png}
     \caption{块作用域与函数作用域的区别}
 \end{figure}
 这种关系有点像是动物园。在动物园中，每个动物（局部变量）都被关在自己的围栏（函数作用域）内生活，而其它围栏内的动物不能和它们互相接触。动物饲养员则像全局变量，它可以进入各个围栏内部。\par
@@ -170,7 +170,7 @@ long long max3(long long, long long, long long);
 这里有个问题需要读者留意：为什么这里只需要声明 \lstinline@max3@ 而不需要声明 \lstinline@max@ 呢？其原因在于，\lstinline@max@ 是在 \lstinline@max3@ 中调用的，而 \lstinline@max@ 的定义在 \lstinline@max3@ 之前，所以编译器不会找不到 \lstinline@max@，参见图4.3的蓝色箭头。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{../images/generalized_parts/04_max3_code_logic_300.png}
+    \includegraphics[width=0.8\textwidth]{../images/generalized_parts/04_max3_code_logic.png}
     \caption{\lstinline@main@ 函数调用了 \lstinline@max3@，而 \lstinline@max3@ 调用了 \lstinline@max@，它们都能够找到对应的函数}
 \end{figure}
 这也就是说，其实 \lstinline@main@ 函数没有调用 \lstinline@max@，调用 \lstinline@max@ 的其实是 \lstinline@max3@。这种关系对于初学者来说可能相当复杂，不过即使现在很难理解也没有关系，我们在日后的学习过程中会慢慢体会到的。\par
