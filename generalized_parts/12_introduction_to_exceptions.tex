@@ -1,0 +1,19 @@
+\chapter{异常处理简介}
+我们在写代码的时候常常会不可避免地犯错误。比如说，一个不小心把 \lstinline@==@ 写成了 \lstinline@=@，像这样：
+\begin{lstlisting}
+    if (n * m = c) { /*...*/ }
+\end{lstlisting}
+不过所幸，编译器能够一下子发现错误，进而提醒我们这里出错了。\par
+但不是所有的bug都可以在编译期发现，比如：
+\begin{itemize}
+    \item 动态内存空间不足，无法分配新的内存空间。
+    \item 数组访问越界。比如，循环结构 \lstinline@\for(int i=n-1;i>=0;i++)@ 中本来是要写成
+    \item 为函数/运算符提供了不当的参数。比如，除数为 \lstinline@0@。
+    \item ……
+\end{itemize}
+这些问题的发生将导向不可预测的结果，比如程序崩溃。\par
+但是编译器可查不出这些问题是否存在，因为它们不是在编译期就能够知道的信息。所以我们需要有一套机制，来对这些运行过程中可能产生的\textbf{异常（Exception）}进行捕获和处理。这也就是本章的核心内容。\par
+关于异常处理的知识，说多不多，说少也不少。限于篇幅，在泛讲篇中我们就介绍一下最基础的部分。至于更深入的内容，让我们留到精讲篇吧。\par
+\import{../generalized_parts/12_introduction_to_exceptions/}{01_try_catch_throw.tex}
+\import{../generalized_parts/12_introduction_to_exceptions/}{02_std_exception.tex}
+\import{../generalized_parts/12_introduction_to_exceptions/}{03_noexcept.tex}
