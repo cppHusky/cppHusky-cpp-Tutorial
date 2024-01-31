@@ -1,0 +1,121 @@
+\section{基本\texttt{try}-\texttt{catch}-\texttt{throw}结构}
+我们先来看看C++异常处理所依托的基本结构：\lstinline@try@-\lstinline@catch@-\lstinline@throw@。\par
+\begin{lstlisting}
+    try {
+        //待执行的语句，其中含有throw语句
+        throw /*异常参数*/;
+    } catch ( /*捕获的异常参数*/ ) {
+        //处理异常的操作
+    }
+\end{lstlisting}
+在这个结构中，\lstinline@try@ 是不能单独存在的。只要有 \lstinline@try@，就必须存在至少一个 \lstinline@catch@。至于 \lstinline@catch@，它可以连用，我们可以写连续写多个 \lstinline@catch@ 块，用来处理不同类型的异常。\par
+至于 \lstinline@throw@，它是这个结构当中的关键。一个 \lstinline@throw@ 语句就意味着要抛出一个异常。而 \lstinline@throw@ 之后的内容是一个异常信息——我们不能只告诉程序``有个异常''就完了，总得说清楚``异常是什么''才行。这个``异常参数''就能传递特定的信息，不同的参数意味着不同的异常。\par
+以下是一个解一元二次方程的例子，用户可以输入 \lstinline@a@, \lstinline@b@, \lstinline@c@ 的值，程序将计算出$ax^2+bx+c=0$的根。这里有三项异常检测：一是输入内容本身的异常，比如说希望用户输入浮点数，但用户却输入了无关的字符；二是输入的 \lstinline@a@ 值为 \lstinline@0@，那它就不算二次方程了；三是根的判别表达式$\Delta=b^2-4ac$ 为负，这时它没有实根，我们不需要解它。\par
+\lstinputlisting[caption=\texttt{solve\_equation.cpp}]{code_in_book/12.1/solve_equation.cpp}\par
+先看 \lstinline@try@ 块，在这里我们定义了若干变量，可以接收用户的输入，或是存储中介数据（\lstinline@Delta@）。在这里，我们进行了三个异常检测，分别是输入状态检测、二次项系数检测和根的判别表达式检测。对于本例来说，这三个检测语句之间的顺序其实无所谓；不过它们在逻辑层面还是有依赖关系的，因此本代码中的顺序最合逻辑。\par
+\lstinline@try@ 块中的任何 \lstinline@throw@ 语句都会导致程序直接跳出 \lstinline@try@ 块（有点像 \lstinline@break@ 或者 \lstinline@return@，但比它们更强大），去寻找能接收这个异常参数的 \lstinline@catch@ 语句。\par
+那么我们来看看 \lstinline@catch@ 块吧。在这里，我们用 \lstinline@int@ 变量 \lstinline@error@ 接收异常参数，所以 \lstinline@try@ 块中的三种异常都可以被它捕获。这样，我们可以用一个 \lstinline@switch@ 结构来判断它们分别属于何种异常，然后加以适当的处理。\par
+\subsection*{\texttt{throw}一个对象}
+我们抛出异常时不一定非要抛出 \lstinline@1@, \lstinline@2@, \lstinline@3@ 这样的数据，也可以抛出任何一个类的对象。举个例子吧，如果我们单纯希望输出异常信息而不做什么处理的话，我们可以改用下面这种抛出 \lstinline@std::string@ 类对象的方式。
+\begin{lstlisting}
+    try {
+        double a, b, c;
+        cin >> a >> b >> c;
+        if (!cin)
+            throw string("输入内容并非数字！"); //直接抛出string对象
+        if (a == 0)
+            throw string("二次项系数不能为0！");
+        double Delta {b * b - 4 * a * c};
+        if (Delta < 0)
+            throw string("方程无实根！");
+        cout << (- b + sqrt(Delta)) / (2 * a) << ' '
+             << (- b - sqrt(Delta)) / (2 * a) << '\n';
+    } catch (string error) { //在这里用string型变量error来捕获异常信息
+        cout << error; //无需判断，直接输出便好
+    }
+\end{lstlisting}\par
+这样我们就把 \lstinline@catch@ 块中的条件结构省了，多省事。\par
+我们还可以通过抛出不同类型的对象，并用不同的 \lstinline@catch@ 块接收，以此表明不同的错误种类。还是以解一元二次方程为例，我们可以把第一个异常归结为``输入本身的异常''，而把第二、三两个归结为``只是出现了不合理的值''。那么我们可以把这个结构改为下面这样：
+\begin{lstlisting}
+    try {
+        double a, b, c;
+        cin >> a >> b >> c; //输入三个系数
+        if (!cin)
+            throw "输入内容并非数字！"; //抛出const char*字符串
+        if (a == 0)
+            throw string("二次项系数不能为0！"); //抛出string对象
+        double Delta {b * b - 4 * a * c};
+        if (Delta < 0)
+            throw string("方程无实根！");
+        cout << (- b + sqrt(Delta)) / (2 * a) << ' '
+             << (- b - sqrt(Delta)) / (2 * a) << '\n'; //输出结果
+    } catch (string error) { //值得注意的是，const char*不能匹配这里的string
+        cout << "值错误：" << error; //无需判断，直接输出便好
+    } catch (const char* error) {
+        cout << "输入错误：" << error;
+    }
+\end{lstlisting}\par
+在这段代码中，程序有可能抛出两种类型的异常对象，分别是 \lstinline@const char*@ 和 \lstinline@std::string@。这两种类型并不相同，而且不会发生隐式类型转换\footnote{\lstinline@std::string@ 类存在一个 \lstinline@const char*@ 相关的转换构造函数，所以我们可以在能够隐式类型转换的场合下直接用 \lstinline@const char*@ 代表一个 \lstinline@std::string@ 对象，编译器会帮我们进行隐式类型转换。}。所以，如果抛出字符串 \lstinline@"输入内容并非数字！"@，那么程序不会把它与 \lstinline@string error@ 句匹配，而是继续向下寻找别的 \lstinline@catch@ 语句，然后就会找到 \lstinline@const char *error@ 这里来。\par
+\subsection*{异常类型的匹配}
+所以说，在抛出和接收异常的时候，异常对象与异常参数的类型必须相匹配。什么叫``匹配''呢？我们可以用如下的规则来做一个简单描述。实际的规则会更复杂些，不过实际编程中我们很少遇到那些细枝末节的情况。
+\begin{itemize}
+    \item 一般意义上的隐式类型转换都是不允许的。比如说，字面量 \lstinline@1@ 它是 \lstinline@int@ 型的，就不能匹配 \lstinline@unsigned@ 或者 \lstinline@double@ 类型的异常参数。如果想要让它匹配，就必须写成 \lstinline@1u@/\lstinline@unsigned{1}@ 或者 \lstinline@1.@/\lstinline@(double)1@ 之类的形式。
+    \item \lstinline@T@ 类型的异常对象如果不是常量/字面量，就可以被 \lstinline@T@, \lstinline@const T@, \lstinline@T&@, \lstinline@const T&@ 异常类型所接收；对于常量来说，\lstinline@T&@ 就不行了。（有点像是函数参数传递）
+    \item 如果 \lstinline@B@ 是 \lstinline@T@ 的公开基类\footnote{如果继承方式本身就是私有继承/受保护继承的话，那当然不能在类外进行隐式类型转换了。}，那么 \lstinline@T@ 类型的异常对象可以被 \lstinline@B@, \lstinline@const B@, \lstinline@B&@, \lstinline@const B&@ 异常类型所接收；对于常量来说，\lstinline@B&@ 就不行了。（简单点说，涉及继承关系时，还是可以进行隐式类型转换的\footnote{但是在出现了多重继承的场合，这个问题将会变得复杂。这里只对读者进行提醒，泛讲篇并不会讨论相关方面的问题。}）
+    \item 派生类指针作为异常对象时，可以被基类指针的异常类型所接收。（特殊情况就不讨论了，别想那么多）
+\end{itemize}\par
+读者可能会好奇：如果一个异常找不到匹配的类型，那会怎样？\par
+这个结果因编译环境而异，但一般的结果都是程序崩溃，因为程序找不到能处理这个异常的 \lstinline@catch@ 块。这也就提醒我们，如果我们在日常生活中已经习惯于使用隐式类型转换（比如给 \lstinline@double@ 变量初始化为 \lstinline@1@ 而非 \lstinline@1.@ 或者给 \lstinline@bool@ 变量初始化为 \lstinline@0@ 而非 \lstinline@false@）的话，在抛出异常时一定要多加注意，这里的类型检测是很严格的\footnote{比模板参数还要严格，模板参数好歹还允许 \lstinline@int@ 字面量转换成 \lstinline@std::size_t@ 类型呢。}。\par
+\subsection*{栈回溯}
+\lstinline@throw@ 最灵活的地方在于，它可以跨作用域使用。先来举个最简单，但是不很恰当的例子：
+\begin{lstlisting}
+    int a[2][3][5]; //三维数组
+    try{
+        for (int i = 0; i < 2; ++i)
+            for (int j = 0; j < 3; ++j)
+                for (int k = 0; k < 5; ++k) {
+                    cin >> a[i][j][k]; //输入每个元素的值
+                    if (!cin) //如果输入有异常
+                        throw "Input error";
+                }
+        //...后续处理
+    } catch (const char* error) { //一旦抛出异常，将跳转至此，由catch捕获
+        cout << error;
+    }
+\end{lstlisting}
+如果我们没学过异常处理的话，面对这种``跳出三层循环''的操作，我们需要用一些技巧，比如单独记录一个状态变量之类的。至于 \lstinline@break@ 语句，抱歉，它只能跳出单层循环；而到了外层循环，我们还需要根据状态变量的值再 \lstinline@break@；到了最外层，还需要再 \lstinline@break@。这种操作怪麻烦的。当然还有一种方式，那就是 \lstinline@goto@——不过本书不讲 \lstinline@goto@，也不是很推荐使用它。如果读者对此有兴趣，可以自行查阅相关的文档。\par
+至于 \lstinline@throw@ 语句，只要它开始执行，就会直接跳过其它操作，一心一意地寻找能够捕获它的 \lstinline@catch@ 语句。它会跳出一切作用域（与此同时，也把自动存储期的对象销毁），无论选择、循环还是别的什么，只为了找一个合适的 \lstinline@catch@。所以我们只需要写一次 \lstinline@throw@ 语句，它就可以一下子跳出三层 \lstinline@for@ 循环了。\par
+\lstinline@throw@ 语句还可以跨函数使用，这是 \lstinline@break@ 所不及的。
+\begin{lstlisting}
+void g() { throw string("error"); }
+void f() { g(); }
+int main() {
+    try {
+        f();
+    } catch (const string &error) {
+        cout << error;
+    }
+\end{lstlisting}
+这不是一个实际具体的例子，只是为了演示 \lstinline@throw@ 的功能。在程序遇到 \lstinline@throw@ 语句时，它会跳过一切其它操作去找 \lstinline@catch@ 语句。在这一过程中，\lstinline@g()@ 函数所在的堆栈帧\footnote{关于调用栈和堆栈帧的知识，我们曾在第四章介绍函数递归时提及，读者若是忘了，可以回顾一下。}被弹出（伴随着自动存储期变量的销毁等），\lstinline@f()@ 函数所在的堆栈帧也被弹出。这是一种\textbf{栈回溯（Stack unwinding）}的过程。\par
+栈回溯与返回值的区别在于，返回值必须一级一级地返回，不能从 \lstinline@g()@ 一次性跳到 \lstinline@main@ 的 \lstinline@catch@ 中；而 \lstinline@throw@ 结构则能一步到位，不需要 \lstinline@f()@ 返回什么东西。\par
+这种不管不顾一味回溯的操作当然有其安全的一面；但倘若我们在使用时不加注意，也很容易导致新的问题。比如说吧，\lstinline@f@ 函数中还有分配动态内存尚未回收，但程序却根据 \lstinline@throw@ 语句的指令，把 \lstinline@g@ 和 \lstinline@f@ 的堆栈帧都弹出了，那 \lstinline@f@ 中的动态内存就泄漏了啊。为了解决这个问题，我们需要在 \lstinline@f@ 中先 \lstinline@catch@ 一下，处理一下动态内存。但倘若我们本来的抛出目的地是 \lstinline@main@ 函数中的 \lstinline@catch@，那怎么办？答案是，在 \lstinline@f@ 的 \lstinline@catch@ 块中处理完成后，再把刚收到的异常对象继续抛出。如下所示：
+\begin{lstlisting}
+void g() { throw string("error"); }
+void f() {
+    int *p = new int;
+    try{
+        g();
+    } catch (const string &error) {
+        delete p; //回收p指向的动态内存
+        throw error; //把接收到的异常对象继续抛出
+    }
+}
+int main() {
+    try {
+        f();
+    } catch (const string &error) {
+        cout << error;
+    }
+\end{lstlisting}
+这样，一个安全的异常抛出流程就实现了。\par
+在本节的末尾，我也要提醒读者，虽然异常处理有 \lstinline@break@, \lstinline@return@ 等语句所不能及的灵活性，但我们也不应滥用异常处理。我们应当是为了防范真正意义上的``异常''才去使用异常处理，而不是拿着异常处理的工具去控制正常的程序流程\footnote{一般来说，正常的程序流程就是三种：顺序、选择、循环。至于 \lstinline@goto@ 或者 \lstinline@throw@，那些都是可有可无的——最好没有。}。至于什么是正常，什么是异常——那就没有统一的标准了，就请读者在编程实践中多多积累经验吧。下一节我们就来介绍一些C++标准库中的异常类，这也可以为读者提供初步的认识。\par
