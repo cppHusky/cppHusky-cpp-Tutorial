@@ -52,6 +52,12 @@
         "xtr1common": "cpp",
         "xutility": "cpp",
         "unordered_set": "cpp",
-        "*.tpp": "cpp"
+        "*.tpp": "cpp",
+        "bitset": "cpp",
+        "list": "cpp",
+        "set": "cpp",
+        "valarray": "cpp",
+        "xhash": "cpp",
+        "xtree": "cpp"
     }
 }

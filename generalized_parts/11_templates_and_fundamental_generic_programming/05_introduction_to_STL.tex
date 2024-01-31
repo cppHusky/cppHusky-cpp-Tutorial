@@ -122,7 +122,7 @@ int main() {
 然而，``指针''这个思路虽然好，但它也有自己的问题。举个例子吧，请问如何表示 \lstinline@pvec@ 所指元素的``下一个''元素的地址？读者可能很快就想到了，当然是 \lstinline@pvec+1@ 啊，因为在内存中，\lstinline@std::vector@ 的元素就是连续排布的。那么如何表示 \lstinline@plst@ 所指元素的``下一个''元素的地址？读者可能也会下意识地想到 \lstinline@plst+1@，但这是错的！只要回顾一个第六章中我们讲过的内容，读者就会明白，链表中的元素在内存中并不连续排布，所以 \lstinline@plst+1@ 得不到我们想要的结果。同样的道理，\lstinline@std::deque@ 的元素在内存中是分块排布的\footnote{详见 \href{https://stackoverflow.com/a/6292437/22112284}{What really is a deque in STL? - Stack Overflow} 的回答。}，我们对指针 \lstinline@+1@ 也不一定能得到想要的结果。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth]{../images/generalized_parts/11_different_types_of_pointer_to_containers.png}
+    \includegraphics[width=\textwidth]{../images/generalized_parts/11_different_types_of_pointer_to_containers.drawio.png}
     \caption{使用裸指针的问题——谁是``下一个''元素？}
 \end{figure}
 不同的容器有各自的实现方式，这就使我们使用指针的想法很难实现。在这种情况下，``迭代器''的概念就应运而生了，它在表现上如同平凡的指针，但是在求``下一个元素''的时候，却能有方便又统一的方法。\par
@@ -259,7 +259,7 @@ OutputIt copy(InputIt first, InputIt last, OutputIt d_first);
 这个算法的含义是，把从 \lstinline@first@ 到 \lstinline@last@ 位置（左包含，右不包含，下同）的内容拷贝到 \lstinline@d_first@ 起的若干位置。至于返回值，就是待复制区域的``下一个''位置。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=.6\textwidth]{../images/generalized_parts/11_algorithm_copy.png}
+    \includegraphics[width=.6\textwidth]{../images/generalized_parts/11_algorithm_copy.drawio.png}
     \caption{\lstinline@copy@ 算法的含义}
 \end{figure}
 读者会发现，在这里我们已经不考虑容器的类型了。不管它是数组，还是 \lstinline@std::vector@，还是 \lstinline@std::deque@ 或者 \lstinline@std::list@，乃至非顺序容器 \lstinline@std::set@ 及 \lstinline@std::map@，反正它们都至少满足前向迭代器的要求，那么对于输入/输出迭代器来说自然是不在话下。所以算法是与容器类型无关的，它只需要考虑迭代器的类型；至于迭代器类型如何，那才是容器说了算的——这是一种对容器类型的抽象。\par

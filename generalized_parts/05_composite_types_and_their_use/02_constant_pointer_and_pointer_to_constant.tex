@@ -6,7 +6,7 @@
 当我们拿到一个没有任何限制的指针时，我们可以对它的指向进行修改——也就是修改这个指针所存储的地址值；我们还可以通过取内容运算符 \lstinline@*@ 来对它的内容进行修改——也就相当于修改对应变量的值，而修改之后这个指针依然指向原来的位置。如图5.8所示。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.6\textwidth]{../images/generalized_parts/05_change_pointer_s_address_or_content.png}
+    \includegraphics[width=0.6\textwidth]{../images/generalized_parts/05_change_pointer_s_address_or_content.drawio.png}
     \caption{修改指针的指向/修改指针的内容}
 \end{figure}
 我们可以通过 \lstinline@const@ 来限制指针的一部分修改能力，从而将其变为常量指针或指向常量的指针。为了避免在代码上出现误解和混淆，我先介绍概念。\par
@@ -31,7 +31,7 @@
 图5.9可以帮助你梳理它们之间的区别。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.7\textwidth]{../images/generalized_parts/05_definition_of_constant_pointer_and_pointer_to_const.png}
+    \includegraphics[width=0.7\textwidth]{../images/generalized_parts/05_definition_of_constant_pointer_and_pointer_to_const.drawio.png}
     \caption{\lstinline@const@ 限制了什么？}
 \end{figure}
 知道了这个语法规则，那么定义一个``指向常量的常量指针''的语法也就很容易理解了：

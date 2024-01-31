@@ -65,7 +65,7 @@
     \item 派生类指针作为异常对象时，可以被基类指针的异常类型所接收。（特殊情况就不讨论了，别想那么多）
 \end{itemize}\par
 读者可能会好奇：如果一个异常找不到匹配的类型，那会怎样？\par
-这个结果因编译环境而异，但一般的结果都是程序崩溃，因为程序找不到能处理这个异常的 \lstinline@catch@ 块。这也就提醒我们，如果我们在日常生活中已经习惯于使用隐式类型转换（比如给 \lstinline@double@ 变量初始化为 \lstinline@1@ 而非 \lstinline@1.@ 或者给 \lstinline@bool@ 变量初始化为 \lstinline@0@ 而非 \lstinline@false@）的话，在抛出异常时一定要多加注意，这里的类型检测是很严格的\footnote{比模板参数还要严格，模板参数好歹还允许 \lstinline@int@ 字面量转换成 \lstinline@std::size_t@ 类型呢。}。\par
+一般来说，如果程序找不到能处理这个异常的 \lstinline@catch@ 块，就会调用 \lstinline@std::terminate@ 函数，直接终止这个程序。。至于这个程序正在进行的工作，也就被迫停止了。这就提醒我们，如果我们在日常生活中已经习惯于使用隐式类型转换（比如给 \lstinline@double@ 变量初始化为 \lstinline@1@ 而非 \lstinline@1.@ 或者给 \lstinline@bool@ 变量初始化为 \lstinline@0@ 而非 \lstinline@false@）的话，在抛出异常时一定要多加注意，这里的类型检测是很严格的\footnote{比模板参数还要严格，模板参数好歹还允许 \lstinline@int@ 字面量转换成 \lstinline@std::size_t@ 类型呢。}，稍有不慎就可能会导致意料之外的处理结果。\par
 \subsection*{栈回溯}
 \lstinline@throw@ 最灵活的地方在于，它可以跨作用域使用。先来举个最简单，但是不很恰当的例子：
 \begin{lstlisting}

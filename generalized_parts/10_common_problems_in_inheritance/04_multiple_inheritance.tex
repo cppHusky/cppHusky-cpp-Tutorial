@@ -61,7 +61,7 @@ int main() {
 这段代码中的继承关系很清晰，如图10.6所示。
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=.36\textwidth]{../images/generalized_parts/10_multiple_inheritance_example.png}
+    \includegraphics[width=.36\textwidth]{../images/generalized_parts/10_multiple_inheritance_example.drawio.png}
     \caption{多重继承关系示例}
 \end{figure}
 那么它的运行结果将是怎样的呢？\\\noindent\rule{\linewidth}{.2pt}\texttt{
@@ -98,7 +98,7 @@ int main() {
 换句话说，虽然 \lstinline@Derived@ 从根本上来说继承自 \lstinline@Base@，但是因为多重继承的缘故，它实际上有了两份 \lstinline@Base::num@ 成员，一个来自基类 \lstinline@A@，另一个来自基类 \lstinline@B@。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=.56\textwidth]{../images/generalized_parts/10_diamond_inheritance.png}
+    \includegraphics[width=.56\textwidth]{../images/generalized_parts/10_diamond_inheritance.drawio.png}
     \caption{菱形继承关系下，\lstinline@Derived@ 类内嵌了两份 \lstinline@Base@ 类对象}
 \end{figure}
 在多数情况下，这并不是我们想要的结果，而且还会引发无数的麻烦——比如说，内存空间的浪费，我们明明只需要一份数据，但多重继承为我们搞出了两份数据；再比如说，名称的歧义和冲突，我们不能单纯写成 \lstinline@d.num@，必须写成 \lstinline@d.A::num@ 或 \lstinline@d.B::num@。它们本应该相同的。而在C++中，解决这个问题的对策，就是下一节中要讲到的虚继承。\par

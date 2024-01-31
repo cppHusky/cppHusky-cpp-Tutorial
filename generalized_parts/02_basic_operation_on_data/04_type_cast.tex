@@ -30,7 +30,7 @@ C++提供了丰富的基本类型，包括各种整型、浮点型、字符型�
 接下来是这个 \lstinline@double@ 型的 \lstinline@1.*a@ 作为整体与 \lstinline@int@ 型的 \lstinline@b@ 相除，于是 \lstinline@int@ 型的 \lstinline@b@ 也需要被转换成 \lstinline@double@ 型数据再参与运算。而 \lstinline@double@ 型数据的除法就不致于有截尾级别的精度损失了。整个过程如图2.3(a)所示。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.95\textwidth]{../images/generalized_parts/02_Implicit_type_cast_from_int_to_double.png}
+    \includegraphics[width=0.95\textwidth]{../images/generalized_parts/02_Implicit_type_cast_from_int_to_double.drawio.png}
     \caption{\lstinline@1.*a/b@ 与 \lstinline@a/b*1.@ 的隐式类型转换过程图解}
 \end{figure}
 那么我写成这样行不行呢？
@@ -52,7 +52,7 @@ C++提供了丰富的基本类型，包括各种整型、浮点型、字符型�
 \textbf{布尔转换（Boolean Conversions）}是隐式类型转换当中比较特殊，而又十分常用的一类转换。如图2.4所示，它的转换规则很简单：如果别的基本数据类型要转换为 \lstinline@bool@ 类型的话，\lstinline@0@ 会转换成 \lstinline@false@，而其它的所有数都会被转换成 \lstinline@true@；如果 \lstinline@bool@ 类型要转换成其它的基本数据类型的话，\lstinline@false@ 会转换成 \lstinline@0@，而 \lstinline@true@ 会转换成 \lstinline@1@。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.7\textwidth]{../images/generalized_parts/02_boolean_conversion.png}
+    \includegraphics[width=0.7\textwidth]{../images/generalized_parts/02_boolean_conversion.drawio.png}
     \caption{布尔转换规则}
 \end{figure}
 \subsection*{显式类型转换}
@@ -97,7 +97,7 @@ C风格类型转换（和构造函数风格类型转换）最大的好处就是�
 在这里，乘法运算符在面临一个 \lstinline@int@ 操作数和 \lstinline@double@ 操作数的时候，它会怎么做呢？如图2.5所示，它将把 \lstinline@int@ 通过隐式类型转换变为 \lstinline@double@ 型！这样一来我们就白干了。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.6\textwidth]{../images/generalized_parts/02_Explicit_type_cast_from_double_to_int_in_vain.png}
+    \includegraphics[width=0.6\textwidth]{../images/generalized_parts/02_Explicit_type_cast_from_double_to_int_in_vain.drawio.png}
     \caption{显式类型转换，但是又被隐式类型转换改回去了}
 \end{figure}
 总而言之，类型转换是一个非常复杂的话题。限于我们目前接触到的类型尚少，这里只作简单概括。将来我们接触复合类型和自定义类型的时候，还会对此作针对性讲解的。\par

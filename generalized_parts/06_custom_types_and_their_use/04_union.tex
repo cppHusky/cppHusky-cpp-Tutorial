@@ -78,7 +78,7 @@ struct dynamic { //自定义动态类型
 其实这就是``同时''的问题了。赋值运算符不是一下子就把右操作数的值赋给左值的。赋值操作的内部过程可以分成两步：第一步是处理右操作数，把右操作数的值转移给一个临时变量\footnote{这是一个左值到右值的转换，可能还会伴随类型转换。}；第二步是把这个临时变量的值转移给一左操作数，临时变量销毁。我们看，在第一步的时候 \lstinline@vll@ 是活跃成员，这时我们没有用到 \lstinline@vld@，没有问题；而在第二步的时候 \lstinline@vld@ 是活跃成员，这时我们没有用到 \lstinline@vll@，也没有问题，如图6.10所示。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{../images/generalized_parts/06_process_of_assignment_to_union.png}
+    \includegraphics[width=0.8\textwidth]{../images/generalized_parts/06_process_of_assignment_to_union.drawio.png}
     \caption{赋值过程中，活跃成员的变化}
 \end{figure}
 试过了这些简单功能之后，我们可以写一些函数来实现它们。以下是一个输出函数，它根据 \lstinline@type@ 来判断要输出哪个成员。

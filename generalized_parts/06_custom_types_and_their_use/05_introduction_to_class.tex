@@ -28,7 +28,7 @@ C++大大扩展了 \lstinline@struct@ 的能力，并引入了关键字 \lstinli
 但是我们不用考虑这么多！我们只需要在输入的时候写一个 \lstinline@cin>>num@ 就行了；如果要清理输入异常，我们直接调用成员函数 \lstinline@clear()@ 就够了！C++把底层的实现机制放到 \lstinline@private@ 成员中，而 \lstinline@public@ 成员则是它对外的接口，我们用的 \lstinline@clear@ 就是一个 \lstinline@public@ 成员\footnote{至于 \lstinline@>>@，它不是 \lstinline@istream@ 的成员。它使用了友元，我们会在第八章介绍这些内容。}。图6.11体现了这两种对象的关系。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.6\textwidth]{../images/generalized_parts/06_public_and_private_members.png}
+    \includegraphics[width=0.6\textwidth]{../images/generalized_parts/06_public_and_private_members.drawio.png}
     \caption{\lstinline@public@ 成员提供对外界的接口，而 \lstinline@private@ 成员隐藏了底层的细节}
 \end{figure}
 至于 \lstinline@protected@ 成员，在不涉及继承时，它和 \lstinline@private@ 成员没什么区别，我们可以暂时把它当作 \lstinline@private@ 成员来看待。\par

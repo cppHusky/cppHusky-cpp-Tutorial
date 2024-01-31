@@ -10,14 +10,14 @@
 不会的，因为\textbf{函数的定义就是一种声明}。所以编译器在 \lstinline@factorial@ 函数给定参数列表时就已经知道了它的存在（图4.5）。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.5\textwidth]{../images/generalized_parts/04_factorial_code_logic.png}
+    \includegraphics[width=0.5\textwidth]{../images/generalized_parts/04_factorial_code_logic.drawio.png}
     \caption{\lstinline@factorial@ 的定义就是一种声明，所以编译器能够找到它}
 \end{figure}
 {\kaishu ``这段代码会怎么运行？''}\par
 想像你就是那个程序，在主函数中，当你遇到 \lstinline@factorial(12)@ 时，你会调用这个函数并代入实参 \lstinline@n=12@ 从而求出它的返回值。而在运行时发现，因为 \lstinline@n==0@ 不满足，所以你不得不再去求 \lstinline@factorial(11)@，然后是 \lstinline@factorial(10)@，以此类推。如果一切顺利的话，你会在求 \lstinline@factorial(0)@ 的时候直接返回 \lstinline@1@，然后用 \lstinline@1*factorial(0)@ 算出 \lstinline@factorial(1)@ 的返回值；用 \lstinline@2*factorial(1)@ 算出 \lstinline@factorial(2)@ 的返回值；用 \lstinline@3*factorial(2)@ 算出 \lstinline@factorial(3)@ 的返回值……一直到你算出 \lstinline@factorial(12)@ 为止。图4.6展示了这一过程。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth]{../images/generalized_parts/04_the_process_of_recursion.png}
+    \includegraphics[width=\textwidth]{../images/generalized_parts/04_the_process_of_recursion.drawio.png}
     \caption{\lstinline@factorial@ 函数递归的运行过程}
 \end{figure}
 {\kaishu ``函数递归运行的过程中，难道还能真的像图4.6那样，运行到一半再跑到开头吗？''}\par
@@ -25,7 +25,7 @@
 不然。这个函数在编译时和运行时的概念是不同的。在编译时，编译器会认为它是一个函数；但在运行时，内存中会为程序创建一个\textbf{调用栈（Call stack）}来存储函数调用的信息。每次函数调用（包括一般调用和递归调用）都会在栈中压入一个堆栈帧（Stack frame），这个堆栈帧中存储了本次调用的必要信息（比如，本次调用的实参是什么，返回地址是什么）。在结束调用时，返回值传回给调用它的函数（栈的结构保证了调用它的函数也在调用栈中），然后堆栈帧移除，如图4.7。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{.//images/generalized_parts/04_call_stack_structure.png}
+    \includegraphics[width=0.8\textwidth]{.//images/generalized_parts/04_call_stack_structure.drawio.png}
     \caption{调用函数时压入堆栈帧，返回值后移除堆栈帧}    
 \end{figure}
 简言之，虽然\textbf{只有一个函数}，但\textbf{有很多个堆栈帧}，每个堆栈帧存储了各自的调用信息。所以自然不会有什么冲突了。\par

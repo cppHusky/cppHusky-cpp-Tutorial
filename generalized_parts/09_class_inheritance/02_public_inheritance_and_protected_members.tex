@@ -48,7 +48,7 @@ class Derived : public Base { //按public方式继承自Base类
 而 \lstinline@protected@ 则能很好地解决这个问题。基类的 \lstinline@protected@ 成员对于外界来说是不可见的，但它对于这个类的派生类来说则是可见的，如图9.2所示。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth]{../images/generalized_parts/09_protected_members.png}
+    \includegraphics[width=\textwidth]{../images/generalized_parts/09_protected_members.drawio.png}
     \caption{\lstinline@protected@ 成员对外的可见性}
 \end{figure}
 有了 \lstinline@protected@ 之后，我们可以这样写：
@@ -69,7 +69,7 @@ public: //公有成员，对外界可见
 派生类拥有它基类的成员，这个关系很像是，一个派生类对象当中内嵌了一个基类对象。
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=.8\textwidth]{images/generalized_parts/09_built_in_base_class_object_in_derived_class.png}
+    \includegraphics[width=.8\textwidth]{images/generalized_parts/09_built_in_base_class_object_in_derived_class.drawio.png}
     \caption{一个派生类对象当中内嵌了一个基类对象}
 \end{figure}
 所以当我们需要对基类对象进行初始化时，也不是按照``成员''进行初始化，而是把基类的对象当作一个整体，调用基类的构造函数进行初始化。\par

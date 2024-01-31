@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  31 JAN 2024 12:34
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  31 JAN 2024 18:13
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1042,8 +1042,8 @@ LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/b/n' will be
 ) [3
 
 ]
-File: ./01_welcome_to_cpp/../images/generalized_parts/01_From_source_code_to_executable.png Graphic file (type bmp)
-<./01_welcome_to_cpp/../images/generalized_parts/01_From_source_code_to_executable.png>
+File: ./01_welcome_to_cpp/../images/generalized_parts/01_From_source_code_to_executable.drawio.png Graphic file (type bmp)
+<./01_welcome_to_cpp/../images/generalized_parts/01_From_source_code_to_executable.drawio.png>
  [4] [5]) (./generalized_parts/01_welcome_to_cpp/02_data_and_information.tex [6]
 File: ./01_welcome_to_cpp/../images/generalized_parts/01_ASCII.png Graphic file (type bmp)
 <./01_welcome_to_cpp/../images/generalized_parts/01_ASCII.png>
@@ -1058,8 +1058,8 @@ LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/m/sl' in size <10> not avail
 LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/m/it' will be
 (Font)              scaled to size 10.0pt on input line 11.
  [13]
-File: ./01_welcome_to_cpp/../images/generalized_parts/01_Memory_byte_and_bit.png Graphic file (type bmp)
-<./01_welcome_to_cpp/../images/generalized_parts/01_Memory_byte_and_bit.png>
+File: ./01_welcome_to_cpp/../images/generalized_parts/01_Memory_byte_and_bit.drawio.png Graphic file (type bmp)
+<./01_welcome_to_cpp/../images/generalized_parts/01_Memory_byte_and_bit.drawio.png>
  [14]
 LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/b/n' will be
 (Font)              scaled to size 11.99997pt on input line 28.
@@ -1073,24 +1073,24 @@ Overfull \hbox (8.7171pt too wide) in paragraph at lines 55--55
  []
 
 [24] [25]) (./generalized_parts/02_basic_operation_on_data/03_operators.tex [26] [27] [28]
-File: ./02_basic_operation_on_data/../images/generalized_parts/02_Precedence_of_multiply_addition_and_assignment.png Graphic file (type bmp)
-<./02_basic_operation_on_data/../images/generalized_parts/02_Precedence_of_multiply_addition_and_assignment.png>
+File: ./02_basic_operation_on_data/../images/generalized_parts/02_Precedence_of_multiply_addition_and_assignment.drawio.png Graphic file (type bmp)
+<./02_basic_operation_on_data/../images/generalized_parts/02_Precedence_of_multiply_addition_and_assignment.drawio.png>
  [29]
 Overfull \hbox (8.99084pt too wide) in paragraph at lines 87--87
 []\TU/SimSun(0)/m/n/10 为 什 么 是 这 样 呢？|  原 因 在 于，| [][][] 的 优 先 级 要 高 于 这 一 系 列 的 比 较 运 算 符。|  所 以 如 果 按 照 [][][][]
  []
 
-File: ./02_basic_operation_on_data/../images/generalized_parts/02_Associativity_of_division_and_assignment.png Graphic file (type bmp)
-<./02_basic_operation_on_data/../images/generalized_parts/02_Associativity_of_division_and_assignment.png>
+File: ./02_basic_operation_on_data/../images/generalized_parts/02_Associativity_of_division_and_assignment.drawio.png Graphic file (type bmp)
+<./02_basic_operation_on_data/../images/generalized_parts/02_Associativity_of_division_and_assignment.drawio.png>
 [30] [31]) (./generalized_parts/02_basic_operation_on_data/04_type_cast.tex [32]
-File: ./02_basic_operation_on_data/../images/generalized_parts/02_Implicit_type_cast_from_int_to_double.png Graphic file (type bmp)
-<./02_basic_operation_on_data/../images/generalized_parts/02_Implicit_type_cast_from_int_to_double.png>
+File: ./02_basic_operation_on_data/../images/generalized_parts/02_Implicit_type_cast_from_int_to_double.drawio.png Graphic file (type bmp)
+<./02_basic_operation_on_data/../images/generalized_parts/02_Implicit_type_cast_from_int_to_double.drawio.png>
  [33]
-File: ./02_basic_operation_on_data/../images/generalized_parts/02_boolean_conversion.png Graphic file (type bmp)
-<./02_basic_operation_on_data/../images/generalized_parts/02_boolean_conversion.png>
+File: ./02_basic_operation_on_data/../images/generalized_parts/02_boolean_conversion.drawio.png Graphic file (type bmp)
+<./02_basic_operation_on_data/../images/generalized_parts/02_boolean_conversion.drawio.png>
  [34]
-File: ./02_basic_operation_on_data/../images/generalized_parts/02_Explicit_type_cast_from_double_to_int_in_vain.png Graphic file (type bmp)
-<./02_basic_operation_on_data/../images/generalized_parts/02_Explicit_type_cast_from_double_to_int_in_vain.png>
+File: ./02_basic_operation_on_data/../images/generalized_parts/02_Explicit_type_cast_from_double_to_int_in_vain.drawio.png Graphic file (type bmp)
+<./02_basic_operation_on_data/../images/generalized_parts/02_Explicit_type_cast_from_double_to_int_in_vain.drawio.png>
 )) (./generalized_parts/03_control_flow.tex [35] [36]
 第三章
 (./generalized_parts/03_control_flow/01_introduction_to_structure_process_and_order.tex [37
@@ -1101,40 +1101,40 @@ File: ./03_control_flow/../images/generalized_parts/03_Alpine_email_client.png G
 File: ./03_control_flow/../images/generalized_parts/03_GUI_example_Chrome.png Graphic file (type bmp)
 <./03_control_flow/../images/generalized_parts/03_GUI_example_Chrome.png>
  [39]
-File: ./03_control_flow/../images/generalized_parts/03_input_to_cmd.png Graphic file (type bmp)
-<./03_control_flow/../images/generalized_parts/03_input_to_cmd.png>
+File: ./03_control_flow/../images/generalized_parts/03_input_to_cmd.drawio.png Graphic file (type bmp)
+<./03_control_flow/../images/generalized_parts/03_input_to_cmd.drawio.png>
  (./03_control_flow/../code_in_book/3.1/Input_to_ASCII.cpp [40])
-File: ./03_control_flow/../images/generalized_parts/03_structured_program_theorem.png Graphic file (type bmp)
-<./03_control_flow/../images/generalized_parts/03_structured_program_theorem.png>
+File: ./03_control_flow/../images/generalized_parts/03_structured_program_theorem.drawio.png Graphic file (type bmp)
+<./03_control_flow/../images/generalized_parts/03_structured_program_theorem.drawio.png>
  [41] [42]
 File: ./03_control_flow/../images/generalized_parts/03_how_compilers_interpret_postfix_increment.png Graphic file (type bmp)
 <./03_control_flow/../images/generalized_parts/03_how_compilers_interpret_postfix_increment.png>
  [43]
-File: ./03_control_flow/../images/generalized_parts/03_truth_table_of_logic_operators.png Graphic file (type bmp)
-<./03_control_flow/../images/generalized_parts/03_truth_table_of_logic_operators.png>
+File: ./03_control_flow/../images/generalized_parts/03_truth_table_of_logic_operators.drawio.png Graphic file (type bmp)
+<./03_control_flow/../images/generalized_parts/03_truth_table_of_logic_operators.drawio.png>
  [44]) (./generalized_parts/03_control_flow/02_choice.tex [45]
-File: ./03_control_flow/../images/generalized_parts/03_structure_of_odd_or_even.png Graphic file (type bmp)
-<./03_control_flow/../images/generalized_parts/03_structure_of_odd_or_even.png>
+File: ./03_control_flow/../images/generalized_parts/03_structure_of_odd_or_even.drawio.png Graphic file (type bmp)
+<./03_control_flow/../images/generalized_parts/03_structure_of_odd_or_even.drawio.png>
  (./03_control_flow/../code_in_book/3.2/odd_or_even.cpp [46])
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [47] [48]
-File: ./03_control_flow/../images/generalized_parts/03_if_elseif_else.png Graphic file (type bmp)
-<./03_control_flow/../images/generalized_parts/03_if_elseif_else.png>
+File: ./03_control_flow/../images/generalized_parts/03_if_elseif_else.drawio.png Graphic file (type bmp)
+<./03_control_flow/../images/generalized_parts/03_if_elseif_else.drawio.png>
  [49]
 Overfull \hbox (12.6705pt too wide) in paragraph at lines 167--167
 []\TU/SimSun(0)/m/n/10 我 们 还 可 以 做 合 并 标 签 的 操 作，|  这 个 效 果 相 当 于 \TU/lmr/m/n/10 “\TU/SimSun(0)/m/n/10 如 果 [][][][][] 匹 配 了 [][][][][][] \TU/SimSun(0)/b/n/10 或 者 [][][][][][]\TU/SimSun(0)/m/n/10 ，|
  []
 
 [50]) (./generalized_parts/03_control_flow/03_loop.tex [51] [52] [53]
-File: ./03_control_flow/../images/generalized_parts/03_structure_of_odd_or_even_with_while_loop.png Graphic file (type bmp)
-<./03_control_flow/../images/generalized_parts/03_structure_of_odd_or_even_with_while_loop.png>
+File: ./03_control_flow/../images/generalized_parts/03_structure_of_odd_or_even_with_while_loop.drawio.png Graphic file (type bmp)
+<./03_control_flow/../images/generalized_parts/03_structure_of_odd_or_even_with_while_loop.drawio.png>
  (./03_control_flow/../code_in_book/3.3/while循环奇偶判断.cpp [54]) [55] [56]
-File: ./03_control_flow/../images/generalized_parts/03_structure_of_break.png Graphic file (type bmp)
-<./03_control_flow/../images/generalized_parts/03_structure_of_break.png>
+File: ./03_control_flow/../images/generalized_parts/03_structure_of_break.drawio.png Graphic file (type bmp)
+<./03_control_flow/../images/generalized_parts/03_structure_of_break.drawio.png>
  [57]
-File: ./03_control_flow/../images/generalized_parts/03_structure_of_continue.png Graphic file (type bmp)
-<./03_control_flow/../images/generalized_parts/03_structure_of_continue.png>
+File: ./03_control_flow/../images/generalized_parts/03_structure_of_continue.drawio.png Graphic file (type bmp)
+<./03_control_flow/../images/generalized_parts/03_structure_of_continue.drawio.png>
  [58] (./03_control_flow/../code_in_book/3.4/sum.cpp [59])) (./generalized_parts/03_control_flow/04_introduction_to_scope.tex [60]) (./generalized_parts/03_control_flow/05_exercise_simple_calculator.tex [61]
 Overfull \hbox (1.8815pt too wide) in paragraph at lines 44--44
 []\TU/SimSun(0)/m/n/10 这 是 因 为 我 们 遇 到 了 老 问 题，| [][][][][] 内 部 是 一 个 内 层 作 用 域，|  我 们 在 内 层 作 用 域 中 定 义 的 [][][]
@@ -1143,8 +1143,8 @@ Overfull \hbox (1.8815pt too wide) in paragraph at lines 44--44
 [62] (./03_control_flow/../code_in_book/3.5/简易计算器.cpp [63]))) (./generalized_parts/04_introduction_to_functions.tex [64]
 第四章
 (./generalized_parts/04_introduction_to_functions/01_the_concept_of_functions.tex
-File: ./04_introduction_to_functions/../images/generalized_parts/04_black_box.png Graphic file (type bmp)
-<./04_introduction_to_functions/../images/generalized_parts/04_black_box.png>
+File: ./04_introduction_to_functions/../images/generalized_parts/04_black_box.drawio.png Graphic file (type bmp)
+<./04_introduction_to_functions/../images/generalized_parts/04_black_box.drawio.png>
  [65
 
 ]
@@ -1153,15 +1153,15 @@ Overfull \hbox (21.04272pt too wide) in paragraph at lines 25--25
  []
 
 [66]) (./generalized_parts/04_introduction_to_functions/02_the_definition_and_use_of_functions.tex [67]
-File: ./04_introduction_to_functions/../images/generalized_parts/04_block_scope_and_function_scope.png Graphic file (type bmp)
-<./04_introduction_to_functions/../images/generalized_parts/04_block_scope_and_function_scope.png>
+File: ./04_introduction_to_functions/../images/generalized_parts/04_block_scope_and_function_scope.drawio.png Graphic file (type bmp)
+<./04_introduction_to_functions/../images/generalized_parts/04_block_scope_and_function_scope.drawio.png>
  [68] [69] [70] [71] (./04_introduction_to_functions/../code_in_book/4.1/max3.cpp)
-File: ./04_introduction_to_functions/../images/generalized_parts/04_max3_code_logic.png Graphic file (type bmp)
-<./04_introduction_to_functions/../images/generalized_parts/04_max3_code_logic.png>
- [72]) (./generalized_parts/04_introduction_to_functions/03_function_overloading.tex [73]
-File: ./04_introduction_to_functions/../images/generalized_parts/04_function_overloading.png Graphic file (type bmp)
-<./04_introduction_to_functions/../images/generalized_parts/04_function_overloading.png>
- [74] [75]) (./generalized_parts/04_introduction_to_functions/04_default_argument.tex [76] [77]) (./generalized_parts/04_introduction_to_functions/05_recursion.tex (./04_introduction_to_functions/../code_in_book/4.2/Factorial_with_Recursion.cpp)
+File: ./04_introduction_to_functions/../images/generalized_parts/04_max3_code_logic.drawio.png Graphic file (type bmp)
+<./04_introduction_to_functions/../images/generalized_parts/04_max3_code_logic.drawio.png>
+ [72]) (./generalized_parts/04_introduction_to_functions/03_function_overloading.tex [73] [74]
+File: ./04_introduction_to_functions/../images/generalized_parts/04_function_overloading.drawio.png Graphic file (type bmp)
+<./04_introduction_to_functions/../images/generalized_parts/04_function_overloading.drawio.png>
+ [75]) (./generalized_parts/04_introduction_to_functions/04_default_argument.tex [76] [77]) (./generalized_parts/04_introduction_to_functions/05_recursion.tex (./04_introduction_to_functions/../code_in_book/4.2/Factorial_with_Recursion.cpp)
 
 Package fontspec Info: Could not resolve font "KaiTi/BI" (it probably doesn't
 (fontspec)             exist).
@@ -1185,69 +1185,69 @@ Package fontspec Info: Font family 'KaiTi(0)' created for font 'KaiTi' with
 (fontspec)             <->"KaiTi/OT:script=hani;language=dflt;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
-File: ./04_introduction_to_functions/../images/generalized_parts/04_factorial_code_logic.png Graphic file (type bmp)
-<./04_introduction_to_functions/../images/generalized_parts/04_factorial_code_logic.png>
+File: ./04_introduction_to_functions/../images/generalized_parts/04_factorial_code_logic.drawio.png Graphic file (type bmp)
+<./04_introduction_to_functions/../images/generalized_parts/04_factorial_code_logic.drawio.png>
 
 Overfull \hbox (2.61679pt too wide) in paragraph at lines 17--17
 [][][][] \TU/SimSun(0)/m/n/10 从 而 求 出 它 的 返 回 值。|  而 在 运 行 时 发 现，|  因 为 [][][][] 不 满 足，|  所 以 你 不 得 不 再 去 求 [][][][]，|
  []
 
 [78]
-File: ./04_introduction_to_functions/../images/generalized_parts/04_the_process_of_recursion.png Graphic file (type bmp)
-<./04_introduction_to_functions/../images/generalized_parts/04_the_process_of_recursion.png>
-File: ././/images/generalized_parts/04_call_stack_structure.png Graphic file (type bmp)
-<././/images/generalized_parts/04_call_stack_structure.png>
+File: ./04_introduction_to_functions/../images/generalized_parts/04_the_process_of_recursion.drawio.png Graphic file (type bmp)
+<./04_introduction_to_functions/../images/generalized_parts/04_the_process_of_recursion.drawio.png>
+File: ././/images/generalized_parts/04_call_stack_structure.drawio.png Graphic file (type bmp)
+<././/images/generalized_parts/04_call_stack_structure.drawio.png>
  [79]) (./generalized_parts/04_introduction_to_functions/06_introduction_to_function_templates.tex [80] [81]
-File: ././/images/generalized_parts/04_function_template_and_instance.png Graphic file (type bmp)
-<././/images/generalized_parts/04_function_template_and_instance.png>
+File: ././/images/generalized_parts/04_function_template_and_instance.drawio.png Graphic file (type bmp)
+<././/images/generalized_parts/04_function_template_and_instance.drawio.png>
 )) (./generalized_parts/05_compound_types_and_their_use.tex [82]
 第五章
 (./generalized_parts/05_composite_types_and_their_use/01_pointer.tex
 LaTeX Font Info:    Calculating math sizes for size <11.99997> on input line 2.
-File: ./05_composite_types_and_their_use/../images/generalized_parts/05_layout_of_memory.png Graphic file (type bmp)
-<./05_composite_types_and_their_use/../images/generalized_parts/05_layout_of_memory.png>
+File: ./05_composite_types_and_their_use/../images/generalized_parts/05_layout_of_memory.drawio.png Graphic file (type bmp)
+<./05_composite_types_and_their_use/../images/generalized_parts/05_layout_of_memory.drawio.png>
  [83
 
 ]
-File: ./05_composite_types_and_their_use/../images/generalized_parts/05_address_of_types_in_memory.png Graphic file (type bmp)
-<./05_composite_types_and_their_use/../images/generalized_parts/05_address_of_types_in_memory.png>
+File: ./05_composite_types_and_their_use/../images/generalized_parts/05_address_of_types_in_memory.drawio.png Graphic file (type bmp)
+<./05_composite_types_and_their_use/../images/generalized_parts/05_address_of_types_in_memory.drawio.png>
  [84] [85]
-File: ./05_composite_types_and_their_use/../images/generalized_parts/05_operator_dereference_or_multiplication.png Graphic file (type bmp)
-<./05_composite_types_and_their_use/../images/generalized_parts/05_operator_dereference_or_multiplication.png>
+File: ./05_composite_types_and_their_use/../images/generalized_parts/05_operator_dereference_or_multiplication.drawio.png Graphic file (type bmp)
+<./05_composite_types_and_their_use/../images/generalized_parts/05_operator_dereference_or_multiplication.drawio.png>
  [86]
-File: ./05_composite_types_and_their_use/../images/generalized_parts/05_relationship_between_variables_and_pointers.png Graphic file (type bmp)
-<./05_composite_types_and_their_use/../images/generalized_parts/05_relationship_between_variables_and_pointers.png>
+File: ./05_composite_types_and_their_use/../images/generalized_parts/05_relationship_between_variables_and_pointers.drawio.png Graphic file (type bmp)
+<./05_composite_types_and_their_use/../images/generalized_parts/05_relationship_between_variables_and_pointers.drawio.png>
  [87]
-File: ./05_composite_types_and_their_use/../images/generalized_parts/05_parameter_pass_by_value.png Graphic file (type bmp)
-<./05_composite_types_and_their_use/../images/generalized_parts/05_parameter_pass_by_value.png>
-File: ./05_composite_types_and_their_use/../images/generalized_parts/05_process_of_pass_by_value.png Graphic file (type bmp)
-<./05_composite_types_and_their_use/../images/generalized_parts/05_process_of_pass_by_value.png>
+File: ./05_composite_types_and_their_use/../images/generalized_parts/05_parameter_pass_by_value.drawio.png Graphic file (type bmp)
+<./05_composite_types_and_their_use/../images/generalized_parts/05_parameter_pass_by_value.drawio.png>
+File: ./05_composite_types_and_their_use/../images/generalized_parts/05_process_of_pass_by_value.drawio.png Graphic file (type bmp)
+<./05_composite_types_and_their_use/../images/generalized_parts/05_process_of_pass_by_value.drawio.png>
  [88] [89] [90]
-File: ./05_composite_types_and_their_use/../images/generalized_parts/05_arithmetic_of_pointer.png Graphic file (type bmp)
-<./05_composite_types_and_their_use/../images/generalized_parts/05_arithmetic_of_pointer.png>
+File: ./05_composite_types_and_their_use/../images/generalized_parts/05_arithmetic_of_pointer.drawio.png Graphic file (type bmp)
+<./05_composite_types_and_their_use/../images/generalized_parts/05_arithmetic_of_pointer.drawio.png>
  [91]) (./generalized_parts/05_composite_types_and_their_use/02_constant_pointer_and_pointer_to_constant.tex
-File: ./05_composite_types_and_their_use/../images/generalized_parts/05_change_pointer_s_address_or_content.png Graphic file (type bmp)
-<./05_composite_types_and_their_use/../images/generalized_parts/05_change_pointer_s_address_or_content.png>
+File: ./05_composite_types_and_their_use/../images/generalized_parts/05_change_pointer_s_address_or_content.drawio.png Graphic file (type bmp)
+<./05_composite_types_and_their_use/../images/generalized_parts/05_change_pointer_s_address_or_content.drawio.png>
  [92]
-File: ./05_composite_types_and_their_use/../images/generalized_parts/05_definition_of_constant_pointer_and_pointer_to_const.png Graphic file (type bmp)
-<./05_composite_types_and_their_use/../images/generalized_parts/05_definition_of_constant_pointer_and_pointer_to_const.png>
+File: ./05_composite_types_and_their_use/../images/generalized_parts/05_definition_of_constant_pointer_and_pointer_to_const.drawio.png Graphic file (type bmp)
+<./05_composite_types_and_their_use/../images/generalized_parts/05_definition_of_constant_pointer_and_pointer_to_const.drawio.png>
 ) (./generalized_parts/05_composite_types_and_their_use/03_lvalue_reference_and_passing_arguments.tex [93] [94] [95] [96]
 Overfull \hbox (71.64339pt too wide) in paragraph at lines 148--148
 \TU/SimSun(0)/m/n/10 提 醒 读 者，| [][][] 输 出 [][][][][] 类 型 的 值 时，|  会 默 认 以 整 数 的 形 式 输 出。|  我 们 也 可 以 用 [][][][][][][][][][]
  []
 
 [97]) (./generalized_parts/05_composite_types_and_their_use/04_one_dimensional_arrays.tex
-File: ./05_composite_types_and_their_use/../images/generalized_parts/05_variables_one_by_one_in_memory.png Graphic file (type bmp)
-<./05_composite_types_and_their_use/../images/generalized_parts/05_variables_one_by_one_in_memory.png>
+File: ./05_composite_types_and_their_use/../images/generalized_parts/05_variables_one_by_one_in_memory.drawio.png Graphic file (type bmp)
+<./05_composite_types_and_their_use/../images/generalized_parts/05_variables_one_by_one_in_memory.drawio.png>
  [98] [99]
-File: ./05_composite_types_and_their_use/../images/generalized_parts/05_variables_one_by_one_in_array.png Graphic file (type bmp)
-<./05_composite_types_and_their_use/../images/generalized_parts/05_variables_one_by_one_in_array.png>
+File: ./05_composite_types_and_their_use/../images/generalized_parts/05_variables_one_by_one_in_array.drawio.png Graphic file (type bmp)
+<./05_composite_types_and_their_use/../images/generalized_parts/05_variables_one_by_one_in_array.drawio.png>
  [100] [101] [102] (./05_composite_types_and_their_use/../code_in_book/5.1/输入数据求最大值.cpp [103]) [104] [105]
-File: ./05_composite_types_and_their_use/../images/generalized_parts/05_array_to_pointer_conversion.png Graphic file (type bmp)
-<./05_composite_types_and_their_use/../images/generalized_parts/05_array_to_pointer_conversion.png>
+File: ./05_composite_types_and_their_use/../images/generalized_parts/05_array_to_pointer_conversion.drawio.png Graphic file (type bmp)
+<./05_composite_types_and_their_use/../images/generalized_parts/05_array_to_pointer_conversion.drawio.png>
 ) (./generalized_parts/05_composite_types_and_their_use/05_string_with_arrays.tex [106] [107]
-File: ./05_composite_types_and_their_use/../images/generalized_parts/05_Information_in_the_string.png Graphic file (type bmp)
-<./05_composite_types_and_their_use/../images/generalized_parts/05_Information_in_the_string.png>
+File: ./05_composite_types_and_their_use/../images/generalized_parts/05_Information_in_the_string.drawio.png Graphic file (type bmp)
+<./05_composite_types_and_their_use/../images/generalized_parts/05_Information_in_the_string.drawio.png>
 LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/m/n' will be
 (Font)              scaled to size 8.33344pt on input line 78.
  [108] [109]
@@ -1261,23 +1261,23 @@ Overfull \hbox (29.03897pt too wide) in paragraph at lines 11--11
  []
 
 [113]
-File: ./05_composite_types_and_their_use/../images/generalized_parts/05_data_in_the_array_of_array.png Graphic file (type bmp)
-<./05_composite_types_and_their_use/../images/generalized_parts/05_data_in_the_array_of_array.png>
+File: ./05_composite_types_and_their_use/../images/generalized_parts/05_data_in_the_array_of_array.drawio.png Graphic file (type bmp)
+<./05_composite_types_and_their_use/../images/generalized_parts/05_data_in_the_array_of_array.drawio.png>
 
 Overfull \hbox (13.52153pt too wide) in paragraph at lines 49--49
 []\TU/SimSun(0)/m/n/10 敏 锐 的 读 者 可 能 会 想，|  既 然 [][][][] 的 下 一 位 就 是 [][][][]，|  那 么 我 们 能 否 通 过 [][][][]
  []
 
 [114] [115]
-File: ./05_composite_types_and_their_use/../images/generalized_parts/05_the_pointer_to_array_and_2d_array.png Graphic file (type bmp)
-<./05_composite_types_and_their_use/../images/generalized_parts/05_the_pointer_to_array_and_2d_array.png>
+File: ./05_composite_types_and_their_use/../images/generalized_parts/05_the_pointer_to_array_and_2d_array.drawio.png Graphic file (type bmp)
+<./05_composite_types_and_their_use/../images/generalized_parts/05_the_pointer_to_array_and_2d_array.drawio.png>
  [116] [117] [118]
 Underfull \hbox (badness 10000) in paragraph at lines 176--181
 
  []
 
-File: ./05_composite_types_and_their_use/../images/generalized_parts/05_type_conversions_between_array_and_pointer.png Graphic file (type bmp)
-<./05_composite_types_and_their_use/../images/generalized_parts/05_type_conversions_between_array_and_pointer.png>
+File: ./05_composite_types_and_their_use/../images/generalized_parts/05_type_conversions_between_array_and_pointer.drawio.png Graphic file (type bmp)
+<./05_composite_types_and_their_use/../images/generalized_parts/05_type_conversions_between_array_and_pointer.drawio.png>
 ) (./generalized_parts/05_composite_types_and_their_use/07_dynamic_memory_allocation.tex [119] [120] [121]
 File: ./05_composite_types_and_their_use/../images/generalized_parts/05_memory_leak_and_after_end_task.png Graphic file (type bmp)
 <./05_composite_types_and_their_use/../images/generalized_parts/05_memory_leak_and_after_end_task.png>
@@ -1286,8 +1286,8 @@ File: ./05_composite_types_and_their_use/../images/generalized_parts/05_memory_l
 Missing character: There is no � (U+FFFD) in font [SourceCodePro-Regular.otf]/OT:script=latn;language=dflt;!
 Missing character: There is no � (U+FFFD) in font [SourceCodePro-Regular.otf]/OT:script=latn;language=dflt;!
 Missing character: There is no � (U+FFFD) in font [SourceCodePro-Regular.otf]/OT:script=latn;language=dflt;!
-File: ./generalized_parts/../images/generalized_parts/06_0_1_string_to_int_or_char.png Graphic file (type bmp)
-<./generalized_parts/../images/generalized_parts/06_0_1_string_to_int_or_char.png>
+File: ./generalized_parts/../images/generalized_parts/06_0_1_string_to_int_or_char.drawio.png Graphic file (type bmp)
+<./generalized_parts/../images/generalized_parts/06_0_1_string_to_int_or_char.drawio.png>
 (./generalized_parts/06_custom_types_and_their_use/01_enum.tex [125
 
 ] [126]) (./generalized_parts/06_custom_types_and_their_use/02_struct.tex [127] [128] [129] [130]
@@ -1306,23 +1306,23 @@ Overfull \hbox (39.45459pt too wide) in paragraph at lines 167--167
  []
 
 [131]) (./generalized_parts/06_custom_types_and_their_use/03_exercise_example_list.tex
-File: ./06_custom_types_and_their_use/../images/generalized_parts/06_list_in_the_memory.png Graphic file (type bmp)
-<./06_custom_types_and_their_use/../images/generalized_parts/06_list_in_the_memory.png>
-File: ./06_custom_types_and_their_use/../images/generalized_parts/06_operation_on_list.png Graphic file (type bmp)
-<./06_custom_types_and_their_use/../images/generalized_parts/06_operation_on_list.png>
-File: ./06_custom_types_and_their_use/../images/generalized_parts/06_advanced_operation_on_list.png Graphic file (type bmp)
-<./06_custom_types_and_their_use/../images/generalized_parts/06_advanced_operation_on_list.png>
+File: ./06_custom_types_and_their_use/../images/generalized_parts/06_list_in_the_memory.drawio.png Graphic file (type bmp)
+<./06_custom_types_and_their_use/../images/generalized_parts/06_list_in_the_memory.drawio.png>
+File: ./06_custom_types_and_their_use/../images/generalized_parts/06_operation_on_list.drawio.png Graphic file (type bmp)
+<./06_custom_types_and_their_use/../images/generalized_parts/06_operation_on_list.drawio.png>
+File: ./06_custom_types_and_their_use/../images/generalized_parts/06_advanced_operation_on_list.drawio.png Graphic file (type bmp)
+<./06_custom_types_and_their_use/../images/generalized_parts/06_advanced_operation_on_list.drawio.png>
  [132] [133] [134]
-File: ./06_custom_types_and_their_use/../images/generalized_parts/06_process_of_clear_list.png Graphic file (type bmp)
-<./06_custom_types_and_their_use/../images/generalized_parts/06_process_of_clear_list.png>
-File: ./06_custom_types_and_their_use/../images/generalized_parts/06_insertion_into_a_list.png Graphic file (type bmp)
-<./06_custom_types_and_their_use/../images/generalized_parts/06_insertion_into_a_list.png>
+File: ./06_custom_types_and_their_use/../images/generalized_parts/06_process_of_clear_list.drawio.png Graphic file (type bmp)
+<./06_custom_types_and_their_use/../images/generalized_parts/06_process_of_clear_list.drawio.png>
+File: ./06_custom_types_and_their_use/../images/generalized_parts/06_insertion_into_a_list.drawio.png Graphic file (type bmp)
+<./06_custom_types_and_their_use/../images/generalized_parts/06_insertion_into_a_list.drawio.png>
  [135]
-File: ./06_custom_types_and_their_use/../images/generalized_parts/06_deletion_operation_on_a_list.png Graphic file (type bmp)
-<./06_custom_types_and_their_use/../images/generalized_parts/06_deletion_operation_on_a_list.png>
+File: ./06_custom_types_and_their_use/../images/generalized_parts/06_deletion_operation_on_a_list.drawio.png Graphic file (type bmp)
+<./06_custom_types_and_their_use/../images/generalized_parts/06_deletion_operation_on_a_list.drawio.png>
  [136] [137]
-File: ./06_custom_types_and_their_use/../images/generalized_parts/06_range_deletion_operation_on_a_list.png Graphic file (type bmp)
-<./06_custom_types_and_their_use/../images/generalized_parts/06_range_deletion_operation_on_a_list.png>
+File: ./06_custom_types_and_their_use/../images/generalized_parts/06_range_deletion_operation_on_a_list.drawio.png Graphic file (type bmp)
+<./06_custom_types_and_their_use/../images/generalized_parts/06_range_deletion_operation_on_a_list.drawio.png>
  [138]
 Overfull \hbox (3.5015pt too wide) in paragraph at lines 178--178
 []\TU/SimSun(0)/m/n/10 其 一，|  在 这 里 [][][][][][][] 的 情 况 下 我 们 要 处 理 是 比 较 麻 烦 的，|  因 为 当 后 面 涉 及 到 [][][][][]
@@ -1333,29 +1333,29 @@ Overfull \hbox (13.87088pt too wide) in paragraph at lines 178--178
 [][][] \TU/SimSun(0)/m/n/10 改 成 指 向 末 尾 单 元。|  怎 么 做 呢？|  只 能 从 [][][] 开 始 一 个 个 找，|  直 到 找 到 一 个 \TU/lmr/m/n/10 “[][][][][][][][][]”
  []
 
-File: ./06_custom_types_and_their_use/../images/generalized_parts/06_range_transfer_between_lists.png Graphic file (type bmp)
-<./06_custom_types_and_their_use/../images/generalized_parts/06_range_transfer_between_lists.png>
+File: ./06_custom_types_and_their_use/../images/generalized_parts/06_range_transfer_between_lists.drawio.png Graphic file (type bmp)
+<./06_custom_types_and_their_use/../images/generalized_parts/06_range_transfer_between_lists.drawio.png>
 ) (./generalized_parts/06_custom_types_and_their_use/04_union.tex [139] [140] [141]
 Overfull \hbox (21.99806pt too wide) in paragraph at lines 69--69
 \TU/SimSun(0)/m/n/10 这 里 需 要 注 意，| [][][] 是 [][][] 域 中 的 枚 举 项。|  如 果 我 们 要 在 域 外 使 用，|  就 必 须 用 [][][][][]。|
  []
 
-File: ./06_custom_types_and_their_use/../images/generalized_parts/06_process_of_assignment_to_union.png Graphic file (type bmp)
-<./06_custom_types_and_their_use/../images/generalized_parts/06_process_of_assignment_to_union.png>
+File: ./06_custom_types_and_their_use/../images/generalized_parts/06_process_of_assignment_to_union.drawio.png Graphic file (type bmp)
+<./06_custom_types_and_their_use/../images/generalized_parts/06_process_of_assignment_to_union.drawio.png>
 [142]) (./generalized_parts/06_custom_types_and_their_use/05_introduction_to_class.tex [143] [144]
-File: ./06_custom_types_and_their_use/../images/generalized_parts/06_public_and_private_members.png Graphic file (type bmp)
-<./06_custom_types_and_their_use/../images/generalized_parts/06_public_and_private_members.png>
+File: ./06_custom_types_and_their_use/../images/generalized_parts/06_public_and_private_members.drawio.png Graphic file (type bmp)
+<./06_custom_types_and_their_use/../images/generalized_parts/06_public_and_private_members.drawio.png>
  [145]
 Overfull \hbox (33.41493pt too wide) in paragraph at lines 59--59
 \TU/SimSun(0)/m/n/10 是 私 有  |（看 到 那 个 [][][][][] 了 吗）|  成 员。|  这 就 说 明，|  我 们 可 以 调 用 [][][] 来 返 回 [][][][][][][]，|
  []
 
-[146] [147]
+[146]
 Overfull \hbox (13.86275pt too wide) in paragraph at lines 123--124
 [][][][] \TU/SimSun(0)/m/n/10 有 一 套 动 态 调 整 容 量 的 机 制，|  如 果 要 存 储 的 数 据 量 超 过 了 原 有 的 容 量  |（比 如 说，|  用 [][][]
  []
 
-)) (./generalized_parts/07_projecting.tex [148]
+[147])) (./generalized_parts/07_projecting.tex [148]
 第七章
 (./generalized_parts/07_projecting/01_separate_compilation.tex [149
 
@@ -1364,8 +1364,8 @@ Overfull \hbox (59.09216pt too wide) in paragraph at lines 44--44
 \TU/SimSun(0)/m/n/10 我 们 注 意 到，|  当 包 含 了 \TU/SourceCodePro(0)/m/n/10 Header.hpp \TU/SimSun(0)/m/n/10 之 后，|  在 \TU/SourceCodePro(0)/m/n/10 Test.cpp \TU/SimSun(0)/m/n/10 中 就 不 需 要 包 含 [][][] 和 [][][][][][][][][][][]了。|
  []
 
-File: ./07_projecting/../images/generalized_parts/07_separate_compilation.png Graphic file (type bmp)
-<./07_projecting/../images/generalized_parts/07_separate_compilation.png>
+File: ./07_projecting/../images/generalized_parts/07_separate_compilation.drawio.png Graphic file (type bmp)
+<./07_projecting/../images/generalized_parts/07_separate_compilation.drawio.png>
 [151] (./07_projecting/../code_in_book/7.4-7.6/Header.hpp) (./07_projecting/../code_in_book/7.4-7.6/Definition.cpp [152]) (./07_projecting/../code_in_book/7.4-7.6/main.cpp [153])
 Overfull \hbox (45.04604pt too wide) in paragraph at lines 71--71
 \TU/SimSun(0)/m/n/10 请 读 者 注 意 各 文 件 之 间 使 用 [][][][][][][][] 的 关 系。|  因 为 在 \TU/SourceCodePro(0)/m/n/10 Definition.cpp \TU/SimSun(0)/m/n/10 中 没 有 使 用 [][][][][][][][][][][]，|
@@ -1382,8 +1382,8 @@ Overfull \hbox (11.03897pt too wide) in paragraph at lines 24--25
  []
 
 [154]
-File: ./07_projecting/../images/generalized_parts/07_file_explorer_and_namespaces.png Graphic file (type bmp)
-<./07_projecting/../images/generalized_parts/07_file_explorer_and_namespaces.png>
+File: ./07_projecting/../images/generalized_parts/07_file_explorer_and_namespaces.drawio.png Graphic file (type bmp)
+<./07_projecting/../images/generalized_parts/07_file_explorer_and_namespaces.drawio.png>
  [155] [156] [157] [158]) (./generalized_parts/07_projecting/03_scope_storage_duration_and_linkage.tex [159] [160] [161] [162]
 Overfull \hbox (0.13913pt too wide) in paragraph at lines 132--132
 []\TU/SimSun(0)/m/n/10 我 们 在 局 部 作 用 域 内 定 义 的 变 量 都 有 自 动 存 储 期，|  除 非 我 们 用 [][][][][]\TU/lmr/m/n/10 , [][][][][] \TU/SimSun(0)/m/n/10 或 [][][][][]
@@ -1401,8 +1401,8 @@ Underfull \hbox (badness 1057) in paragraph at lines 181--181
 [][][]\TU/SimSun(0)/m/n/8.33344 初 学 者 可 能 对 [][][][][][][][] 这 种 写 法 感 到 困 惑，|  但 是 不 要 忘 记，| [][][][][] 的 返 回 值 也 是 一 个
  []
 
-File: ./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_operator_overloading_as_member_function.png Graphic file (type bmp)
-<./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_operator_overloading_as_member_function.png>
+File: ./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_operator_overloading_as_member_function.drawio.png Graphic file (type bmp)
+<./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_operator_overloading_as_member_function.drawio.png>
 [182] [183] [184] [185]) (./generalized_parts/08_a_step_forward_in_classes_and_functions/03_constructor_and_destructor.tex [186] [187]
 Overfull \hbox (21.20021pt too wide) in paragraph at lines 53--54
 []\TU/SimSun(0)/m/n/10 这 就 不 得 不 谈 到 [][][][][] 了。|  它 是 一 个 类 模 板，|  可 以 存 储 一 个 常 量 数 组  |（[][][][][][][][][][]
@@ -1419,16 +1419,16 @@ Overfull \hbox (83.03491pt too wide) in paragraph at lines 166--167
  []
 
 [190] [191] [192] [193]
-File: ./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_shallow_copy_and_deep_copy.png Graphic file (type bmp)
-<./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_shallow_copy_and_deep_copy.png>
+File: ./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_shallow_copy_and_deep_copy.drawio.png Graphic file (type bmp)
+<./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_shallow_copy_and_deep_copy.drawio.png>
 
 Overfull \hbox (20.46147pt too wide) in paragraph at lines 288--289
 []\TU/SimSun(0)/m/n/10 要 实 现 深 拷 贝 其 实 很 简 单，|  就 像 一 般 的 构 造 函 数 那 样 写 就 行 了，|  只 是 参 数 类 型 变 成 了 [][][][][][][][]
  []
 
 [194]) (./generalized_parts/08_a_step_forward_in_classes_and_functions/04_property_of_member.tex [195]
-File: ./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_file_inclusion.png Graphic file (type bmp)
-<./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_file_inclusion.png>
+File: ./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_file_inclusion.drawio.png Graphic file (type bmp)
+<./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_file_inclusion.drawio.png>
  [196] [197]
 Overfull \hbox (36.24615pt too wide) in paragraph at lines 126--126
 \TU/SimSun(0)/m/n/10 这 也 同 样 是 \TU/lmr/m/n/10 C++ \TU/SimSun(0)/m/n/10 的 保 护 机 制 在 作 怪  |— —|  它 不 允 许 你 把 [][][] 作 为 一 个 参 数 传 给 [][][][][][][][][][][][]，|
@@ -1440,8 +1440,8 @@ Overfull \hbox (28.51456pt too wide) in paragraph at lines 136--137
  []
 
 [199] [200] [201]
-File: ./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_lazy_tag.png Graphic file (type bmp)
-<./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_lazy_tag.png>
+File: ./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_lazy_tag.drawio.png Graphic file (type bmp)
+<./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_lazy_tag.drawio.png>
  [202] [203]
 Overfull \hbox (12.9415pt too wide) in paragraph at lines 297--298
 []\TU/SimSun(0)/m/n/10 第 一 次 调 用 [][][][] 成 员 函 数，|  这 个 值 被 计 算 出 来 并 存 储 到 [][][] 中，|  同 时 延 迟 标 记 [][][]
@@ -1457,8 +1457,8 @@ Overfull \hbox (145.78337pt too wide) in paragraph at lines 77--77
 []\TU/SimSun(0)/m/n/10 构 造 函 数 能 够 部 分 地 解 决 我 们 的 类 型 转 换 需 求，|  但 不 是 全 部。|  试 想，|  我 们 可 以 通 过 [][][][][][][][][][][][][][][]
  []
 
-File: ./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_type_conversion_between_classes.png Graphic file (type bmp)
-<./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_type_conversion_between_classes.png>
+File: ./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_type_conversion_between_classes.drawio.png Graphic file (type bmp)
+<./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_type_conversion_between_classes.drawio.png>
 [206] [207]
 Overfull \hbox (26.70149pt too wide) in paragraph at lines 163--163
 []\TU/SimSun(0)/m/n/10 至 于 [][][]，|  它 也 会 不 动 声 色 地 隐 式 类 型 转 换 为 [][][][]，|  于 是 我 们 不 需 要 为 了 [][][][][][][]
@@ -1581,14 +1581,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 1210) has occurred while \output is active []
 
  [241] [242]
-File: ./09_class_inheritance/../images/generalized_parts/09_dog_and_husky_relationship.png Graphic file (type bmp)
-<./09_class_inheritance/../images/generalized_parts/09_dog_and_husky_relationship.png>
+File: ./09_class_inheritance/../images/generalized_parts/09_dog_and_husky_relationship.drawio.png Graphic file (type bmp)
+<./09_class_inheritance/../images/generalized_parts/09_dog_and_husky_relationship.drawio.png>
 ) (./generalized_parts/09_class_inheritance/02_public_inheritance_and_protected_members.tex [243]
-File: ./09_class_inheritance/../images/generalized_parts/09_protected_members.png Graphic file (type bmp)
-<./09_class_inheritance/../images/generalized_parts/09_protected_members.png>
+File: ./09_class_inheritance/../images/generalized_parts/09_protected_members.drawio.png Graphic file (type bmp)
+<./09_class_inheritance/../images/generalized_parts/09_protected_members.drawio.png>
  [244]
-File: ./images/generalized_parts/09_built_in_base_class_object_in_derived_class.png Graphic file (type bmp)
-<./images/generalized_parts/09_built_in_base_class_object_in_derived_class.png>
+File: ./images/generalized_parts/09_built_in_base_class_object_in_derived_class.drawio.png Graphic file (type bmp)
+<./images/generalized_parts/09_built_in_base_class_object_in_derived_class.drawio.png>
  [245] [246]) (./generalized_parts/09_class_inheritance/03_private_inheritance.tex [247] [248] [249] [250]
 File: ./09_class_inheritance/../images/generalized_parts/09_lifo_stack.png Graphic file (type bmp)
 <./09_class_inheritance/../images/generalized_parts/09_lifo_stack.png>
@@ -1642,16 +1642,16 @@ Overfull \hbox (2.33713pt too wide) in paragraph at lines 79--79
 (./generalized_parts/10_common_problems_in_inheritance/01_type_cast_in_inheritance_relationship.tex [261
 
 ]
-File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_derived_class_object_and_subobject_in_memory.png Graphic file (type bmp)
-<./10_common_problems_in_inheritance/../images/generalized_parts/10_derived_class_object_and_subobject_in_memory.png>
+File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_derived_class_object_and_subobject_in_memory.drawio.png Graphic file (type bmp)
+<./10_common_problems_in_inheritance/../images/generalized_parts/10_derived_class_object_and_subobject_in_memory.drawio.png>
  [262]
 Overfull \hbox (10.19899pt too wide) in paragraph at lines 66--66
 []\TU/SimSun(0)/m/n/10 这 里 我 们 看 到 的 都 是 指 针\TU/lmr/m/n/10 /\TU/SimSun(0)/m/n/10 引 用 的 隐 式 类 型 转 换。|  如 果 要 做 显 式 类 型 转 换 的 话，|  我 们 用 [][][][][]
  []
 
 [263]
-File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_possible_issues_in_downcasting.png Graphic file (type bmp)
-<./10_common_problems_in_inheritance/../images/generalized_parts/10_possible_issues_in_downcasting.png>
+File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_possible_issues_in_downcasting.drawio.png Graphic file (type bmp)
+<./10_common_problems_in_inheritance/../images/generalized_parts/10_possible_issues_in_downcasting.drawio.png>
  [264]) (./generalized_parts/10_common_problems_in_inheritance/02_virtual_function_and_polymorphism.tex [265] [266] [267]
 Overfull \hbox (2.07718pt too wide) in paragraph at lines 156--157
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
@@ -1663,13 +1663,13 @@ Overfull \hbox (14.49713pt too wide) in paragraph at lines 176--176
  []
 
 [269]) (./generalized_parts/10_common_problems_in_inheritance/03_abstract_base_class_and_pure_virtual_function.tex [270]
-File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_complex_class.png Graphic file (type bmp)
-<./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_complex_class.png>
-File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_parallelogram_class.png Graphic file (type bmp)
-<./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_parallelogram_class.png>
+File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_complex_class.drawio.png Graphic file (type bmp)
+<./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_complex_class.drawio.png>
+File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_parallelogram_class.drawio.png Graphic file (type bmp)
+<./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_parallelogram_class.drawio.png>
  [271]
-File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_shape_class.png Graphic file (type bmp)
-<./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_shape_class.png>
+File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_shape_class.drawio.png Graphic file (type bmp)
+<./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_shape_class.drawio.png>
  [272] [273] [274]) (./generalized_parts/10_common_problems_in_inheritance/04_multiple_inheritance.tex
 Overfull \hbox (0.61789pt too wide) in paragraph at lines 2--2
 []\TU/SimSun(0)/m/n/10 在 上 一 章 中，|  我 们 看 到 了 \TU/lmr/m/n/10 C++ \TU/SimSun(0)/m/n/10 流 输 入\TU/lmr/m/n/10 /\TU/SimSun(0)/m/n/10 输 出 库 中 复 杂 的 继 承 关 系。|  其 中 的 [][][][][]
@@ -1685,17 +1685,17 @@ Overfull \hbox (80.47179pt too wide) in paragraph at lines 46--46
 \TU/SimSun(0)/m/n/10 作 用 域 解 析 运 算 符 拥 有 最 高 优 先 级，|  所 以 [][][][][][][][][][][][][][] 的 含 义 是 [][][][][][][][][][][][][][]。|
  []
 
-File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_multiple_inheritance_example.png Graphic file (type bmp)
-<./10_common_problems_in_inheritance/../images/generalized_parts/10_multiple_inheritance_example.png>
+File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_multiple_inheritance_example.drawio.png Graphic file (type bmp)
+<./10_common_problems_in_inheritance/../images/generalized_parts/10_multiple_inheritance_example.drawio.png>
 [276] [277]
-File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_diamond_inheritance.png Graphic file (type bmp)
-<./10_common_problems_in_inheritance/../images/generalized_parts/10_diamond_inheritance.png>
+File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_diamond_inheritance.drawio.png Graphic file (type bmp)
+<./10_common_problems_in_inheritance/../images/generalized_parts/10_diamond_inheritance.drawio.png>
 ) (./generalized_parts/10_common_problems_in_inheritance/05_virtual_inheritance.tex
-File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_diamond_virtual_inheritance.png Graphic file (type bmp)
-<./10_common_problems_in_inheritance/../images/generalized_parts/10_diamond_virtual_inheritance.png>
+File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_diamond_virtual_inheritance.drawio.png Graphic file (type bmp)
+<./10_common_problems_in_inheritance/../images/generalized_parts/10_diamond_virtual_inheritance.drawio.png>
  [278] [279]
-File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_shape_class_with_multiple_inheritance.png Graphic file (type bmp)
-<./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_shape_class_with_multiple_inheritance.png>
+File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_shape_class_with_multiple_inheritance.drawio.png Graphic file (type bmp)
+<./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_shape_class_with_multiple_inheritance.drawio.png>
  [280] [281] [282] [283] (./code_in_book/10.1/Header.hpp [284]))) (./generalized_parts/11_templates_and_fundamental_generic_programming.tex [285] [286
 
 ]
@@ -1793,8 +1793,8 @@ Overfull \hbox (20.44911pt too wide) in paragraph at lines 90--90
  []
 
 [319]
-File: ./11_templates_and_fundamental_generic_programming/../images/generalized_parts/11_different_types_of_pointer_to_containers.png Graphic file (type bmp)
-<./11_templates_and_fundamental_generic_programming/../images/generalized_parts/11_different_types_of_pointer_to_containers.png>
+File: ./11_templates_and_fundamental_generic_programming/../images/generalized_parts/11_different_types_of_pointer_to_containers.drawio.png Graphic file (type bmp)
+<./11_templates_and_fundamental_generic_programming/../images/generalized_parts/11_different_types_of_pointer_to_containers.drawio.png>
 
 Overfull \hbox (61.20929pt too wide) in paragraph at lines 129--129
 []\TU/SimSun(0)/m/n/10 每 个 容 器 都 有 内 置 的 迭 代 器 类 型。|  比 如 [][][][][] 的 迭 代 器 类 型 就 叫 [][][][][][][][][][][]。|
@@ -1819,8 +1819,8 @@ Overfull \hbox (32.56332pt too wide) in paragraph at lines 170--170
  []
 
 [322] [323] [324]
-File: ./11_templates_and_fundamental_generic_programming/../images/generalized_parts/11_algorithm_copy.png Graphic file (type bmp)
-<./11_templates_and_fundamental_generic_programming/../images/generalized_parts/11_algorithm_copy.png>
+File: ./11_templates_and_fundamental_generic_programming/../images/generalized_parts/11_algorithm_copy.drawio.png Graphic file (type bmp)
+<./11_templates_and_fundamental_generic_programming/../images/generalized_parts/11_algorithm_copy.drawio.png>
  [325] [326] [327]) (./generalized_parts/11_templates_and_fundamental_generic_programming/06_exercise_smart_pointers.tex
 Overfull \hbox (1.7443pt too wide) in paragraph at lines 4--4
 []\TU/lmr/m/n/10 C++17 \TU/SimSun(0)/m/n/10 有 三 种 智 能 指 针：| [][][][][] 禁 止 不 同 智 能 指 针 指 向 相 同 地 址；| [][][][][]
@@ -1866,9 +1866,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ]
 第十二章
-(./generalized_parts/../generalized_parts/12_introduction_to_exceptions/01_try_catch_throw.tex [341] (./code_in_book/12.1/solve_equation.cpp) [342] [343] [344] [345]) (./generalized_parts/../generalized_parts/12_introduction_to_exceptions/02_std_exception.tex) (./generalized_parts/../generalized_parts/12_introduction_to_exceptions/03_noexcept.tex))) (././intensive_part.tex [346] [347
+(./generalized_parts/../generalized_parts/12_introduction_to_exceptions/01_try_catch_throw.tex [341] (./code_in_book/12.1/solve_equation.cpp) [342] [343] [344] [345]) (./generalized_parts/../generalized_parts/12_introduction_to_exceptions/02_std_exception.tex
+File: ./generalized_parts/../images/generalized_parts/12_std_exception_family.drawio.png Graphic file (type bmp)
+<./generalized_parts/../images/generalized_parts/12_std_exception_family.drawio.png>
+ [346] [347] [348]) (./generalized_parts/../generalized_parts/12_introduction_to_exceptions/03_noexcept.tex))) (././intensive_part.tex [349] [350
 
-] [348]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
+] [351] [352]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
 附录 A
 
 Underfull \hbox (badness 6063) in paragraph at lines 16--16
@@ -1880,41 +1883,41 @@ Underfull \hbox (badness 7468) in paragraph at lines 46--46
 [][][]\TU/SimSun(0)/m/n/8.33344 注 意，|  重 载 运 算 符 对 参 数 有 特 殊 要 求：|  必 须 接 收 至 少 一 个 自 定 义 类 型 的 参 数，|  可 以 是 类 或 枚 举 类。|  比 如 说，|
  []
 
-[349
+[353
 
-]) (./other_parts/appendices/B.tex [350]
+]) (./other_parts/appendices/B.tex [354]
 附录 B
-[351
+[355
 
-]) (./other_parts/appendices/C.tex [352]
+]) (./other_parts/appendices/C.tex [356]
 附录 C
 File: appendices/../images/other_parts/C_digital_clock.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_digital_clock.png>
-[353
+[357
 
 ]
 File: appendices/../images/other_parts/C_from_counting_to_exponentiation.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_from_counting_to_exponentiation.png>
 File: appendices/../images/other_parts/C_duodecimal_multiplication_table.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_duodecimal_multiplication_table.png>
- [354]
+ [358]
 Underfull \vbox (badness 2753) has occurred while \output is active []
 
- [355] [356]
+ [359] [360]
 File: appendices/../images/other_parts/C_formatted_representation_of_a_number.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_formatted_representation_of_a_number.png>
- [357] [358]
+ [361] [362]
 File: appendices/../images/other_parts/C_short_division.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_short_division.png>
- [359] [360]
+ [363] [364]
 File: appendices/../images/other_parts/C_bin_to_oct.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_oct.png>
- [361]
+ [365]
 File: appendices/../images/other_parts/C_bin_to_hex.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_hex.png>
 File: appendices/../images/other_parts/C_maya_numbers.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_maya_numbers.png>
- [362])) (./other_parts/afterword.tex [363] [364
+ [366])) (./other_parts/afterword.tex [367] [368
 
 ])
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1925,28 +1928,28 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [365]
+ [369]
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [366] (./main.aux)
+ [370] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 0A92D7DCFF9E73CE2A6D4E75DE35CE38;8595.
+(rerunfilecheck)             Checksum: 2054D817FF946DE35EADCDEB8D9B2A94;8762.
  ) 
 Here is how much of TeX's memory you used:
- 27845 strings out of 474924
- 722750 string characters out of 5765037
+ 27909 strings out of 474924
+ 731454 string characters out of 5765037
  2050189 words of memory out of 5000000
- 48758 multiletter control sequences out of 15000+600000
+ 48819 multiletter control sequences out of 15000+600000
  571829 words of font info for 166 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,18n,111p,1239b,1918s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (374 pages).
+Output written on main.pdf (378 pages).

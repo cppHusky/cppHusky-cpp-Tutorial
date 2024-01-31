@@ -41,7 +41,7 @@ i
 我们说过，一维数组就是在内存中连续存储的一些数据。既然二维数组本质上就是一维数组构成的一维数组，那么我们也不难想见，二维数组也是内存中连续的一段，如图5.14所示。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.6\textwidth]{../images/generalized_parts/05_data_in_the_array_of_array.png}
+    \includegraphics[width=0.6\textwidth]{../images/generalized_parts/05_data_in_the_array_of_array.drawio.png}
     \caption{二维数组在内存中的布局}
     \footnotesize{本图的每个蓝/粉色方框代表一个数据，而非一个字节}
 \end{figure}
@@ -105,7 +105,7 @@ double (*pta2)[3] {&arr}; //3不可省略，并且需要和arr的长度保持一
 然后再来看看二维数组和指向数组的指针间的关系。我们之前说过，\lstinline@T@ 类型数据构成的数组 \lstinline@T[N]@ 也可隐式转换成指向 \lstinline@T@ 类型的指针，即 \lstinline@T*@。对于二维数组也是如此！既然一个二维数组就是一维数组构成的一维数组，那么它就可以转换成指向一维数组的指针！\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.75\textwidth]{../images/generalized_parts/05_the_pointer_to_array_and_2d_array.png}
+    \includegraphics[width=0.75\textwidth]{../images/generalized_parts/05_the_pointer_to_array_and_2d_array.drawio.png}
     \caption{指向数组的指针 \lstinline@pta@ 指向了数组 \lstinline@darr[0]@}
 \end{figure}
 那么读者也可以猜一下，\lstinline@pta+1@ 会指向什么呢？既然指针的加减法讲究的是数据的偏移量而非地址的偏移量，那么我们就应该想到，\lstinline@pta+1@ 应该指向下一个数组，也就是 \lstinline@darr[1]@。同理，\lstinline@pta+2@ 应该指向下一个数组，即 \lstinline@darr[2]@，以此类推。图5.15给出了这种关系，读者可以作为参考。\par
@@ -190,6 +190,6 @@ i\\
 这四种类型的转换关系可以用图5.16来描述。注意，二维数组是不能直接转换成二级指针类型的，数组指针也是不能直接转换成指向数组的指针类型的。这方面更详细的讨论，我们放在精讲篇。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.5\textwidth]{../images/generalized_parts/05_type_conversions_between_array_and_pointer.png}
+    \includegraphics[width=0.5\textwidth]{../images/generalized_parts/05_type_conversions_between_array_and_pointer.drawio.png}
     \caption{四种指针/数组复合类型的类型转换关系}
 \end{figure}\par

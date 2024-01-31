@@ -92,7 +92,7 @@
 我们发现，这个程序不只可以判断正整数的奇偶，还可以判断负整数的奇偶。因此，它的功能可以得到拓展。不过这样就会出现一个新的问题——输入 \lstinline@-1@ 的时候怎么办呢？如果还把 \lstinline@-1@ 作为判断程序结束的标志，那我们就不能通过这个程序来判断 \lstinline@-1@ 的奇偶；如果输入 \lstinline@-1@ 的时候也要给出奇偶判断，那么我们就应该用新的方式来标记程序结束。比如说，如果用户输入一个 \lstinline@q@（或者别的字母），我们就结束程序。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.6\textwidth]{../images/generalized_parts/03_structure_of_odd_or_even_with_while_loop.png}
+    \includegraphics[width=0.6\textwidth]{../images/generalized_parts/03_structure_of_odd_or_even_with_while_loop.drawio.png}
     \caption{while循环奇偶判断流程图}
 \end{figure}
 这种实现方式是可行的，并且相当好用。我在这里先放代码，然后再做解释：
@@ -165,7 +165,7 @@
 \lstinline@break@ 可以用于循环结构或 \lstinline@switch@-\lstinline@case@ 结构中，其作用是退出当前所在的循环或 \lstinline@switch@ 块。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.35\textwidth]{../images/generalized_parts/03_structure_of_break.png}
+    \includegraphics[width=0.35\textwidth]{../images/generalized_parts/03_structure_of_break.drawio.png}
     \caption{\lstinline@break@ 结构的流程图}
 \end{figure}
 举例来说，我们可以用这种方式来重写代码3.3的主函数部分，效果相同。
@@ -210,7 +210,7 @@
 需要特别注意的是，\lstinline@continue@ 用在 \lstinline@for@ 循环中，不会跳过迭代操作。也就意味着，在 \lstinline@for@ 循环中使用 \lstinline@continue@ 不是``重新开始本轮循环''，而是``直接从下一轮循环开始''。\par
 \begin{figure}[htbp]
    \centering
-   \includegraphics[width=0.35\textwidth]{../images/generalized_parts/03_structure_of_continue.png}
+   \includegraphics[width=0.35\textwidth]{../images/generalized_parts/03_structure_of_continue.drawio.png}
    \caption{\lstinline@continue@ 结构的流程图}
 \end{figure}
 \lstinline@continue@ 的用途很广泛，我们来举个实际一点的例子：有些时候，我们需要用户输入一些数字，但我们没有一个机制来防止用户输入不合理的内容（比如，需要用户输入数字，但用户却输入了字母）。一旦用户输入了不合理的内容，\lstinline@cin@ 就会进入错误状态，然后拒绝再读取输入。\par

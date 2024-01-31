@@ -73,10 +73,11 @@
 \contentsline {section}{\numberline {11.6}实操：智能指针}{328}{section.11.6}%
 \contentsline {chapter}{\numberline {第十二章\hspace {.3em}}异常处理简介}{341}{chapter.12}%
 \contentsline {section}{\numberline {12.1}基本\texttt {try}-\texttt {catch}-\texttt {throw}结构}{341}{section.12.1}%
-\contentsline {part}{精讲篇}{349}{part*.239}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{349}{appendix.A}%
-\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{351}{appendix.B}%
-\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{353}{appendix.C}%
-\contentsline {section}{\numberline {C.1}数制转换}{353}{section.C.1}%
-\contentsline {section}{\numberline {C.2}布尔代数基础}{362}{section.C.2}%
-\contentsline {chapter}{跋}{365}{appendix*.248}%
+\contentsline {section}{\numberline {12.2}异常类\texttt {std::exception}相关}{346}{section.12.2}%
+\contentsline {part}{精讲篇}{353}{part*.241}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{353}{appendix.A}%
+\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{355}{appendix.B}%
+\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{357}{appendix.C}%
+\contentsline {section}{\numberline {C.1}数制转换}{357}{section.C.1}%
+\contentsline {section}{\numberline {C.2}布尔代数基础}{366}{section.C.2}%
+\contentsline {chapter}{跋}{369}{appendix*.250}%
