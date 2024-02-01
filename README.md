@@ -4,7 +4,7 @@
 
 此项目第一阶段计划（前七章）已经完成！
 
-### 当前进度：第十一章完成。参见[Preview](https://github.com/cppHusky/cppHusky-cpp-Tutorial/releases/tag/preview-0-0-11)。
+### 当前进度：第十二章完成。参见[Preview](https://github.com/cppHusky/cppHusky-cpp-Tutorial/releases/tag/preview-0-0-12)。
 
 我为此规划了一个大致的编章结构，参见[Structure.md](https://github.com/cppHusky/cppHusky-cpp-Tutorial/blob/main/Structure.md)。
 

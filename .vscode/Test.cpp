@@ -2,11 +2,20 @@
 #include<exception>
 #include<stdexcept>
 #include<vector>
-void func()noexcept { }
-void func(int n) { }
+class Complex {
+    double real;
+    double image;
+public:
+    Complex(double r=0,double i=0):real{r},image{i}{}
+    Complex operator+(const Complex &c)const{
+        return Complex(real+c.real,image+c.image);
+    }
+    // friend Complex operator+(const Complex &c1, const Complex &c2){
+    //     return Complex(c1.real+c2.real,c1.image+c2.image);
+    // }
+};
 int main() {
-    std::vector<int> vec(3); //vec的长度为3
-    std::cout << noexcept(vec.at(2))<<std::endl;
-    std::cout << noexcept(vec.at(3))<<std::endl;
+    Complex a(1,2);
+    2+a;
     return 0;
 }

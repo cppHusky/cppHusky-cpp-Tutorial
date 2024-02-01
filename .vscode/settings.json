@@ -58,6 +58,7 @@
         "set": "cpp",
         "valarray": "cpp",
         "xhash": "cpp",
-        "xtree": "cpp"
+        "xtree": "cpp",
+        "string": "cpp"
     }
 }

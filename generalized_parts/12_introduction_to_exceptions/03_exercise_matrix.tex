@@ -1,0 +1,316 @@
+\section{实操：简单矩阵类的设计}
+本节我们来设计一个简单的矩阵类。C++没有原生的矩阵功能，我们需要从零开始自己搭建一个 \lstinline@Matrix@ 类模板。\par
+\subsection*{功能设计}
+首先，这个类模板只有一个参数，那就是每个矩阵元素的类型。有些读者可能会想到把矩阵的行数 \lstinline@N@ 和列数 \lstinline@M@ 也作为模板参数，但这样就意味着任何一个矩阵的尺寸必须在编译时确定下来——一个矩阵的大小应该不变，这是合理的；但是一个矩阵的大小要在定义时就确定下来，这就未免有些严格了。所以比较好的处理方法是把矩阵的行数和列数当作常量，一经定义就不可改变；但是定义它的时候传入什么参数，这还是可以在运行时决定的。\par
+接下来我们思考一下矩阵元素要用什么来存储。理论上讲，\lstinline@std::vector@, \lstinline@std::valarray@ 这种可以在运行时确定长度的数组套数组都是没问题的，甚至用一个二阶指针配合动态内存分配也行；而 \lstinline@std::array@ 和 \lstinline@int[N][M]@ 这种需要在编译时确定大小的就不行了。在这里我们选择 \lstinline@std::valarray@，这是因为 \lstinline@valarray@ 本身就支持数组之间的算术运算，这样我们写起代码来会比较省事。\par
+这个矩阵类应该能支持列表初始化，或者根据某些参数来确定其大小（因为大小是常量，必须在定义时确定）。至于析构，如果我们选择 \lstinline@std::valarray@ 或 \lstinline@std::vector@ 的话，那我们没必要自己写一个析构函数了，它有自己的析构函数。\par
+这个矩阵类要能支持根据下标取元素。很遗憾，在C++17我们还不能进行多参数的下标运算符重载（比如写成 \lstinline@mat[i,j]@ 这样）。但是我们可以选择另一种方式，用函数调用运算符（比如写成 \lstinline@mat(i,j)@ 这样）来替代之。我们可以为它设计范围检测，如果发生了越界行为，我们就抛出异常。\par
+这个矩阵类要能支持加法、减法和乘法。至于取逆运算，我们就不实现了。在进行这些运算的时候要注意一个问题：矩阵行数或列数不同的话，可是不能相加减的；左矩阵列数与右矩阵行数不同的话，也是不能相乘的。如果发生了这些情况，怎么办？我们选择抛出异常。\par
+这个矩阵类还可以支持六种比较运算符。在比较时仍需注意，不同大小的矩阵没有什么比较的意义，所以对于这种情况，我们可以抛出异常。（当然，如果你有其它的理解方式和实现方式，那也未尝不可）\par
+这个矩阵要能支持转置操作。其实不难，就是把行与列对调。\par
+这个矩阵还要能够返回行数与列数。对此，我们有两种实现方式：其一是，定义两个成员函数 \lstinline@row_num@ 和 \lstinline@col_num@，分别返回行数与列数；其二是，用一个 \lstinline@std::pair@ 对象作返回值，把行数与列数打包进同一个对象中再返回。此处我们选择第二种方式；读者可以自行尝试第一种方式，很容易就写出来了。单纯返回个值，不涉及什么危险操作，我们可以放心地把它设为 \lstinline@noexcept@。\par
+至于其它的功能，比如分块、合并、特征值之类的，我们就不实现了。\par
+\subsection*{规划}
+首先我们把这个类模板的成员类型和私有成员声明一下。多使用成员类型信息是一种好习惯。
+\begin{lstlisting}
+//namespace user
+template<typename T>
+class matrix { //类模板定义
+public:
+    using value_type = T;
+    using reference = T&;
+    using const_reference = const T&;
+    using size_type = std::size_t;
+private:
+    const size_type N;
+    const size_type M;
+    std::valarray<std::valarray<value_type>> _element;
+    //...待补充
+\end{lstlisting}\par
+\subsubsection*{自定义异常类}
+在上文中，我们提及的异常只有两类：一类是下标错误，另一类是矩阵尺寸不合适。不过我们可以稍微细分一下，变成四类：下标错误、不允许的加减法、不允许的乘法和不允许的比较。
+这样一来，我们可以为不同的错误种类设置不同的异常信息（也就是体现在 \lstinline@what@ 中的部分）。\par
+我们可以在 \lstinline@matrix@ 的私有成员部分定义几个异常类，它们可以归为 \lstinline@std::out_of_range@ 或者 \lstinline@std::logic_error@，那么我们就用继承的语法给它们表示出来。\par
+\begin{lstlisting}
+private:
+    struct index_error : std::out_of_range { //有两种构造函数和默认拷贝构造函数
+        index_error(const char *msg) : out_of_range {msg} {}
+        index_error(const std::string &msg) : out_of_range {msg} {}
+    };
+    struct invalid_plus : std::logic_error {
+        invalid_plus(const char *msg) : logic_error {msg} {}
+        invalid_plus(const std::string &msg) : logic_error {msg} {}
+    };
+    struct invalid_multiplies : std::logic_error {
+        invalid_multiplies(const char *msg) : logic_error {msg} {}
+        invalid_multiplies(const std::string &msg) : logic_error {msg} {}
+    };
+    struct invalid_compare : std::logic_error {
+        invalid_compare(const char *msg) : logic_error {msg} {}
+        invalid_compare(const std::string &msg) : logic_error {msg} {}
+    };
+\end{lstlisting}
+它们每个都可以接收 \lstinline@const char*@ 参数或 \lstinline@cons std::string&@ 参数来构造（因为它们的基类也能）。不过根据我们上一节中积累的经验，还是选择 \lstinline@const std::string&@ 更好一些。\par
+\subsubsection*{其它成员函数}
+关于构造函数，我们可以接收两个 \lstinline@size_type@ 参数，来决定矩阵的大小；或者允许列表初始化，接收一个 \lstinline@std::initializer_list<std::initializer_list<value_type>>@，于是我们就可以像这样初始化一个矩阵对象了：
+\begin{lstlisting}
+    user::matrix<int> mat {
+        {1},
+        {0,1},
+        {0,0,1}
+    }; //定义一个三阶单位矩阵
+\end{lstlisting}
+至于拷贝构造函数，用默认的就够了。析构函数也是。
+\begin{lstlisting}
+public:
+    matrix(size_type, size_type); //接收两个矩阵大小参数，所有元素置为0
+    matrix(std::initializer_list<std::initializer_list<value_type>>);
+    //允许二维数组式的列表初始化
+\end{lstlisting}\par
+接下来是元素访问。我们已经说过，下标运算符不能接收多个参数，因此我们使用的替代方案是重载函数调用运算符 \lstinline@()@。这里有常成员函数版本和非常成员函数版本，它们的返回值分别是常量引用和引用。\par
+\begin{lstlisting}
+public:
+    reference operator()(size_type, size_type);
+    const_reference operator()(size_type, size_type)const;
+\end{lstlisting}\par
+下面是一系列算术运算。加法和减法自不必说；乘法要分为三种情况：矩阵乘矩阵、数乘矩阵、矩阵乘数。后两种其实是一样的，我们可以通过代码重用来简化。在这里我尽可能把它们写成非成员函数，这样能很好地兼容``二维列表加矩阵''的写法——因为二维列表可以隐式类型转换成矩阵。\par
+\begin{lstlisting}
+//非成员函数声明部分
+template<typename T>
+matrix<T> operator+(const matrix<T>&, const matrix<T>&); //非成员函数声明
+template<typename T>
+matrix<T> operator-(const matrix<T>&, const matrix<T>&);
+template<typename T>
+matrix<T> operator*(const matrix<T>&, const matrix<T>&);
+template<typename T>
+matrix<T> operator*(const T&, const matrix<T>&);
+//友元/成员函数声明部分
+public:
+    template<typename U>
+    friend matrix<U> operator+(const matrix<U>&, const matrix<U>&); //矩阵相加
+    template<typename U>
+    friend matrix<U> operator-(const matrix<U>&, const matrix<U>&); //矩阵相减
+    template<typename U>
+    friend matrix<U> operator*(const matrix<U>&, const matrix<U>&); //矩阵相乘
+    template<typename U>
+    friend matrix<U> operator*(const U&, const matrix<U>&); //数乘以矩阵
+    matrix operator*(const T&); //矩阵乘以数
+\end{lstlisting}
+在声明友元的时候还是不要忘了，模板参数不要用和 \lstinline@matrix@ 一样的。\par
+至于六个比较运算符的声明/友元声明，写法大抵一致，我就不在这里写了。读者若要参考，请看本节末的完整代码。\par
+转置函数有不同的写法：可以直接操作这个对象本身，使其转置；也可以不操作这个对象本身，而是返回另一个临时对象。我们在这里采取第二种实现方式。
+\begin{lstlisting}
+public:
+    matrix transpose()const;
+\end{lstlisting}\par
+至于 \lstinline@size@，这里我们会用到 \lstinline@utility@ 库中提供的 \lstinline@std::pair@。它是一个类模板，其对象可以表示一个 \lstinline@<T1,T2>@ 二元组。说得好像很高大上，其实就是包装了两个成员的对象而已。我们可以用 \lstinline@first@ 取其第一个成员，\lstinline@last@ 取其第二个成员。至于构造，我们把两个对象装进函数参数中就行，像这样：
+\begin{lstlisting}
+    std::pair<int, double> pr(1, 0); //两个成员分别是1和0
+    std::cout << pr.first << ' ' << pr.second; //分别输出它的两个成员
+\end{lstlisting}
+回到 \lstinline@size@，我们只需要把行数和列数信息包装到一个 \lstinline@std::pair@ 中就好。
+\begin{lstlisting}
+public:
+    std::pair<size_type, size_type> size()const noexcept;
+\end{lstlisting}\par
+\subsection*{实现}
+\subsubsection*{成员函数}
+我们先实现一下成员函数中的构造函数。
+\begin{lstlisting}
+template<typename T>
+user::matrix<T>::matrix(size_type n, size_type m) : N {n}, M {m} {
+    //常量成员必须通过初始列来初始化
+    _element.resize(N); //先改变_element的大小，这是行数
+    for (auto &row : _element) //这样写方便些，注意row是引用形式
+        row.resize(M); //对每一行进行resize，M为列数
+    //resize之后每个元素都是默认值value_type{}，这样，一个矩阵构造就完成了
+}
+\end{lstlisting}
+这个构造函数写起来还是比较容易的，因为行数和列数都直接给到参数当中了。对于 \lstinline@_element@ 来说，因为它是一个``数组的数组''，所以我们第一步需要通过 \lstinline@resize@ 来改变数组的个数——也就是矩阵的行数。接下来，我们通过一个范围 \lstinline@for@ 循环\footnote{值得注意的是，虽然 \lstinline@std::valarray@ 没有内置的迭代器，但是它提供了 \lstinline@begin@ 和 \lstinline@end@，这使它具备了能在范围 \lstinline@for@ 循环中正常使用的资格。}遍历每一行（每一行又是一个 \lstinline@std::valarray@ 对象），对每一行再通过 \lstinline@resize@ 改变列数。这样，一个矩阵的构造工作就完成了。其中的每个元素都取 \lstinline@value_type@ 的默认值——对于内置类型来说就是各种零（\lstinline@0@, \lstinline@0.@, \lstinline@'\0'@, \lstinline@false@, \lstinline@nullptr@ 等）。\par
+至于用二维初始化列表的写法，就显得有些难度了。倘若我们要允许以下面的语法定义一个三阶单位矩阵的话，我们就不仅要根据 \lstinline@ilist.size()@ 确定 \lstinline@N@ 的值，还要根据 \lstinline@ilist@ 每个成员的 \lstinline@size()@ 确定 \lstinline@M@ 的值。
+\begin{lstlisting}
+    user::matrix<int> mat {
+        {1},
+        {0,1},
+        {0,0,1}
+    }; //定义一个三阶单位矩阵，N=3，M=3
+\end{lstlisting}
+但是初值列中不允计我们进行额外的计算（除非用闭包之类的），我们只能为成员提供值。为了解决这个问题，我们还需要补充一个辅助函数，它可以帮助我们根据二维初始化列表，确定合理的矩阵列数。\par
+我们希望正确的列数是 \lstinline@ilist@ 各行长度的最大值，那么我们可以把辅助函数写成这样：
+\begin{lstlisting}
+//声明
+template<typename T>
+std::size_t max_column(
+    const std::initializer_list<std::initializer_list<T>>&
+); //辅助函数，取二维列表各行的最大值
+//定义
+template<typename T>
+std::size_t user::max_column(
+    const std::initializer_list<std::initializer_list<T>> &ilist
+) {
+    std::size_t result {}; //初始化为0
+    for (auto row : ilist)
+        if(result < row.size())
+            result = row.size();
+    return result; //返回的就是二维列表各行的最大值
+}
+\end{lstlisting}
+接下来，我们就可以把初值列完成：
+\begin{lstlisting}
+user::matrix<T>::matrix(
+    std::initializer_list<std::initializer_list<value_type>> ilist
+) : N {ilist.size()}, M {user::max_column(ilist)} { /*...*/ }
+    //在初值列中通过ilist和辅助函数确定行/列数
+\end{lstlisting}\par
+再来考虑函数体内的操作。\lstinline@std::initializer_list@ 有一个十分不便的点在于，我们只能通过迭代器来遍历它的每一个元素。至于下标运算符或者 \lstinline@at@ 成员函数，它都是没有的。为此，我们需要在 \lstinline@for@ 之外的部分定义循环变量，并进行循环迭代。以下是函数体的部分：
+\begin{lstlisting}
+    _element.resize(N); //同样的道理，先改变_element的大小，代表行数
+    size_type i {0}; //循环变量
+    for (const auto &row : ilist) { //访问initializer_list不能用下标运算符
+        _element[i].resize(M); //改变_element的大小，代表列数
+        size_type j {0}; //也是循环变量
+        for (const auto &x : row) {
+            _element[i][j++] = x; //注意++是后缀形式
+        }
+        ++i; //别忘了循环迭代
+    } //这样，一个矩阵构造就完成了
+}
+\end{lstlisting}
+这里的代码还是有些繁琐，读者可以自行尝试写一遍，能加深理解。\par
+接下来是成员访问，我们选择重载函数调用运算符。它有异常检测机制，如果下标不正确，它就会抛出一个 \lstinline@index_error@ 类型的异常信息。只有检测无误，才正常返回结果。
+\begin{lstlisting}
+template<typename T>
+auto user::matrix<T>::operator()(size_type i, size_type j) -> reference {
+    if (i >= N) {
+        std::string msg {"Error: Row index "};
+        msg += std::to_string(i) + " >= " + std::to_string(N);
+        throw typename matrix<T>::index_error {msg};
+        //靠加法运算符疯狂拼接，然后抛出
+    }
+    if (j >= M) {
+        std::string msg {"Error: Column index "};
+        msg += std::to_string(j) + " >= " + std::to_string(M);
+        throw typename matrix<T>::index_error {msg}; //同上
+    }
+    return _element[i][j];
+}
+\end{lstlisting}
+在这里我们仍然使用了 \lstinline@auto@ 配合尾随返回类型来简化写法。函数体内的异常处理看起来很复杂，其实都是一些 \lstinline@string@ 拼接的操作。只有最后的 \lstinline@throw@ 语句这里，需要提醒读者，编译器未必能识别出 \lstinline@matrix<T>::index_error@ 是个类型名，所以我们需要以 \lstinline@typename@ 指明它是一个类型，进而才能构造一个该类型的对象。总之，\lstinline@typename@ 在这里只有提示作用。\par
+至于常成员函数的版本，道理一样。尾随返回类型改成 \lstinline@const_reference@ 就好了。\par
+接下来看一下矩阵乘数的乘法运算符，它也是成员函数。我们需要先拷贝构造一个临时对象，然后用循环语句对每一个矩阵元素赋值。这里就显现出 \lstinline@std::valarray@ 的强大之处了：我们可以直接用乘赋值运算符 \lstinline@*=@，来让一整行的数据都乘上一个数！
+\begin{lstlisting}
+template<typename T>
+auto user::matrix<T>::operator*(const T &val) -> matrix {
+    matrix mat {*this}; //用*this来拷贝构造mat
+    for (auto &row : mat._element) //遍历每一行，每一个row都是一个valarray引用
+        row *= val; //std::valarray特有的乘赋值功能
+    return mat; //返回值
+}
+\end{lstlisting}\par
+接下来是转置函数。很简单，我们只需定义一个行列数相反的临时对象，然后把对应位置的元素赋值到转置的位置上就可以了。
+\begin{lstlisting}
+template<typename T>
+auto user::matrix<T>::transpose()const -> matrix{
+    matrix mat(M,N); //行列数颠倒
+    for (size_type i = 0; i < N; ++i)
+        for (size_type j = 0; j < M; ++j)
+            mat(j,i) = operator()(i,j); //注意i,j别写错了，想清楚
+    return mat;
+}
+\end{lstlisting}\par
+最后的 \lstinline@size@ 很简单，我们用一个 \lstinline@std::pair@ 构造函数包装一下就好。这里的 \lstinline@std::pair@ 不需要 \lstinline@typename@ 关键字来提示，因为编译器知道它是一个类名。
+\begin{lstlisting}
+template<typename T>
+auto user::matrix<T>::size()const noexcept
+-> std::pair<size_type, size_type> {
+    return std::pair<size_type, size_type> {N, M}; //不需要typename，但可以有
+}
+\end{lstlisting}\par
+\subsubsection*{非成员函数/辅助函数}
+加法和减法的套路是一样的，我们只写加法。
+\begin{lstlisting}
+template<typename T>
+auto user::operator+(const matrix<T> &lhs, const matrix<T> &rhs)
+-> matrix<T> {
+    if (lhs.N != rhs.N || lhs.M != rhs.M) {
+        std::string msg {"Cannot add "};
+        msg += std::to_string(lhs.N) + " * " + std::to_string(lhs.M)
+            + " matrix to " + std::to_string(rhs.N)
+            + " * " + std::to_string(rhs.M) + "matrix";
+        throw typename matrix<T>::invalid_plus {msg};
+    }
+    matrix mat {lhs}; //用lhs为mat赋值
+    for (std::size_t i = 0; i < lhs.N; ++i)
+        mat._element[i] += rhs._element[i]; //再加上rhs的每一行
+    return mat;
+}
+\end{lstlisting}
+首先是异常处理，我们不允许行数或列数不同的矩阵相加，所以遇到这种情况要抛出异常。至于计算本身，我们还是利用 \lstinline@std::valarray@ 对于数组加/减法的支持，直接每行每行地相加就好。\par
+矩阵乘法不易用 \lstinline@std::valarray@ 本身的功能来实现（能倒是能，但代码更复杂了，效率也更低了），我们老老实实地写三重循环就好。
+\begin{lstlisting}
+template<typename T>
+auto user::operator*(const matrix<T> &lhs, const matrix<T> &rhs)
+-> matrix<T> {
+    if (lhs.M != rhs.N) {
+        std::string msg {"Cannot multiply matrix with "};
+        msg += std::to_string(lhs.M) + " columns by matrix with "
+            + std::to_string(rhs.N) + " rows";
+        throw typename matrix<T>::invalid_multiplies{msg};
+    }
+    matrix<T> mat(lhs.N, rhs.M); //新建一个空的矩阵
+    for (std::size_t i = 0; i < lhs.N; ++i)
+        for (std::size_t j = 0; j < rhs.M; ++j)
+            for (std::size_t k = 0; k < lhs.M; ++k)
+                mat(i,j) += lhs(i,k) * rhs(k,j); //三重循环，就不讲了
+    return mat;
+}
+\end{lstlisting}
+至于这个三重循环的逻辑，那就不是本书该讲的东西了，请读者自行查阅相关资料吧。\par
+数乘矩阵的功能也可以仿照矩阵乘数的代码来写，不过我们也可以直接选择代码重用。
+\begin{lstlisting}
+template<typename T>
+auto user::operator*(const T &value, const matrix<T> &mat) -> matrix<T> {
+    return mat * value; //节省代码，就这样写了
+}
+\end{lstlisting}
+在六个比较运算符方面，我们也可以选择使用 \lstinline@<@ 定义其它五个运算符；不过对于相等/不相等运算符来说，这样做的效率会比较低。对于矩阵来说，一次二重循环比较带来的开销还是不小的，如果我们通过一次比较就能判断是否相等，那就没必要用两次比较。因此我们的思路是：重载小于号，并用它来定义大于号、不小于号、不大于号；重载不相等号，并用它来定义相等号。
+\begin{lstlisting}
+template<typename T>
+bool user::operator<(const matrix<T> &lhs, const matrix<T> &rhs) {
+    if (lhs.N != rhs.N || lhs.M != rhs.M) {
+        std::string msg {"Cannot compare "};
+        msg += std::to_string(lhs.N) + " * " + std::to_string(lhs.M)
+            + " matrix with " + std::to_string(rhs.N) + " * "
+            + std::to_string(rhs.M) + " matrix";
+        throw typename matrix<T>::invalid_compare {msg};
+    }
+    for (std::size_t i = 0; i < lhs.N; ++i)
+        if (lhs._element[i] < rhs._element[i])
+            return true;
+        else if (lhs._element[i] > rhs._element[i])
+            return false;
+    return false;
+}
+\end{lstlisting}
+在这里，出于代码简化的目的，我们直接使用了 \lstinline@std::valarray@ 自带的小于号。
+\begin{lstlisting}
+template<typename T>
+bool user::operator!=(const matrix<T> &lhs, const matrix<T> &rhs) {
+    if (lhs.N != rhs.N || lhs.M != rhs.M) {
+        std::string msg {"Cannot compare "};
+        msg += std::to_string(lhs.N) + " * " + std::to_string(lhs.M)
+            + " matrix with " + std::to_string(rhs.N) + " * "
+            + std::to_string(rhs.M) + " matrix";
+        throw typename matrix<T>::invalid_compare {msg};
+    }
+    for (std::size_t i = 0; i < lhs.N; ++i)
+        if (lhs._element[i] != rhs._element[i])
+            return true;
+    return false;
+}
+\end{lstlisting}
+其它四个运算符都可以靠它们两个来实现，我就不赘述了。\par
+\subsection*{完整代码}
+以下是 \lstinline@user::matrix@ 类声明及定义的完整代码。
+\lstinputlisting[caption=\texttt{Header.hpp}]{code_in_book/12.2-12.3/Header.hpp}
+\lstinputlisting[caption=\texttt{Definition.tpp}]{code_in_book/12.2-12.3/Definition.tpp}
