@@ -75,10 +75,11 @@
 \contentsline {section}{\numberline {12.1}基本\texttt {try}-\texttt {catch}-\texttt {throw}结构}{341}{section.12.1}%
 \contentsline {section}{\numberline {12.2}异常类\texttt {std::exception}相关}{346}{section.12.2}%
 \contentsline {section}{\numberline {12.3}实操：简单矩阵类的设计}{349}{section.12.3}%
-\contentsline {part}{精讲篇}{367}{part*.249}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{367}{appendix.A}%
-\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{369}{appendix.B}%
-\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{371}{appendix.C}%
-\contentsline {section}{\numberline {C.1}数制转换}{371}{section.C.1}%
-\contentsline {section}{\numberline {C.2}布尔代数基础}{380}{section.C.2}%
-\contentsline {chapter}{跋}{383}{appendix*.258}%
+\contentsline {chapter}{\numberline {第十三章\hspace {.3em}}输入/输出流简介}{365}{chapter.13}%
+\contentsline {part}{精讲篇}{369}{part*.249}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{369}{appendix.A}%
+\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{371}{appendix.B}%
+\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{373}{appendix.C}%
+\contentsline {section}{\numberline {C.1}数制转换}{373}{section.C.1}%
+\contentsline {section}{\numberline {C.2}布尔代数基础}{382}{section.C.2}%
+\contentsline {chapter}{跋}{385}{appendix*.258}%
