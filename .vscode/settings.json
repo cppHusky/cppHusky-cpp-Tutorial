@@ -59,6 +59,7 @@
         "valarray": "cpp",
         "xhash": "cpp",
         "xtree": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "iomanip": "cpp"
     }
 }

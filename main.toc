@@ -77,11 +77,11 @@
 \contentsline {section}{\numberline {12.3}实操：简单矩阵类的设计}{349}{section.12.3}%
 \contentsline {chapter}{\numberline {第十三章\hspace {.3em}}输入/输出流简介}{365}{chapter.13}%
 \contentsline {section}{\numberline {13.1}信息在流中的传递}{365}{section.13.1}%
-\contentsline {section}{\numberline {13.2}}{368}{section.13.2}%
-\contentsline {part}{精讲篇}{371}{part*.252}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{371}{appendix.A}%
-\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{373}{appendix.B}%
-\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{375}{appendix.C}%
-\contentsline {section}{\numberline {C.1}数制转换}{375}{section.C.1}%
-\contentsline {section}{\numberline {C.2}布尔代数基础}{384}{section.C.2}%
-\contentsline {chapter}{跋}{387}{appendix*.261}%
+\contentsline {section}{\numberline {13.2}流输入/输出\texttt {iostream}}{368}{section.13.2}%
+\contentsline {part}{精讲篇}{381}{part*.262}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{381}{appendix.A}%
+\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{383}{appendix.B}%
+\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{385}{appendix.C}%
+\contentsline {section}{\numberline {C.1}数制转换}{385}{section.C.1}%
+\contentsline {section}{\numberline {C.2}布尔代数基础}{394}{section.C.2}%
+\contentsline {chapter}{跋}{397}{appendix*.271}%

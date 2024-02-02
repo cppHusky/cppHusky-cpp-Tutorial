@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  2 FEB 2024 08:42
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  2 FEB 2024 22:23
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1913,9 +1913,82 @@ Overfull \hbox (34.30148pt too wide) in paragraph at lines 58--58
 []\TU/SimSun(0)/m/n/10 如 果 我 们 还 同 时 有 换 行 需 求 的 话，|  那 么 我 们 可 以 不 用 手 动 [][][] 了，|  直 接 写 一 个 [][][][][][][][][]
  []
 
-) (./generalized_parts/../generalized_parts/13_input_output_streams_overview/02_iostream.tex) (./generalized_parts/../generalized_parts/13_input_output_streams_overview/03_sstream.tex) (./generalized_parts/../generalized_parts/13_input_output_streams_overview/04_fstream.tex))) (././intensive_part.tex [367] [368] [369
+) (./generalized_parts/../generalized_parts/13_input_output_streams_overview/02_iostream.tex [367]
+File: ./generalized_parts/../images/generalized_parts/13_input_with_space_delimiter.drawio.png Graphic file (type bmp)
+<./generalized_parts/../images/generalized_parts/13_input_with_space_delimiter.drawio.png>
+ [368]
+File: ./generalized_parts/../images/generalized_parts/13_input_without_delimiter.drawio.png Graphic file (type bmp)
+<./generalized_parts/../images/generalized_parts/13_input_without_delimiter.drawio.png>
+File: ./generalized_parts/../images/generalized_parts/13_input_for_calculator.drawio.png Graphic file (type bmp)
+<./generalized_parts/../images/generalized_parts/13_input_for_calculator.drawio.png>
 
-] [370]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
+Underfull \vbox (badness 1314) has occurred while \output is active []
+
+ [369]
+Underfull \hbox (badness 10000) in paragraph at lines 97--104
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--104
+
+ []
+
+[370]
+Underfull \hbox (badness 10000) in paragraph at lines 112--119
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 112--119
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 112--119
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 112--119
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 112--119
+
+ []
+
+File: ./generalized_parts/../images/generalized_parts/13_getline_vs_get.drawio.png Graphic file (type bmp)
+<./generalized_parts/../images/generalized_parts/13_getline_vs_get.drawio.png>
+[371] [372] [373]
+Overfull \hbox (30.19899pt too wide) in paragraph at lines 217--217
+\TU/SimSun(0)/m/n/10 这 样，|  一 个 稳 妥 的 状 态 恢 复\TU/lmr/m/n/10 /\TU/SimSun(0)/m/n/10 问 题 消 除 流 程 就 完 成 了。|  这 也 就 是 我 们 从 第 三 章 开 始 就 在 用 的 那 个 [][][]
+ []
+
+[374]
+Overfull \hbox (6.69525pt too wide) in paragraph at lines 267--268
+[]\TU/SimSun(0)/m/n/10 在 变 换 输 入\TU/lmr/m/n/10 /\TU/SimSun(0)/m/n/10 输 出 进 制 的 时 候，|  我 们 也 可 以 使 用 [][][] 成 员 函 数。|  八 进 制 使 用 [][][][][][][]；|
+ []
+
+[375] (./generalized_parts/../code_in_book/13.1/output_info.cpp [376])
+Overfull \hbox (24.43774pt too wide) in paragraph at lines 311--311
+[]\TU/SimSun(0)/m/n/10 另 外，| [][][] 看 起 来 没 有 与 下 面 的 数 据 对 齐，|  这 是 怎 么 回 事 呢？|  其 实 原 因 在 于，|  我 们 紧 随 [][][][][][]
+ []
+
+
+Overfull \hbox (76.95674pt too wide) in paragraph at lines 312--312
+[]\TU/SimSun(0)/m/n/10 注 意，| [][][] 只 对 下 一 次 的 输 出 有 作 用，|  而 对 之 后 的 输 出 不 再 起 作 用。|  比 如 说[][][][][][][][][][]，|
+ []
+
+
+Overfull \hbox (61.46246pt too wide) in paragraph at lines 313--314
+[]\TU/SimSun(0)/m/n/10 我 们 可 以 更 改 [][][] 作 用 下 的 内 容 对 齐 方 式：| [][][][][][][] 是 默 认 的 右 对 齐，| [][][][][][][]
+ []
+
+[377]) (./generalized_parts/../generalized_parts/13_input_output_streams_overview/03_sstream.tex) (./generalized_parts/../generalized_parts/13_input_output_streams_overview/04_fstream.tex))) (././intensive_part.tex [378] [379
+
+] [380]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
 附录 A
 
 Underfull \hbox (badness 6063) in paragraph at lines 16--16
@@ -1927,41 +2000,41 @@ Underfull \hbox (badness 7468) in paragraph at lines 46--46
 [][][]\TU/SimSun(0)/m/n/8.33344 注 意，|  重 载 运 算 符 对 参 数 有 特 殊 要 求：|  必 须 接 收 至 少 一 个 自 定 义 类 型 的 参 数，|  可 以 是 类 或 枚 举 类。|  比 如 说，|
  []
 
-[371
+[381
 
-]) (./other_parts/appendices/B.tex [372]
+]) (./other_parts/appendices/B.tex [382]
 附录 B
-[373
+[383
 
-]) (./other_parts/appendices/C.tex [374]
+]) (./other_parts/appendices/C.tex [384]
 附录 C
 File: appendices/../images/other_parts/C_digital_clock.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_digital_clock.png>
-[375
+[385
 
 ]
 File: appendices/../images/other_parts/C_from_counting_to_exponentiation.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_from_counting_to_exponentiation.png>
 File: appendices/../images/other_parts/C_duodecimal_multiplication_table.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_duodecimal_multiplication_table.png>
- [376]
+ [386]
 Underfull \vbox (badness 2753) has occurred while \output is active []
 
- [377] [378]
+ [387] [388]
 File: appendices/../images/other_parts/C_formatted_representation_of_a_number.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_formatted_representation_of_a_number.png>
- [379] [380]
+ [389] [390]
 File: appendices/../images/other_parts/C_short_division.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_short_division.png>
- [381] [382]
+ [391] [392]
 File: appendices/../images/other_parts/C_bin_to_oct.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_oct.png>
- [383]
+ [393]
 File: appendices/../images/other_parts/C_bin_to_hex.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_hex.png>
 File: appendices/../images/other_parts/C_maya_numbers.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_maya_numbers.png>
- [384])) (./other_parts/afterword.tex [385] [386
+ [394])) (./other_parts/afterword.tex [395] [396
 
 ])
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1972,35 +2045,28 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [387]
+ [397]
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [388] (./main.aux)
+ [398] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2022/08/05>
  ***********
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 225489D2BF283EDB71051AA249A14BB4;9141
-(rerunfilecheck)             After:  1B8F662840AB7EF9282E4E01D43719BB;9190.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 691B0B1C26C27BA9BA830FF0B9AFA75B;9283.
  ) 
 Here is how much of TeX's memory you used:
- 28048 strings out of 474924
- 737654 string characters out of 5765037
+ 28178 strings out of 474924
+ 742731 string characters out of 5765037
  2050189 words of memory out of 5000000
- 48929 multiletter control sequences out of 15000+600000
- 571829 words of font info for 166 fonts, out of 8000000 for 9000
+ 49045 multiletter control sequences out of 15000+600000
+ 571845 words of font info for 168 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,18n,111p,1239b,1918s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (396 pages).
+Output written on main.pdf (406 pages).
