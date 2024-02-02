@@ -1,0 +1,22 @@
+\section{流输入/输出\textbf{iostream}}
+\subsection*{输入信息中的分隔符}
+有的时候我们会遇到需要一次性输入多个数据的情况，这时我们的选择是用空格来分隔开。
+\begin{lstlisting}
+    std::istringstream sin {"25 1.3 Alan Turing"}; //需要包含sstream库
+    std::cin.rdbuf(sin.rdbuf()); //重定向之后，cin的源就是sin中存的字符串
+    int i;
+    double d;
+    char str[50];
+    std::cin >> i >> d >> str;
+    std::cout << i << '\n' << d << '\n' << str << '\n';
+    std::cin >> str;
+    std::cout << str << std::endl;
+\end{lstlisting}
+在这里我们使用了 \lstinline@std::istringstream@ 对象来存储一段字符串输入，然后让 \lstinline@std::cin@ 重定向到它。这样，我们就可以省去了运行程序时再输入内容的麻烦，而是直接把输入内容也写到代码里——无论输入流的源是什么，它们的效果都相同。\par
+这段代码的运行结果是：\\\noindent\rule{\linewidth}{.2pt}\texttt{
+25\\
+1.3\\
+Alan\\
+Turing
+}\\\noindent\rule{\linewidth}{.2pt}\par
+在输入信息中，\texttt{25} 和 \texttt{1.3} 之间的空格就是一个\textbf{分隔符（Delimiter）}。 在处理输入的时候，程序一旦遇到这样的分隔符，就会暂停读取输入，并把当前已经获得的输入内容（字符 \texttt{2} 和 \texttt{5} ）处理成一个数据，赋值给 \lstinline@i@；接下来，它会无视下一位的空格\footnote{这个空格符作为流的一部分，仍然要被程序所接收。但是当 \lstinline@std::cin@ 发现这是一个空格符的时候，它就会什么也不做——表现出来就是无视了空格。}，把后面的 \texttt{1.3} 读入其中，然后再次在空格符之前止步，把这些字符处理成数据，赋值给 \lstinline@d@；接收，它又在另一个空格符之前停下，把 \texttt{Alan} 复制给 \lstinline@str@；最后，它在文件结尾字符 \texttt{EOF}\footnote{EOF（End of file）不是一个ASCII字符（虽然它有未指明的ASCII值，通常为\texttt{-1}），但它可以用来表示文件的结尾。当输入流对象读到文件结尾字符时，输入流对象的状态发生改变，输入也就停止了。}之前停下，把 \texttt{Turing} 复制给 \lstinline@str@。于是我们就能看到这样的输出结果了。\par

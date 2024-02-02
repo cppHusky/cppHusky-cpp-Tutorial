@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  1 FEB 2024 14:53
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  2 FEB 2024 08:42
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1900,9 +1900,22 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 第十三章
 File: ./generalized_parts/../images/generalized_parts/13_von_neumann_architecture.png Graphic file (type bmp)
 <./generalized_parts/../images/generalized_parts/13_von_neumann_architecture.png>
-(./generalized_parts/../generalized_parts/13_input_output_streams_overview/01_data_transfer_in_streams.tex) (./generalized_parts/../generalized_parts/13_input_output_streams_overview/02_iostream.tex) (./generalized_parts/../generalized_parts/13_input_output_streams_overview/03_sstream.tex) (./generalized_parts/../generalized_parts/13_input_output_streams_overview/04_fstream.tex))) (././intensive_part.tex [365] [366
+(./generalized_parts/../generalized_parts/13_input_output_streams_overview/01_data_transfer_in_streams.tex
+File: ./generalized_parts/../images/generalized_parts/13_input_output_stream.drawio.png Graphic file (type bmp)
+<./generalized_parts/../images/generalized_parts/13_input_output_stream.drawio.png>
+ [365]
+Overfull \hbox (9.47179pt too wide) in paragraph at lines 30--30
+\TU/SimSun(0)/m/n/10 假 如 我 们 要 输 入 一 个 [][][][][] 型 变 量 的 值，|  那 么 程 序 就 会 调 用 [][][][][][][][][][][][][][]。|
+ []
 
-] [367] [368]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
+[366]
+Overfull \hbox (34.30148pt too wide) in paragraph at lines 58--58
+[]\TU/SimSun(0)/m/n/10 如 果 我 们 还 同 时 有 换 行 需 求 的 话，|  那 么 我 们 可 以 不 用 手 动 [][][] 了，|  直 接 写 一 个 [][][][][][][][][]
+ []
+
+) (./generalized_parts/../generalized_parts/13_input_output_streams_overview/02_iostream.tex) (./generalized_parts/../generalized_parts/13_input_output_streams_overview/03_sstream.tex) (./generalized_parts/../generalized_parts/13_input_output_streams_overview/04_fstream.tex))) (././intensive_part.tex [367] [368] [369
+
+] [370]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
 附录 A
 
 Underfull \hbox (badness 6063) in paragraph at lines 16--16
@@ -1914,41 +1927,41 @@ Underfull \hbox (badness 7468) in paragraph at lines 46--46
 [][][]\TU/SimSun(0)/m/n/8.33344 注 意，|  重 载 运 算 符 对 参 数 有 特 殊 要 求：|  必 须 接 收 至 少 一 个 自 定 义 类 型 的 参 数，|  可 以 是 类 或 枚 举 类。|  比 如 说，|
  []
 
-[369
-
-]) (./other_parts/appendices/B.tex [370]
-附录 B
 [371
 
-]) (./other_parts/appendices/C.tex [372]
+]) (./other_parts/appendices/B.tex [372]
+附录 B
+[373
+
+]) (./other_parts/appendices/C.tex [374]
 附录 C
 File: appendices/../images/other_parts/C_digital_clock.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_digital_clock.png>
-[373
+[375
 
 ]
 File: appendices/../images/other_parts/C_from_counting_to_exponentiation.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_from_counting_to_exponentiation.png>
 File: appendices/../images/other_parts/C_duodecimal_multiplication_table.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_duodecimal_multiplication_table.png>
- [374]
+ [376]
 Underfull \vbox (badness 2753) has occurred while \output is active []
 
- [375] [376]
+ [377] [378]
 File: appendices/../images/other_parts/C_formatted_representation_of_a_number.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_formatted_representation_of_a_number.png>
- [377] [378]
+ [379] [380]
 File: appendices/../images/other_parts/C_short_division.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_short_division.png>
- [379] [380]
+ [381] [382]
 File: appendices/../images/other_parts/C_bin_to_oct.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_oct.png>
- [381]
+ [383]
 File: appendices/../images/other_parts/C_bin_to_hex.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_hex.png>
 File: appendices/../images/other_parts/C_maya_numbers.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_maya_numbers.png>
- [382])) (./other_parts/afterword.tex [383] [384
+ [384])) (./other_parts/afterword.tex [385] [386
 
 ])
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1959,28 +1972,35 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [385]
+ [387]
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [386] (./main.aux)
+ [388] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2022/08/05>
  ***********
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: DEA6947C7A842A93F4CBD93F1825C531;9020.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 225489D2BF283EDB71051AA249A14BB4;9141
+(rerunfilecheck)             After:  1B8F662840AB7EF9282E4E01D43719BB;9190.
  ) 
 Here is how much of TeX's memory you used:
- 28006 strings out of 474924
- 736313 string characters out of 5765037
+ 28048 strings out of 474924
+ 737654 string characters out of 5765037
  2050189 words of memory out of 5000000
- 48890 multiletter control sequences out of 15000+600000
+ 48929 multiletter control sequences out of 15000+600000
  571829 words of font info for 166 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,18n,111p,1239b,1918s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (394 pages).
+Output written on main.pdf (396 pages).
