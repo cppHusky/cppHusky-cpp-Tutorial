@@ -60,6 +60,8 @@
         "xhash": "cpp",
         "xtree": "cpp",
         "string": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "fstream": "cpp",
+        "sstream": "cpp"
     }
 }

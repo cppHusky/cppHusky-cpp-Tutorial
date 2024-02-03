@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  3 FEB 2024 09:42
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  3 FEB 2024 21:39
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -2001,9 +2001,39 @@ Overfull \hbox (20.02336pt too wide) in paragraph at lines 10--10
 \TU/SimSun(0)/m/n/10 中。|  但 是 我 们 不 能 直 接 看 到 这 些 输 出 内 容，|  所 以 为 了 检 验，|  我 们 还 会 用 [][][][][] 把 [][][][][]
  []
 
-(./code_in_book/13.2/string_stream_calculator.cpp) [379]) (./generalized_parts/../generalized_parts/13_input_output_streams_overview/04_fstream.tex))) (././intensive_part.tex [380] [381
+(./code_in_book/13.2/string_stream_calculator.cpp) [379]) (./generalized_parts/../generalized_parts/13_input_output_streams_overview/04_fstream.tex
+Overfull \hbox (16.30151pt too wide) in paragraph at lines 2--2
+[][][][][][] \TU/SimSun(0)/m/n/10 继 承 自 [][][][][]，|  表 示 文 件 输 入 输 出，|  而 [][][][][]
+ []
 
-] [382]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
+[380]
+Overfull \hbox (7.43898pt too wide) in paragraph at lines 24--24
+[]\TU/SimSun(0)/m/n/10 至 于 关 闭 文 件 流 的 [][][] 函 数 嘛… …|  我 们 可 以 不 写，|  一 般 来 说 都 是 没 问 题 的。|  对 于 [][][][][]
+ []
+
+
+Overfull \hbox (390.86694pt too wide) in paragraph at lines 27--28
+[]\TU/SimSun(0)/m/n/10 不 同 的 操 作 系 统 对 文 件 路 径 的 规 则 是 不 一 样 的。|  比 如 一 个 \TU/lmr/m/n/10 Windows \TU/SimSun(0)/m/n/10 文 件 的 路 径 是[][]\TU/SourceCodePro(0)/m/n/10 C:\backslash Users\backslash username\backslash Documents\backslash README.md[]\TU/SimSun(0)/m/n/10 ，|
+ []
+
+(./generalized_parts/../code_in_book/13.4/getpath.cpp) [381]
+Overfull \hbox (32.3615pt too wide) in paragraph at lines 38--39
+[][][][] \TU/SimSun(0)/m/n/10 是 一 个 非 成 员 函 数，|  它 用 来 描 述 当 前 程 序 所 处 的 文 件 夹  |（不 是 文 件）|  路 径。| [][][][]
+ []
+
+
+Overfull \hbox (14.5815pt too wide) in paragraph at lines 49--49
+[]\TU/SimSun(0)/m/n/10 除 了 [][][] 运 算 符，|  我 们 还 可 以 使 用 [][][] 运 算 符 来 进 行 路 径 的 拼 接，|  效 果 很 像 [][][] 运 算 符 之 于 [][][][][]
+ []
+
+(./generalized_parts/../code_in_book/13.5/reverse_copy.cpp [382]) [383]
+Overfull \hbox (6.31055pt too wide) in paragraph at lines 118--118
+[][][][][][][][] \TU/SimSun(0)/m/n/10 这 种 方 式 就 是 单 纯 地 写 入，|  它 不 需 要 组 合 [][][][][][][] 或 者 [][][][][][][]，|
+ []
+
+))) (././intensive_part.tex [384] [385
+
+] [386]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
 附录 A
 
 Underfull \hbox (badness 6063) in paragraph at lines 16--16
@@ -2015,41 +2045,41 @@ Underfull \hbox (badness 7468) in paragraph at lines 46--46
 [][][]\TU/SimSun(0)/m/n/8.33344 注 意，|  重 载 运 算 符 对 参 数 有 特 殊 要 求：|  必 须 接 收 至 少 一 个 自 定 义 类 型 的 参 数，|  可 以 是 类 或 枚 举 类。|  比 如 说，|
  []
 
-[383
+[387
 
-]) (./other_parts/appendices/B.tex [384]
+]) (./other_parts/appendices/B.tex [388]
 附录 B
-[385
+[389
 
-]) (./other_parts/appendices/C.tex [386]
+]) (./other_parts/appendices/C.tex [390]
 附录 C
 File: appendices/../images/other_parts/C_digital_clock.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_digital_clock.png>
-[387
+[391
 
 ]
 File: appendices/../images/other_parts/C_from_counting_to_exponentiation.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_from_counting_to_exponentiation.png>
 File: appendices/../images/other_parts/C_duodecimal_multiplication_table.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_duodecimal_multiplication_table.png>
- [388]
+ [392]
 Underfull \vbox (badness 2753) has occurred while \output is active []
 
- [389] [390]
+ [393] [394]
 File: appendices/../images/other_parts/C_formatted_representation_of_a_number.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_formatted_representation_of_a_number.png>
- [391] [392]
+ [395] [396]
 File: appendices/../images/other_parts/C_short_division.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_short_division.png>
- [393] [394]
+ [397] [398]
 File: appendices/../images/other_parts/C_bin_to_oct.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_oct.png>
- [395]
+ [399]
 File: appendices/../images/other_parts/C_bin_to_hex.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_hex.png>
 File: appendices/../images/other_parts/C_maya_numbers.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_maya_numbers.png>
- [396])) (./other_parts/afterword.tex [397] [398
+ [400])) (./other_parts/afterword.tex [401] [402
 
 ])
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -2060,35 +2090,28 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [399]
+ [403]
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [400] (./main.aux)
+ [404] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2022/08/05>
  ***********
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: C0C3077EFF7A555021F3FBF420D5FE95;9436
-(rerunfilecheck)             After:  428C59EA71D8D2EC51747775CB0B0844;9436.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 4C8C6B462664396BDB97D6F91E2D1EDE;9581.
  ) 
 Here is how much of TeX's memory you used:
- 28197 strings out of 474924
- 743336 string characters out of 5765037
+ 28277 strings out of 474924
+ 745151 string characters out of 5765037
  2050189 words of memory out of 5000000
- 49058 multiletter control sequences out of 15000+600000
+ 49126 multiletter control sequences out of 15000+600000
  571845 words of font info for 168 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,18n,111p,1239b,1918s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (408 pages).
+Output written on main.pdf (412 pages).
