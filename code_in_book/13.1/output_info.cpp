@@ -1,6 +1,6 @@
-#include<iostream>
-#include<sstream>
-#include<iomanip>
+#include <iostream>
+#include <sstream>
+#include <iomanip>
 enum Sex : bool {male, female};
 struct PersonalInfo {
     const std::string name;
