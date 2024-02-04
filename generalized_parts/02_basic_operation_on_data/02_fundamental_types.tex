@@ -1,15 +1,15 @@
 \section{基本数据类型}
 \subsection*{整型}
 在第一章我们已经谈过，整型就是只能表示整数的数据类型。\par
-常用的整型变量一般有 \lstinline@short@, \lstinline@int@, \lstinline@long@, \lstinline@long long@ 及其相应的 \lstinline@unsigned@ 版本\footnote{\lstinline@long long@ 及 \lstinline@unsigned long long@ 在C++11标准以后可用。本书默认使用C++17标准，故不再反复提及此问题。}。某一类型在不同电脑上占用的内存空间大小可能是不同的，而内存空间的多少又和数据表示范围紧密相关，所以我们不妨把类型和数据范围分开讨论。\par
+常用的整型变量一般有 \lstinline@short@, \lstinline@int@, \lstinline@long@, \lstinline@long long@ 及其相应的 \lstinline@unsigned@ 版本\footnote{\lstinline@long long@ 及 \lstinline@unsigned long long@ 在C++11标准以后才可用。本书默认使用C++17标准，故不再反复提及此类问题。}。某一类型在不同环境上占用的内存空间大小可能是不同的，而内存空间的多少又和数据表示范围紧密相关，所以我们不妨把类型和数据范围分开讨论。\par
 2字节的数据类型可以表示$(2^8)^2=65'536$种状态，也就是可以存储$65'536$种值。有符号类型编码了$0$\~{}$32'767$和$-32'768$\~{}$-1$的数字（换言之，从$-32'768$到$32'767$）；而无符号类型就不需要编码负数了，节省出来的容量可以编码更多正数，所以无符号类型编码了$0$\~{}$65'535$的数字。\par
 4字节的数据类型可以表示$(2^8)^4=4'294'967'296$种状态，可以存储$4'294'967'296$种值。有符号类型编码了$-2'147'483'648$\~{}$2'147'483'647$的数字；无符呈类型编码了$0$\~{}$4'294'967'295$的数字。\par
 8字节的类型可以表示$(2^8)^8\approx1.84\times10^{19}$种状态。有符号类型编码了$-2^{63}$\~{}$2^{63}-1$的数字；无符号类型编码了$0$\~{}$2^{64}-1$的数字。\par
 于是乎，我们只需要通过 \lstinline@sizeof@ 算出它的内存空间大小，再根据它是有符号类型还是无符号类型，就可以判断出它的数据范围是什么了。\par
-C++还有另一种更简便的方法，那就是直接使用 \lstinline@limits@ 头文件中定义的 \lstinline@numeric_limits@ 来输出某一类型的数据上下限。\lstinline@numeric_limits@ 给出的结果正是本电脑的类型数据范围。\par
+C++还有另一种更简便的方法，那就是直接使用 \lstinline@limits@ 头文件中定义的 \lstinline@numeric_limits@ 来输出某一类型的数据上下限。\lstinline@numeric_limits@ 给出的结果正是此环境下的类型数据范围。\par
 以下是实现这个功能的完整示例代码：
 \lstinputlisting[caption=\texttt{Integer\_Limits.cpp}]{../code_in_book/2.1/Integer_Limits.cpp}
-在Coliru上，该程序代码的运行结果如下：\\\noindent\rule{\textwidth}{.2pt}\texttt{
+在Coliru中，该程序代码的运行结果如下：\\\noindent\rule{\textwidth}{.2pt}\texttt{
 -32768\\
 32767\\
 0\\
@@ -28,38 +28,40 @@ C++还有另一种更简便的方法，那就是直接使用 \lstinline@limits@ 
 -32768,32767,0,4294967295
 }\\\noindent\rule{\textwidth}{.2pt}\\
 我们现在还没到讲解输入输出控制的时候，但这方面的知识我们又不得不了解，所以在这里先开个头，以后我们还会频繁遇到的。\par
-最后还有一个问题：假如我的运算超过了整型的表示范围，会发生什么？比如对于有符号型2字节的变量来说，\lstinline@32767+1@ 会得到什么？答案是 \lstinline@-32768@！这是一种整数溢出（Integer Overflow）现象，详细的原理我们之后再谈；总之我们需要记住，在写代码的过程中需要对可能出现的数据进行预判，尽量避免出现这种运算结果``装不下''导致的情况。\par
+最后还有一个问题：假如我的运算超过了整型的表示范围，会发生什么？比如对于有符号型2字节的变量来说，\lstinline@32767+1@ 会得到什么？答案是 \lstinline@-32768@！这是一种整数溢出（Integer Overflow）现象，详细的原理我们之后再谈；总之我们需要记住，在写代码的过程中需要对可能出现的数据进行预判，尽量避免出现这种运算结果``装不下''导致的溢出情况。\par
 \subsection*{浮点型}
 浮点型数据的编码方式比整型数据要复杂些，我们在精讲篇中再作详细探讨。\par
-我们一般使用 \lstinline@float@, \lstinline@double@ 和 \lstinline@long double@ 来存储浮点型变量。一般来说，\lstinline@float@ 型占用4字节内存空间，\lstinline@double@ 型占用8字节内存空间，而 \lstinline@long double@ 型占用16字节内存空间。我们同样可以用 \lstinline@numeric_limits@ 来求出它的上/下限。这里我就不再演示代码了，想要尝试的读者可以自行修改代码2.1并运行之。\par
-浮点数据和整型数据有一个重要的差异在于，很多时候浮点数表示的都是``近似值''。例如，在17位小数的显示精度下，\lstinline@double@ 型的 \lstinline@0.1@ 和 \lstinline@0.2@ 相加的结果是 \lstinline@0.30000000000000004@；而 \lstinline@0.3@ 则显示为 \lstinline@0.29999999999999999@。\par
-那这个结果对还是不对呢？\textbf{在精度要求不高的情况下它是对的}，因为当你四舍五入到16位小数的时候它就相等了。而 \lstinline@cout@ 默认显示至多6位有效数字，所以这样的误差是微乎其微的。\footnote{这里还涉及浮点数相等性的判断问题。正因浮点数多为近似值，所以直接使用相等性运算符极易出现失误。实际操作中我们多用两数相减，通过差值的绝对值是否足够小（比如，限定小于$10^{-5}$）来判断它们是否相等。}\par
-还有另一个问题。假如我们需要很高精度的计算，比如要求圆周率取到小数点后20位，那么有效数字位数仅有15\~{}17位的 \lstinline@double@ 型是不能满足我们的要求的。这时有经验的程序员当然会首选 \lstinline@long double@了。
+我们一般使用 \lstinline@float@, \lstinline@double@ 和 \lstinline@long double@ 来存储浮点型变量。一般来说，\lstinline@float@ 型占用4字节内存空间，\lstinline@double@ 型占用8字节内存空间，而 \lstinline@long double@ 型占用16（也可能是8）字节内存空间。我们同样可以用 \lstinline@numeric_limits@ 来求出它的上/下限。这里我就不再演示代码了，想要尝试的读者可以自行修改代码2.1并运行之。\par
+浮点数据和整型数据的差异在于，很多时候浮点数表示的都是``近似值''。例如，在17位小数的显示精度下，\lstinline@double@ 型的 \lstinline@0.1@ 和 \lstinline@0.2@ 相加的结果是 \lstinline@0.30000000000000004@；而 \lstinline@0.3@ 则显示为 \lstinline@0.29999999999999999@。\par
+那这个结果对还是不对呢？\textbf{在精度要求不高的情况下它是对的}，因为当你四舍五入到16位小数的时候它就相等了。而 \lstinline@cout@ 默认显示至多6位有效数字，所以这样的误差是微乎其微的。\footnote{这里还涉及浮点数相等性的判断问题。正因浮点数多为近似值，所以直接使用相等性运算符极易出现失误。实际操作中我们多用两数相减，通过差值的绝对值是否足够小（比如，限定$10^{-5}$之内）来判断它们是否相等。}\par
+还有另一个问题。假如我们需要很高精度的计算，比如要求圆周率取到小数点后20位，那么有效数字位数仅有15\~{}17位的 \lstinline@double@ 型是不能满足我们的要求的。这时有经验的程序员当然会首选 \lstinline@long double@了（如果开发环境支持16位 \lstinline@long double@ 的话）。
 \begin{lstlisting}
     const long double Pi = {3.14159265358979323846};
     //定义一个长双精度浮点型常量Pi，精确到小数点后20位
 \end{lstlisting}
 看起来没有丝毫问题，对吗？但是问题恰恰就出在字面量上！\par
-前面我们就提过，编译器会将所有浮点字面量统一视为 \lstinline@double@ 类型的字面量。因此，字面量 \lstinline@3.14159265358979323846@ 本身就是一个 \lstinline@double@ 型数据，它早在编译时就因为不能容纳如此高的精度而发生了精度上的损失。那么用损失后的只有15\~{}17位精度的数字去给 \lstinline@long double@ 数据初始化也是枉然！\par
+前面我们就提过，编译器会将所有浮点字面量统一视为 \lstinline@double@ 类型的字面量。因此，字面量 \lstinline@3.14159265358979323846@ 本身就是一个 \lstinline@double@ 型数据，它早在编译时就因为不能容纳如此高的精度而发生了精度上的损失。那么用损失后的只有15\~{}17位精度的数字去给精度更高的 \lstinline@long double@ 数据初始化也是枉然！\par
 但我们也有应对方法：指定字面量的类型。在C++中，我们可以用后缀的方式来指定整型或浮点型字面量的类型。当我们在一个浮点数后加 \lstinline@f@ 后缀时，就指明了它是 \lstinline@float@ 单精度浮点数，比如 \lstinline@1.f@, \lstinline@.57f@, \lstinline@2.718f@；而当我们在一个浮点数后加 \lstinline@l@ 后缀时，就指明了它是 \lstinline@long double@ 长双精度浮点数，比如 \lstinline@1.l@, \lstinline@.57l@，以及 \lstinline@3.14159265358979323846l@，这样就不致有20位以内的精度损失了\footnote{诚如上文所言，浮点数的微小精度损失普遍存在，但只要在我们的承受范围内就可以。}。\par
 除了使用后缀以外，我们还有一些其它的字面量表示语法。如果你刚才已经试过输出浮点数的上/下限，那么你可能会看到这种格式的输出结果：\lstinline@1.79769e+308@。这是什么意思呢？\par
 实际上，浮点数表示的范围跨度很大，比如 \lstinline@float@ 可以表示$-3.402'823'4\times10^{38}$\~{}$3.402'823'4\times10^{38}$范围的值。这么大的值不适合用一般方法表示，所以在计算机中我们有一种类似科学记数法的形式。\par
-它的规则很简单。一个整数或浮点数都可以在后面加上 \lstinline@e@（或 \lstinline@E@，均可）和指数（可正可负）的形式。例如：\\
-\lstinline@2.99792458e+8@（小写字母，带正号）；\\
-\lstinline@6.02214076e23@（正号可省略）；\\
-\lstinline@1.602176634E-19@（大写字母也可以）；\\
-\lstinline@.000662607015E-30@（不一定非要在1到10之间嘛）；\\
-\lstinline@25.81280745E+3@（形式很灵活，这样写也可以）\\
-\lstinline@3141.59265358979323846264338327950288e-3l@（末尾的 \lstinline@l@ 说明它是长双精度浮点数，注意：其位置在指数之后）\par
+它的规则很简单。一个整数或浮点数都可以在后面加上 \lstinline@e@（或 \lstinline@E@，均可）和指数（可正可负）的形式。例如:
+\begin{itemize}
+    \item \lstinline@2.99792458e+8@（小写字母，带正号）
+    \item \lstinline@6.02214076e23@（正号可省略）
+    \item \lstinline@1.602176634E-19@（大写字母也可以）
+    \item \lstinline@.000662607015E-30@（不一定非要在1到10之间嘛）
+    \item \lstinline@25.81280745E+3@（形式很灵活，这样写也可以）
+    \item \lstinline@3141.59265358979323846264338327950288e-3l@（末尾的 \lstinline@l@ 说明它是长双精度浮点数，注意：其位置在指数之后）
+\end{itemize}
 当然，浮点的字面量表示还有更多花样，不过这里就不再介绍了。\par
-整型数据的字面量同样有很多后缀可以用来指定类型，比如 \lstinline@ull@ 后缀规定了 \lstinline@unsigned long long@ 类型。但这并不是刚需，因为大多数情况下编译器都能自动为整型字面量匹配合适的类型。\par
+补充说明：整型数据的字面量同样有很多后缀可以用来指定类型，比如 \lstinline@ull@ 后缀规定了\\\lstinline@unsigned long long@ 类型。但这并不是刚需，因为大多数情况下编译器都能自动为整型字面量匹配合适的类型。\par
 \subsection*{字符型}
 在第一章，我们就介绍过 \lstinline@char@ 字符类型和相应的ASCII编码。我们也提及，字符类型其实是一种特殊的整型。它与整型的编码方式有相同之处，而与浮点型的编码方式则是天差地别。\par
 字符型在输出时，主要是为了表示，而非为了计算。所以在用 \lstinline@cout<<@ 输出字符型数据时，输出的并不是它的ASCII码值，而是这个字符本身，比如
 \begin{lstlisting}
     cout << '0'; //输出字符型字面量'0'
 \end{lstlisting}
-虽然\lstinline@'0'@的ASCII值是\lstinline@48@，但程序的输出实际上是 \lstinline@0@。\footnote{在代码中，\lstinline@'0'@ 和 \lstinline@0@ 类型不同。但在控制行界面上，无论是人类的肉眼还是计算机程序，都无法分辨它究竟是字符还是数字——甚至说，它们就是同一个东西！我们在第三章会对此有所涉及。}\par
+虽然 \lstinline@'0'@ 的ASCII值是 \lstinline@48@，但程序的输出实际上是 \lstinline@0@。\footnote{在代码中，\lstinline@'0'@ 和 \lstinline@0@ 类型不同。但在控制行界面上，无论是人类的肉眼还是计算机程序，都无法分辨它究竟是字符还是数字——甚至说，它们就是同一个东西！我们在第三章会对此有所涉及。}\par
 如果我们要输出它的ASCII码值呢？我们可以使用后文马上就要讲到的类型转换方法，将 \lstinline@char@ 类型数据转换成 \lstinline@int@ 类型来输出，或者是通过减去ASCII码为 \lstinline@0@ 的字符 \lstinline@'\0'@ 来实现——因为两个 \lstinline@char@ 类型之差的结果为 \lstinline@int@ 类型。
 \begin{lstlisting}
     cout << '0' - '\0'; //输出相当于48-0，也就是48
@@ -67,10 +69,10 @@ C++还有另一种更简便的方法，那就是直接使用 \lstinline@limits@ 
 你可能有注意到，这个ASCII码为 \lstinline@0@ 的字符长得好像有点奇怪。在C++中还有许多类似的字符，像 \lstinline@'\t'@, \lstinline@'\n'@ 之类，它们统称为\textbf{转义字符（Escape sequence）}。转义字符的真实含义不是字面上的含义，它表达了特定的控制字符。比如 \lstinline@'\n'@ 指的是换行符，如果我们输出一个 \lstinline@'\n'@，就相当于为输出换了一行。那么我们也可以用它来替代 \lstinline@endl@\footnote{实际上这两种换行方法有更细微的区别，即何时清空缓冲区的问题。不过它不会影响我们的输出结果，我们不必细究。}。
 \begin{lstlisting}
     cout << numeric_limits<char>::lowest(); //输出char类型的下限值
-    cout << '\n'; //输出换行符，效果相当于cout<<endl;
+    cout << '\n'; //输出换行符，效果约等于cout<<endl
     cout << numeric_limits<char>::max(); //输出char类型的上限值
 \end{lstlisting}\par
-不同电脑环境下 \lstinline@char@ 类型的范围有两种可能：一种是-128\~{}127，另一种是0\~{}255。无论哪种可能，都涵盖了ASCII码的基本范围0\~{}127。\par
+不同开发环境下 \lstinline@char@ 类型的范围有两种可能：一种是-128\~{}127，另一种是0\~{}255。无论哪种可能，都涵盖了ASCII码的基本范围0\~{}127。\par
 那么剩下的范围呢，它们有什么作用？这不仅取决于你的系统，还取决于你使用的语言。如果你使用的是Windows中文版，你可以测试下这段代码：
 \begin{lstlisting}
     //适用于GBK编码
@@ -83,7 +85,7 @@ C++还有另一种更简便的方法，那就是直接使用 \lstinline@limits@ 
          << char (229) << char (165) << char (189);
 \end{lstlisting}
 它的输出也应该是``\lstinline@你好@''。\par
-实际上这里涉及到更深奥的可变宽度编码\footnote{可变宽度编码（Variable-width encoding）是一种字符编码方案，它对不同的字符用不同长度的编码来表示。相对地，ASCII是一种定宽编码，它的每个字符都用统一的单个字节来表示。}技术。在Windows简体中文的环境中常用GBK编码，这是一种变宽编码，其中ASCII字符占一个字节，汉字占两个字节（比如第一段代码）；在Windows繁体中文的环境中早期常用Big5编码，这是一种定宽编码，所有字符均占两个字节；而许多系统现在都支持Unicode，其中以UTF-8实现方式为多，所有字符占一至四个字节不等，而CJK文字\footnote{CJK文字是中文、日文和韩文的统称，包括全数汉字及变体、假名和谚文等。}常用者为三字节（比如第二段代码），罕见字为四字节。在泛讲篇中我们不会深入讲这些知识，也不会普遍使用，我们留到精讲篇再来谈。\par
+实际上这里涉及到更深奥的可变宽度编码\footnote{可变宽度编码（Variable-width encoding）是一种字符编码方案，它对不同的字符用不同长度的编码来表示。相对地，ASCII是一种定宽编码，它的每个字符都用统一的单个字节来表示。}技术。在Windows简体中文的环境中常用GBK编码，这是一种变宽编码，其中ASCII字符占一个字节，汉字占两个字节（比如第一段代码）；在Windows繁体中文的环境中早期常用Big5编码，这是一种定宽编码，所有字符均占两个字节；而许多系统现在都支持Unicode，其中以UTF-8实现方式为多，所有字符占一至四个字节不等，而CJK文字\footnote{CJK文字是中文、日文和韩文的统称，包括全数汉字及变体、假名和谚文等。}常用字为三字节（比如第二段代码），罕见字为四字节。在泛讲篇中我们不会深入讲这些知识，也不会普遍使用，我们留到精讲篇再来谈。\par
 \subsubsection*{字符串简介}
 字符串并非基本类型，但是它很重要，我们就在这里一并介绍。\par
 还记得我们的\hyperref[lst:HelloWorld]{代码1.1}吗？在这个代码中，我们输出的 \lstinline@"Hello World!"@ 就是一个字符串字面量。顾名思义，字符串字面量就是一串字符构成的字面量。每个字符串都有一个我们看不到的结束符作为结尾，它就是 \lstinline@'\0'@。\par
@@ -93,12 +95,12 @@ C++还有另一种更简便的方法，那就是直接使用 \lstinline@limits@ 
     cout << sizeof ("Hello World!"); //也可以不加括号
 \end{lstlisting}
 输出果然是 \lstinline@13@。\par
-需要留心，字符是用\textbf{单引号}套起来的单个字符（转义字符是个例外，它允许你使用反斜线加一个字符）\footnote{实际上C++中允许使用单引号套起来的多字符字面量（Multicharacter literal），但我认为没有必要在本书讲它。感兴趣的读者可以阅读\href{https://stackoverflow.com/questions/7459939/what-do-single-quotes-do-in-c-when-used-on-multiple-characters}{What do single quotes do in C++ when used on multiple characters?-Stack Overflow}。}；而字符串是用\textbf{双引号}套起来的任意多个字符。转义字符同样可以用在字符串中，比如
+需要留心，字符是用\textbf{单引号}套起来的单个字符（转义字符是个例外，它允许你使用反斜线加一个字符）\footnote{实际上C++中允许使用单引号套起来的多字符字面量（Multicharacter literal），但我认为没有必要在本书讲它。感兴趣的读者可以阅读 \href{https://stackoverflow.com/questions/7459939/what-do-single-quotes-do-in-c-when-used-on-multiple-characters}{What do single quotes do in C++ when used on multiple characters? - Stack Overflow}。}；而字符串是用\textbf{双引号}套起来的任意多个字符。转义字符同样可以用在字符串中，比如
 \begin{lstlisting}
     cout << "ABCD\nabcd";
 \end{lstlisting}
 这段代码的输出应为\\\noindent\rule{\textwidth}{0.2pt}\texttt{
-ABCD
+ABCD\\
 abcd
 }\\\noindent\rule{\textwidth}{0.2pt}\\
 这里的 \lstinline@\n@ 就起到了换行符的作用。如果要用 \lstinline@sizeof@ 来计算，它的内存占用应当是10字节。\par

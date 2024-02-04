@@ -1,5 +1,5 @@
 \section{运算符}
-本节我们将会接触到一个非常有趣的知识：运算符。许多教材在讲运算符的时候讲解不够透彻，虽然不太影响基础层面的知识掌握，但对以后的学习，尤其是运算符的重载，是比较不利的。我在本节会用函数的视角来剖析运算符，希望能为读者带来清晰的认识和比较透彻的理解。\par
+本节我们将会接触到一个非常有趣的知识：运算符。许多教材在讲运算符的时候讲解不够清晰透彻，虽然不太影响基础层面的知识掌握，但对以后的学习，尤其是运算符的重载，是比较不利的。我在本节会用函数的视角来剖析运算符，希望能为读者带来清晰的认识和比较透彻的理解。\par
 \subsection*{运算符的操作数与返回值}
 来看一个简单的例子：
 \begin{lstlisting}
@@ -13,8 +13,8 @@
     \item 最后，初始化操作把 \lstinline@13*5+9@，也就是 \lstinline@74@ 的值初始化给 \lstinline@num@，这个过程没有再求出什么。这时候初始化所用的 \lstinline@13*5+9@ 被初始化语句看作一个整体，它操作的不是单个数而是整个表达式。
 \end{enumerate}\par
 从这个过程中，我们可以看出这样一个特点：有些操作过程会直接用我们给定的字面量（也可以是变量）来计算；而有些操作过程需要用到前面某一步算出来的值，并把它当作一个整体来运算。有些操作过程还会产生一个结果，后面的操作可以利用这个结果。\par
-现在我开始甩专有名词：我们把一个运算符用来计算的数据（包括表达式整体）叫作它的\textbf{操作数（Operand）}，而一个运算符计算出来得到的结果（一个表达式整体）叫作它的\textbf{返回值（Return value）}。操作数和返回值都是对于某个运算符而言的，比如 \lstinline@13*5@ 既是乘法运算的返回值，又是加法运算的操作数。初始化的过程其实不涉及某个运算符\footnote{如果涉及自定义类型的初始化，它其实是一种构造函数。}，所以我们这里不再探讨。\par
-我们在关注操作数和返回值的时候必须留意它们的类型，因为类型不同可能会带来天差地别的结果。我们在前面已经提过 \lstinline@8/3@ 和 \lstinline@8./3@ 的区别了，这是因为：当除号的操作数都是 \lstinline@int@ 型时，返回值就是 \lstinline@int@ 型；而只要有一个操作数是 \lstinline@double@ 型，即便另一个操作数是 \lstinline@int@ 型，返回值也将是 \lstinline@double@ 型\footnote{实际上这个过程更复杂，它先将 \lstinline@int@ 型经过类型转换变为 \lstinline@double@ 型，再进行两个 \lstinline@double@ 数据的计算。}。\par
+现在我开始甩专有名词：我们把一个运算符用来计算的数据（包括表达式整体）叫作它的\textbf{操作数（Operand）}，而一个运算符计算出来得到的结果（一个表达式整体）叫作它的\textbf{返回值（Return value）}。\textbf{操作数和返回值都是对于某个运算符而言的}，\lstinline@13*5@ 既是乘法运算的返回值，又是加法运算的操作数。初始化的过程其实不涉及某个运算符\footnote{如果涉及自定义类型的初始化，它其实是一种构造函数。}，所以我们就不探讨了。\par
+我们在关注操作数和返回值的时候必须留意它们的类型，因为类型不同可能会带来天差地别的结果。我们已经讲过 \lstinline@8/3@ 和 \lstinline@8./3@ 的区别了，这是因为：当除号的操作数都是 \lstinline@int@ 型时，返回值就是 \lstinline@int@ 型；而只要有一个操作数是 \lstinline@double@ 型，即便另一个操作数是 \lstinline@int@ 型，返回值也将是 \lstinline@double@ 型\footnote{实际上这个过程更复杂，它先将 \lstinline@int@ 型经过类型转换变为 \lstinline@double@ 型，再进行两个 \lstinline@double@ 数据的计算。}。\par
 两个 \lstinline@char@ 类型数据相减，得到的结果是 \lstinline@int@ 类型的，因此我们上一节中讲到的 \lstinline@'0'-'\0'@ 的语法能够求出 \lstinline@'0'@ 的ASCII码值。\par
 赋值语句也有返回值，它返回的是左操作数的一个引用\footnote{我们会在第五章介绍引用。即便读者尚不知道何为引用，也不会对读者理解此节造成困难。}。在C++中我们偶尔会遇到连续赋值的语法，如下例：
 \begin{lstlisting}
@@ -43,8 +43,8 @@
 我们按照相同的思路来解释一下这段代码的行为：
 \begin{enumerate}
     \item \lstinline@cout<<a@ 中的左移运算符的左操作数是 \lstinline@cout@，所以标准输出将把右操作数 \lstinline@a@ 的值输出到相应设备上。最后返回 \lstinline@cout@ 的引用。
-    \item \lstinline@cout<<a<<'\n'@ 中的第二个左移运算符的左操作数是 \lstinline@cout<<a@ 的返回值，即 \lstinline@cout@，所以标准输出将把右操作数 \lstinline@'\n'@ 这个转义字符输出到相应高备上（起到换行作用）。最后返回 \lstinline@cout@的引用。
-    \item \lstinline@cout<<a<<'\n'<<b@ 中的第三个左移运算符的左操作数是 \lstinline@cout<<a<<'\n'@ 的返回值，即 \lstinline@cout@，所以标准输出将把右操作数 \lstinline@b@ 的值输出到 相应设备上。最后返回 \lstinline@cout@ 的引用（这个返回值我们不再需要用到了）。
+    \item \lstinline@cout<<a<<'\n'@ 中的第二个左移运算符的左操作数是 \lstinline@cout<<a@ 的返回值，即 \lstinline@cout@，所以标准输出将把右操作数 \lstinline@'\n'@ 这个转义字符输出到相应设备上（起到换行作用）。最后返回 \lstinline@cout@的引用。
+    \item \lstinline@cout<<a<<'\n'<<b@ 中的第三个左移运算符的左操作数是 \lstinline@cout<<a<<'\n'@ 的返回值，即 \lstinline@cout@，所以标准输出将把右操作数 \lstinline@b@ 的值输出到相应设备上。最后返回 \lstinline@cout@ 的引用（这个返回值我们不再需要用到了）。
 \end{enumerate}\par
 \lstinline@>>@ 叫做右移位运算符。C++中重载了这个运算符，当其左操作数为 \lstinline@istream@ 类的对象时，实现输入功能，最后返回左操作数的引用。C++中我们最常用的 \lstinline@istream@ 类的对象就是 \lstinline@cin@，所以我们可以用它和 \lstinline@>>@ 运算符实现连续输入。
 \begin{lstlisting}
@@ -54,7 +54,7 @@
 \end{lstlisting}
 读者可以仿照上例，对本例中连续输入的语法进行解读。\par
 \subsection*{运算符的优先级}
-在上小学时我们就学过``先乘除，后加减''这类的口诀。这其实就体现出一个先后顺序的问题，亦即``先算什么，后算什么''。C++中有数十种运算符，除了我们熟知的四则运算以外，还有赋值运算符、模运算符和移位运算符等等。如果我们不人为规定一个``先操作什么，后操作什么''的顺序的话，有些代码的理解处理将会变得很麻烦。我们举个例子：
+在上小学时我们就学过``先乘除，后加减''这类的口诀。其实这就体现出一个先后顺序的问题，亦即``先算什么，后算什么''。C++中有数十种运算符，除了我们熟知的四则运算以外，还有赋值运算符、模运算符、比较运算符和移位运算符等等。如果我们不人为规定一个``先操作什么，后操作什么''的顺序的话，有些代码的理解和处理将会变得很麻烦。我们举个例子：
 \begin{lstlisting}
     num = 6 * 7; //假设num是一个已经定义了的int型变量
 \end{lstlisting}\par
@@ -84,7 +84,7 @@ C++中的赋值运算符优先级很低，比四则运算都要低。那么按�
 \begin{lstlisting}
     cout << (3 != 4); //输出3!=4的结果，编译正常，并输出1
 \end{lstlisting}\par
-为什么是这样呢？原因在于，\lstinline@<<@ 的优先级要高于这一系列的比较运算符。所以如果按照 \lstinline@cout<<3!=4@ 的写法的话，\lstinline@cout<<3@会先套上括号，于是变成了 \lstinline@(cout<<3)!=4@。显然，\lstinline@cout@（也就是 \lstinline@cout<<3@ 的返回值）和 \lstinline@4@ 比较是没有意义的，C++也没有定义这种语法，于是才有了我们之前遇到的问题，即``没有匹配的运算符''。正因如此，我们才需要把 \lstinline@3!=4@ 套上括号，以此来表示它要作为一个整体来计算。\par
+为什么是这样呢？原因在于，\lstinline@<<@ 的优先级要高于这一系列的比较运算符。所以按照 \lstinline@cout<<3!=4@ 的写法，\lstinline@cout<<3@ 会先套上括号，于是整个语句就变成了 \lstinline@(cout<<3)!=4@。显然，\lstinline@cout@（也就是 \lstinline@cout<<3@ 的返回值）和 \lstinline@4@ 比较是没有意义的，C++也没有定义这种语法，于是才有了我们之前遇到的问题，即``没有匹配的 \lstinline@!=@ 运算符''。正因如此，我们才需要把 \lstinline@3!=4@ 套上括号，以此来表示它要作为一个整体来计算。\par
 而假如我们需要为一个 \lstinline@bool@ 变量来赋值的话，那就不会有这样的问题了，因为比较运算符的优先级要高于赋值运算符。\par
 \begin{lstlisting}
     bool judgement; //定义bool型变量judgement，不初始化
@@ -106,9 +106,9 @@ C++中规定了每个运算符的\textbf{结合性（Associativity）}。对于�
     \includegraphics[width=0.4\textwidth]{../images/generalized_parts/02_Associativity_of_division_and_assignment.drawio.png}
     \caption{除法运算符和赋值运算符的结合性}
 \end{figure}
-所以连续除法中 \lstinline@8/4/2@ 就应该解释成 \lstinline@(8/4)/2@ 而非 \lstinline@8/(4/2)@；而连续赋值中 \lstinline@a=b=0@ 就应该解释成 \lstinline@a=(b=0)@ 而非 \lstinline@(a=b)=0@。如图2.2所示。\par
+所以连续除法中 \lstinline@8/4/2@ 就应该解释成 \lstinline@(8/4)/2@ 而非 \lstinline@8/(4/2)@；而连续赋值中 \lstinline@a=b=c@ 就应该解释成 \lstinline@a=(b=c)@ 而非 \lstinline@(a=b)=c@。如图2.2所示。\par
 综上所述，\textbf{运算符的优先级决定了不同种运算符套括号的顺序，而结合性决定了同种运算符套括号的顺序}。于是编译器可以通过这套规则，给每个运算符都``套起括号''，从而让每个运算符都知道它的操作数是什么，而不至于出现歧义。\par
-当然我也需要提醒读者，``为所有运算符都套括号''只是我们初学编程时的权宜之计；实际编程中，只有当默认的优先级与结合性不能满足我们的要求时，我们才通过加括号的方式改变运算逻辑（比如，在 \lstinline@(a+b)*c@ 中加括号是为了先算加法后算乘法）。当我们把这些知识掌握熟练了之后，我们自然就清楚在什么时候有必要加括号，而那些可有可无的括号就不会再用了。\par
+当然我也需要提醒读者，``为所有运算符都套括号''只是我们初学编程时的权宜之计；实际编程中，一般来说，只有当默认的优先级与结合性不能满足我们的要求时，我们才通过加括号的方式改变运算逻辑（比如，在 \lstinline@(a+b)*c@ 中加括号是为了先算加法后算乘法）。当我们把这些知识掌握熟练了之后，我们自然就清楚在什么时候有必要加括号，而那些可有可无的括号就不会再用了。\par
 \subsection*{运算的语义}
 我们在实际编程的时候经常会犯一些\textbf{语法（Syntax）}上的错误，包括但远不限于：
 \begin{itemize}
@@ -126,8 +126,8 @@ C++中规定了每个运算符的\textbf{结合性（Associativity）}。对于�
 \end{itemize}
 语义错误的特点是，编译器不会认为你的代码是``错误''的。它会认为你写的代码都有你自己的目的。只要不违反C++标准对于语法的规定，你就可以想怎么写就怎么写。但是很多时候，因为各种原因，``我们真正写出来的代码''并没有符合``我们想要实现的功能''，这时我们就会说，你的代码\textbf{在语法上正确，但在语义上错误}。这种语义上的错误是很可怕的，因为很多编译器不会给你提醒，你也不会立刻知道哪里出错，只有在你运行程序并发现结果不合预期之后，才会去找寻问题的来源。\par
 \lstinline@2<x<10@ 这句代码就属于一种语义错误，因为C++没有三元比较运算符\footnote{C++中唯一的三元运算符是条件运算符，它可以有三个操作数。我们之后再谈。}，我们不能用这样的方式来进行比较。但是它在语法上正确，所以编译器会作如下分析：因为 \lstinline@<@ 的结合性是从左向右，那么\lstinline@2<x<10@ 可以被解释成 \lstinline@(2<x)<10@。\par
-那么这样的解释方式能否达到我们的目的呢？我们分析一下就知道了：无论 \lstinline@2<x@ 的返回值是 \lstinline@true@ 还是 \lstinline@false@，它都小于 \lstinline@10@\footnote{\lstinline@bool@ 型数据和 \lstinline@int@ 型数据比较的时候会发生类型转换，这点我们会在之后提及。}，所以 \lstinline@2<x<10@ 得到的返回值永远是 \lstinline@true@！\par
+那么这样的解释方式能否达到我们的目的呢？我们分析一下就知道了：无论 \lstinline@2<x@ 的返回值是 \lstinline@true@ 还是 \lstinline@false@，它都小于 \lstinline@10@\footnote{\lstinline@bool@ 型数据和 \lstinline@int@ 型数据比较的时候会发生类型转换，我们下一节就讲。}，所以 \lstinline@2<x<10@ 得到的返回值永远是 \lstinline@true@！\par
 那么怎样写才能达到我们的目的呢？这里要用到逻辑运算符``\lstinline@&&@''（逻辑与）。逻辑与运算符用于计算两个布尔数据，仅当左右操作数均为 \lstinline@true@ 时，返回值才为 \lstinline@true@；否则，返回值为 \lstinline@false@。\par
 那么我们拆解一下数学表达式$2<x<10$，它的含义可以阐述为``$2<x$''并且``$x<10$''，必须两个要求都满足。于是我们可以通过逻辑与运算符来把它们拼合起来，写成 \lstinline@(2<x)&&(x<10)@。\par
-又因为 \lstinline@&&@ 运算符的优先级低于 \lstinline@<@，所以我们可以不用套手动括号了，直接写成 \lstinline@2<x && x<10@，这才是语义上正确的写法。\par
+又因为 \lstinline@&&@ 运算符的优先级低于 \lstinline@<@，所以我们可以免了套括号，直接写成 \lstinline@2<x && x<10@，这才是语义上正确的写法。\par
 至于 \lstinline@8/3*1.@ 为什么在语义上是错误的，我们放到下节的类型转换部分探讨。\par

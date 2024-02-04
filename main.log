@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  4 FEB 2024 12:22
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  4 FEB 2024 14:59
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1070,31 +1070,22 @@ LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/b/n' will be
 
 ]
 第二章
-(./generalized_parts/02_basic_operation_on_data/01_assignment_and_constants.tex [21] [22] [23]) (./generalized_parts/02_basic_operation_on_data/02_fundamental_types.tex (./02_basic_operation_on_data/../code_in_book/2.1/Integer_Limits.cpp [24]) [25]
-Overfull \hbox (8.7171pt too wide) in paragraph at lines 55--55
-[]\TU/SimSun(0)/m/n/10 整 型 数 据 的 字 面 量 同 样 有 很 多 后 缀 可 以 用 来 指 定 类 型，|  比 如 [][][] 后 缀 规 定 了 [][][][][][][][][][][][][]
- []
-
-[26] [27]) (./generalized_parts/02_basic_operation_on_data/03_operators.tex [28] [29] [30]
+(./generalized_parts/02_basic_operation_on_data/01_assignment_and_constants.tex [21] [22] [23]) (./generalized_parts/02_basic_operation_on_data/02_fundamental_types.tex (./02_basic_operation_on_data/../code_in_book/2.1/Integer_Limits.cpp [24]) [25] [26] [27] [28]) (./generalized_parts/02_basic_operation_on_data/03_operators.tex [29] [30]
 File: ./02_basic_operation_on_data/../images/generalized_parts/02_Precedence_of_multiply_addition_and_assignment.drawio.png Graphic file (type bmp)
 <./02_basic_operation_on_data/../images/generalized_parts/02_Precedence_of_multiply_addition_and_assignment.drawio.png>
  [31]
-Overfull \hbox (8.99084pt too wide) in paragraph at lines 87--87
-[]\TU/SimSun(0)/m/n/10 为 什 么 是 这 样 呢？|  原 因 在 于，| [][][] 的 优 先 级 要 高 于 这 一 系 列 的 比 较 运 算 符。|  所 以 如 果 按 照 [][][][]
- []
-
 File: ./02_basic_operation_on_data/../images/generalized_parts/02_Associativity_of_division_and_assignment.drawio.png Graphic file (type bmp)
 <./02_basic_operation_on_data/../images/generalized_parts/02_Associativity_of_division_and_assignment.drawio.png>
-[32] [33]) (./generalized_parts/02_basic_operation_on_data/04_type_cast.tex [34]
+ [32] [33]) (./generalized_parts/02_basic_operation_on_data/04_type_cast.tex [34]
 File: ./02_basic_operation_on_data/../images/generalized_parts/02_Implicit_type_cast_from_int_to_double.drawio.png Graphic file (type bmp)
 <./02_basic_operation_on_data/../images/generalized_parts/02_Implicit_type_cast_from_int_to_double.drawio.png>
  [35]
 File: ./02_basic_operation_on_data/../images/generalized_parts/02_boolean_conversion.drawio.png Graphic file (type bmp)
 <./02_basic_operation_on_data/../images/generalized_parts/02_boolean_conversion.drawio.png>
- [36]
+ [36] [37]
 File: ./02_basic_operation_on_data/../images/generalized_parts/02_Explicit_type_cast_from_double_to_int_in_vain.drawio.png Graphic file (type bmp)
 <./02_basic_operation_on_data/../images/generalized_parts/02_Explicit_type_cast_from_double_to_int_in_vain.drawio.png>
-)) (./generalized_parts/03_control_flow.tex [37] [38]
+)) (./generalized_parts/03_control_flow.tex [38]
 第三章
 (./generalized_parts/03_control_flow/01_introduction_to_structure_process_and_order.tex [39
 
