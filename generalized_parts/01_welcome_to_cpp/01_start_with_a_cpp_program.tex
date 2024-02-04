@@ -16,8 +16,8 @@
 实际上的过程会更复杂，比如在编译之前还会进行预处理（Preprocess）。但是我们现在还不需要操心这么多，因为在按下``编译''键之后，预处理和编译都会进行，所以不妨把它统称为一个过程。\par
 \subsection*{编译器的选择}
 C++的\textbf{编译器（Compiler）}非常丰富。\href{https://en.wikipedia.org/wiki/List_of_compilers\#C++_compilers}{List of C++ Compilers - Wikipedia} 条目为我们提供了一个不完全的C++编译器列表。\par
-一般我们选择使用Clang、GCC或Visual C++（MSVC），它们都是跨系统的编译器，对语言标准的支持比较好\footnote{Clang和GCC支持C++17以前标准和C++20的大部分标准，而MSVC支持C++20的全部标准和C++23的部分标准。}，许多IDE（如Dev\_C++, Code::Blocks，Visual C++等）也都默认提供这些编译器之一。另外，Coliru和Wandbox等在线编译器也都支持使用Clang和GCC。\par
-同种的编译器也会有版本上的差异。很多古老的版本（如GCC 4.9.4）并不支持新近的语法（如C++17\footnote{C++17是C++委员会制定的一个语言标准，其最终版发布于2017年12月。这也是本书采用的主要语言标准。}）。新版本的编译器往往有很多好用的特性，比如对代码有更好的优化。\footnote{另请注意，最好选择稳定版本的编译器，而非试验性的测试版，以免出现问题带来的麻烦。}\par
+一般我们选择使用Clang、GCC或Visual C++（MSVC），它们都是跨系统的编译器，对语言标准的支持比较好\footnote{Clang和GCC支持C++17以前标准和C++20的大部分标准，而MSVC支持C++20的全部标准和C++23的部分标准。}，许多IDE（如Dev\_C++, Code::Blocks，Visual C++等）也都默认提供这些编译器之一。另外，Coliru, Wandbox和C++ Shell等在线编译器也都支持使用Clang或GCC。\par
+同种的编译器也会有版本上的差异。很多古老的版本（如GCC 4.9.4）并不支持新近的语法（如C++17\footnote{C++17是C++委员会制定的一个语言标准，发布于2017年，代号为 \lstinline@201703L@。}）。新版本的编译器往往有很多好用的特性，比如对代码有更好的优化。\footnote{另请注意，最好选择稳定版本的编译器，而非试验性的预览版，以免编译器自身存在问题带来的麻烦。}\par
 \subsection*{语言标准的选择}
 不同的C++\textbf{标准（Standard）}对语法的支持不同。比如说，在C++11以后的标准中下，可以使用 \lstinline@auto@ 来自动确定我们要定义的变量类型。这是一种很方便的语法，但C++11以前的版本就不支持使用。\par
 C++语言标准的更新总会带来很多新的功能，也会对以往标准中的缺陷和漏洞加以弥补，所以越新的标准往往就越强大、易用。另一方面，新标准通常都能兼容旧标准\footnote{只是通常如此。有很多反例，比如C++17标准移除了古已有之的 \lstinline@std::auto_ptr@。}，所以你也无需担心为了适应新标准而放弃很多旧知识，或者换用新标准后很多代码编译失败了。\par
@@ -33,7 +33,7 @@ C++语言标准的更新总会带来很多新的功能，也会对以往标准�
 }
 \end{lstlisting}
 \lstinline@cin.get()@ 的作用是读取下一个键盘输入，所以如果你不按下键盘上的Enter键，程序就会一直等待下去。（只有按下Enter，输入内容才能发送给程序，我们后面会慢慢道来）\par
-至于用两个 \lstinline@cin.get()@，这是为了应对可能的 \lstinline@'\n'@ 遗留被第一个 \lstinline@cin.get()@ 吞没。我们现在尚无必要在乎这些细枝末节，只需要知道：如果窗口没有保持打开，就加一个 \lstinline@cin.get()@；如果还不行，就加两个 \lstinline@cin.get()@。\footnote{值得留意的是，用 \lstinline@cin.get()@ 来阻断程序进度只是一种临时的解决方案，目的在于便于我们进行学习和演示。而在实际的开发中，人们通常不会在程序中添加这种代码。}\par
+至于用两个 \lstinline@cin.get()@，这是为了应对可能的 \lstinline@'\n'@ 遗留被第一个 \lstinline@cin.get()@ 吞没。我们现在尚无必要在乎这些细枝末节，只需要知道：如果窗口没有保持打开，就加一个 \lstinline@cin.get()@；如果还不行，就加两个 \lstinline@cin.get()@。\footnote{值得留意的是，用 \lstinline@cin.get()@ 来阻断程序进度只是一种临时的解决方案，目的在于方便我们进行学习和演示。而在实际编程中，人们通常不会在程序中添加这种代码。}\par
 \subsection*{回到Hello World}
 现在让我们回来看Hello World代码。这个代码可以在任何操作系统上，用任何编译器和任何语言标准来编译。程序的输出就是一个单词 \texttt{Hello World!}。\par
 \begin{lstlisting}
@@ -43,11 +43,11 @@ C++语言标准的更新总会带来很多新的功能，也会对以往标准�
 \begin{lstlisting}
 #include <iostream> //标准输入输出头文件
 \end{lstlisting}
-程序的第二行是一个\textbf{文件包含（File Inclusion）}。通过这个语句，预处理器会对代码作预处理\footnote{如前所述，源代码在编译之前需要经过预处理，例如文件包含和宏。预处理结束后，编译才会开始。}，将本句命令替换成 \lstinline@iostream@ 库中的代码。\par
+程序的第二行是一个\textbf{文件包含（File Inclusion）}。通过这个语句，预处理器会对代码作预处理\footnote{如前所述，源代码在编译之前需要经过预处理，例如文件包含和宏的展开。预处理结束后，编译才会开始。}，把 \lstinline@iostream@ 库中的代码导入该文件中\footnote{所以这个源代码的实际的内容量会比你看上去的大很多，绝大多数来自于文件包含命令。}。\par
 \begin{lstlisting}
 using namespace std; //使用std命名空间
 \end{lstlisting}
-程序的第三行是一个\textbf{命名空间（Namespace）}使用。C++中，\lstinline@cout@ 被定义\footnote{定义（Definition），是为程序中的一个实体（如变量、函数、类等）分配内存并提供其具体的实现或值的过程。在以C++为代表的静态语言中，一个实体必须定义才能使用。}在 \lstinline@std@ 命名空间中，我们要通过 \lstinline@std::cout@ 这样的语法才可以使用它。而有了 \lstinline@using namespace std;@ 之后，我们就可以直接使用 \lstinline{cout}。\par
+程序的第三行是一个\textbf{命名空间（Namespace）}使用。C++中，\lstinline@cout@ 被定义\footnote{定义（Definition），是为程序中的一个实体（如变量、函数、类等）分配内存并提供其具体的实现或值的过程。在以C++为代表的静态语言中，一个实体必须定义才能使用。}在 \lstinline@std@ 命名空间中，我们要通过 \lstinline@std::cout@ 这样的语法才可以使用它。而有了 \lstinline@using namespace std@ 之后，我们就可以直接使用 \lstinline{cout}。\par
 关于文件包含和命名空间的概念，我们会在第七章进行讲解。目前我们无需过分纠结。\par
 \begin{lstlisting}
 int main(){//主函数，程序执行始于此
@@ -62,6 +62,15 @@ int main(){//主函数，程序执行始于此
 \lstinline@<<@ 左侧的 \lstinline@cout@ 是在标准库 \lstinline@iostream@ 中定义的 \lstinline@std@ 空间的对象，控制标准输出。我们无需对它作修改；\lstinline@<<@ 右侧的 \lstinline@"hello World!"@ 则是我们要输出的内容。外套双引号表示它是一个字符串，我们会在第五章讲解字符串。\par
 如果我们想要输出一个数字，我们只需要修改 \lstinline@<<@ 右侧的内容即可，比如
 \begin{lstlisting}
-    cout << 3.14159;//输出圆周率小数点后五位
+    cout << 3.14159;//输出3.14159这个数
 \end{lstlisting}
 第三节我们就会开始介绍如何使用 \lstinline@cout@ 来输出数据。\par
+\subsection*{输出你的编译器/语言标准信息}
+读者可能搞完了自己的开发环境，但是对编译器和语言标准的问题依旧感到茫然。下面这段程序可以输出当前所用的编译器和语言标准信息：
+\lstinputlisting[caption=\texttt{standard\_and\_compiler.cpp}]{code_in_book/1.2/standard_and_compiler.cpp}
+这段代码，我们就不讲了，只是拿来运行就好。它的输出结果因你的开发环境而异\footnote{根据已知信息，Visual Studio 2022对于 \lstinline@__cplusplus@ 的输出结果总是 \lstinline@199711@，这可能是一个Bug。如果要让它输出正确结果，需要在编译命令行中添加 \texttt{/Zc:\_\_cplusplus} 指令才行。这对于初学者来说可能有点难，但是也不要担心，这个问题不会影响我们对于语言标准的正常使用，所以不这么做也没问题。}。对于我的开发环境来说，它的输出结果是\\\noindent\rule{\linewidth}{.2pt}\texttt{
+Current C++ Standard: 201703\\
+Current C++ Compiler: GCC
+}\\\noindent\rule{\linewidth}{.2pt}\\
+这说明我当前使用的C++标准是C++17。对于C++11以前的标准来说，它会显示 \lstinline@199711@；对于C++11, C++14, C++20和C++23来说，它们会分别显示 \lstinline@201103@, \lstinline@201402@, \lstinline@202002@ 和 \lstinline@202302@。读者可以对号入座，了解自己当前使用的C++语言标准。\par
+如果读者使用的标准不是C++17，希望读者根据软件的使用说明，修改自己的语言标准；如果编译器本身不支持C++17，希望读者换成较新版本的编译器。如果读者使用的不是本书推荐的三种编译器之一，也希望读者能改用这三种编译器，以获得最佳的使用效果。\par

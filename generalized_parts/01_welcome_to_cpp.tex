@@ -1,10 +1,10 @@
 \chapter{初识C++}
-在本章，我们将会了解一些C++中最基本的知识,最常见的概念，和最简单的语法，并付诸代码来实现。\par
-我们不要求读者搞懂每句代码的含义——那是不必要的。我们在本章中会给出一个基本的代码模板，读者只需修改其中的一小部分即可。毕竟，\textbf{学习都是从模仿开始的}，C++也不例外。\par
+在本章，我们将会了解一些C++中最基本的知识，最常见的概念，和最简单的语法，并付诸代码来实现。\par
+我不强求读者搞懂每句代码的含义——那是不必要的。我在本章中会给出一个基本的代码模板，读者只需修改其中的一小部分内容即可。毕竟，\textbf{学习都是从模仿开始的}，C++也不例外。\par
 有一点值得注意。我们需要有一个编译器，来把我们的代码（.cpp文件或者别的什么）变成可以执行和看到效果的程序（Windows中的.exe文件、Linux或MacOS上的可执行文件，或者别的什么），以便检查它能否实现我们想要的功能，并在日后使用这个程序。\par
-根据自己计算机的系统，你可以选择\href{https://www.embarcadero.com/free-tools/dev-cpp}{Embarcadero Dev-C++ (Windows)}, \href{https://learn.microsoft.com/zh-cn/cpp/?view=msvc-170}{Microsoft Visual C++ (Windows)}, \href{https://developer.apple.com/xcode/}{Apple Xcode (MacOS)}, \href{https://github.com/open-watcom/open-watcom-v2}{Open Watcom C++ (Windows/Linux/DOS)}, \href{https://www.codeblocks.org/}{Code::Blocks (跨系统)}, \href{https://www.monodevelop.com/}{MonoDevelop (跨系统)}。这些都是集成开发环境\footnote{集成开发环境（Integrated Development Environment, IDE），是一种辅助进行软件开发的应用。在开发工具内部就可以编写源代码，并编译打包成为可用的程序。IDE需要的配置较少，对新手比较友好，上手容易。}，你只需要在下载后做很简单的配置，就可以开始写代码了。\par
-另外还有一些代码编辑器，比如\href{https://code.visualstudio.com/}{Visual Studio Code (Windows/Linux/MacOS)}, \href{https://www.sublimetext.com/}{Sublime Text (Windows/Linux/MacOS)}, \href{https://www.vim.org/}{Vim (跨系统)}，你需要做额外的配置（比如安装插件），把它们变得如同集成开发环境一样。\par
-另有一些在线的代码编译工具，让你可以无需安装软件，只要在浏览器上提供代码，就能远程编译并告诉你运行结果。比如\href{https://coliru.stacked-crooked.com/}{Coliru}和\href{https://wandbox.org/}{Wandbox}。不过相比于本地编译运行，这种方式的交互效果就相当差劲了，仅适合一些无输入或只有简单输入的程序。这些在线编译方式对于本章涉及的程序来说当然够用，但不要太过依赖。\par
+根据自己计算机的系统，你可以选择 \href{https://www.embarcadero.com/free-tools/dev-cpp}{Embarcadero Dev-C++ (Windows)}, \href{https://learn.microsoft.com/zh-cn/cpp/?view=msvc-170}{Microsoft Visual C++ (Windows)}, \href{https://developer.apple.com/xcode/}{Apple Xcode (MacOS)}, \href{https://github.com/open-watcom/open-watcom-v2}{Open Watcom C++ (Windows/Linux/DOS)}, \href{https://www.codeblocks.org/}{Code::Blocks (跨系统)}, \href{https://www.monodevelop.com/}{MonoDevelop (跨系统)}。这些都是集成开发环境\footnote{集成开发环境（Integrated Development Environment, IDE），是一种辅助进行软件开发的应用。在开发工具内部就可以编写源代码，并编译打包成为可用的程序。IDE需要的配置较少，对新手比较友好，上手容易。}，你只需要在下载后做很简单的配置，就可以开始写代码了。\par
+另外还有一些代码编辑器，比如 \href{https://code.visualstudio.com/}{Visual Studio Code (Windows/Linux/MacOS)}, \href{https://www.sublimetext.com/}{Sublime Text (Windows/Linux/MacOS)}, \href{https://www.vim.org/}{Vim (跨系统)}，你需要做额外的配置（比如安装插件，配置编译器），把它们变得如同集成开发环境一样。\par
+另有一些在线的代码编译工具，让你可以无需安装软件，只要在浏览器上提供代码，就能远程编译并告诉你运行结果。比如 \href{https://coliru.stacked-crooked.com/}{Coliru}, \href{https://wandbox.org/}{Wandbox} 和 \href{https://cpp.sh/}{C++ Shell}。不过相比于本地编译运行，这种方式的交互效果就相当差劲了，仅适合一些无输入或只有简单输入的程序。这些在线编译方式对于本章涉及的程序来说当然够用，但读者不要太过依赖。\par
 \import{01_welcome_to_cpp/}{01_start_with_a_cpp_program.tex}
 \import{01_welcome_to_cpp/}{02_data_and_information.tex}
 \import{01_welcome_to_cpp/}{03_define_and_use_data.tex}
