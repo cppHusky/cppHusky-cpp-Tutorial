@@ -3,7 +3,7 @@
 \contentsline {chapter}{\numberline {第一章\hspace {.3em}}初识C++}{3}{chapter.1}%
 \contentsline {section}{\numberline {1.1}开始一个C++程序}{3}{section.1.1}%
 \contentsline {section}{\numberline {1.2}数据与信息}{7}{section.1.2}%
-\contentsline {section}{\numberline {1.3}数据的定义和使用}{8}{section.1.3}%
+\contentsline {section}{\numberline {1.3}数据的定义和使用}{9}{section.1.3}%
 \contentsline {section}{\numberline {1.4}运算符与类型}{12}{section.1.4}%
 \contentsline {section}{\numberline {1.5}\texttt {sizeof}与内存空间}{14}{section.1.5}%
 \contentsline {section}{\numberline {1.6}类与对象}{17}{section.1.6}%
@@ -18,7 +18,7 @@
 \contentsline {subsubsection}{多路分支的选择结构}{50}{subsubsection*.52}%
 \contentsline {section}{\numberline {3.3}循环结构}{53}{section.3.3}%
 \contentsline {section}{\numberline {3.4}作用域初步}{62}{section.3.4}%
-\contentsline {section}{\numberline {3.5}实操：简易计算器的设计}{63}{section.3.5}%
+\contentsline {section}{\numberline {3.5}实操：简易计算器的设计}{64}{section.3.5}%
 \contentsline {chapter}{\numberline {第四章\hspace {.3em}}函数初步}{67}{chapter.4}%
 \contentsline {section}{\numberline {4.1}函数的概念}{67}{section.4.1}%
 \contentsline {section}{\numberline {4.2}函数的定义和使用}{69}{section.4.2}%

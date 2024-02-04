@@ -67,7 +67,7 @@ int main(){//主函数，程序执行始于此
 第三节我们就会开始介绍如何使用 \lstinline@cout@ 来输出数据。\par
 \subsection*{输出你的编译器/语言标准信息}
 读者可能搞完了自己的开发环境，但是对编译器和语言标准的问题依旧感到茫然。下面这段程序可以输出当前所用的编译器和语言标准信息：
-\lstinputlisting[caption=\texttt{standard\_and\_compiler.cpp}]{code_in_book/1.2/standard_and_compiler.cpp}
+\lstinputlisting[caption=\texttt{standard\_and\_compiler.cpp}\label{lst:standard_and_compiler}]{code_in_book/1.2/standard_and_compiler.cpp}
 这段代码，我们就不讲了，只是拿来运行就好。它的输出结果因你的开发环境而异\footnote{根据已知信息，Visual Studio 2022对于 \lstinline@__cplusplus@ 的输出结果总是 \lstinline@199711@，这可能是一个Bug。如果要让它输出正确结果，需要在编译命令行中添加 \texttt{/Zc:\_\_cplusplus} 指令才行。这对于初学者来说可能有点难，但是也不要担心，这个问题不会影响我们对于语言标准的正常使用，所以不这么做也没问题。}。对于我的开发环境来说，它的输出结果是\\\noindent\rule{\linewidth}{.2pt}\texttt{
 Current C++ Standard: 201703\\
 Current C++ Compiler: GCC

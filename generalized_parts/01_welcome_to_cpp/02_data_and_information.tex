@@ -43,13 +43,13 @@ C++为我们提供了很多内置的整数类型，我们可以直接使用。�
 \subsubsection*{浮点类型（Floating-point type）}
 浮点类型有点像``科学记数法''，一个浮点数既有表示分数的部分（Fraction），又有表示冪次的部分（Exponent bias）。它既可以表示小数，也可以表示整数，并且数据范围非常宽\footnote{值得注意的是，浮点类型的数据都有精度限制，不能准确表示有效数字过多的数据。正因如此，浮点类型不适合用来表示和计算特别大的整数；这时应当使用整型。}。\par
 C++同样提供了内置的浮点类型。不同类型的区别主要在于以下两点：其一，它们能表示的有效位数各不相同；其二，它们的冪指数范围有宽有窄。\par
-\subsubsection*{字符类型（Character type）}
-严格说来，字符型是一种特殊的整型。不同之处在于，字符数据不是用来``计算''而是用来``编码''的。\par
-以最原始而最通用的ASCII码\footnote{美国信息标准交换代码（American Standard Code for Information Interchange, ASCII），是一套基于拉丁字母的编码系统，主要用于显示现代英语。}为例，它有若干控制字符和可显示字符，每个字符都有一个编码，如图1.1所示。读者无需记忆本图，只需知道它是一套编码系统即可。通过ASCII，每个拉丁字母都能编码成一个整数，比如字符\texttt{'0'}对应着编码48，字符\texttt{'A'}对应着编码65，字符\texttt{'a'}对应着编码97。\par
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.75\textwidth]{../images/generalized_parts/01_ASCII.png}
     \caption{一个ASCII码表}
     \footnotesize{图片来源：维基共享资源}
 \end{figure}
+\subsubsection*{字符类型（Character type）}
+严格说来，字符型是一种特殊的整型。不同之处在于，字符数据不是用来``计算''而是用来``编码''的。\par
+以最原始而最通用的ASCII码\footnote{美国信息标准交换代码（American Standard Code for Information Interchange, ASCII），是一套基于拉丁字母的编码系统，主要用于显示现代英语。}为例，它有若干控制字符和可显示字符，每个字符都有一个编码，如图1.1所示。读者无需记忆本图，只需知道它是一套编码系统即可。通过ASCII，每个拉丁字母都能编码成一个整数，比如字符\texttt{'0'}对应着编码48，字符\texttt{'A'}对应着编码65，字符\texttt{'a'}对应着编码97。\par
 这套字符编码只适用于现代拉丁字母。如果要表示其它语言（比如中文）的字符，就需要用更复杂的编码规则。我们会在精讲篇中细细道来。\par

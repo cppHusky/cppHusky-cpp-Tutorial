@@ -1,7 +1,7 @@
 \section{选择结构}
 在此之前我们遇到的代码都是顺序结构的，程序一个接一个地执行一系列操作。仅用顺序结构是不能完成复杂工作的，比如根据一定的条件，作出不同的反应。这时我们就需要用到选择结构了。\par
 \lstinline@if@-\lstinline@else@ 结构是最常用的选择结构，而 \lstinline@switch@-\lstinline@case@ 结构在处理特定的条件判断时，会更加高效。本节我们就来介绍这两种结构。\par
-\subsection*{\lstinline@if@-\lstinline@else@ 结构}
+\subsection*{\texttt{if}-\texttt{else}结构}
 \lstinline@if@-\lstinline@else@ 结构的基本格式是这样的：
 \begin{lstlisting}
     if (<条件>) { //if是必需的
@@ -44,17 +44,17 @@
     else {
         cout << "偶数"; //输出"偶数"
     }
-    \end{lstlisting}
-    这个程序的流程图如图3.7所示。可以看出，前面部分是顺序结构，后面部分是选择结构。\par
-    \begin{figure}[htbp]
-        \centering
-        \includegraphics[width=0.3\textwidth]{../images/generalized_parts/03_structure_of_odd_or_even.drawio.png}
-        \caption{奇偶判断程序流程图}
-    \end{figure}
+\end{lstlisting}
+这个程序的流程图如图3.7所示。可以看出，前面部分是顺序结构，后面部分是选择结构。\par
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.3\textwidth]{../images/generalized_parts/03_structure_of_odd_or_even.drawio.png}
+    \caption{奇偶判断程序流程图}
+\end{figure}\pagebreak
 最后Ctrl+V一下文件包含等等乱七八糟的代码，就是这样：
 \lstinputlisting[caption=\texttt{odd\_or\_even.cpp},label=lst:oddoreven]{../code_in_book/3.2/odd_or_even.cpp}
-读者可以自行测试一下，例如输入\texttt{1}，程序就会给出输出 \texttt{奇数}；输入\texttt{2}，程序就会给出输出 \texttt{偶数}。\par
-如果甲方有什么其它的奇怪要求，比如``如果是偶数就输出，如果是奇数就不输出''，这时我们就只需要为偶数部分写一个 \lstinline@if@ 块即可，没有必要再写 \lstinline@else@ 块，代码可以这样写：
+读者可以自行测试一下，例如输入\texttt{1}，程序就会给出输出``\texttt{奇数}''；输入\texttt{2}，程序就会给出输出``\texttt{偶数}''。\par
+如果甲方有什么其它的奇怪要求，比如``如果是偶数就输出，如果是奇数就不输出''，这时我们就只需要为偶数部分写一个 \lstinline@if@ 块即可，没有必要再写 \lstinline@else@ 块，代码可以这样写：\pagebreak
 \begin{lstlisting}
     if (mod == 0) { //注意，判断条件是mod是否为0
         cout << "偶数"; //mod为0说明它是偶数
@@ -87,7 +87,7 @@
     }
 \end{lstlisting}\par
 有些参考资料将其称为 \lstinline@if@ - \lstinline@else if@ - \lstinline@else@ 结构，以 \lstinline@if@ 加条件为开头，中间全用 \lstinline@else if@ 加条件的形式，结尾用 \lstinline@else@。\par
-但是以我个人的观点来看，实际上并没有 \lstinline@else if@ 这个关键字。它是 \lstinline@else@ 嵌套了 \lstinline@if@ 的结构，本质上只是对 \lstinline@if@-\lstinline@else@ 结构的一种特殊应用。这段代码与下面的代码并无任何区别\footnote{与Python等一些语言不同，C++对代码的缩进、换行和标识符间的空格几乎没有任何限制，所以缩进的修改、换行的使用，乃至特定情况下是否套花括号 \lstinline@\{\}@ 都不会对编译造成影响。}：
+但是以我的观点来看，实际上并没有 \lstinline@else if@ 这个关键字。它是 \lstinline@else@ 嵌套了 \lstinline@if@ 的结构，本质上只是对 \lstinline@if@-\lstinline@else@ 结构的一种特殊应用。这段代码与下面的代码并无任何区别\footnote{与Python等一些语言不同，C++对代码的缩进、换行和标识符间的空格几乎没有任何限制，所以缩进的修改、换行的使用，乃至特定情况下是否套花括号 \lstinline@\{\}@ 都不会对编译造成影响。}：
 \begin{lstlisting}
     if (ch >= 'A' && ch <= 'Z') {
         cout << "大写字母";
@@ -104,13 +104,13 @@
                 cout << "其它";
             }
 \end{lstlisting}
-这样就是 \lstinline@if@-\lstinline@else@ 方式的理解了。所以 \lstinline@else if@ 只不过是一种更紧湊的写法而已，不能称为一个``关键字''。它的 \lstinline@else@ 部分属于上一个 \lstinline@if@-\lstinline@else@ 结构，而 \lstinline@if@ 部分属于下一个 \lstinline@if@-\lstinline@else@ 结构。图3.描述了这样一种结构是如何搭建起来的。\par
+这样就是 \lstinline@if@-\lstinline@else@ 方式的理解了。所以 \lstinline@else if@ 只不过是一种更紧湊的写法而已，不能称为一个``关键字''。它的 \lstinline@else@ 部分属于上一个 \lstinline@if@-\lstinline@else@ 结构，而 \lstinline@if@ 部分属于下一个 \lstinline@if@-\lstinline@else@ 结构。图3.8描述了这样一种结构是如何搭建起来的。\par
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.4\textwidth]{../images/generalized_parts/03_if_elseif_else.drawio.png}
     \caption{\lstinline@if@-\lstinline@else@ 嵌套实现多路分支}
 \end{figure}
-\subsection*{\lstinline@switch@-\lstinline@case@ 结构}
+\subsection*{\texttt{switch}-\texttt{case}结构}
 \lstinline@switch@-\lstinline@case@ 结构是一种在特定情况下可以方便地实现多路选择的选择结构。它的基本语法是
 \begin{lstlisting}
     switch (<整型数据>) {
@@ -125,14 +125,13 @@
             break; //break并非必需，尤其对于最末的case而言
     }
 \end{lstlisting}\par
-\lstinline@switch@\lstinline@case@ 结构与 \lstinline@if@ 结构不同，它的判断是通过``匹配''进行的。\par
-\lstinline@switch@ 块中的每个 \lstinline@case@ 都是一个标签，能对某个位置进行标记。\lstinline@switch@ 跟随的整型数据将会去匹配每个\lstinline@case@ 标签后的字面量\footnote{其实不光是字面量，所有常量表达式都是可以用的。}。一旦匹配到了合适的字面量，程序就会从本句开始顺序执行。\par
+\lstinline@switch@-\lstinline@case@ 结构与 \lstinline@if@\lstinline@else@ 结构不同，它的判断是通过``匹配''进行的。\lstinline@switch@ 块中的每个 \lstinline@case@ 都是一个标签，能对某个位置进行标记。\lstinline@switch@ 跟随的整型数据将会去匹配每个\lstinline@case@ 标签后的字面量\footnote{其实不光是字面量，所有常量表达式都是可以用的。}。一旦匹配到了合适的字面量，程序就会从本句开始顺序执行。\par
 现在我们要输入一个1\~{}6之间的正整数，并输出它的英文(one, two, \ldots)；如果输入不是1\~{}6之间的正整数，就什么也不做。我们可以按照下面这个使用 \lstinline@switch@-\lstinline@case@ 结构的代码来实现这个功能。
 \begin{lstlisting}
     int num; //定义待输入变量，注意必须用整型、字符型或布尔型
     cin >> num; //输入num的值
     switch (num) {
-        case 6: //case可以从1到6，也可以从6到1，也可以打乱顺序，对应即可
+        case 6: //case可以从1到6，也可以从6到1，也可以打乱顺序，语法上都正确
             cout << "six" <<endl; //如果num匹配6，就从这里开始顺序执行
             break; //用break来退出switch块
         case 5:
@@ -152,19 +151,21 @@
     }
 \end{lstlisting}
 可以看出，这样写要比用 \lstinline@else if@ 然后加一众 \lstinline@num==@ 的方式要简洁一些。读者可以自行测试这段代码，看看效果。\par
-\lstinline@switch@-\lstinline@case@ 结构有一个特性，叫做\textbf{穿透效应（Fallthrough behavior）}。因为 \lstinline@case@ 只是一个标签，不能起到退出 \lstinline@switch@ 结构的作用，所以如果在写每个 \lstinline@case@ 之后不加以 \lstinline@break@ 的话，程序将会继续运行下一个 \lstinline@case@、再下一个 \lstinline@case@，至到遇到一个退出语句或者运行到 \lstinline@switch@ 的末尾为止。\par
-举个例子来说，如果上面的代码不加 \lstinline@break@ 的话，程序运行的结果将是这样的\footnote{本书默认：键盘输入的内容用黑体标识，程序输出的内容不用黑体。换行符不单独显示，行末空格和回车也忽略掉。如有特殊情况，会特别说明。}：\\\noindent\rule{\linewidth}{0.2pt}\texttt{
+\lstinline@switch@-\lstinline@case@ 结构有一个特性，叫做\textbf{穿透效应（Fallthrough behavior）}。因为每个 \lstinline@case@ 只是一个标签，不能起到退出 \lstinline@switch@ 结构的作用，所以若是在写每个 \lstinline@case@ 之后不加以 \lstinline@break@ 的话，程序将会继续运行下一个 \lstinline@case@、再下一个 \lstinline@case@，直到遇到一个退出语句或者运行到 \lstinline@switch@ 的末尾为止。\par
+举个例子，如果上面的代码不加 \lstinline@break@ 的话，程序运行的结果将是这样的\footnote{本书默认：键盘输入的内容用黑体标识，程序输出的内容不用黑体。换行符不单独显示，行末空格和回车也忽略掉。如有特殊情况，会特别说明。}：
+\\\noindent\rule{\linewidth}{0.2pt}\texttt{
 \textbf{4}\\
 four\\
 three\\
 two\\
-one
+onefrrrrr
 }\\\noindent\rule{\linewidth}{0.2pt}
-而加上了 \lstinline@break@ 之后就会得到这样的运行结果：\\\noindent\rule{\linewidth}{0.2pt}\texttt{
+而加上了 \lstinline@break@ 之后就会得到这样的运行结果：\pagebreak
+\\\noindent\rule{\linewidth}{0.2pt}\texttt{
 \textbf{4}\\
 four
 }\\\noindent\rule{\linewidth}{0.2pt}\par
-我们还可以做合并标签的操作，这个效果相当于``如果 \lstinline@<整型数据>@ 匹配了 \lstinline@<字面量1>@ \textbf{或者} \lstinline@<字面量2>@，就从这里开始执行''。\par
+我们还可以做合并标签的操作，这个效果相当于``如果 \lstinline@<整型数据>@ 匹配了 \lstinline@<字面量1>@ \textbf{或者}\linebreak\lstinline@<字面量2>@，就从这里开始执行''。\par
 举个例子，某个百分制的成绩根据分数划定等级，90\~{}100分定为A，80\~{}89分定为B，70\~{}79分定为C，60\~{}69分定为D，0\~{}59分定为E。我们可以用 \lstinline@switch@-\lstinline@case@ 结构来实现输入成绩，输出等级的操作。\par
 首先思考一下我们该用什么思路。如果直接按照100分制来写 \lstinline@case@ 的话，那么我们要为 \lstinline@score@ （代表分数的整型变量）变量写100个 \lstinline@case@，这个实在太麻烦了。即便考虑到可以用 \lstinline@default@ 来表示60分以下的情况，我们也要为 \lstinline@60@ 及以上的分数写41个 \lstinline@case@。这还不如用 \lstinline@if@-\lstinline@else@ 呢，好歹这种方式可以表示范围。\par
 为了简化我们的代码，我们可以取个巧：用 \lstinline@score/10@ 来匹配数据（还记得吗，整型变量的除法是自动截尾的）。这样我们就只需为 \lstinline@6@, \lstinline@7@, \lstinline@8@, \lstinline@9@ 和 \lstinline@10@ 来写 \lstinline@case@ 了。\par

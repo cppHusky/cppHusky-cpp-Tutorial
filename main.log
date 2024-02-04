@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  4 FEB 2024 14:59
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  4 FEB 2024 22:52
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1050,7 +1050,7 @@ LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/m/n' will be
  [6]) (./generalized_parts/01_welcome_to_cpp/02_data_and_information.tex [7]
 File: ./01_welcome_to_cpp/../images/generalized_parts/01_ASCII.png Graphic file (type bmp)
 <./01_welcome_to_cpp/../images/generalized_parts/01_ASCII.png>
-) (./generalized_parts/01_welcome_to_cpp/03_define_and_use_data.tex [8] [9] [10] (./01_welcome_to_cpp/../code_in_book/1.3/calc.cpp [11])) (./generalized_parts/01_welcome_to_cpp/04_operators_and_types.tex [12]
+ [8]) (./generalized_parts/01_welcome_to_cpp/03_define_and_use_data.tex [9] [10] [11] (./01_welcome_to_cpp/../code_in_book/1.3/calc.cpp)) (./generalized_parts/01_welcome_to_cpp/04_operators_and_types.tex [12]
 LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/b/n' will be
 (Font)              scaled to size 10.0pt on input line 42.
  [13]) (./generalized_parts/01_welcome_to_cpp/05_sizeof_and_memory.tex
@@ -1060,9 +1060,9 @@ LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/b/n' will be
 File: ./01_welcome_to_cpp/../images/generalized_parts/01_Memory_byte_and_bit.drawio.png Graphic file (type bmp)
 <./01_welcome_to_cpp/../images/generalized_parts/01_Memory_byte_and_bit.drawio.png>
 LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/m/sl' in size <10> not available
-(Font)              Font shape `TU/SourceCodePro(0)/m/it' tried instead on input line 25.
+(Font)              Font shape `TU/SourceCodePro(0)/m/it' tried instead on input line 23.
 LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/m/it' will be
-(Font)              scaled to size 10.0pt on input line 25.
+(Font)              scaled to size 10.0pt on input line 23.
  [15]
 LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/b/n' will be
 (Font)              scaled to size 11.99997pt on input line 28.
@@ -1109,32 +1109,31 @@ File: ./03_control_flow/../images/generalized_parts/03_truth_table_of_logic_oper
  [46]) (./generalized_parts/03_control_flow/02_choice.tex [47]
 File: ./03_control_flow/../images/generalized_parts/03_structure_of_odd_or_even.drawio.png Graphic file (type bmp)
 <./03_control_flow/../images/generalized_parts/03_structure_of_odd_or_even.drawio.png>
- (./03_control_flow/../code_in_book/3.2/odd_or_even.cpp [48])
-Underfull \vbox (badness 10000) has occurred while \output is active []
+ [48] (./03_control_flow/../code_in_book/3.2/odd_or_even.cpp)
+Underfull \vbox (badness 2229) has occurred while \output is active []
 
  [49] [50]
 File: ./03_control_flow/../images/generalized_parts/03_if_elseif_else.drawio.png Graphic file (type bmp)
 <./03_control_flow/../images/generalized_parts/03_if_elseif_else.drawio.png>
  [51]
-Overfull \hbox (12.6705pt too wide) in paragraph at lines 167--167
-[]\TU/SimSun(0)/m/n/10 我 们 还 可 以 做 合 并 标 签 的 操 作，|  这 个 效 果 相 当 于 \TU/lmr/m/n/10 “\TU/SimSun(0)/m/n/10 如 果 [][][][][] 匹 配 了 [][][][][][] \TU/SimSun(0)/b/n/10 或 者 [][][][][][]\TU/SimSun(0)/m/n/10 ，|
- []
+Underfull \vbox (badness 1430) has occurred while \output is active []
 
-[52]) (./generalized_parts/03_control_flow/03_loop.tex [53] [54] [55]
+ [52]) (./generalized_parts/03_control_flow/03_loop.tex
+Underfull \vbox (badness 2582) has occurred while \output is active []
+
+ [53] [54] [55]
 File: ./03_control_flow/../images/generalized_parts/03_structure_of_odd_or_even_with_while_loop.drawio.png Graphic file (type bmp)
 <./03_control_flow/../images/generalized_parts/03_structure_of_odd_or_even_with_while_loop.drawio.png>
- (./03_control_flow/../code_in_book/3.3/while循环奇偶判断.cpp [56]) [57] [58]
+ (./03_control_flow/../code_in_book/3.3/odd_or_even_with_while_loop.cpp [56]) [57] [58]
 File: ./03_control_flow/../images/generalized_parts/03_structure_of_break.drawio.png Graphic file (type bmp)
 <./03_control_flow/../images/generalized_parts/03_structure_of_break.drawio.png>
  [59]
 File: ./03_control_flow/../images/generalized_parts/03_structure_of_continue.drawio.png Graphic file (type bmp)
 <./03_control_flow/../images/generalized_parts/03_structure_of_continue.drawio.png>
- [60] (./03_control_flow/../code_in_book/3.4/sum.cpp [61])) (./generalized_parts/03_control_flow/04_introduction_to_scope.tex [62]) (./generalized_parts/03_control_flow/05_exercise_simple_calculator.tex [63]
-Overfull \hbox (1.8815pt too wide) in paragraph at lines 44--44
-[]\TU/SimSun(0)/m/n/10 这 是 因 为 我 们 遇 到 了 老 问 题，| [][][][][] 内 部 是 一 个 内 层 作 用 域，|  我 们 在 内 层 作 用 域 中 定 义 的 [][][]
- []
+ [60] (./03_control_flow/../code_in_book/3.4/sum.cpp [61])) (./generalized_parts/03_control_flow/04_introduction_to_scope.tex
+Underfull \vbox (badness 4316) has occurred while \output is active []
 
-[64] (./03_control_flow/../code_in_book/3.5/简易计算器.cpp [65]))) (./generalized_parts/04_introduction_to_functions.tex [66]
+ [62] [63]) (./generalized_parts/03_control_flow/05_exercise_simple_calculator.tex [64] (./03_control_flow/../code_in_book/3.5/simple_calculator.cpp [65]))) (./generalized_parts/04_introduction_to_functions.tex [66]
 第四章
 (./generalized_parts/04_introduction_to_functions/01_the_concept_of_functions.tex
 File: ./04_introduction_to_functions/../images/generalized_parts/04_black_box.drawio.png Graphic file (type bmp)
@@ -2098,12 +2097,16 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 LaTeX2e <2023-11-01>
 L3 programming layer <2022/08/05>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: EE24E1C9A48AF065A1A46F079F4DE10F;9866.
  ) 
 Here is how much of TeX's memory you used:
  28282 strings out of 474924
- 745576 string characters out of 5765037
+ 745787 string characters out of 5765037
  2050189 words of memory out of 5000000
  49122 multiletter control sequences out of 15000+600000
  571845 words of font info for 168 fonts, out of 8000000 for 9000
