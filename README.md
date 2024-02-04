@@ -2,15 +2,9 @@
 
 > *cppHusky* 的2024年礼
 
-此项目第一阶段计划（前七章）已经完成！
-
-### 当前进度：第十二章完成。参见[Preview](https://github.com/cppHusky/cppHusky-cpp-Tutorial/releases/tag/preview-0-0-12)。
-
-我为此规划了一个大致的编章结构，参见[Structure.md](https://github.com/cppHusky/cppHusky-cpp-Tutorial/blob/main/Structure.md)。
+### 泛讲篇已经完成，参见[Preview](https://github.com/cppHusky/cppHusky-cpp-Tutorial/releases/tag/preview-0-1-0)。
 
 本书中的每一份正式的示例代码都已打包并存至本项目中！详见[Code in book](https://github.com/cppHusky/cppHusky-cpp-Tutorial/tree/main/code_in_book)。
-
-正在疯狂赶进度，还要补充插图和代码，以及布署甲辰年礼解谜。现阶段争取保持每3天更新一章的速度。
 
 如果发现内容有任何疏漏和错误，欢迎来作补充和提出修改意见！可以直接提交到[Issues](https://github.com/cppHusky/cppHusky-cpp-Tutorial/issues)当中。
 
