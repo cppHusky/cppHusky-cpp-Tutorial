@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  4 FEB 2024 22:52
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  5 FEB 2024 15:30
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1140,21 +1140,22 @@ File: ./04_introduction_to_functions/../images/generalized_parts/04_black_box.dr
 <./04_introduction_to_functions/../images/generalized_parts/04_black_box.drawio.png>
  [67
 
-]
-Overfull \hbox (21.04272pt too wide) in paragraph at lines 25--25
-\TU/SimSun(0)/m/n/10 中，|  函 数 也 可 以 接 收 一 个 或 多 个 输 入，|  甚 至 接 收 空 输 入  |（我 们 在 前 面 用 到 的 [][][][][][][][][][]
- []
-
-[68]) (./generalized_parts/04_introduction_to_functions/02_the_definition_and_use_of_functions.tex [69]
+] [68]) (./generalized_parts/04_introduction_to_functions/02_the_definition_and_use_of_functions.tex [69]
 File: ./04_introduction_to_functions/../images/generalized_parts/04_block_scope_and_function_scope.drawio.png Graphic file (type bmp)
 <./04_introduction_to_functions/../images/generalized_parts/04_block_scope_and_function_scope.drawio.png>
  [70] [71] [72] [73] (./04_introduction_to_functions/../code_in_book/4.1/max3.cpp)
 File: ./04_introduction_to_functions/../images/generalized_parts/04_max3_code_logic.drawio.png Graphic file (type bmp)
 <./04_introduction_to_functions/../images/generalized_parts/04_max3_code_logic.drawio.png>
- [74]) (./generalized_parts/04_introduction_to_functions/03_function_overloading.tex [75] [76]
+ [74]) (./generalized_parts/04_introduction_to_functions/03_function_overloading.tex [75]
 File: ./04_introduction_to_functions/../images/generalized_parts/04_function_overloading.drawio.png Graphic file (type bmp)
 <./04_introduction_to_functions/../images/generalized_parts/04_function_overloading.drawio.png>
- [77]) (./generalized_parts/04_introduction_to_functions/04_default_argument.tex [78] [79]) (./generalized_parts/04_introduction_to_functions/05_recursion.tex (./04_introduction_to_functions/../code_in_book/4.2/Factorial_with_Recursion.cpp)
+
+Underfull \vbox (badness 3049) has occurred while \output is active []
+
+ [76])
+Underfull \vbox (badness 1910) has occurred while \output is active []
+
+ [77] (./generalized_parts/04_introduction_to_functions/04_default_argument.tex [78]) (./generalized_parts/04_introduction_to_functions/05_recursion.tex [79] (./04_introduction_to_functions/../code_in_book/4.2/Factorial_with_Recursion.cpp)
 
 Package fontspec Info: Could not resolve font "KaiTi/BI" (it probably doesn't
 (fontspec)             exist).
@@ -1180,20 +1181,15 @@ Package fontspec Info: Font family 'KaiTi(0)' created for font 'KaiTi' with
 
 File: ./04_introduction_to_functions/../images/generalized_parts/04_factorial_code_logic.drawio.png Graphic file (type bmp)
 <./04_introduction_to_functions/../images/generalized_parts/04_factorial_code_logic.drawio.png>
-
-Overfull \hbox (2.61679pt too wide) in paragraph at lines 17--17
-[][][][] \TU/SimSun(0)/m/n/10 从 而 求 出 它 的 返 回 值。|  而 在 运 行 时 发 现，|  因 为 [][][][] 不 满 足，|  所 以 你 不 得 不 再 去 求 [][][][]，|
- []
-
-[80]
+ [80]
 File: ./04_introduction_to_functions/../images/generalized_parts/04_the_process_of_recursion.drawio.png Graphic file (type bmp)
 <./04_introduction_to_functions/../images/generalized_parts/04_the_process_of_recursion.drawio.png>
 File: ././/images/generalized_parts/04_call_stack_structure.drawio.png Graphic file (type bmp)
 <././/images/generalized_parts/04_call_stack_structure.drawio.png>
- [81]) (./generalized_parts/04_introduction_to_functions/06_introduction_to_function_templates.tex [82] [83]
+ [81]) (./generalized_parts/04_introduction_to_functions/06_introduction_to_function_templates.tex [82]
 File: ././/images/generalized_parts/04_function_template_and_instance.drawio.png Graphic file (type bmp)
 <././/images/generalized_parts/04_function_template_and_instance.drawio.png>
-)) (./generalized_parts/05_compound_types_and_their_use.tex [84]
+ [83])) (./generalized_parts/05_compound_types_and_their_use.tex [84]
 第五章
 (./generalized_parts/05_composite_types_and_their_use/01_pointer.tex
 LaTeX Font Info:    Calculating math sizes for size <11.99997> on input line 2.
@@ -2097,18 +2093,14 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 LaTeX2e <2023-11-01>
 L3 programming layer <2022/08/05>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: EE24E1C9A48AF065A1A46F079F4DE10F;9866.
  ) 
 Here is how much of TeX's memory you used:
- 28282 strings out of 474924
- 745787 string characters out of 5765037
+ 28280 strings out of 474924
+ 745765 string characters out of 5765037
  2050189 words of memory out of 5000000
- 49122 multiletter control sequences out of 15000+600000
+ 49120 multiletter control sequences out of 15000+600000
  571845 words of font info for 168 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,18n,111p,1239b,1918s stack positions out of 10000i,1000n,20000p,200000b,200000s

@@ -24,7 +24,7 @@
 \contentsline {section}{\numberline {4.2}函数的定义和使用}{69}{section.4.2}%
 \contentsline {section}{\numberline {4.3}函数重载}{75}{section.4.3}%
 \contentsline {section}{\numberline {4.4}默认参数的设置}{78}{section.4.4}%
-\contentsline {section}{\numberline {4.5}函数递归}{80}{section.4.5}%
+\contentsline {section}{\numberline {4.5}函数递归}{79}{section.4.5}%
 \contentsline {section}{\numberline {4.6}函数模板简介}{82}{section.4.6}%
 \contentsline {chapter}{\numberline {第五章\hspace {.3em}}复合类型及其使用}{85}{chapter.5}%
 \contentsline {section}{\numberline {5.1}指针}{85}{section.5.1}%
