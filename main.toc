@@ -38,7 +38,7 @@
 \contentsline {section}{\numberline {6.1}枚举常量\texttt {enum}}{129}{section.6.1}%
 \contentsline {section}{\numberline {6.2}结构体\texttt {struct}}{131}{section.6.2}%
 \contentsline {section}{\numberline {6.3}实操：用结构体实现单链表}{136}{section.6.3}%
-\contentsline {section}{\numberline {6.4}联合体\texttt {union}}{143}{section.6.4}%
+\contentsline {section}{\numberline {6.4}联合体\texttt {union}}{144}{section.6.4}%
 \contentsline {section}{\numberline {6.5}类\texttt {class}初步}{148}{section.6.5}%
 \contentsline {chapter}{\numberline {第七章\hspace {.3em}}代码工程}{153}{chapter.7}%
 \contentsline {section}{\numberline {7.1}跨文件编译}{153}{section.7.1}%

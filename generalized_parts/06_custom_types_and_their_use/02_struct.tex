@@ -8,7 +8,7 @@
 \begin{itemize}
     \item 数组类型没有排他性。它就是一个 \lstinline@int[3]@ 类型，但是有很多东西都是 \lstinline@int[3]@ 类型的，比如说三维空间坐标，或者是颜色的RGB值。如果说这些东西都算是同一类型的话，那未免有点牵强。
     \item 各个维度的数据没有明确的含义。\lstinline@cuboid[0]@，这个数据到底是长度，还是宽度，还是高度？这会造成困惑，所以我们需要事先约定第几个数据代表什么。这样就增加了理解成本，也容易犯错。如果我们可以直接给每个数据命名呢，岂不美哉？\footnote{这点也可以通过枚举常量作下标的方式来强行实现，不过就请读者自行尝试吧。}
-    \item 数组对数据的包装不够彻底。它们归根到底还是三个数据，我们很难把它当成真正的``整体''来对待。比如说，函数的返回值只能是单个（整体）数据，但很明显函数不能直接返回一个数组。（我们可以让它返回一个指向数组的指针，或都是数组引用，但是那会非常麻烦）这就说明它的集成度还不够，我们需要集成度更高的方案。
+    \item 数组对数据的包装不够彻底。它们归根到底还是三个数据，我们很难把它当成真正的``整体''来对待。比如说，函数的返回值只能是单个（整体）数据，但很明显函数不能直接返回一个数组。（我们可以让它返回一个指向数组的指针，或者是数组引用，但是那会非常麻烦）这就说明它的集成度还不够，我们需要集成度更高的方案。
     \item 数组只能存储同一类型的数据，这是一大硬伤。试想，如果我们描述一个人的特征，我们可能需要很多类型的数据放在一起，做成大杂烩：描述名字要用字符串类型，描述性别要用 \lstinline@bool@ 类型（或者以 \lstinline@bool@ 为枚举基的 \lstinline@Sex@），描述身高体重要用 \lstinline@float@ 类型（如果对精度要求不高），描述年龄要用 \lstinline@unsigned short@ 类型（用 \lstinline@int@ 也行），这么多类型，肯定是无法放在一个数组里的。
 \end{itemize}
 结构体能很好地解决以上困难，它是一个有排他性，集成度更高，类型支持更丰富的解决方案。有了结构体之后，我们就可以自定义数据类型，并存储我们想要存储的信息了。\par
@@ -32,16 +32,17 @@ struct Cuboid; //声明Cuboid类型
 \begin{lstlisting}
     Cuboid cub1 {1,2,3}; //length为1，width为2，height为3
 \end{lstlisting}
-也就是说，在花括号 \lstinline@{}@ 内的初始化数据会一一对应到 \lstinline@Cuboid@ 的三个成员中。那么如何使用它们呢？我们要用到成员访问运算符 \lstinline@.@。\par
+也就是说，在花括号 \lstinline@{}@ 内的初始化数据会一一对应到 \lstinline@Cuboid@ 的三个成员中。\par
+那么如何使用它们呢？我们要用到成员访问运算符``\lstinline@.@''。\par
 \begin{lstlisting}
     int volume1 {cub1.length * cub1.width * cub1.height}; //计算其体积
 \end{lstlisting}
 在这里，\lstinline@cub1.length@ 就是 \lstinline@cub1@ 的 \lstinline@length@ 成员，它的值是 \lstinline@1@；同理，\lstinline@cub1.width@ 的值就是 \lstinline@2@，\lstinline@cub1.height@ 的值就是 \lstinline@3@。所以最后会算得 \lstinline@volume1@ 的值是 \lstinline@6@。\par
-我们知道，同一个类型的不同数据可以存储不同的值，这是因为它们在内存中有各自的存储空间，互不干扰。对于结构体的对象来说也是如此，我可以定义若干个对象，并给它们不同的值，这时它们是互不干扰的。
+我们知道，同一个类型的不同数据可以存储不同的值，这是因为它们在内存中有各自的存储空间，互不干扰。对于结构体的对象来说也是如此，我可以定义若干个对象，并给它们不同的值。这样 \lstinline@cub1@, \lstinline@cub2@ 和 \lstinline@cub3@ 有着各自的存储空间。
 \begin{lstlisting}
     Cuboid cub2 {3,5,7}, cub3 {4,6,5}; //再定义两个Cuboid类型的对象
-\end{lstlisting}
-这就意味着 \lstinline@cub1@, \lstinline@cub2@ 和 \lstinline@cub3@ 有着各自的存储空间，互不干扰。我们可以用取地址运算符 \lstinline@&@ 来返回它的地址——也就是它存储位置中第一个字节的地址。\par
+\end{lstlisting}\par\pagebreak
+我们可以用取地址运算符 \lstinline@&@ 来返回它的地址——也就是它存储位置中第一个字节的地址。\par
 \begin{lstlisting}
     Cuboid cub1 {1,2,3}, cub2 {3,5,7}, cub3 {4,6,5};
     cout << sizeof (Cuboid) << endl //输出Cuboid类型的内存占用
@@ -120,7 +121,7 @@ void output_cuboid(const Cuboid &cub, ostream &out = {cout}){
 刚才的例子比较简单，\lstinline@Cuboid@ 的三个成员都是同一类型的。实际上我们可以用不同类型的数据，把它们组织到同一个结构体中。\par
 例如，如果要表示一个人的基本信息，我们可能需要用字符串表示名字，用 \lstinline@Sex@（上一节中自定义的枚举类型）表示性别，用 \lstinline@double@ 身高、体重，用 \lstinline@unsigned@ 表示年龄。那么我们可以这样写：
 \begin{lstlisting}
-enum Sex : bool{male, female}; //枚举基为bool
+enum Sex : bool {male, female}; //枚举基为bool
 struct PersonalInfo { //一个结构体，表示个人信息
     char name[33]; //字符串，表示名字
     const Sex sex; //性别一般是不会改变的，所以设置成const
@@ -157,15 +158,15 @@ int main() {
 这个程序的运行结果如下：\\\noindent\rule{\linewidth}{.2pt}\texttt{
 John Doe，男，30岁\\
 身高 175.5，体重 70.2\\
-\\
+\newline
 Jane Smith，女，25岁\\
 身高 162.3，体重 55.8\\
-\\
+\newline
 Bob Johnson，男，35岁\\
 身高 180，体重 80.5
 }\\\noindent\rule{\linewidth}{.2pt}\par
-读者可能注意到 \lstinline@person.sex==male?"男":"女"@ 此段中我们使用的条件表达式。如果 \lstinline@person.sex==male@ 为 \lstinline@true@，那么就会返回 \lstinline@"男"@；否则返回 \lstinline@"女"@。\par
-看上去无论是内置类型还是自定义类型，我们都可以把它放到 \lstinline@struct@ 当中，构成一个结构体。那么有什么是不可以放入其中构成结构体的呢？那就是这个结构体本身！在函数定义中我们见过递归定义，但是结构体是不允许递归定义的。
+读者可能注意到 \lstinline@person.sex==male ? "男" : "女"@，在这里我们也选择使用条件表达式。如果\linebreak\lstinline@person.sex==male@ 为 \lstinline@true@，那么就会返回 \lstinline@"男"@；否则返回 \lstinline@"女"@。\par
+看上去，无论是内置类型还是自定义类型，我们都可以把它放到 \lstinline@struct@ 当中，构成一个结构体。那么有什么是不可以放入其中构成结构体的呢？那就是这个结构体本身！在函数定义中我们见过递归定义，但是结构体是不允许递归定义的。
 \begin{lstlisting}
 struct Data {
     int num;
@@ -180,5 +181,5 @@ struct Data {
     Data *next; //可以
 }
 \end{lstlisting}
-\lstinline@Data*@ 与 \lstinline@Data@ 可不是同一个类型，而且 \lstinline@Data*@ 是一个指针，它占用内存空间的大小是确定的，所以程序当然知道 \lstinline@sizeof(Data)@ 是多少，所以在我们定义 \lstinline@Data@ 对象时也就知道要使用多大的内存空间了。\par
-基于这个用法，我们可以写一个简单的单链表，用来存储任意量的数据。我们将会在下一节中介绍相关内容。\par
+\lstinline@Data*@ 与 \lstinline@Data@ 可\textbf{不是同一个类型}\footnote{更细致地说，\lstinline@Data*@ 不是一个自定义类型，它只是一种指向自定义类型的指针。}。\lstinline@Data*@ 是一个指针，它占用内存空间的大小是确定的，所以程序当然知道 \lstinline@sizeof(Data)@ 是多少，那么在我们定义 \lstinline@Data@ 对象时也就知道要使用多大的内存空间了。\par
+基于这个用法，我们可以写一个简单的单链表，用来存储任意量的数据。\par

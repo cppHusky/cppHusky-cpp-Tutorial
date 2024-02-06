@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  6 FEB 2024 09:49
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  6 FEB 2024 14:23
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1252,34 +1252,30 @@ File: ./05_composite_types_and_their_use/../images/generalized_parts/05_memory_l
 
 ]
 第六章
-Missing character: There is no � (U+FFFD) in font [SourceCodePro-Regular.otf]/OT:script=latn;language=dflt;!
-Missing character: There is no � (U+FFFD) in font [SourceCodePro-Regular.otf]/OT:script=latn;language=dflt;!
-Missing character: There is no � (U+FFFD) in font [SourceCodePro-Regular.otf]/OT:script=latn;language=dflt;!
 File: ./generalized_parts/../images/generalized_parts/06_0_1_string_to_int_or_char.drawio.png Graphic file (type bmp)
 <./generalized_parts/../images/generalized_parts/06_0_1_string_to_int_or_char.drawio.png>
 (./generalized_parts/06_custom_types_and_their_use/01_enum.tex [129] [130]) (./generalized_parts/06_custom_types_and_their_use/02_struct.tex [131] [132] [133] [134]
-Underfull \hbox (badness 10000) in paragraph at lines 157--166
+Underfull \hbox (badness 10000) in paragraph at lines 158--167
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--166
+Underfull \hbox (badness 10000) in paragraph at lines 158--167
 
- []
-
-
-Overfull \hbox (39.45459pt too wide) in paragraph at lines 167--167
-[]\TU/SimSun(0)/m/n/10 读 者 可 能 注 意 到 [][][][][][][][][][][][][][][][][][][][][][][][][][][] 此 段 中 我 们 使 用 的 条 件 表 达 式。|  如 果 [][][][][][][]
  []
 
 [135]) (./generalized_parts/06_custom_types_and_their_use/03_exercise_example_list.tex
 File: ./06_custom_types_and_their_use/../images/generalized_parts/06_list_in_the_memory.drawio.png Graphic file (type bmp)
 <./06_custom_types_and_their_use/../images/generalized_parts/06_list_in_the_memory.drawio.png>
+
+Underfull \vbox (badness 4366) has occurred while \output is active []
+
+ [136]
 File: ./06_custom_types_and_their_use/../images/generalized_parts/06_operation_on_list.drawio.png Graphic file (type bmp)
 <./06_custom_types_and_their_use/../images/generalized_parts/06_operation_on_list.drawio.png>
 File: ./06_custom_types_and_their_use/../images/generalized_parts/06_advanced_operation_on_list.drawio.png Graphic file (type bmp)
 <./06_custom_types_and_their_use/../images/generalized_parts/06_advanced_operation_on_list.drawio.png>
- [136] [137] [138]
+ [137] [138]
 File: ./06_custom_types_and_their_use/../images/generalized_parts/06_process_of_clear_list.drawio.png Graphic file (type bmp)
 <./06_custom_types_and_their_use/../images/generalized_parts/06_process_of_clear_list.drawio.png>
 File: ./06_custom_types_and_their_use/../images/generalized_parts/06_insertion_into_a_list.drawio.png Graphic file (type bmp)
@@ -1287,42 +1283,24 @@ File: ./06_custom_types_and_their_use/../images/generalized_parts/06_insertion_i
  [139]
 File: ./06_custom_types_and_their_use/../images/generalized_parts/06_deletion_operation_on_a_list.drawio.png Graphic file (type bmp)
 <./06_custom_types_and_their_use/../images/generalized_parts/06_deletion_operation_on_a_list.drawio.png>
+
+Underfull \vbox (badness 5756) has occurred while \output is active []
+
  [140] [141]
 File: ./06_custom_types_and_their_use/../images/generalized_parts/06_range_deletion_operation_on_a_list.drawio.png Graphic file (type bmp)
 <./06_custom_types_and_their_use/../images/generalized_parts/06_range_deletion_operation_on_a_list.drawio.png>
- [142]
-Overfull \hbox (3.5015pt too wide) in paragraph at lines 178--178
-[]\TU/SimSun(0)/m/n/10 其 一，|  在 这 里 [][][][][][][] 的 情 况 下 我 们 要 处 理 是 比 较 麻 烦 的，|  因 为 当 后 面 涉 及 到 [][][][][]
- []
-
-
-Overfull \hbox (13.87088pt too wide) in paragraph at lines 178--178
-[][][] \TU/SimSun(0)/m/n/10 改 成 指 向 末 尾 单 元。|  怎 么 做 呢？|  只 能 从 [][][] 开 始 一 个 个 找，|  直 到 找 到 一 个 \TU/lmr/m/n/10 “[][][][][][][][][]”
- []
-
 File: ./06_custom_types_and_their_use/../images/generalized_parts/06_range_transfer_between_lists.drawio.png Graphic file (type bmp)
 <./06_custom_types_and_their_use/../images/generalized_parts/06_range_transfer_between_lists.drawio.png>
-) (./generalized_parts/06_custom_types_and_their_use/04_union.tex [143] [144] [145]
-Overfull \hbox (21.99806pt too wide) in paragraph at lines 69--69
-\TU/SimSun(0)/m/n/10 这 里 需 要 注 意，| [][][] 是 [][][] 域 中 的 枚 举 项。|  如 果 我 们 要 在 域 外 使 用，|  就 必 须 用 [][][][][]。|
- []
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [142] [143]) (./generalized_parts/06_custom_types_and_their_use/04_union.tex [144] [145] [146]
 File: ./06_custom_types_and_their_use/../images/generalized_parts/06_process_of_assignment_to_union.drawio.png Graphic file (type bmp)
 <./06_custom_types_and_their_use/../images/generalized_parts/06_process_of_assignment_to_union.drawio.png>
-[146]) (./generalized_parts/06_custom_types_and_their_use/05_introduction_to_class.tex [147] [148]
+ [147]) (./generalized_parts/06_custom_types_and_their_use/05_introduction_to_class.tex [148]
 File: ./06_custom_types_and_their_use/../images/generalized_parts/06_public_and_private_members.drawio.png Graphic file (type bmp)
 <./06_custom_types_and_their_use/../images/generalized_parts/06_public_and_private_members.drawio.png>
- [149]
-Overfull \hbox (33.41493pt too wide) in paragraph at lines 59--59
-\TU/SimSun(0)/m/n/10 是 私 有  |（看 到 那 个 [][][][][] 了 吗）|  成 员。|  这 就 说 明，|  我 们 可 以 调 用 [][][] 来 返 回 [][][][][][][]，|
- []
-
-[150]
-Overfull \hbox (13.86275pt too wide) in paragraph at lines 123--124
-[][][][] \TU/SimSun(0)/m/n/10 有 一 套 动 态 调 整 容 量 的 机 制，|  如 果 要 存 储 的 数 据 量 超 过 了 原 有 的 容 量  |（比 如 说，|  用 [][][]
- []
-
-[151])) (./generalized_parts/07_projecting.tex [152]
+ [149] [150] [151])) (./generalized_parts/07_projecting.tex [152]
 第七章
 (./generalized_parts/07_projecting/01_separate_compilation.tex [153
 

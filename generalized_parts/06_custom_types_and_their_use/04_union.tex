@@ -11,7 +11,7 @@ union ValType {
 int main() {
     cout << sizeof(ValType); //输出8或16，总之不是29或者更大的数
 }
-\end{lstlisting}
+\end{lstlisting}\par
 一个结构体会把所有成员分别存储在不同的内存区域中，所以这个类型的内存占用不能小于所有成员的总和。以第2节中定义的 \lstinline@Cuboid@ 类型为例，我们可以用这样一段代码来观察某个对象各成员的地址：
 \begin{lstlisting}
     Cuboid cub;
@@ -43,7 +43,7 @@ int main() {
 \subsection*{联合体如何组织内存？}
 正如我们才看到的那样，联合体会把所有的成员放在同一个内存区域中。所以 \lstinline@ValType@ 的内存占用不需要达到全部成员的内存占用之和，只需要等于它们之中最大的那个就行。在这里，如果你的开发环境中 \lstinline@long double@ 类型占用8字节，那么 \lstinline@sizeof ValType@ 的结果一般就是8字节；如果你的开发环境中 \lstinline@long double@ 类型占用16字节，那么 \lstinline@sizeof ValType@ 的结果一般就是16字节。\par
 既然五个成员全都占用同样的内存空间，那么它们之间势必会存在冲突。回想一下章首的图6.1——我们用不同类型去解释同一块内存空间中的内容，将会得到不同的结果。在这里也是如此。如果我们用 \lstinline@a.val_i@ 去修改这段内存中的内容，那么它将会按照 \lstinline@int@ 型对信息的组织方式来存储 \lstinline@0@/\lstinline@1@ 串。在这种情况下，输出 \lstinline@a.val_c@ 或 \lstinline@a.val_d@ 往往是看不出什么有效内容的。\par
-既然这些成员之间互相有冲突，那么我们为什么还要用联合体呢？这是因为，在有些情况下，一个联合体的成员是彼此互斥的，它们不会同时出现。还是以 \lstinline@ValType@ 为例，如果用一个结构体来表达它的话，需要29或更多字节才能容纳——其中有用的信息永远不超过16字节，那么剩下的空间就浪费了。通过联合体，我们可以把这些数据都存到这8或16个字节的空间当中，只要它们不同时出现，那就不会存在冲突了。
+既然这些成员之间互相有冲突，那么我们为什么还要用联合体呢？这是因为，在有些情况下，一个联合体的成员是彼此互斥的，它们不会同时出现。还是以 \lstinline@ValType@ 为例，如果用一个结构体来表达它的话，需要29或更多字节才能容纳——其中有用的信息永远不超过16字节，那么剩下的空间就浪费了。通过联合体，我们可以把这些数据都存到这8或16个字节的空间当中，只要它们不同时出现，那就不会存在冲突了。\par
 举个现实一点的例子：像Python这样的编程语言支持动态类型，即，一个变量可以在某个时候是整型，而在之后变成字符型或浮点型。而C++是静态类型语言，一个变量的类型在它定义的时候就确定下来了，不能更改。通过联合体，我们可以在一定程度上实现动态类型的部分功能。\par
 \begin{lstlisting}
 struct dynamic { //自定义动态类型
@@ -66,7 +66,7 @@ struct dynamic { //自定义动态类型
     dynamic number {dynamic::integer}; //integer在dynamic域中，所以用dynamic::
     number.value.vll = 15; //修改dynamic.value的vll成员，把它变成15
 \end{lstlisting}
-这里需要注意，\lstinline@integer@ 是 \lstinline@dynamic@ 域中的枚举项。如果我们要在域外使用，就必须用 \lstinline@dynamic::integer@。相关细节，我们留到第七章再谈。\par
+这里需要注意，\lstinline@integer@ 是 \lstinline@dynamic@ 域中的枚举项。如果我们要在域外使用，就必须用\\\lstinline@dynamic::integer@。相关细节，我们留到第七章再谈。\par
 在本段代码中，我们定义了一个 \lstinline@number@ 变量，并初始化它的 \lstinline@type@ 成员为 \lstinline@integer@。接下来，我们用 \lstinline@number.value.vll@ 来为 \lstinline@value.vll@ 成员赋值。一旦为 \lstinline@vll@ 赋值，这时 \lstinline@vll@ 就是活跃成员，而 \lstinline@vld@ 和 \lstinline@str@ 都是不活跃成员。试图访问不活跃成员是未定义行为，会得到不确定的结果\footnote{约等于定义了局部变量但还没有赋值/初始化就开始使用它，会得到不确定的结果。}。\par
 下一刻，我们想把 \lstinline@number@ 改成浮点型。这个操作非常简单，只要为 \lstinline@vld@ 赋值，就可以把它变成活跃成员，顶掉 \lstinline@vll@。\par
 \begin{lstlisting}
@@ -115,5 +115,5 @@ dynamic& assign_str(dynamic &number, const char *src) {
     return number;
 }
 \end{lstlisting}
-在这里，我们定义了三个函数，分别用于给 \lstinline@number@ 赋特定类型的值。至于字符串的赋值，我们提过，字符串不能直接赋值，要用 \lstinline@strcpy@ 或 \lstinline@strncpy@ 才行。这两个函数在头文件 \lstinline@cstring@ 中。\lstinline@strncpy@ 比 \lstinline@strcpy@ 更安全，它可以规定第一个操作数最多能接收的字符数量，以防字符串赋值时发生越界问题。\par
+在这里，我们定义了三个函数，分别用于给 \lstinline@number@ 赋特定类型的值。至于字符串的赋值，我们提过，字符串不能直接赋值，要用 \lstinline@strcpy@ 或 \lstinline@strncpy@ 才行。这两个函数在头文件 \lstinline@cstring@ 中。\lstinline@strncpy@ 比 \lstinline@strcpy@ 更安全，它可以规定第一个操作数最多能接收的字符数量\footnote{顺便一说，这里的``最多能接收的字符数量''是指包含了末尾结束符在内的。比如说这里我们用 \lstinline@16@，那么这个字符串能接收最多15个字符的复制；再加一个结束符 \lstinline@'\0'@。}，以防字符串赋值时发生越界问题。\par
 我们还可以借助联合体玩更多花样。不过相比于 \lstinline@class@/\lstinline@struct@ 来说，它的应用范围还是很窄的。接下来的章节中我们几乎不会再用 \lstinline@union@ 了，所以这里就仅为读者开拓一下眼界。想要了解关于联合体的更多用法，可以参考 \href{https://stackoverflow.com/questions/4788965/when-would-anyone-use-a-union-is-it-a-remnant-from-the-c-only-days}{When would anyone use a union? Is it a remnant from the C-only days?-Stack Overflow}。\par
