@@ -21,13 +21,13 @@
     int a {3};
     int &ref {a}; //定义一个引用，它充当a的别名
     ++ref; //更改ref相当于更改a
-    cout << a; //输出a的值，观察结果
-\end{lstlisting}
-这个程序的输出结果将会是 \texttt{4}。这说明我们用 \lstinline@ref@ 和用 \lstinline@a@ 的效果是相同的。\par
-如果你去输出一下它们的地址就会发现，\lstinline@ref@ 与 \lstinline@a@ 的地址是相同的。
+    cout << a; //输出4
+\end{lstlisting}\par
+如果你去输出一下它们的地址，就会发现，\lstinline@ref@ 与 \lstinline@a@ 的地址是相同的。
 \begin{lstlisting}
     cout << &ref << endl << &a; //输出ref和a的地址，它们应当相同
-\end{lstlisting}\par
+\end{lstlisting}
+地址相同就可以说明，我们使用 \lstinline@a@ 和使用 \lstinline@ref@ 的效果一致\footnote{但是引用和变量仍然是两个类型，详见后文。}。\par
 我们还可以定义常量引用，它同样是一种引用，但 \lstinline@const@ 限制了我们通过这个引用来修改变量值的能力。
 \begin{lstlisting}
     int a {3};
@@ -37,7 +37,7 @@
 //error: increment of read-only reference 'ref'
 \end{lstlisting}
 在这种情况下，我们可以用 \lstinline@a@ 来修改相应的值，但不能用 \lstinline@ref@ 来修改相应的值。这说明，``变量''和``常量''并不是直接体现在数据中的信息，而只是``变量名''对数据内容是否拥有修改权限的体现。\par
-至于本来就定义成常量的数据，如果我们用普通引用来作为它的别名，编译器就不会允许。
+至于本来就定义成常量的数据，如果我们用非常量引用来作为它的别名，编译器就不会允许。
 \begin{lstlisting}
     const double std_gravity {9.80665}; //这是一个常量
     double &refgravity {std_gravity}; //错误！
@@ -45,7 +45,7 @@
 //to 'const double' discards qualifiers
     const double &ref_gravity {std_gravity}; //正确
 \end{lstlisting}
-总而言之，我们只能用常量引用来绑定常量。而我们可以使用普通引用或常量引用来绑定变量。如果使用常量引用来绑定变量，我们可以用变量名来修改变量的值，但不能使用引用。\par
+总而言之，我们只能用常量引用来绑定常量。而我们可以使用非常量引用或常量引用来绑定变量。如果使用常量引用来绑定变量，我们可以用变量名来修改变量的值，但不能使用这个引用。\par
 \subsection*{引用参数传递}
 还记得我们在讲指针时介绍的 \lstinline@exchange@ 函数吗？如果要使用引用来接收实参，那么我们就相当于在 \lstinline@exchange@ 函数中创造了这个实参的别名，它和 \lstinline@main@ 函数中的变量共享了相同的内存地址。于是我们可以直接用这个``别名''来修改实参的值了。这种方式又被称为\textbf{按引用传递（Passing by reference）}。
 \begin{lstlisting}
@@ -80,7 +80,7 @@ void func(const Type &obj) {接收Type类型的常量引用
     //...
 }
 \end{lstlisting}
-这样只是为传入的实参创建了一个别名而已，并不需要浪费大量的时间和空间来作复制工作。如果要防止误修改实参，我们也可以把它定义成常量引用，这样就不会出问题啦。\par
+这样一来，函数参数传递时只需要为函数传递一个地址值就好\footnote{实际上，引用是通过指针来实现的，只是在C++代码中我们看不到它的本质。如果读者去看汇编代码，想必就能理解这一点。}，并不需要浪费大量的时间和空间来作复制工作。如果要防止误修改实参，我们也可以把它定义成常量引用，这样就不会出问题啦。\par
 \subsection*{引用作为返回值}
 来看一看这个语句，它初看上去可能有点费解：
 \begin{lstlisting}
@@ -114,7 +114,7 @@ int rem_ass(int &a, const int &b) {
     cout << num;
 \end{lstlisting}
 编译器报错信息的意思是：``不能把 \lstinline@int&@ 型的左值引用绑定到 \lstinline@int@ 型的右值上。''关于左值右值的问题，我们暂不讨论；但是这个问题，我们需要解决。\par
-问题的关键在于，\textbf{函数返回的返回值，其实是一个``副本''，而不是 \lstinline@return@ 所跟的变量本身！}。因此我们是在对着一个不应该取引用的内容\footnote{我们在精讲篇中会更详细地谈讨此类问题。简而言之，不是所有数据都可以取地址的，也不是所有数据都可以被引用的。}按引用传递参数，那当然就会产生问题了。\par
+问题的关键在于，\textbf{函数返回的返回值，其实是一个``副本''，而不是 \lstinline@return@ 所跟的变量本身！}。因此我们是在对着一个不应该取引用的内容\footnote{我们在精讲篇中会更详细地谈讨此类问题。简而言之，不是所有数据都可以取地址的，所以也不是所有数据都可以被引用的。}按引用传递参数，那当然就会产生问题了。\par
 这和我们在按值传递参数的过程中面临的窘境如出一辙。而解决方法也很相似，就是使用引用来返回值。\par
 \begin{lstlisting}
 int& mul_ass(int &a, const int &b) {
@@ -138,14 +138,14 @@ int main() {
 \end{lstlisting}
 再看地址，\lstinline@num@ 和 \lstinline@ref@ 的地址也永远相同，它们的内存大小可以用 \lstinline@sizeof@ 求得，这也是相同的。\par
 看了这么多，我们发现，引用好像是一个分身，或者是真假美猴王那样的关系，我们根本分辨不清谁是本体，谁是别名。\par
-那么，变量与引用的类型一样吗？其实是不一样的。\lstinline@num@ 是 \lstinline@int@ 类型无疑，而 \lstinline@ref@ 和 \lstinline@rref@ 都是 \lstinline@int&@ 类型的。这几个名字看似一模一样，但正主还是原变量，六耳也终究不是孙悟空。\footnote{其实从汇编代码中看，C++中的引用全都是通过指针实现的。所以说，在定义引用的过程中，程序上会创建一个我们看不见的指针，包括传引用参数等操作，本质上都是传指针。关于这里的细节，我就不多谈了。}\par
-那么如何检验类型呢？我们可以用 \lstinline@type_traits@ 库的 \lstinline@is_same@ 来检验之。它是一个类模板，可以接收两个模板参数，并检验它们是否是同一类型。如果相同话，其静态成员 \lstinline@value@ 的值就是 \lstinline@true@；如果不同的话，其静态成员 \lstinline@value@ 的值就是 \lstinline@false@。\footnote{这里出现了很多新概念，比如类模板，模板参数、静态成员等。读者无须知道细节，我们会在后面慢慢道来。}
+那么，变量与引用的类型一样吗？其实是不一样的。\lstinline@num@ 是 \lstinline@int@ 类型无疑，而 \lstinline@ref@ 和 \lstinline@rref@ 都是 \lstinline@int&@ 类型的。这几个名字看似一模一样，但正主还是原变量，六耳终究不是孙悟空。\footnote{C++中的引用全都是通过指针实现的。在定义引用的过程中，程序中会创建一个我们看不见的指针。传引用参数等操作，本质上都是传指针。}\par
+那么如何检验类型呢？我们可以用 \lstinline@type_traits@ 库的 \lstinline@is_same@ 来检验之。它是一个类模板，可以接收两个模板参数，并检验它们是否是同一类型。如果相同的话，其静态成员 \lstinline@value@ 的值就是 \lstinline@true@；如果不同的话，其静态成员 \lstinline@value@ 的值就是 \lstinline@false@。\footnote{这里出现了很多新概念，比如类模板，模板参数、静态成员等。读者无须知道细节，我们会在后面慢慢道来。}
 \begin{lstlisting}
     //需要包含头文件type_traits
     cout << is_same<int, int>::value << endl; //int与int相同，故输出1
     cout << is_same<double, long double>::value; //不同，故输出0
 \end{lstlisting}
-提醒读者，\lstinline@cout@ 输出 \lstinline@bool@ 类型的值时，会默认以整数的形式输出。我们也可以用 \lstinline@cout.setf(ios_base::boolalpha)@ 来让它以布尔值的方式输出。\par
+提醒读者，\lstinline@cout@ 输出 \lstinline@bool@ 类型的值时，会默认以整数的形式输出。如果想要布尔值的方式输出的话，我们也可以在前面用 \lstinline@cout.setf(ios_base::boolalpha)@ 来设置。\par
 但是这里有另一个问题：尖括号（Angle brackets）中只能接收类型信息，我们不能直接把一个变量，或者引用，或者指针塞进去。这时我们就要用到 \lstinline@decltype@ 了。\lstinline@decltype@ 是一个编译时操作，它会解释出一个表达式的类型。
 \begin{lstlisting}
     int num;
@@ -155,10 +155,10 @@ int main() {
 先来看一下 \lstinline@num@, \lstinline@ref@ 和 \lstinline@rref@ 是不是同一个类型。
 \begin{lstlisting}
     int num, &ref {num}, &rref {ref};
-    cout << is_same<decltype(num), decltype(ref)>::value << endl;
-    cout << is_same<decltype(ref), decltype(rref)>::value;
+    cout << is_same<decltype(num), decltype(ref)>::value << endl; //0
+    cout << is_same<decltype(ref), decltype(rref)>::value; //1
 \end{lstlisting}
-这两句的输出分别是 \lstinline@0@ 和 \lstinline@1@，说明 \lstinline@ref@ 和 \lstinline@rref@ 都是同一个类型的，它们都和 \lstinline@num@ 不是同一个类型的。\par
+这说明，\lstinline@ref@ 和 \lstinline@rref@ 都是同一个类型的，它们都和 \lstinline@num@ 不是同一个类型的。\par
 接下来我们具体看一下它们三个分别是什么类型。
 \begin{lstlisting}
     cout << is_same<decltype(num), int>::value << endl;
@@ -166,4 +166,4 @@ int main() {
     cout << is_same<decltype(rref), int&>::value << endl;
 \end{lstlisting}
 这三个输出的结果全部为 \lstinline@1@，说明 \lstinline@num@ 是 \lstinline@int@ 类型的，而 \lstinline@ref@ 和 \lstinline@rref@ 是 \lstinline@int&@ 类型 的，它们并不相同。\par
-\lstinline@is_same@ 是一个很实用的类型判断工具，我们在后面也会用到它的。\par
+\lstinline@is_same@ 是一个很实用的类型判断工具，我们在后面也会用到它。\par

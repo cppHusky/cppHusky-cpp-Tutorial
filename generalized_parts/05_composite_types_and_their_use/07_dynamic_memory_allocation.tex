@@ -19,7 +19,7 @@
 \subsection*{动态内存分配是什么？}
 我们此前所接触的数组定义方式被称为``静态分配''，简单说就是，一个数组的大小在编译期就决定好了。具体的内存分配肯定是在运行时进行，但是它也只能遵照代码中的规则，代码中要求它分配多少内存，它就分配多少内存。\par
 这种方式很简单，也容易实现。但它的问题在于太不灵活。为了使数组有足够大的容量，我们不得不用饱和式的方法来分配内存，把数组设计得越大越好。\par
-动态内存分配则不同，它可以根据运行时的实际需要来分配内存空间。如果运行时需要存储100个 \lstinline@double@ 数据，那我们就使用一个大小为800字节（\lstinline@100*sizeof(double)@）的内存块来存着就好。如果运行时需要存储10000个呢？那我们就使用一个大小为80000字节的内存块来存着就好。这就是``动态分配''，我们可以在运行时再决定使用多少内存，而无需提前在代码中决定。这是一种按需分配。\par
+动态内存分配则不同，它可以根据运行时的实际需要来分配内存空间。如果运行时需要存储100个 \lstinline@double@ 数据，那我们就使用一个大小为800字节（\lstinline@100*sizeof(double)@）的内存块来存着就好。如果运行时需要存储10000个呢？那我们就使用一个大小为80000字节的内存块来存着就好。这就是``动态分配''，我们可以在运行时再决定使用多少内存，而无需提前在代码中决定——这是一种按需分配。\par
 动态内存分配需要使用关键字 \lstinline@new@，它会在内存的堆段找到一段未被使用的空间。我们需要用一个指针来存储这段空间（第一个字节）的地址，否则我们就不知道它在哪里了（这也是指针的重要之处）。
 \begin{lstlisting}
     int *pobj = new int {3}; //new在动态内存中创建一个对象（数据）并初始化为3
@@ -44,7 +44,7 @@
     } //y的生存期结束
 } //x的生存期结束
 \end{lstlisting}
-这些局部静态变量存储于栈段（见图5.1）。\par
+这些局部静态变量存储于栈段（见图5.1）。\par\pagebreak
 而经过 \lstinline@new@/\lstinline@new[]@ 分配的内存空间存储于堆段（见图5.1），它们的特征与静态变量不同。它们在 \lstinline@new@/\lstinline@new[]@ 之后生存期开始，此后就会长期存在，无论作用域怎么变化，都不会影响它们的生存期。
 \begin{lstlisting}
 { //某个作用域
@@ -64,7 +64,7 @@ int main() {
     return 0;
 }
 \end{lstlisting}
-这是一个内存泄漏器，只要跑起来就会不停地吃内存，直到内存空间没有一点余量，程序才会以 \lstinline@bad_alloc@ 异常结束。读者可以打开自己的任务管理器，看一下内存占用的情况。\par
+这是一个内存泄漏器，只要跑起来就会不停地吃内存，直到内存空间没有一点余量，程序才会以 \lstinline@bad_alloc@ 异常\footnote{我们会在第十二章中讲解异常处理。}结束。读者可以打开自己的任务管理器，看一下内存占用的情况。\par
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{../images/generalized_parts/05_memory_leak_and_after_end_task.png}
@@ -73,7 +73,7 @@ int main() {
 图中可以看到，在我们开始运行这个程序的那一刻，内存占用就迅速增加，直到接近最大值。而在我们结束这个程序的时候，内存占用马上又回到了原来的水平。所以对于个人电脑来说，内存泄漏是无关紧要的小问题，结束一下进程，它就解决了。\par
 但是不是任何时候都可以靠结束进程来解决问题的。对于需长期运行的服务器来说，贸然结束进程可以意味着很大的损失。所以在我们日常写代码的时候就要养成良好的习惯，不要写出会导致内存泄漏的代码来。\par
 那么怎么预防内存泄漏呢？唯一的方法就是及时回收（或者叫释放）那些我们不需要的内存空间。\par
-回收内存空间需要用到 \lstinline@delete@ 或 \lstinline@delete[]@ 运算符。其中  \lstinline@delete@ 运算符用于回收 \lstinline@new@ 分配的内存空间，而 \lstinline@delete[]@ 运算符用于回收 \lstinline@new[]@ 分配的内存空间。它们两个是不同的，一定不要混用！\par
+回收内存空间需要用到 \lstinline@delete@ 或 \lstinline@delete[]@ 运算符。其中  \lstinline@delete@ 运算符用于回收 \lstinline@new@ 分配的内存空间，而 \lstinline@delete[]@ 运算符用于回收 \lstinline@new[]@ 分配的内存空间。它们两个是不同的，一定不要混用！\par\pagebreak
 \begin{lstlisting}
     int *pobj = new int;
     delete pobj; //使用new分配的动态内存要用delete回收
@@ -102,8 +102,8 @@ int main() {
 现在你已经学会了如何动态分配一个一维数组，那么如何动态分配一个二维数组呢？我们想，二维数组也只不过是一个``一维数组类型的一维数组''，所以我们用一维数组的动态内存分配语法就足以分配一个二维数组了。
 \begin{lstlisting}
     int n;
-    cin >> n;
-    int (*pta)[10] = new int[n][10];
+    cin >> n; //输入一个长度
+    int (*pta)[10] = new int[n][10]; //分配n*10的动态数组
 \end{lstlisting}
 在这里，\lstinline@new[]@ 的返回值是一个 \lstinline@(int*)[10]@，也就是指向数组的指针，我们可以定义一个 \lstinline@pta@ 来存储这个返回值。这样，我们就用一个指向 \lstinline@10@ 长度 \lstinline@int@ 数组的指针，指向了一个 \lstinline@n@ 长度的 \lstinline@10@ 长度 \lstinline@int@ 动态数组。这话可能有点绕，读者多琢磨一下想必就可以理解。\par
 回收这个数组的方式很简单，直接 \lstinline@delete[]@ 就行。

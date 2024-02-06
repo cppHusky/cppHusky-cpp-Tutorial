@@ -9,14 +9,13 @@
     \item BSS段（BSS Sectino）。通常用于存放未初始化的静态变量。
     \item 栈段（Stack Section）。局部变量（比如主函数中定义的变量）和每次函数调用时的实参等信息，都存储在栈区（想想我们上一章中讲到的``调用栈''）。每次我们定义一个新数据，这个数据的信息就会被压入栈中，当这个数据的作用域结束时，它就会出栈。
     \item 堆段（Heap Section）。用于动态内存分配。我们会在本章中介绍动态内存分配。
-\end{itemize}
+\end{itemize}\pagebreak
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.25\textwidth]{../images/generalized_parts/05_layout_of_memory.drawio.png}
     \caption{程序的内存布局}
 \end{figure}\par
-内存中有无数字节，不同的数据需要不同的字节数量来存储，我们可以用 \lstinline@sizeof@ 来计算字节数量的值。\par
-既然内存中有这么多字节，那么程序要怎么判断自己要用的数据在哪里呢？这就需要用到\textbf{内存地址（Memory address）}了。\par
+内存中有无数字节，不同的数据需要不同的字节数量来存储，我们可以用 \lstinline@sizeof@ 来计算它们占用字节数量的值。既然内存中有这么多字节，那么程序要怎么判断自己要用的数据在哪里呢？这就需要用到\textbf{内存地址（Memory address）}了。\par
 内存中的每个字节都有一个内存地址。就像我们根据门牌楼号来找到一间房子那样，程序也需要通过内存地址才能快速找到一个字节，并且读取或者修改它的值。\par
 举例来说，我们在主函数中定义一个 \lstinline@char@ 型变量，命名为 \lstinline@ch@。在运行时，每当遇到了这个指令，程序就会在栈段当中找到一个闲置的字节，用来存储这个变量的值。那假如我们定义一个 \lstinline@double@ 型的变量 \lstinline@d@ 呢？程序会在栈区中找到八个连续的闲置字节（在绝大部分系统中，\lstinline@double@ 型的内存空间占用都是8字节），用来存储这个变量的值。\par
 在C++中，\lstinline@&@ 运算符可以对某个变量求地址。一般说来，如果要输出地址的话，地址值都是用十六进制的形式\footnote{即，以 \lstinline@0x@ 开头（有些编译环境，如MSVC，输出的地址值是不带 \lstinline@0x@ 开头的，所以别惊讶），后面表示为 \lstinline@0@\~{}\lstinline@F@（或用小写）的一串数字，如 \lstinline@0xe23df5cc@。}来表示的。\lstinline@&@ 运算符单独作用于一个变量时，返回值是它的地址\footnote{并不是所有的数据都可以取地址！我们会在精讲篇中说明，它关系到左值和右值的问题。}。
@@ -29,9 +28,9 @@ int main() {
 这个程序的输出结果是：\\\noindent\rule{\linewidth}{0.2pt}\texttt{
 0x7ffccff275b8
 }\\\noindent\rule{\linewidth}{0.2pt}
-不同计算机的实际情况可能大相径庭，不同编译器处理内存分配的方式也可以大同小异，所以这个地址的具体值因机器而异，我们需要在意的只是格式。在这里，它输出了一个十六进制的结果，这正是 \lstinline@d@ 的地址值。\par
-细心的读者可能会有疑问：\lstinline@d@ 作为一个 \lstinline@double@ 型数据，明明占据了八个字节，为什么输出结果只给了我们一个地址呢？\par
-这是因为，对于任何一种类型，在取地址时\textbf{只会返回它的第一个字节的地址}。因为任何一个变量占据的内存都是连续的一段，所以我们只要知道了第一个字节在哪里，当然就知道整个变量占据了哪个区间的内存了。\par
+不同计算机的实际情况可能大相径庭，不同编译器处理内存分配的方式也可能不尽相同，所以这个地址的具体值不重要，每个人运行出来的结果都可以不一样；我们需要在意的只是格式。在这里，它输出了一个十六进制的结果，这正是 \lstinline@d@ 的地址值。\par
+细心的读者可能会有疑问：\lstinline@d@ 作为一个 \lstinline@double@ 型数据，明明占据了8个字节，为什么输出结果只给了我们1个地址呢？\par
+这是因为，对于任何一种类型，在取地址时只会返回它的第一个字节的地址。因为任何一个变量占据的内存都是连续的一段，所以我们只要知道了第一个字节在哪里，当然就知道整个变量占据了哪个区域的内存了。\par
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.6\textwidth]{../images/generalized_parts/05_address_of_types_in_memory.drawio.png}
@@ -39,7 +38,7 @@ int main() {
 \end{figure}
 如图5.2所示，既然 \lstinline@0x7ffccff275b8@ 是 \lstinline@d@ 的地址，而 \lstinline@sizeof(double)@ 又是 \lstinline@8@，那么自然而然，\lstinline@d@ 的信息应当存储在从 \lstinline@0x7ffccff275b8@ 开始的8个字节，一直到 \lstinline@0x7ffccff275bf@ 为止。\par
 \textbf{所以无论哪个类型，其内存地址指的都是它所占内存空间中的第一个字节的地址\footnote{除非你重载了取地址函数 \lstinline@&@，这种情况我们不讨论。}。}请牢记这点，它会让你后面的学习过程更轻松的。\par
-补充一条：读者可能会在自己尝试的时候发现一个有趣的现象：如果试图输出一个 \lstinline@char@ 类型的地址，输出的结果可能会是各种奇奇怪怪的内容，但绝对不像是个指针。我们会在字符串那一节再介绍这个问题。如果你坚定地想输出 \lstinline@char@ 变量的地址，你可以采用这种写法：
+补充一条：读者可能会在自己尝试的时候发现一个有趣的现象：如果试图输出一个 \lstinline@char@ 类型的地址，输出的结果可能会是各种奇奇怪怪的内容，但绝对不像是个地址值。我们会在字符串那一节再介绍这个问题。如果你坚持想要输出 \lstinline@char@ 变量的地址，你可以采用这种写法：
 \begin{lstlisting}
     char ch {48}; //定义char型变量并赋初值'0'
     cout << (void*)&a; //指针类型转换为void*，这样就会以地址值的形式输出
@@ -68,14 +67,14 @@ int main() {
 \end{lstlisting}
 这种写法还能降低其它有关问题的理解成本，我们很快就会遇到。\par
 那么究竟使用哪种写法呢？不同的人当然有不同的理解和习惯，不必强求。不过在编写本书的过程中，我选择我最喜欢的写法：只在描述返回类型的时候用第一种写法，否则用第二种写法。\par
-习惯上，我们喜欢把``\lstinline@p@ 存储了 \lstinline@a@ 的地址''称为``\lstinline@p@ 指向了 \lstinline@a@''。这当然是一种很形象的表述，但很多教材会为了这点``形象''而忽略了对本质的阐述，这是得不偿失的。\par
+习惯上，我们喜欢把``\lstinline@p@ 存储 \lstinline@a@ 的地址''称为``\lstinline@p@ 指向 \lstinline@a@''，这也是一种很形象的表述。\par
 现在让我们假想这样一个过程：我先定义了一个 \lstinline@double@ 型的变量 \lstinline@d@，然后又定义了一个 \lstinline@double*@ 型的变量 \lstinline@pd@（这是一个指针变量）。
 \begin{lstlisting}
     double d {3.14159}; //定义一个double型变量d
     double *pd {&d}; //定义一个double*型指针变量pd，它指向d
 \end{lstlisting}
 理论上讲，一个程序只要知道了某个变量的地址，就具备了读取或修改对应内存空间的能力。那么 \lstinline@d@ 这个名字，也就无所谓有没有了。我们能否只根据 \lstinline@pd@ 中保存的地址值，就实现读取和修改 \lstinline@d@ 的功能呢？当然可以！\par
-这里我们需要一个运算符：取内容运算符 \lstinline@*@\footnote{也有很多资料将其称为解引用运算符。}。读者可能会困惑——这不是乘法运算符吗？其实你可以把它当作一种重载！当它接收两个操作数时，它的含义就是乘法运算；当它接收一个操作数时，它的含义就是取指针的内容（见图5.3）。\par
+这里我们需要一个运算符：取内容运算符 \lstinline@*@\footnote{也有很多资料将其称为解引用运算符。}。读者可能会困惑——这不是乘法运算符吗？其实你可以把它当作一种重载！当它接收两个操作数时，它的含义就是乘法运算；当它接收一个操作数时，它的含义就是取指针的内容（图5.3）。\par
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.45\textwidth]{../images/generalized_parts/05_operator_dereference_or_multiplication.drawio.png}
@@ -126,7 +125,7 @@ int main() {
 回想一下我们之前讲过的内容。每次程序调用一个函数的时候，都会在栈区压入一层堆栈帧。这个堆栈帧中就含有在本次调用过程中创建的变量，如图5.5所示，这时调用栈中发生修改的是 \lstinline@exchange@ 对应内存空间中的 \lstinline@a@ 和 \lstinline@b@，而不是 \lstinline@main@ 函数中的 \lstinline@a@ 和 \lstinline@b@。这两对变量虽然同名，但它们对应的是内存空间中完全不同的区域。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{../images/generalized_parts/05_parameter_pass_by_value.drawio.png}
+    \includegraphics[width=0.8\textwidth]{../images/generalized_parts/05_parameter_pass_by_value.drawio.png}
     \caption{在调用 \lstinline@exchange@ 函数时，调用栈中发生的变化}
 \end{figure}
 所以在函数参数传递的过程中，程序并没有把``整个变量''传递给目标函数，而只传递了它的``值''。至于被调用的那个函数，它会另外定义一个新的变量（它在内存空间中另一自己的一席之地）来接收传入的值。很多资料会把它称为\textbf{副本（Copy）}。\par
@@ -136,8 +135,8 @@ int main() {
     \caption{\lstinline@main@ 向 \lstinline@exchange@ 中传入的信息只有值}
 \end{figure}
 我们会发现，不同函数之间只能共享值，这种现象好像一种屏障——在某些时候，它显得十分安全，我们不会在一个函数中乱改其它函数中的信息；但在另一些时候，它显得非常不灵活，如果我们用别的函数只能读取而不能修改此函数中的值，函数的功能就会受到很大限制——比如我们试图写一个值交换函数而不能。\par
-所以我们需要找到一种方法，使我们可以跨过函数作用域的屏障，来修改特定的变量值。我们的答案是使用\textbf{指针传递（Passing by pointer）}。\par
-回顾一下前文中讲过的三个基本要点：
+所以我们需要找到一种方法，使我们可以跨过函数作用域的屏障，来修改特定的变量值。我们的答案是使用\textbf{指针传递（Passing by pointer）}。\par\pagebreak
+让我们回顾一下前文中讲过的三个基本要点：
 \begin{enumerate}
     \item \textbf{地址是一个值}。我们可以把它当作和整数值、浮点值、字符值和布尔值等并列的事物来看待。
     \item \textbf{只要知道了某个变量的地址，我们就有可能修改内存中相应区域的内容}。我们可以通过取内容运算符来读取或修改其中的内容，效果等同于使用相应的变量名。
@@ -167,7 +166,7 @@ int main() {
 所以这种函数参数指针传递的方式要比我们之前见过的\textbf{值传递（Passing by value）}更有效。但是话又说回来，并不是任何时候用指针传递都比用值传递要更好的。初学者可能很难搞清楚``什么时候要用什么''，其实没关系。你只需要多写一些代码，等到经验丰富之后自然就清楚了。\par
 还请读者留意：虽然我们人为地划分出了``值传递''和``指针传递''的概念，但它们的本质都是在传递值！只不过后者传递的是``指针值''罢了。\par
 \subsection*{野指针问题}
-说完了指针在函数传递中的应用，读者应当对指针的强大有了初步认识。指针为我们编写程序带来了极大的灵活性，但其中也潜藏着一些风险。所以现在就让我们返回到一些细节的讨论上来。\par
+说完了指针在函数传递中的应用，读者应当对指针的强大有了初步认识。指针为我们编写程序带来了极大的灵活性，但其中也潜藏着一些风险。\par
 我曾说过，如果定义一个局部变量而不初始化的话，它将会存储一个不确定的值。使用这种不确定的值可能会导致程序运行的结果不可预测，所以我们需要在使用它之前通过初始化、赋值或输入等等各种方法让它成为一个可控的变量。\par
 指针亦如此。如果我们不进行初始化或赋值，让它指向一个安全的位置，那么它可能会指向内存中的任何一个字节，我们把这种指向不确定的指针叫作\textbf{野指针（Wild pointer）}。野指针是很可怕的，一旦我们试图读取或修改对应未知空间中的信息，我们可能会把这个程序乃至其它进程改爆，从而导致严重的后果\footnote{对于个人电脑来说，这种后果可能很轻微——大不了我们重启电脑，这时内存中的一切又焕然一新了。但对于服务器等需要长期运转且不能轻易停工的设备来说，损失可能非常大。}。因此，在使用指针之前，我们也要进行初始化或者赋值\footnote{我们不能通过``输入地址''的方式来改变指针的值，这同样是很危险的。}。\par
 我们可以用同类型变量\footnote{实际上，指针也是一种变量。但是人们习惯上把``指针''和``变量''视为互不重合的两个概念。本书也沿用这种习惯，通常把指针和变量这两个概念分开。如果需要把指针当作变量的一部分，会特殊说明。}的地址来为指针赋值，我们已经在前面的例子中接触过这种语法了。不同类型数据的地址不能互相赋值，比如我们不能用 \lstinline@float@ 型变量的地址来为 \lstinline@double*@ 型指针赋值。\par
@@ -193,8 +192,8 @@ int main() {
     cout << pf << endl << pf - 1 << endl; //输出pf和pf-1的值，它们都是地址值
     long double ld; //同理，只是改成了long double型
     cout << &ld << endl << &ld + 1; //直接输出&ld和&ld-1，效果相同
-\end{lstlisting}
-运行结果是这样的\footnote{再次提醒读者，实际输出的内存地址因机而异，我们应当关注的是几个输出地址之间的相互关系。}：\\\noindent\rule{\linewidth}{0.2pt}\texttt{
+\end{lstlisting}\pagebreak
+这段代码的运行结果是这样的\footnote{再次提醒读者，实际输出的内存地址因运行而异，每个设备的运行结果都不尽相同，甚至，我们应当关注的是几个输出地址之间的相互关系。}：\\\noindent\rule{\linewidth}{0.2pt}\texttt{
 0x7ffc4bf3837c\\
 0x7ffc4bf38378\\
 0x7ffc4bf38380\\
@@ -203,14 +202,14 @@ int main() {
 输出内容是很长的十六进制形式，我们来分析下。\par
 首先输出的两个是 \lstinline@pf@ 和 \lstinline@pf-1@ 的值。从数值上看，前者是 \lstinline@...37c@，而后者是 \lstinline@...378@，后者虽然是 \lstinline@pf-1@，但地址却减小了4个字节。\par
 接下来输出的两个是 \lstinline@&ld@ 和 \lstinline@&ld+1@ 的值。从数值上看，前者是 \lstinline@...380@，而后者是 \lstinline@...390@，后者虽然是 \lstinline@&ld+1@，但地址却增加了16个字节。\par
-之所以会出现这种情况，关键就在于不同类型数据在内存中占用的字节数目不同。一般说来，\lstinline@float@ 型占据4字节内存空间，而 \lstinline@long double@ 型占据16字节内存空间。\par
+之所以出现这种情况，是因为不同类型数据在内存中占用的字节数目不同。一般说来，\lstinline@float@ 型占据4字节内存空间，而 \lstinline@long double@ 型占据16字节（有些是8字节）内存空间。\par
 指针和整型的加减法并不是单纯地移动多少个字节，而是移动了多少个数据（可以理解为，偏移量乘以单个数据占用的字节数），如图5.7所示。这样设计是有它的道理的，等我们讲到数组，读者就会很容易理解了。\par
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{../images/generalized_parts/05_arithmetic_of_pointer.drawio.png}
     \caption{指针加法运算的偏移量是以数据为单位的，而不是地址值}
 \end{figure}
-两个同类型指针可以相减，其返回值是一个特殊的类型，叫作 \lstinline@ptrdiff_t@。不过我们也无需纠结这种细节，因为 \lstinline@ptrdiff_t@ 可以隐式类型转换为整型，所以我们可以直接把它当作整型来用，比如输出。
+两个同类型指针可以相减，其返回值是一个特殊的类型，叫作 \lstinline@ptrdiff_t@。不过我们也无需纠结这种细节，因为 \lstinline@ptrdiff_t@ 可以隐式类型转换为整型，所以我们可以直接把它当作整型来用，比如输出。\pagebreak
 \begin{lstlisting}
     int a, b, c;
     cout << &a << endl << &b << endl << &c << endl;

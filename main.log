@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  5 FEB 2024 15:30
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  6 FEB 2024 09:49
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1193,14 +1193,15 @@ File: ././/images/generalized_parts/04_function_template_and_instance.drawio.png
 第五章
 (./generalized_parts/05_composite_types_and_their_use/01_pointer.tex
 LaTeX Font Info:    Calculating math sizes for size <11.99997> on input line 2.
-File: ./05_composite_types_and_their_use/../images/generalized_parts/05_layout_of_memory.drawio.png Graphic file (type bmp)
-<./05_composite_types_and_their_use/../images/generalized_parts/05_layout_of_memory.drawio.png>
  [85
 
 ]
+File: ./05_composite_types_and_their_use/../images/generalized_parts/05_layout_of_memory.drawio.png Graphic file (type bmp)
+<./05_composite_types_and_their_use/../images/generalized_parts/05_layout_of_memory.drawio.png>
+ [86]
 File: ./05_composite_types_and_their_use/../images/generalized_parts/05_address_of_types_in_memory.drawio.png Graphic file (type bmp)
 <./05_composite_types_and_their_use/../images/generalized_parts/05_address_of_types_in_memory.drawio.png>
- [86] [87]
+ [87]
 File: ./05_composite_types_and_their_use/../images/generalized_parts/05_operator_dereference_or_multiplication.drawio.png Graphic file (type bmp)
 <./05_composite_types_and_their_use/../images/generalized_parts/05_operator_dereference_or_multiplication.drawio.png>
  [88]
@@ -1211,7 +1212,10 @@ File: ./05_composite_types_and_their_use/../images/generalized_parts/05_paramete
 <./05_composite_types_and_their_use/../images/generalized_parts/05_parameter_pass_by_value.drawio.png>
 File: ./05_composite_types_and_their_use/../images/generalized_parts/05_process_of_pass_by_value.drawio.png Graphic file (type bmp)
 <./05_composite_types_and_their_use/../images/generalized_parts/05_process_of_pass_by_value.drawio.png>
- [90] [91] [92]
+ [90] [91]
+Underfull \vbox (badness 1137) has occurred while \output is active []
+
+ [92]
 File: ./05_composite_types_and_their_use/../images/generalized_parts/05_arithmetic_of_pointer.drawio.png Graphic file (type bmp)
 <./05_composite_types_and_their_use/../images/generalized_parts/05_arithmetic_of_pointer.drawio.png>
  [93]) (./generalized_parts/05_composite_types_and_their_use/02_constant_pointer_and_pointer_to_constant.tex
@@ -1220,64 +1224,40 @@ File: ./05_composite_types_and_their_use/../images/generalized_parts/05_change_p
  [94]
 File: ./05_composite_types_and_their_use/../images/generalized_parts/05_definition_of_constant_pointer_and_pointer_to_const.drawio.png Graphic file (type bmp)
 <./05_composite_types_and_their_use/../images/generalized_parts/05_definition_of_constant_pointer_and_pointer_to_const.drawio.png>
-) (./generalized_parts/05_composite_types_and_their_use/03_lvalue_reference_and_passing_arguments.tex [95] [96] [97] [98]
-Overfull \hbox (71.64339pt too wide) in paragraph at lines 148--148
-\TU/SimSun(0)/m/n/10 提 醒 读 者，| [][][] 输 出 [][][][][] 类 型 的 值 时，|  会 默 认 以 整 数 的 形 式 输 出。|  我 们 也 可 以 用 [][][][][][][][][][]
- []
-
-[99]) (./generalized_parts/05_composite_types_and_their_use/04_one_dimensional_arrays.tex
+ [95]) (./generalized_parts/05_composite_types_and_their_use/03_lvalue_reference_and_passing_arguments.tex [96] [97] [98] [99]) (./generalized_parts/05_composite_types_and_their_use/04_one_dimensional_arrays.tex
 File: ./05_composite_types_and_their_use/../images/generalized_parts/05_variables_one_by_one_in_memory.drawio.png Graphic file (type bmp)
 <./05_composite_types_and_their_use/../images/generalized_parts/05_variables_one_by_one_in_memory.drawio.png>
  [100] [101]
 File: ./05_composite_types_and_their_use/../images/generalized_parts/05_variables_one_by_one_in_array.drawio.png Graphic file (type bmp)
 <./05_composite_types_and_their_use/../images/generalized_parts/05_variables_one_by_one_in_array.drawio.png>
- [102] [103] [104] (./05_composite_types_and_their_use/../code_in_book/5.1/输入数据求最大值.cpp [105]) [106] [107]
+ [102] [103] [104] [105] (./05_composite_types_and_their_use/../code_in_book/5.1/get_maximum_from_input.cpp [106]) [107]
 File: ./05_composite_types_and_their_use/../images/generalized_parts/05_array_to_pointer_conversion.drawio.png Graphic file (type bmp)
 <./05_composite_types_and_their_use/../images/generalized_parts/05_array_to_pointer_conversion.drawio.png>
-) (./generalized_parts/05_composite_types_and_their_use/05_string_with_arrays.tex [108] [109]
+ [108]) (./generalized_parts/05_composite_types_and_their_use/05_string_with_arrays.tex [109] [110]
 File: ./05_composite_types_and_their_use/../images/generalized_parts/05_Information_in_the_string.drawio.png Graphic file (type bmp)
 <./05_composite_types_and_their_use/../images/generalized_parts/05_Information_in_the_string.drawio.png>
- [110] [111]
-Overfull \hbox (42.6168pt too wide) in paragraph at lines 114--114
-[]\TU/SimSun(0)/m/n/10 换 句 话 说，|  我 们 只 需 要 把 [][][] 串 中 的 有 效 部 分 逐 个 赋 值 给 [][][] 的 对 应 部 分 就 行。|  比 如 说，| [][][][][][]，|
- []
-
-[112] [113]) (./generalized_parts/05_composite_types_and_their_use/06_combination_of_pointers_and_arrays.tex [114]
-Overfull \hbox (29.03897pt too wide) in paragraph at lines 11--11
-\TU/SimSun(0)/m/n/10 初 学 者 很 容 易 在 二 维 数 组 的 下 标 问 题 上 犯 糊 涂。|  比 如 在 定 义 [][][] 的 时 候，|  究 竟 是 写 成 [][][]
- []
-
-[115]
+ [111] [112] [113] [114]) (./generalized_parts/05_composite_types_and_their_use/06_combination_of_pointers_and_arrays.tex [115]
 File: ./05_composite_types_and_their_use/../images/generalized_parts/05_data_in_the_array_of_array.drawio.png Graphic file (type bmp)
 <./05_composite_types_and_their_use/../images/generalized_parts/05_data_in_the_array_of_array.drawio.png>
-
-Overfull \hbox (13.52153pt too wide) in paragraph at lines 49--49
-[]\TU/SimSun(0)/m/n/10 敏 锐 的 读 者 可 能 会 想，|  既 然 [][][][] 的 下 一 位 就 是 [][][][]，|  那 么 我 们 能 否 通 过 [][][][]
- []
-
-[116] [117]
+ [116] [117] [118] [119]
 File: ./05_composite_types_and_their_use/../images/generalized_parts/05_the_pointer_to_array_and_2d_array.drawio.png Graphic file (type bmp)
 <./05_composite_types_and_their_use/../images/generalized_parts/05_the_pointer_to_array_and_2d_array.drawio.png>
- [118] [119] [120]
-Underfull \hbox (badness 10000) in paragraph at lines 176--181
-
- []
-
+ [120] [121] [122]
 File: ./05_composite_types_and_their_use/../images/generalized_parts/05_type_conversions_between_array_and_pointer.drawio.png Graphic file (type bmp)
 <./05_composite_types_and_their_use/../images/generalized_parts/05_type_conversions_between_array_and_pointer.drawio.png>
-) (./generalized_parts/05_composite_types_and_their_use/07_dynamic_memory_allocation.tex [121] [122] [123]
+) (./generalized_parts/05_composite_types_and_their_use/07_dynamic_memory_allocation.tex [123] [124]
 File: ./05_composite_types_and_their_use/../images/generalized_parts/05_memory_leak_and_after_end_task.png Graphic file (type bmp)
 <./05_composite_types_and_their_use/../images/generalized_parts/05_memory_leak_and_after_end_task.png>
- [124] [125])) (./generalized_parts/06_custom_types_and_their_use.tex [126]
+ [125] [126])) (./generalized_parts/06_custom_types_and_their_use.tex [127] [128
+
+]
 第六章
 Missing character: There is no � (U+FFFD) in font [SourceCodePro-Regular.otf]/OT:script=latn;language=dflt;!
 Missing character: There is no � (U+FFFD) in font [SourceCodePro-Regular.otf]/OT:script=latn;language=dflt;!
 Missing character: There is no � (U+FFFD) in font [SourceCodePro-Regular.otf]/OT:script=latn;language=dflt;!
 File: ./generalized_parts/../images/generalized_parts/06_0_1_string_to_int_or_char.drawio.png Graphic file (type bmp)
 <./generalized_parts/../images/generalized_parts/06_0_1_string_to_int_or_char.drawio.png>
-(./generalized_parts/06_custom_types_and_their_use/01_enum.tex [127
-
-] [128]) (./generalized_parts/06_custom_types_and_their_use/02_struct.tex [129] [130] [131] [132]
+(./generalized_parts/06_custom_types_and_their_use/01_enum.tex [129] [130]) (./generalized_parts/06_custom_types_and_their_use/02_struct.tex [131] [132] [133] [134]
 Underfull \hbox (badness 10000) in paragraph at lines 157--166
 
  []
@@ -1292,25 +1272,25 @@ Overfull \hbox (39.45459pt too wide) in paragraph at lines 167--167
 []\TU/SimSun(0)/m/n/10 读 者 可 能 注 意 到 [][][][][][][][][][][][][][][][][][][][][][][][][][][] 此 段 中 我 们 使 用 的 条 件 表 达 式。|  如 果 [][][][][][][]
  []
 
-[133]) (./generalized_parts/06_custom_types_and_their_use/03_exercise_example_list.tex
+[135]) (./generalized_parts/06_custom_types_and_their_use/03_exercise_example_list.tex
 File: ./06_custom_types_and_their_use/../images/generalized_parts/06_list_in_the_memory.drawio.png Graphic file (type bmp)
 <./06_custom_types_and_their_use/../images/generalized_parts/06_list_in_the_memory.drawio.png>
 File: ./06_custom_types_and_their_use/../images/generalized_parts/06_operation_on_list.drawio.png Graphic file (type bmp)
 <./06_custom_types_and_their_use/../images/generalized_parts/06_operation_on_list.drawio.png>
 File: ./06_custom_types_and_their_use/../images/generalized_parts/06_advanced_operation_on_list.drawio.png Graphic file (type bmp)
 <./06_custom_types_and_their_use/../images/generalized_parts/06_advanced_operation_on_list.drawio.png>
- [134] [135] [136]
+ [136] [137] [138]
 File: ./06_custom_types_and_their_use/../images/generalized_parts/06_process_of_clear_list.drawio.png Graphic file (type bmp)
 <./06_custom_types_and_their_use/../images/generalized_parts/06_process_of_clear_list.drawio.png>
 File: ./06_custom_types_and_their_use/../images/generalized_parts/06_insertion_into_a_list.drawio.png Graphic file (type bmp)
 <./06_custom_types_and_their_use/../images/generalized_parts/06_insertion_into_a_list.drawio.png>
- [137]
+ [139]
 File: ./06_custom_types_and_their_use/../images/generalized_parts/06_deletion_operation_on_a_list.drawio.png Graphic file (type bmp)
 <./06_custom_types_and_their_use/../images/generalized_parts/06_deletion_operation_on_a_list.drawio.png>
- [138] [139]
+ [140] [141]
 File: ./06_custom_types_and_their_use/../images/generalized_parts/06_range_deletion_operation_on_a_list.drawio.png Graphic file (type bmp)
 <./06_custom_types_and_their_use/../images/generalized_parts/06_range_deletion_operation_on_a_list.drawio.png>
- [140]
+ [142]
 Overfull \hbox (3.5015pt too wide) in paragraph at lines 178--178
 []\TU/SimSun(0)/m/n/10 其 一，|  在 这 里 [][][][][][][] 的 情 况 下 我 们 要 处 理 是 比 较 麻 烦 的，|  因 为 当 后 面 涉 及 到 [][][][][]
  []
@@ -1322,38 +1302,38 @@ Overfull \hbox (13.87088pt too wide) in paragraph at lines 178--178
 
 File: ./06_custom_types_and_their_use/../images/generalized_parts/06_range_transfer_between_lists.drawio.png Graphic file (type bmp)
 <./06_custom_types_and_their_use/../images/generalized_parts/06_range_transfer_between_lists.drawio.png>
-) (./generalized_parts/06_custom_types_and_their_use/04_union.tex [141] [142] [143]
+) (./generalized_parts/06_custom_types_and_their_use/04_union.tex [143] [144] [145]
 Overfull \hbox (21.99806pt too wide) in paragraph at lines 69--69
 \TU/SimSun(0)/m/n/10 这 里 需 要 注 意，| [][][] 是 [][][] 域 中 的 枚 举 项。|  如 果 我 们 要 在 域 外 使 用，|  就 必 须 用 [][][][][]。|
  []
 
 File: ./06_custom_types_and_their_use/../images/generalized_parts/06_process_of_assignment_to_union.drawio.png Graphic file (type bmp)
 <./06_custom_types_and_their_use/../images/generalized_parts/06_process_of_assignment_to_union.drawio.png>
-[144]) (./generalized_parts/06_custom_types_and_their_use/05_introduction_to_class.tex [145] [146]
+[146]) (./generalized_parts/06_custom_types_and_their_use/05_introduction_to_class.tex [147] [148]
 File: ./06_custom_types_and_their_use/../images/generalized_parts/06_public_and_private_members.drawio.png Graphic file (type bmp)
 <./06_custom_types_and_their_use/../images/generalized_parts/06_public_and_private_members.drawio.png>
- [147]
+ [149]
 Overfull \hbox (33.41493pt too wide) in paragraph at lines 59--59
 \TU/SimSun(0)/m/n/10 是 私 有  |（看 到 那 个 [][][][][] 了 吗）|  成 员。|  这 就 说 明，|  我 们 可 以 调 用 [][][] 来 返 回 [][][][][][][]，|
  []
 
-[148]
+[150]
 Overfull \hbox (13.86275pt too wide) in paragraph at lines 123--124
 [][][][] \TU/SimSun(0)/m/n/10 有 一 套 动 态 调 整 容 量 的 机 制，|  如 果 要 存 储 的 数 据 量 超 过 了 原 有 的 容 量  |（比 如 说，|  用 [][][]
  []
 
-[149])) (./generalized_parts/07_projecting.tex [150]
+[151])) (./generalized_parts/07_projecting.tex [152]
 第七章
-(./generalized_parts/07_projecting/01_separate_compilation.tex [151
+(./generalized_parts/07_projecting/01_separate_compilation.tex [153
 
-] (./07_projecting/../code_in_book/7.1-7.3/Header.hpp) (./07_projecting/../code_in_book/7.1-7.3/Definition.cpp) [152] (./07_projecting/../code_in_book/7.1-7.3/Test.cpp)
+] (./07_projecting/../code_in_book/7.1-7.3/Header.hpp) (./07_projecting/../code_in_book/7.1-7.3/Definition.cpp) [154] (./07_projecting/../code_in_book/7.1-7.3/Test.cpp)
 Overfull \hbox (59.09216pt too wide) in paragraph at lines 44--44
 \TU/SimSun(0)/m/n/10 我 们 注 意 到，|  当 包 含 了 \TU/SourceCodePro(0)/m/n/10 Header.hpp \TU/SimSun(0)/m/n/10 之 后，|  在 \TU/SourceCodePro(0)/m/n/10 Test.cpp \TU/SimSun(0)/m/n/10 中 就 不 需 要 包 含 [][][] 和 [][][][][][][][][][][]了。|
  []
 
 File: ./07_projecting/../images/generalized_parts/07_separate_compilation.drawio.png Graphic file (type bmp)
 <./07_projecting/../images/generalized_parts/07_separate_compilation.drawio.png>
-[153] (./07_projecting/../code_in_book/7.4-7.6/Header.hpp) (./07_projecting/../code_in_book/7.4-7.6/Definition.cpp [154]) (./07_projecting/../code_in_book/7.4-7.6/main.cpp [155])
+[155] (./07_projecting/../code_in_book/7.4-7.6/Header.hpp) (./07_projecting/../code_in_book/7.4-7.6/Definition.cpp [156]) (./07_projecting/../code_in_book/7.4-7.6/main.cpp [157])
 Overfull \hbox (45.04604pt too wide) in paragraph at lines 71--71
 \TU/SimSun(0)/m/n/10 请 读 者 注 意 各 文 件 之 间 使 用 [][][][][][][][] 的 关 系。|  因 为 在 \TU/SourceCodePro(0)/m/n/10 Definition.cpp \TU/SimSun(0)/m/n/10 中 没 有 使 用 [][][][][][][][][][][]，|
  []
@@ -1368,29 +1348,29 @@ Overfull \hbox (11.03897pt too wide) in paragraph at lines 24--25
 []\TU/SimSun(0)/m/n/10 几 乎 所 有 初 学 者 都 会 无 一 例 外 地 认 为 [][][][][][][][][][][] 是 很 方 便 的；|  而 通 篇 累 牍 的 [][][][][]
  []
 
-[156]
+[158]
 File: ./07_projecting/../images/generalized_parts/07_file_explorer_and_namespaces.drawio.png Graphic file (type bmp)
 <./07_projecting/../images/generalized_parts/07_file_explorer_and_namespaces.drawio.png>
- [157] [158] [159] [160]) (./generalized_parts/07_projecting/03_scope_storage_duration_and_linkage.tex [161] [162] [163] [164]
+ [159] [160] [161] [162]) (./generalized_parts/07_projecting/03_scope_storage_duration_and_linkage.tex [163] [164] [165] [166]
 Overfull \hbox (0.13913pt too wide) in paragraph at lines 132--132
 []\TU/SimSun(0)/m/n/10 我 们 在 局 部 作 用 域 内 定 义 的 变 量 都 有 自 动 存 储 期，|  除 非 我 们 用 [][][][][]\TU/lmr/m/n/10 , [][][][][] \TU/SimSun(0)/m/n/10 或 [][][][][]
  []
 
-[165] [166]) (./generalized_parts/07_projecting/04_coding_style.tex
+[167] [168]) (./generalized_parts/07_projecting/04_coding_style.tex
 File: ./07_projecting/../images/generalized_parts/07_international_obfuscated_c_code_contest_instance.png Graphic file (type bmp)
 <./07_projecting/../images/generalized_parts/07_international_obfuscated_c_code_contest_instance.png>
- [167] [168] [169] [170] [171])) (./generalized_parts/08_a_step_forward_in_classes_and_functions.tex [172]
+ [169] [170] [171] [172] [173])) (./generalized_parts/08_a_step_forward_in_classes_and_functions.tex [174]
 第八章
-(./generalized_parts/08_a_step_forward_in_classes_and_functions/01_operator_overloading.tex [173
+(./generalized_parts/08_a_step_forward_in_classes_and_functions/01_operator_overloading.tex [175
 
-] [174] [175] [176] [177] [178] [179]) (./generalized_parts/08_a_step_forward_in_classes_and_functions/02_member_functions_and_friend.tex [180] [181] [182] [183]
+] [176] [177] [178] [179] [180] [181]) (./generalized_parts/08_a_step_forward_in_classes_and_functions/02_member_functions_and_friend.tex [182] [183] [184] [185]
 Underfull \hbox (badness 1057) in paragraph at lines 181--181
 [][][]\TU/SimSun(0)/m/n/8.33344 初 学 者 可 能 对 [][][][][][][][] 这 种 写 法 感 到 困 惑，|  但 是 不 要 忘 记，| [][][][][] 的 返 回 值 也 是 一 个
  []
 
 File: ./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_operator_overloading_as_member_function.drawio.png Graphic file (type bmp)
 <./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_operator_overloading_as_member_function.drawio.png>
-[184] [185] [186] [187]) (./generalized_parts/08_a_step_forward_in_classes_and_functions/03_constructor_and_destructor.tex [188] [189]
+[186] [187] [188] [189]) (./generalized_parts/08_a_step_forward_in_classes_and_functions/03_constructor_and_destructor.tex [190] [191]
 Overfull \hbox (21.20021pt too wide) in paragraph at lines 53--54
 []\TU/SimSun(0)/m/n/10 这 就 不 得 不 谈 到 [][][][][] 了。|  它 是 一 个 类 模 板，|  可 以 存 储 一 个 常 量 数 组  |（[][][][][][][][][][]
  []
@@ -1400,12 +1380,12 @@ Overfull \hbox (116.9171pt too wide) in paragraph at lines 72--73
 []\TU/SimSun(0)/m/n/10 还 有 一 种 更 简 单 的 方 法 是 用 范 围 [][][][][] 循 环，|  请 读 者 参 考 下 面 [][][][][][][][][][][][][][][][][][]
  []
 
-[190] [191]
+[192] [193]
 Overfull \hbox (83.03491pt too wide) in paragraph at lines 166--167
 []\TU/SimSun(0)/m/n/10 先 别 急，|  我 们 来 回 顾 一 下 之 前 写 过 的 构 造 函 数，|  比 如 [][][][][][][][][][][][][][][][][][]，|
  []
 
-[192] [193] [194] [195]
+[194] [195] [196] [197]
 File: ./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_shallow_copy_and_deep_copy.drawio.png Graphic file (type bmp)
 <./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_shallow_copy_and_deep_copy.drawio.png>
 
@@ -1413,50 +1393,50 @@ Overfull \hbox (20.46147pt too wide) in paragraph at lines 288--289
 []\TU/SimSun(0)/m/n/10 要 实 现 深 拷 贝 其 实 很 简 单，|  就 像 一 般 的 构 造 函 数 那 样 写 就 行 了，|  只 是 参 数 类 型 变 成 了 [][][][][][][][]
  []
 
-[196]) (./generalized_parts/08_a_step_forward_in_classes_and_functions/04_property_of_member.tex [197]
+[198]) (./generalized_parts/08_a_step_forward_in_classes_and_functions/04_property_of_member.tex [199]
 File: ./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_file_inclusion.drawio.png Graphic file (type bmp)
 <./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_file_inclusion.drawio.png>
- [198] [199]
+ [200] [201]
 Overfull \hbox (36.24615pt too wide) in paragraph at lines 126--126
 \TU/SimSun(0)/m/n/10 这 也 同 样 是 \TU/lmr/m/n/10 C++ \TU/SimSun(0)/m/n/10 的 保 护 机 制 在 作 怪  |— —|  它 不 允 许 你 把 [][][] 作 为 一 个 参 数 传 给 [][][][][][][][][][][][]，|
  []
 
-[200]
+[202]
 Overfull \hbox (28.51456pt too wide) in paragraph at lines 136--137
 [][][][] \TU/SimSun(0)/m/n/10 类 中 还 有 许 多 函 数 可 以 定 为 常 成 员 函 数，|  比 如 [][][][][]\TU/lmr/m/n/10 , [][][][][], [][][][][]\TU/SimSun(0)/m/n/10 ，|
  []
 
-[201] [202] [203]
+[203] [204] [205]
 File: ./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_lazy_tag.drawio.png Graphic file (type bmp)
 <./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_lazy_tag.drawio.png>
- [204] [205]
+ [206] [207]
 Overfull \hbox (12.9415pt too wide) in paragraph at lines 297--298
 []\TU/SimSun(0)/m/n/10 第 一 次 调 用 [][][][] 成 员 函 数，|  这 个 值 被 计 算 出 来 并 存 储 到 [][][] 中，|  同 时 延 迟 标 记 [][][]
  []
 
-) (./generalized_parts/08_a_step_forward_in_classes_and_functions/05_type_cast_operator.tex [206]
+) (./generalized_parts/08_a_step_forward_in_classes_and_functions/05_type_cast_operator.tex [208]
 Overfull \hbox (7.65822pt too wide) in paragraph at lines 42--42
 \TU/SimSun(0)/m/n/10 事 实 证 明 这 段 代 码 是 可 以 正 常 编 译 运 行 的  |— —|  换 句 话 说，| [][][][][] 类 的 [][][] 被 隐 式 类 型 转 换 成 了 [][][]
  []
 
-[207]
+[209]
 Overfull \hbox (145.78337pt too wide) in paragraph at lines 77--77
 []\TU/SimSun(0)/m/n/10 构 造 函 数 能 够 部 分 地 解 决 我 们 的 类 型 转 换 需 求，|  但 不 是 全 部。|  试 想，|  我 们 可 以 通 过 [][][][][][][][][][][][][][][]
  []
 
 File: ./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_type_conversion_between_classes.drawio.png Graphic file (type bmp)
 <./08_a_step_forward_in_classes_and_functions/../images/generalized_parts/08_type_conversion_between_classes.drawio.png>
-[208] [209]
+[210] [211]
 Overfull \hbox (26.70149pt too wide) in paragraph at lines 163--163
 []\TU/SimSun(0)/m/n/10 至 于 [][][]，|  它 也 会 不 动 声 色 地 隐 式 类 型 转 换 为 [][][][]，|  于 是 我 们 不 需 要 为 了 [][][][][][][]
  []
 
-[210] [211] (./08_a_step_forward_in_classes_and_functions/../code_in_book/8.1-8.2/Header.hpp
+[212] [213] (./08_a_step_forward_in_classes_and_functions/../code_in_book/8.1-8.2/Header.hpp
 Overfull \hbox (12.87729pt too wide) in paragraph at lines 20--21
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[212]) (./08_a_step_forward_in_classes_and_functions/../code_in_book/8.1-8.2/Definition.cpp [213]
+[214]) (./08_a_step_forward_in_classes_and_functions/../code_in_book/8.1-8.2/Definition.cpp [215]
 Overfull \hbox (2.07718pt too wide) in paragraph at lines 31--32
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1479,10 +1459,10 @@ Overfull \hbox (2.07718pt too wide) in paragraph at lines 44--45
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [214]
+ [216]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [215])) (./generalized_parts/08_a_step_forward_in_classes_and_functions/06_compound_types_and_objects.tex [216] [217] [218]
+ [217])) (./generalized_parts/08_a_step_forward_in_classes_and_functions/06_compound_types_and_objects.tex [218] [219] [220]
 Overfull \hbox (16.98334pt too wide) in paragraph at lines 86--86
 \TU/SimSun(0)/m/n/10 这 个 过 程 看 似 简 单，|  但 是 内 部 是 非 常 复 杂 的。|  在 我 们 分 配 一 段 动 态 内 存 的 时 候，|  每 个 [][][][][][][][][][]
  []
@@ -1497,17 +1477,17 @@ Overfull \hbox (53.86743pt too wide) in paragraph at lines 5--5
 [][][][][][] \TU/SimSun(0)/m/n/10 的 全 称 是 [][][][][][][][][][][][][][][][][][][][][][][][][][]。|
  []
 
-[219] [220]
+[221] [222]
 Overfull \hbox (1.19711pt too wide) in paragraph at lines 31--31
 [][][][] \TU/SimSun(0)/m/n/10 成 员 函 数 和 六 个 重 载 比 较 运 算 符  |（非 成 员 函 数）|  的 作 用 是 进 行 字 典 序 比 较。|  对 于 [][][]
  []
 
-[221] [222] [223] [224]
+[223] [224] [225] [226]
 Overfull \hbox (37.26477pt too wide) in paragraph at lines 195--196
 \TU/SimSun(0)/m/n/10 工 作 有 点 太 难 了，|  但 是 不 要 担 心，|  我 们 可 以 像 之 前 那 样，|  用 \TU/lmr/m/n/10 C++ \TU/SimSun(0)/m/n/10 算 法 库 中 的 [][][][][]
  []
 
-[225]
+[227]
 Overfull \hbox (7.47723pt too wide) in paragraph at lines 226--227
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1517,7 +1497,7 @@ Overfull \hbox (10.46147pt too wide) in paragraph at lines 254--255
 \TU/SimSun(0)/m/n/10 来 把 二 者 合 并 为 同 一 个 函 数，|  因 为 默 认 参 数 的 确 定 是 编 译 时 行 为，|  而 编 译 器 是 无 法 预 测 [][][][][][][][]
  []
 
-[226] [227] [228]
+[228] [229] [230]
 Overfull \hbox (172.78333pt too wide) in paragraph at lines 387--387
 \TU/SimSun(0)/m/n/10 这 里 我 们 又 进 行 了 代 码 重 用，|  通 过 另 外 两 个 成 员 函 数，|  直 接 实 现 本 函 数 的 功 能。|  在 调 用 [][][][][][][][][][][][][][][][][][]
  []
@@ -1527,29 +1507,29 @@ Overfull \hbox (7.35712pt too wide) in paragraph at lines 387--387
 \TU/SimSun(0)/m/n/10 的 过 程 中，|  函 数 期 待 传 入 [][][] 对 象 但 我 们 提 供 了 [][][][][][][][][][] 或 [][][][][][][][][][]
  []
 
-[229] [230]
+[231] [232]
 Overfull \hbox (7.47723pt too wide) in paragraph at lines 492--493
 [][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[231] [232] (./08_a_step_forward_in_classes_and_functions/../code_in_book/8.3-8.4/Header.hpp [233]
+[233] [234] (./08_a_step_forward_in_classes_and_functions/../code_in_book/8.3-8.4/Header.hpp [235]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [234]) (./08_a_step_forward_in_classes_and_functions/../code_in_book/8.3-8.4/Definition.cpp
+ [236]) (./08_a_step_forward_in_classes_and_functions/../code_in_book/8.3-8.4/Definition.cpp
 Overfull \hbox (7.47723pt too wide) in paragraph at lines 10--11
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[235]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [236]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [237]
+[237]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [238]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [239]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [240]
 Overfull \hbox (7.47723pt too wide) in paragraph at lines 205--206
 [][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1557,26 +1537,26 @@ Overfull \hbox (7.47723pt too wide) in paragraph at lines 205--206
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [239]
+ [241]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [240]))) (./generalized_parts/09_class_inheritance.tex [241] [242
+ [242]))) (./generalized_parts/09_class_inheritance.tex [243] [244
 
 ]
 第九章
 (./generalized_parts/09_class_inheritance/01_the_concepts_of_inheritance.tex
 Underfull \vbox (badness 1210) has occurred while \output is active []
 
- [243] [244]
+ [245] [246]
 File: ./09_class_inheritance/../images/generalized_parts/09_dog_and_husky_relationship.drawio.png Graphic file (type bmp)
 <./09_class_inheritance/../images/generalized_parts/09_dog_and_husky_relationship.drawio.png>
-) (./generalized_parts/09_class_inheritance/02_public_inheritance_and_protected_members.tex [245]
+) (./generalized_parts/09_class_inheritance/02_public_inheritance_and_protected_members.tex [247]
 File: ./09_class_inheritance/../images/generalized_parts/09_protected_members.drawio.png Graphic file (type bmp)
 <./09_class_inheritance/../images/generalized_parts/09_protected_members.drawio.png>
- [246]
+ [248]
 File: ./images/generalized_parts/09_built_in_base_class_object_in_derived_class.drawio.png Graphic file (type bmp)
 <./images/generalized_parts/09_built_in_base_class_object_in_derived_class.drawio.png>
- [247] [248]) (./generalized_parts/09_class_inheritance/03_private_inheritance.tex [249] [250] [251] [252]
+ [249] [250]) (./generalized_parts/09_class_inheritance/03_private_inheritance.tex [251] [252] [253] [254]
 File: ./09_class_inheritance/../images/generalized_parts/09_lifo_stack.png Graphic file (type bmp)
 <./09_class_inheritance/../images/generalized_parts/09_lifo_stack.png>
 
@@ -1584,25 +1564,25 @@ Overfull \hbox (13.44775pt too wide) in paragraph at lines 134--135
 []\TU/SimSun(0)/m/n/10 注 意，|  这 些 [][][][][] 的 功 能 仅 限 [][][] 类 内 部 使 用；|  而 对 于 外 部 来 说，|  不 是 所 有 的 [][][][][]
  []
 
-[253]
+[255]
 Overfull \hbox (61.0329pt too wide) in paragraph at lines 147--148
 []\TU/SimSun(0)/m/n/10 有 的 构 造 函 数 接 收 一 个 [][][] 类 对 象  |— —|  对 于 我 们 来 说，|  这 个 [][][] 指 的 就 是 [][][][][][][][][][]。| 
  []
 
-[254]
+[256]
 Overfull \hbox (19.5571pt too wide) in paragraph at lines 228--228
 \TU/SimSun(0)/m/n/10 这 里 的 构 造 函 数 调 用 了 [][][][][][][][][][] 的 拷 贝 构 造 函 数，|  用 以 为 [][][] 类 内 嵌 的 [][][][][][][][][][]
  []
 
-[255]
+[257]
 Overfull \hbox (119.46495pt too wide) in paragraph at lines 262--262
 \TU/SimSun(0)/m/n/10 以 无 风 险 转 换 为 基 类 对 象[][][][][]，|  但 基 类 对 象 就 不 能 隐 式 转 换 为 派 生 类 对 象。|  所 以 对 于 [][][][][][][][][][][][][][][][][][][][][]
  []
 
-[256] (./09_class_inheritance/../code_in_book/9.1-9.2/Header.hpp [257]) (./09_class_inheritance/../code_in_book/9.1-9.2/Definition.cpp [258])) (./generalized_parts/09_class_inheritance/04_sequential_inheriance.tex
+[258] (./09_class_inheritance/../code_in_book/9.1-9.2/Header.hpp [259]) (./09_class_inheritance/../code_in_book/9.1-9.2/Definition.cpp [260])) (./generalized_parts/09_class_inheritance/04_sequential_inheriance.tex
 File: ./09_class_inheritance/../images/generalized_parts/09_taxonomic_rank_graph_of_red_fox.png Graphic file (type bmp)
 <./09_class_inheritance/../images/generalized_parts/09_taxonomic_rank_graph_of_red_fox.png>
- [259] [260]
+ [261] [262]
 Overfull \hbox (3.59898pt too wide) in paragraph at lines 56--56
 \TU/SimSun(0)/m/n/10 像 这 样，|  我 们 就 可 以 通 过 继 承 关 系 建 立 起 一 个 复 杂 的 树 状 结 构。|  所 以 一 个 赤 狐 种 的 对 象 具 有 从 [][][]
  []
@@ -1624,40 +1604,40 @@ Overfull \hbox (2.33713pt too wide) in paragraph at lines 79--79
 []\TU/SimSun(0)/m/n/10 敏 锐 的 读 者 可 能 发 现 了，|  图 \TU/lmr/m/n/10 9.6 \TU/SimSun(0)/m/n/10 中 的 [][][][][] 类 同 时 继 承 了 [][][][][]
  []
 
-)) (./generalized_parts/10_common_problems_in_inheritance.tex [261] [262]
+)) (./generalized_parts/10_common_problems_in_inheritance.tex [263] [264]
 第十章
-(./generalized_parts/10_common_problems_in_inheritance/01_type_cast_in_inheritance_relationship.tex [263
+(./generalized_parts/10_common_problems_in_inheritance/01_type_cast_in_inheritance_relationship.tex [265
 
 ]
 File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_derived_class_object_and_subobject_in_memory.drawio.png Graphic file (type bmp)
 <./10_common_problems_in_inheritance/../images/generalized_parts/10_derived_class_object_and_subobject_in_memory.drawio.png>
- [264]
+ [266]
 Overfull \hbox (10.19899pt too wide) in paragraph at lines 66--66
 []\TU/SimSun(0)/m/n/10 这 里 我 们 看 到 的 都 是 指 针\TU/lmr/m/n/10 /\TU/SimSun(0)/m/n/10 引 用 的 隐 式 类 型 转 换。|  如 果 要 做 显 式 类 型 转 换 的 话，|  我 们 用 [][][][][]
  []
 
-[265]
+[267]
 File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_possible_issues_in_downcasting.drawio.png Graphic file (type bmp)
 <./10_common_problems_in_inheritance/../images/generalized_parts/10_possible_issues_in_downcasting.drawio.png>
- [266]) (./generalized_parts/10_common_problems_in_inheritance/02_virtual_function_and_polymorphism.tex [267] [268] [269]
+ [268]) (./generalized_parts/10_common_problems_in_inheritance/02_virtual_function_and_polymorphism.tex [269] [270] [271]
 Overfull \hbox (2.07718pt too wide) in paragraph at lines 156--157
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[270]
+[272]
 Overfull \hbox (14.49713pt too wide) in paragraph at lines 176--176
 \TU/SimSun(0)/m/n/10 根 据 对 象 的 类 型 就 可 以 推 测 出 它 要 调 用 的 是 [][][][][][][][]，|  而 不 是 [][][][][][][][][][][]
  []
 
-[271]) (./generalized_parts/10_common_problems_in_inheritance/03_abstract_base_class_and_pure_virtual_function.tex [272]
+[273]) (./generalized_parts/10_common_problems_in_inheritance/03_abstract_base_class_and_pure_virtual_function.tex [274]
 File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_complex_class.drawio.png Graphic file (type bmp)
 <./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_complex_class.drawio.png>
 File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_parallelogram_class.drawio.png Graphic file (type bmp)
 <./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_parallelogram_class.drawio.png>
- [273]
+ [275]
 File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_shape_class.drawio.png Graphic file (type bmp)
 <./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_shape_class.drawio.png>
- [274] [275] [276]) (./generalized_parts/10_common_problems_in_inheritance/04_multiple_inheritance.tex
+ [276] [277] [278]) (./generalized_parts/10_common_problems_in_inheritance/04_multiple_inheritance.tex
 Overfull \hbox (0.61789pt too wide) in paragraph at lines 2--2
 []\TU/SimSun(0)/m/n/10 在 上 一 章 中，|  我 们 看 到 了 \TU/lmr/m/n/10 C++ \TU/SimSun(0)/m/n/10 流 输 入\TU/lmr/m/n/10 /\TU/SimSun(0)/m/n/10 输 出 库 中 复 杂 的 继 承 关 系。|  其 中 的 [][][][][]
  []
@@ -1667,42 +1647,42 @@ Overfull \hbox (32.96149pt too wide) in paragraph at lines 4--4
 []\TU/SimSun(0)/m/n/10 以 [][][][][] 为 例，|  它 继 承 自 [][][][][]，|  而 [][][][][] 多 重 继 承 自 [][][][][]
  []
 
-[277]
+[279]
 Overfull \hbox (80.47179pt too wide) in paragraph at lines 46--46
 \TU/SimSun(0)/m/n/10 作 用 域 解 析 运 算 符 拥 有 最 高 优 先 级，|  所 以 [][][][][][][][][][][][][][] 的 含 义 是 [][][][][][][][][][][][][][]。|
  []
 
 File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_multiple_inheritance_example.drawio.png Graphic file (type bmp)
 <./10_common_problems_in_inheritance/../images/generalized_parts/10_multiple_inheritance_example.drawio.png>
-[278] [279]
+[280] [281]
 File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_diamond_inheritance.drawio.png Graphic file (type bmp)
 <./10_common_problems_in_inheritance/../images/generalized_parts/10_diamond_inheritance.drawio.png>
 ) (./generalized_parts/10_common_problems_in_inheritance/05_virtual_inheritance.tex
 File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_diamond_virtual_inheritance.drawio.png Graphic file (type bmp)
 <./10_common_problems_in_inheritance/../images/generalized_parts/10_diamond_virtual_inheritance.drawio.png>
- [280] [281]
+ [282] [283]
 File: ./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_shape_class_with_multiple_inheritance.drawio.png Graphic file (type bmp)
 <./10_common_problems_in_inheritance/../images/generalized_parts/10_abstract_shape_class_with_multiple_inheritance.drawio.png>
- [282] [283] [284] [285] (./code_in_book/10.1/Header.hpp [286]))) (./generalized_parts/11_templates_and_fundamental_generic_programming.tex [287] [288
+ [284] [285] [286] [287] (./code_in_book/10.1/Header.hpp [288]))) (./generalized_parts/11_templates_and_fundamental_generic_programming.tex [289] [290
 
 ]
 第十一章
-(./generalized_parts/11_templates_and_fundamental_generic_programming/01_function_templates_and_constexpr.tex [289]
+(./generalized_parts/11_templates_and_fundamental_generic_programming/01_function_templates_and_constexpr.tex [291]
 Overfull \hbox (2.25177pt too wide) in paragraph at lines 30--30
 \TU/SimSun(0)/m/n/10 在 这 里，| [][][] 就 是 一 个 待 定 的 类 名。|  编 译 器 会 根 据 我 们 在 代 码 中 的 实 际 需 要，|  生 成[][][][][][][] 的 版 本、| [][][][][][][]
  []
 
-[290]
+[292]
 Overfull \hbox (109.22652pt too wide) in paragraph at lines 89--89
 \TU/SimSun(0)/m/n/10 长 度 的 数 组。|  如 果 我 们 需 要 处 理 一 个 [][][][][] 数 组 呢？|  必 须 重 载 另 一 个 非 模 板 函 数 [][][][][][][][][][][][][][][][]
  []
 
-[291]
+[293]
 Overfull \hbox (14.20634pt too wide) in paragraph at lines 121--121
 []\TU/SimSun(0)/m/n/10 我 们 想，| [][][] 和 [][][] 都 是 [][][][][][] 类 型 的。|  在 调 用 [][][] 时，|  编 译 器 会 选 中 [][][][][][][][][][][][][][][][][]来
  []
 
-(./code_in_book/11.1/swap.hpp [292]) [293]) (./generalized_parts/11_templates_and_fundamental_generic_programming/02_instantiation_and_specialization_of_function_templates.tex
+(./code_in_book/11.1/swap.hpp [294]) [295]) (./generalized_parts/11_templates_and_fundamental_generic_programming/02_instantiation_and_specialization_of_function_templates.tex
 Overfull \hbox (62.47493pt too wide) in paragraph at lines 18--18
 \TU/SimSun(0)/m/n/10 这 说 明 程 序 需 要 一 个 [][][][][][][] 的 函 数，|  那 么 编 译 器 就 会 生 成 一 个 这 样 的 函 数，|  它 的 全 名 叫 作 [][][][][][][][][][]，|
  []
@@ -1712,12 +1692,12 @@ Overfull \hbox (0.25928pt too wide) in paragraph at lines 18--18
 [][][][][] \TU/SimSun(0)/m/n/10 数 据，|  那 么 编 译 器 就 会 推 导 出 [][][][][][][]，|  然 后 生 成 一 个 这 样 的 函 数，|  它 的 全 名 叫 作 [][][][][][][][][][]，|
  []
 
-[294] [295]
+[296] [297]
 Overfull \hbox (6.47464pt too wide) in paragraph at lines 66--67
 []\TU/SimSun(0)/m/n/10 代 码 \TU/lmr/m/n/10 11.1 \TU/SimSun(0)/m/n/10 中 的 两 个 [][][][][] 函 数 之 间 也 有 重 载 关 系。|  当 我 们 不 加 模 板 实 参 地 调 用 [][][][][]
  []
 
-[296] (./11_templates_and_fundamental_generic_programming/../code_in_book/11.2-11.3/is_same.hpp [297]) (./11_templates_and_fundamental_generic_programming/../code_in_book/11.2-11.3/main.cpp) [298]) (./generalized_parts/11_templates_and_fundamental_generic_programming/03_class_templates.tex
+[298] (./11_templates_and_fundamental_generic_programming/../code_in_book/11.2-11.3/is_same.hpp [299]) (./11_templates_and_fundamental_generic_programming/../code_in_book/11.2-11.3/main.cpp) [300]) (./generalized_parts/11_templates_and_fundamental_generic_programming/03_class_templates.tex
 Overfull \hbox (48.54523pt too wide) in paragraph at lines 12--12
 [][][][][][][][][][][] \TU/SimSun(0)/m/n/10 是 一 个 类 实 例，|  简 称 类。|  这 个 类 的 对 象 所 存 储 的 元 素 均 为 [][][][][] 数 据；| [][][][][][][][][][]
  []
@@ -1727,22 +1707,22 @@ Overfull \hbox (11.29227pt too wide) in paragraph at lines 25--26
 [][][][][][] \TU/SimSun(0)/m/n/10 和 [][][][][] 都 属 于 \TU/lmr/m/n/10 STL \TU/SimSun(0)/m/n/10 的 一 部 分，|  它 们 对 迭 代 器 的 支 持 很 完 备；| [][][][][]
  []
 
-[299] [300]
+[301] [302]
 Overfull \hbox (52.60336pt too wide) in paragraph at lines 80--80
 \TU/SimSun(0)/m/n/10 要 类 模 板 参 数 有 一 点 不 同，|  它 们 就 不 是 同 一 个 类 型。|  比 如 说 吧，| [][][][][][][][][][] 和 [][][][][][][][][][]
  []
 
-[301] [302] [303]
+[303] [304] [305]
 Overfull \hbox (58.62335pt too wide) in paragraph at lines 213--215
 \TU/SimSun(0)/m/n/10 提 醒 读 者，|  只 要 模 板 参 数 有 一 点 不 同，|  两 个 类 实 例 就 不 是 同 类。|  所 以 [][][][][][][][][][] 和 [][][][][][][][][][]
  []
 
-[304]) (./generalized_parts/11_templates_and_fundamental_generic_programming/04_friend_instantiation_and_specialization_of_class_templates.tex [305]
+[306]) (./generalized_parts/11_templates_and_fundamental_generic_programming/04_friend_instantiation_and_specialization_of_class_templates.tex [307]
 Overfull \hbox (2.07718pt too wide) in paragraph at lines 26--27
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[306] [307] [308]
+[308] [309] [310]
 Overfull \hbox (11.359pt too wide) in paragraph at lines 144--144
 []\TU/SimSun(0)/m/n/10 我 们 思 考 一 下，| [][][][][][][] 是 一 个 \TU/lmr/m/n/10 “‘\TU/SimSun(0)/m/n/10 类 模 板\TU/lmr/m/n/10 ’ \TU/SimSun(0)/m/n/10 的 成 员 \TU/lmr/m/n/10 ‘\TU/SimSun(0)/m/n/10 函 数 模 板\TU/lmr/m/n/10 ”’\TU/SimSun(0)/m/n/10 。|  这 里 的 第 一 个 [][][][][]
  []
@@ -1752,24 +1732,24 @@ Overfull \hbox (35.7371pt too wide) in paragraph at lines 157--157
 [][][][][][] \TU/SimSun(0)/m/n/10 并 没 有 提 供 对 于 [][][][][] 类 型 的 特 化，|  不 过 我 们 也 可 以 自 己 动 手 写 一 个 [][][][][][][][][][][][]
  []
 
-[309] [310] (./11_templates_and_fundamental_generic_programming/../code_in_book/11.4-11.6/array.hpp [311]
+[311] [312] (./11_templates_and_fundamental_generic_programming/../code_in_book/11.4-11.6/array.hpp [313]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [312]) (./11_templates_and_fundamental_generic_programming/../code_in_book/11.4-11.6/Specification.tpp [313]) (./11_templates_and_fundamental_generic_programming/../code_in_book/11.4-11.6/Definition.tpp [314]
+ [314]) (./11_templates_and_fundamental_generic_programming/../code_in_book/11.4-11.6/Specification.tpp [315]) (./11_templates_and_fundamental_generic_programming/../code_in_book/11.4-11.6/Definition.tpp [316]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [315]
+ [317]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [316])
+ [318])
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [317]) (./generalized_parts/11_templates_and_fundamental_generic_programming/05_introduction_to_STL.tex
+ [319]) (./generalized_parts/11_templates_and_fundamental_generic_programming/05_introduction_to_STL.tex
 Overfull \hbox (6.41899pt too wide) in paragraph at lines 15--16
 [][][][][][] \TU/SimSun(0)/m/n/10 表 示 一 个 双 端 队 列，|  它 允 许 我 们 在 容 器 的 首 尾 快 速 插 入\TU/lmr/m/n/10 /\TU/SimSun(0)/m/n/10 删 除 元 素。|  虽 然 [][][][][]
  []
 
-[318] [319] (./code_in_book/11.7/remove_duplicate.cpp) [320]
+[320] [321] (./code_in_book/11.7/remove_duplicate.cpp) [322]
 Overfull \hbox (35.9114pt too wide) in paragraph at lines 86--86
 [][][][][]\TU/lmr/m/n/10 , [][][][][], [][][][][] \TU/SimSun(0)/m/n/10 及 [][][][][]。| 
  []
@@ -1779,7 +1759,7 @@ Overfull \hbox (20.44911pt too wide) in paragraph at lines 90--90
 \TU/lmr/m/n/10 C++17\TU/SimSun(0)/m/n/10 ，| \TU/lmr/m/n/10 STL \TU/SimSun(0)/m/n/10 库 一 共 为 我 们 提 供 了 三 种 容 器 适 配 器：| [][][][][]\TU/lmr/m/n/10 , [][][][][] \TU/SimSun(0)/m/n/10 和 [][][][][]。| 
  []
 
-[321]
+[323]
 File: ./11_templates_and_fundamental_generic_programming/../images/generalized_parts/11_different_types_of_pointer_to_containers.drawio.png Graphic file (type bmp)
 <./11_templates_and_fundamental_generic_programming/../images/generalized_parts/11_different_types_of_pointer_to_containers.drawio.png>
 
@@ -1787,7 +1767,7 @@ Overfull \hbox (61.20929pt too wide) in paragraph at lines 129--129
 []\TU/SimSun(0)/m/n/10 每 个 容 器 都 有 内 置 的 迭 代 器 类 型。|  比 如 [][][][][] 的 迭 代 器 类 型 就 叫 [][][][][][][][][][][]。|
  []
 
-[322]
+[324]
 File: ./11_templates_and_fundamental_generic_programming/../images/generalized_parts/11_range_begin_end.png Graphic file (type bmp)
 <./11_templates_and_fundamental_generic_programming/../images/generalized_parts/11_range_begin_end.png>
 
@@ -1795,7 +1775,7 @@ Overfull \hbox (17.1171pt too wide) in paragraph at lines 143--143
 []\TU/SimSun(0)/m/n/10 接 下 来 这 段 代 码 是 通 过 迭 代 器 实 现 的 简 单 遍 历 操 作，|  我 们 在 [][][][][] 循 环 内 按 顺 序 输 出 [][][][][][][][][][]
  []
 
-[323]
+[325]
 Overfull \hbox (16.37143pt too wide) in paragraph at lines 153--154
 []\TU/SimSun(0)/m/n/10 这 个 [][][][][] 循 环 是 从 [][][][][][] 开 始 的。|  关 于 这 个 首 元 素，|  我 们 还 有 另 一 种 写 法：| [][][][][][][][]。|
  []
@@ -1805,10 +1785,10 @@ Overfull \hbox (32.56332pt too wide) in paragraph at lines 170--170
 []\TU/SimSun(0)/m/n/10 不 同 容 器 有 不 同 迭 代 器 类，|  这 些 迭 代 器 实 现 的 功 能 可 以 存 在 差 异。|  比 如 说，| [][][][][][][][][][][]
  []
 
-[324] [325] [326]
+[326] [327] [328]
 File: ./11_templates_and_fundamental_generic_programming/../images/generalized_parts/11_algorithm_copy.drawio.png Graphic file (type bmp)
 <./11_templates_and_fundamental_generic_programming/../images/generalized_parts/11_algorithm_copy.drawio.png>
- [327] [328] [329]) (./generalized_parts/11_templates_and_fundamental_generic_programming/06_exercise_smart_pointers.tex
+ [329] [330] [331]) (./generalized_parts/11_templates_and_fundamental_generic_programming/06_exercise_smart_pointers.tex
 Overfull \hbox (1.7443pt too wide) in paragraph at lines 4--4
 []\TU/lmr/m/n/10 C++17 \TU/SimSun(0)/m/n/10 有 三 种 智 能 指 针：| [][][][][] 禁 止 不 同 智 能 指 针 指 向 相 同 地 址；| [][][][][]
  []
@@ -1818,7 +1798,7 @@ Overfull \hbox (33.02986pt too wide) in paragraph at lines 11--11
 |\TU/SimSun(0)/m/n/10 — —| \TU/lmr/m/n/10 C++ \TU/SimSun(0)/m/n/10 绝 对 不 允 许 我 们 对 未 经 分 配  |（包 括 已 经 回 收 的）|  的 动 态 内 存 和 任 何 静 态 内 存 进 行 [][][][][]\TU/lmr/m/n/10 /[][][][][][]
  []
 
-[330] [331]
+[332] [333]
 Overfull \hbox (105.9727pt too wide) in paragraph at lines 62--62
 []\TU/SimSun(0)/m/n/10 我 们 会 为 每 一 个 [][][][][][][][] 类 和 [][][][][][][][] 类 设 计 一 个 静 态 的 [][][][][][][][]
  []
@@ -1828,7 +1808,7 @@ Overfull \hbox (25.04771pt too wide) in paragraph at lines 71--71
 \TU/SimSun(0)/m/n/10 这 样 一 来，|  我 们 就 可 以 在 类 内 用 [][][] 指 代 [][][][] 类 型；|  而 在 类 外，|  我 们 也 可 以 用 [][][][][][][]
  []
 
-[332] [333] [334] [335] [336] (./code_in_book/11.8-11.9/unique_ptr.hpp [337]
+[334] [335] [336] [337] [338] (./code_in_book/11.8-11.9/unique_ptr.hpp [339]
 Overfull \hbox (7.47723pt too wide) in paragraph at lines 21--22
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1841,33 +1821,33 @@ Overfull \hbox (2.07718pt too wide) in paragraph at lines 44--45
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [338]) (./code_in_book/11.8-11.9/Definition.tpp
+ [340]) (./code_in_book/11.8-11.9/Definition.tpp
 Overfull \hbox (2.07718pt too wide) in paragraph at lines 13--14
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[339]
+[341]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [340]))) (./generalized_parts/12_introduction_to_exceptions.tex [341] [342
+ [342]))) (./generalized_parts/12_introduction_to_exceptions.tex [343] [344
 
 ]
 第十二章
-(./generalized_parts/../generalized_parts/12_introduction_to_exceptions/01_try_catch_throw.tex [343] (./code_in_book/12.1/solve_equation.cpp) [344] [345] [346] [347]) (./generalized_parts/../generalized_parts/12_introduction_to_exceptions/02_std_exception.tex
+(./generalized_parts/../generalized_parts/12_introduction_to_exceptions/01_try_catch_throw.tex [345] (./code_in_book/12.1/solve_equation.cpp) [346] [347] [348] [349]) (./generalized_parts/../generalized_parts/12_introduction_to_exceptions/02_std_exception.tex
 File: ./generalized_parts/../images/generalized_parts/12_std_exception_family.drawio.png Graphic file (type bmp)
 <./generalized_parts/../images/generalized_parts/12_std_exception_family.drawio.png>
- [348] [349] [350]) (./generalized_parts/../generalized_parts/12_introduction_to_exceptions/03_exercise_matrix.tex
+ [350] [351] [352]) (./generalized_parts/../generalized_parts/12_introduction_to_exceptions/03_exercise_matrix.tex
 Overfull \hbox (4.04802pt too wide) in paragraph at lines 5--5
 [][][][][] \TU/SimSun(0)/m/n/10 和 [][][][][][][][][][] 这 种 需 要 在 编 译 时 确 定 大 小 的 就 不 行 了。|  在 这 里 我 们 选 择 [][][][][]，|
  []
 
-[351] [352] [353] [354] [355] [356] [357]
+[353] [354] [355] [356] [357] [358] [359]
 Underfull \vbox (badness 1221) has occurred while \output is active []
 
- [358] (./code_in_book/12.2-12.3/Header.hpp [359]
+ [360] (./code_in_book/12.2-12.3/Header.hpp [361]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [360]) (./code_in_book/12.2-12.3/Definition.tpp [361]
+ [362]) (./code_in_book/12.2-12.3/Definition.tpp [363]
 Overfull \hbox (29.07745pt too wide) in paragraph at lines 74--75
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1875,13 +1855,13 @@ Overfull \hbox (29.07745pt too wide) in paragraph at lines 74--75
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [362]
+ [364]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [363]
+ [365]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [364]))) (./generalized_parts/13_input_output_streams_overview.tex [365] [366
+ [366]))) (./generalized_parts/13_input_output_streams_overview.tex [367] [368
 
 ]
 第十三章
@@ -1890,20 +1870,20 @@ File: ./generalized_parts/../images/generalized_parts/13_von_neumann_architectur
 (./generalized_parts/../generalized_parts/13_input_output_streams_overview/01_data_transfer_in_streams.tex
 File: ./generalized_parts/../images/generalized_parts/13_input_output_stream.drawio.png Graphic file (type bmp)
 <./generalized_parts/../images/generalized_parts/13_input_output_stream.drawio.png>
- [367]
+ [369]
 Overfull \hbox (9.47179pt too wide) in paragraph at lines 30--30
 \TU/SimSun(0)/m/n/10 假 如 我 们 要 输 入 一 个 [][][][][] 型 变 量 的 值，|  那 么 程 序 就 会 调 用 [][][][][][][][][][][][][][]。|
  []
 
-[368]
+[370]
 Overfull \hbox (34.30148pt too wide) in paragraph at lines 58--58
 []\TU/SimSun(0)/m/n/10 如 果 我 们 还 同 时 有 换 行 需 求 的 话，|  那 么 我 们 可 以 不 用 手 动 [][][] 了，|  直 接 写 一 个 [][][][][][][][][]
  []
 
-) (./generalized_parts/../generalized_parts/13_input_output_streams_overview/02_iostream.tex [369]
+) (./generalized_parts/../generalized_parts/13_input_output_streams_overview/02_iostream.tex [371]
 File: ./generalized_parts/../images/generalized_parts/13_input_with_space_delimiter.drawio.png Graphic file (type bmp)
 <./generalized_parts/../images/generalized_parts/13_input_with_space_delimiter.drawio.png>
- [370]
+ [372]
 File: ./generalized_parts/../images/generalized_parts/13_input_without_delimiter.drawio.png Graphic file (type bmp)
 <./generalized_parts/../images/generalized_parts/13_input_without_delimiter.drawio.png>
 File: ./generalized_parts/../images/generalized_parts/13_input_for_calculator.drawio.png Graphic file (type bmp)
@@ -1911,7 +1891,7 @@ File: ./generalized_parts/../images/generalized_parts/13_input_for_calculator.dr
 
 Underfull \vbox (badness 1314) has occurred while \output is active []
 
- [371]
+ [373]
 Underfull \hbox (badness 10000) in paragraph at lines 97--104
 
  []
@@ -1921,7 +1901,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 97--104
 
  []
 
-[372]
+[374]
 Underfull \hbox (badness 10000) in paragraph at lines 112--119
 
  []
@@ -1948,17 +1928,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 112--119
 
 File: ./generalized_parts/../images/generalized_parts/13_getline_vs_get.drawio.png Graphic file (type bmp)
 <./generalized_parts/../images/generalized_parts/13_getline_vs_get.drawio.png>
-[373] [374] [375]
+[375] [376] [377]
 Overfull \hbox (30.19899pt too wide) in paragraph at lines 217--217
 \TU/SimSun(0)/m/n/10 这 样，|  一 个 稳 妥 的 状 态 恢 复\TU/lmr/m/n/10 /\TU/SimSun(0)/m/n/10 问 题 消 除 流 程 就 完 成 了。|  这 也 就 是 我 们 从 第 三 章 开 始 就 在 用 的 那 个 [][][]
  []
 
-[376]
+[378]
 Overfull \hbox (6.69525pt too wide) in paragraph at lines 267--268
 []\TU/SimSun(0)/m/n/10 在 变 换 输 入\TU/lmr/m/n/10 /\TU/SimSun(0)/m/n/10 输 出 进 制 的 时 候，|  我 们 也 可 以 使 用 [][][] 成 员 函 数。|  八 进 制 使 用 [][][][][][][]；|
  []
 
-[377] (./generalized_parts/../code_in_book/13.1/output_info.cpp [378])
+[379] (./generalized_parts/../code_in_book/13.1/output_info.cpp [380])
 Overfull \hbox (24.43774pt too wide) in paragraph at lines 311--311
 []\TU/SimSun(0)/m/n/10 另 外，| [][][] 看 起 来 没 有 与 下 面 的 数 据 对 齐，|  这 是 怎 么 回 事 呢？|  其 实 原 因 在 于，|  我 们 紧 随 [][][][][][]
  []
@@ -1973,12 +1953,12 @@ Overfull \hbox (61.46246pt too wide) in paragraph at lines 313--314
 []\TU/SimSun(0)/m/n/10 我 们 可 以 更 改 [][][] 作 用 下 的 内 容 对 齐 方 式：| [][][][][][][] 是 默 认 的 右 对 齐，| [][][][][][][]
  []
 
-[379]) (./generalized_parts/../generalized_parts/13_input_output_streams_overview/03_sstream.tex
+[381]) (./generalized_parts/../generalized_parts/13_input_output_streams_overview/03_sstream.tex
 Overfull \hbox (91.639pt too wide) in paragraph at lines 2--2
 [][][][][][] \TU/SimSun(0)/m/n/10 继 承 自 [][][][][]，|  表 示 字 符 串 输 入\TU/lmr/m/n/10 /\TU/SimSun(0)/m/n/10 输 出。|  而 [][][][][]
  []
 
-[380]
+[382]
 Overfull \hbox (34.0146pt too wide) in paragraph at lines 10--10
 []\TU/SimSun(0)/m/n/10 下 面 是 一 个 简 单 的 使 用 字 符 串 输 入\TU/lmr/m/n/10 /\TU/SimSun(0)/m/n/10 输 出 的 示 例。|  我 们 先 把 待 输 入 的 内 容 存 进 一 个 [][][][][]
  []
@@ -1988,12 +1968,12 @@ Overfull \hbox (20.02336pt too wide) in paragraph at lines 10--10
 \TU/SimSun(0)/m/n/10 中。|  但 是 我 们 不 能 直 接 看 到 这 些 输 出 内 容，|  所 以 为 了 检 验，|  我 们 还 会 用 [][][][][] 把 [][][][][]
  []
 
-(./code_in_book/13.2/string_stream_calculator.cpp) [381]) (./generalized_parts/../generalized_parts/13_input_output_streams_overview/04_fstream.tex
+(./code_in_book/13.2/string_stream_calculator.cpp) [383]) (./generalized_parts/../generalized_parts/13_input_output_streams_overview/04_fstream.tex
 Overfull \hbox (16.30151pt too wide) in paragraph at lines 2--2
 [][][][][][] \TU/SimSun(0)/m/n/10 继 承 自 [][][][][]，|  表 示 文 件 输 入 输 出，|  而 [][][][][]
  []
 
-[382]
+[384]
 Overfull \hbox (7.43898pt too wide) in paragraph at lines 24--24
 []\TU/SimSun(0)/m/n/10 至 于 关 闭 文 件 流 的 [][][] 函 数 嘛… …|  我 们 可 以 不 写，|  一 般 来 说 都 是 没 问 题 的。|  对 于 [][][][][]
  []
@@ -2003,7 +1983,7 @@ Overfull \hbox (390.86694pt too wide) in paragraph at lines 27--28
 []\TU/SimSun(0)/m/n/10 不 同 的 操 作 系 统 对 文 件 路 径 的 规 则 是 不 一 样 的。|  比 如 一 个 \TU/lmr/m/n/10 Windows \TU/SimSun(0)/m/n/10 文 件 的 路 径 是[][]\TU/SourceCodePro(0)/m/n/10 C:\backslash Users\backslash username\backslash Documents\backslash README.md[]\TU/SimSun(0)/m/n/10 ，|
  []
 
-(./generalized_parts/../code_in_book/13.4/getpath.cpp) [383]
+(./generalized_parts/../code_in_book/13.4/getpath.cpp) [385]
 Overfull \hbox (32.3615pt too wide) in paragraph at lines 38--39
 [][][][] \TU/SimSun(0)/m/n/10 是 一 个 非 成 员 函 数，|  它 用 来 描 述 当 前 程 序 所 处 的 文 件 夹  |（不 是 文 件）|  路 径。| [][][][]
  []
@@ -2013,14 +1993,14 @@ Overfull \hbox (14.5815pt too wide) in paragraph at lines 49--49
 []\TU/SimSun(0)/m/n/10 除 了 [][][] 运 算 符，|  我 们 还 可 以 使 用 [][][] 运 算 符 来 进 行 路 径 的 拼 接，|  效 果 很 像 [][][] 运 算 符 之 于 [][][][][]
  []
 
-(./generalized_parts/../code_in_book/13.5/reverse_copy.cpp [384]) [385]
+(./generalized_parts/../code_in_book/13.5/reverse_copy.cpp [386]) [387]
 Overfull \hbox (6.31055pt too wide) in paragraph at lines 118--118
 [][][][][][][][] \TU/SimSun(0)/m/n/10 这 种 方 式 就 是 单 纯 地 写 入，|  它 不 需 要 组 合 [][][][][][][] 或 者 [][][][][][][]，|
  []
 
-))) (././intensive_part.tex [386] [387
+))) (././intensive_part.tex [388] [389
 
-] [388]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
+] [390]) (./other_parts/appendix.tex (./other_parts/appendices/A.tex
 附录 A
 
 Underfull \hbox (badness 6063) in paragraph at lines 16--16
@@ -2032,45 +2012,45 @@ Underfull \hbox (badness 7468) in paragraph at lines 46--46
 [][][]\TU/SimSun(0)/m/n/8.33344 注 意，|  重 载 运 算 符 对 参 数 有 特 殊 要 求：|  必 须 接 收 至 少 一 个 自 定 义 类 型 的 参 数，|  可 以 是 类 或 枚 举 类。|  比 如 说，|
  []
 
-[389
-
-]) (./other_parts/appendices/B.tex [390]
-附录 B
 [391
 
-]) (./other_parts/appendices/C.tex [392]
+]) (./other_parts/appendices/B.tex [392]
+附录 B
+[393
+
+]) (./other_parts/appendices/C.tex [394]
 附录 C
 File: appendices/../images/other_parts/C_digital_clock.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_digital_clock.png>
-[393
+[395
 
 ]
 File: appendices/../images/other_parts/C_from_counting_to_exponentiation.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_from_counting_to_exponentiation.png>
 File: appendices/../images/other_parts/C_duodecimal_multiplication_table.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_duodecimal_multiplication_table.png>
- [394]
+ [396]
 Underfull \vbox (badness 2753) has occurred while \output is active []
 
- [395] [396]
+ [397] [398]
 File: appendices/../images/other_parts/C_formatted_representation_of_a_number.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_formatted_representation_of_a_number.png>
- [397] [398]
+ [399] [400]
 File: appendices/../images/other_parts/C_short_division.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_short_division.png>
- [399] [400]
+ [401] [402]
 File: appendices/../images/other_parts/C_bin_to_oct.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_oct.png>
- [401]
+ [403]
 File: appendices/../images/other_parts/C_bin_to_hex.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_bin_to_hex.png>
 File: appendices/../images/other_parts/C_maya_numbers.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_maya_numbers.png>
- [402]) (./other_parts/appendices/D.tex [403] [404
+ [404]) (./other_parts/appendices/D.tex [405] [406
 
 ]
 附录 D
-)) (./other_parts/afterword.tex [405] [406
+)) (./other_parts/afterword.tex [407] [408
 
 ])
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -2081,14 +2061,14 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [407]
+ [409]
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [408] (./main.aux)
+ [410] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2022/08/05>
@@ -2098,11 +2078,11 @@ Package rerunfilecheck Info: File `main.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  28280 strings out of 474924
- 745765 string characters out of 5765037
+ 745863 string characters out of 5765037
  2050189 words of memory out of 5000000
  49120 multiletter control sequences out of 15000+600000
  571845 words of font info for 168 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,18n,111p,1239b,1918s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (416 pages).
+Output written on main.pdf (418 pages).

@@ -10,7 +10,8 @@
 \begin{lstlisting}
     char str4[5] {"Jack"}; //效果等同于上述str1的定义
 \end{lstlisting}
-这是一种语法糖\footnote{语法糖（Syntactic sugar），是指某种编程语言中的某些语法，它们对语言本身的功能没有影响，但是更方便程序员使用。语法糖可以让程序更简洁，有更高的可读性。}，实际上编译器会把它解释成和 \lstinline@str1@相同的初始化方式。不过呢，这种针对于字符数组的语法糖让我们初始化内容变得更简单了。然而，这种语法糖仅在初始化时有效。到了赋值的时候，我们不能这样写：
+这是一种语法糖\footnote{语法糖（Syntactic sugar），是指某种编程语言中的某些语法，它们对语言本身的功能没有影响，但是更方便程序员使用。语法糖可以让程序更简洁，有更高的可读性。}，实际上编译器会把它解释成和 \lstinline@str1@相同的初始化方式。不过呢，这种针对于字符数组的语法糖让我们初始化内容变得更简单了。\par
+然而这种语法糖仅在初始化时有效。到了赋值的时候，我们不能这样写：
 \begin{lstlisting}
     str1 = "Bob"; //错误！
 \end{lstlisting}
@@ -33,12 +34,12 @@
 \end{lstlisting}
 这里的 \lstinline@"Hello World!"@ 就是一个字符串字面量。\par
 字符串字面量不同于基本数据类型的字面量，它是一个数组，我们可以像其它数组名那样去输出它的地址。但是当我们用 \lstinline@cout@ 输出一个字符串字面量的时候，它输出的并不是地址，而是这个字符串的内容啊！\par
-类似的问题，我们在指针中也遇到过。当我们试图输出一个指针的时候，实际输出的可能是任何东西，但是怎么看都不像个地址值。这是因为，\lstinline@<<@ 对于 \lstinline@ostream@ 和 \lstinline@const char*@ 类型有特殊的重载。在遇到 \lstinline@char*@ 及其变体的类型时，会把它按照字符串的方式来输出，而不是输出它的地址。\par
+类似的问题，我们在指针中也遇到过。当我们试图输出一个指针的时候，实际输出的可能是任何东西，但是怎么看都不像个地址值。这是因为，\lstinline@<<@ 对于 \lstinline@ostream@ 和 \lstinline@const char*@ 类型有特殊的重载。在遇到 \lstinline@char*@ 等字符指针类型时，会把它按照字符串的方式来输出，而不是输出它的地址。\par
 为了看到它的地址，我们可以通过显式类型转换，把 \lstinline@char*@ 类型转换成 \lstinline@void*@ 类型然后输出，这样就能看到地址值了。
 \begin{lstlisting}
     cout << (void*)"Hello World!"; //输出0x4006a4
 \end{lstlisting}
-字符串字面量存储在数据段（Data section），这里的内容都是常量，所以字符串是一个常量 \lstinline@char@ 数组。我们可以用 \lstinline@typeid@ 检验。\footnote{MSVC中能看出它是 \lstinline@char const [13]@ 类型，但GCC中只有 \lstinline@A13_c@，看不出常量性，只能知道它是一个 \lstinline@char@ 数组。\lstinline@is_same@ 的检测相对更细致，不过它也有它的问题，见下文。}
+字符串字面量存储在数据段（Data section），这里的内容都是常量，所以字符串是一个常量 \lstinline@char@ 数组。我们可以用 \lstinline@typeid@ 检验。\footnote{Visual Studio中能看出它是 \lstinline@char const [13]@ 类型，但GCC中只有 \lstinline@A13_c@，看不出常量性，只能知道它是一个 \lstinline@char@ 数组。\lstinline@is_same@ 的检测相对更细致，不过它也有它的问题，见下文。}
 \begin{lstlisting}
     cout << typeid("Hello World!").name(); //输出A13_c
 \end{lstlisting}
@@ -46,13 +47,13 @@
 \begin{lstlisting}
     cout << is_same<decltype("Hello World!"), const char[13]>::value;
     //输出0，怎么回事？
-\end{lstlisting}
-具体的情况比较复杂，这涉及到 \lstinline@decltype@ 的问题\footnote{按标准，\lstinline@decltype("Hello World!")@ 返回的类型是一个对 \lstinline@const char[13]@ 的左值引用类型。}，读者不必深究。我们只需改成这样就好：
+\end{lstlisting}\pagebreak
+具体的情况比较复杂，这涉及到 \lstinline@decltype@ 的返回类型问题\footnote{按标准，\lstinline@decltype("Hello World!")@ 返回的类型是一个对 \lstinline@const char[13]@ 的左值引用类型。}，读者不必深究。我们只需改成这样就好：
 \begin{lstlisting}
     cout << is_same<decltype("Hello World!"), const char(&)[13]>::value;
     //输出1
 \end{lstlisting}
-那么既然字符字面量是一个字符数组，我们岂不是可以用下标运算符来访问它的某一个元素？
+既然字符字面量是一个字符数组，那么我们岂不是可以用下标运算符来访问它的某一个元素？
 \begin{lstlisting}
     cout << "Hello World!"[0]; //将输出H
 \end{lstlisting}\par
@@ -74,8 +75,8 @@ C/C++有更好的解决方法，那就是用 \lstinline@name@ 数组内的信息
     \centering
     \includegraphics[width=\textwidth]{../images/generalized_parts/05_Information_in_the_string.drawio.png}
     \caption{字符串 \lstinline@name@ 中信息的变化情况}
-\end{figure}
-那么接下来我通过 \lstinline@strcpy@\footnote{MSVC会默认阻止我们使用 \lstinline@strcpy@ 和 \lstinline@strncpy@ 函数。为了解决这个问题，我们可以更改设置，或直接在源代码的最前面加一行 \texttt{\#define \_CRT\_SECURE\_NO\_WARNINGS 1}。}把另一个名字复制到 \lstinline@name@ 中，这样做会修改原来字符串的信息。
+\end{figure}\pagebreak
+那么接下来我通过 \lstinline@strcpy@\footnote{已知Visual Studio会默认阻止我们使用 \lstinline@strcpy@ 和 \lstinline@strncpy@ 函数。为了解决这个问题，我们可以更改设置，或直接在源代码的最前面加一行：\texttt{\#define \_CRT\_SECURE\_NO\_WARNINGS 1}}把另一个名字复制到 \lstinline@name@ 中，这样做会修改原来字符串的信息。
 \begin{lstlisting}
     strcpy(name, "Donald Ervin Knuth");
     //strcpy会把第二个参数中的有效部分复制到第一个参数起的内存空间中
@@ -91,10 +92,9 @@ C/C++有更好的解决方法，那就是用 \lstinline@name@ 数组内的信息
     strcpy(name, "Bjarne Stroustrup");
 \end{lstlisting}\par
 这就是字符串的基本结构。如果简单点说就是，字符串总是要有一个 \lstinline@'\0'@ 结束符。那么如果我们要输入一个长度为 \lstinline@n@ 的字符串，考虑到末尾结束符的存在，我们就至少需要容量有 \lstinline@n+1@ 的字符串才行。\par
-了解了这些之后，我们就可以自己写一些简单的字符串处理函数了。\par
 \subsection*{字符串的处理}
 知道了字符串的结构之后，我们就可以写一些简单的函数来进行字符串的处理了。\par
-\lstinline@cstring@ 库中有一些常见的字符串处理函数——有些我们也可以写，比如 \lstinline@strlen@。这个函数可以计算一个字符串有效信息的长度（不包含结束符）。比如说，\lstinline@sizeof("Amy")@ 得到 \lstinline@4@，这是它占用内存的大小；而 \lstinline@strlen("Amy")@ 得到 \lstinline@3@ 这是它外表展现出来的长度。\par
+\lstinline@cstring@ 库中有一些常见的字符串处理函数——有些其实很简单，以我们的能力也可以写出来，比如 \lstinline@strlen@。这个函数可以计算一个字符串有效信息的长度（不包含结束符）。比如说，\\\lstinline@sizeof("Amy")@ 得到 \lstinline@4@，这是它占用内存的大小；而 \lstinline@strlen("Amy")@ 得到 \lstinline@3@，这是它外表展现出来的长度。\par
 为了避免名字冲突，我们就写一个 \lstinline@StrLen@ 函数，它可以接收 \lstinline@char@ 指针\footnote{一般来说，我们在涉及其它类型的数组参数时会使用数组形式的形参，以便告诉用户它接收的是数组（虽然实际情况还是转换成指针了）信息；而在涉及字符串时，我们更习惯于把参数设为指针类型。}，并返回一个无符号的整数，作为长度。\par
 来考虑一下这个函数的外在特征。我们只需提供这个字符串就可以了，无需更多信息。不过我们只想求值，不需要改变它，所以干脆设成指向常量的指针，稳妥一些。至于返回值，\lstinline@strlen@ 内部使用的是 \lstinline@size_t@ 类型作为返回值，其实我们用 \lstinline@unsigned@ 或者 \lstinline@unsigned long long@ 也行。\par
 \begin{lstlisting}
@@ -110,8 +110,8 @@ unsigned StrLen(const char* str) {
 }
 \end{lstlisting}\par
 写完了之后一定不要得意忘形，马上在主函数中写一个例子验证一下，看看是否合乎我们的预期。比如 \lstinline@StrLen("Amy")@，它的值就应该是 \lstinline@3@，我们可以输出一下看看对不对。\par
-接下来我们再写一个稍难的函数。\lstinline@strcpy@ 函数可以把一串内容复制到另一个字符串中，效果等同于``字符串间的赋值''，这样可以免于让我们用逐个字符赋值的麻烦方法来改变整个字符串的值。它接收两个参数，第一个参数 \lstinline@dest@ 是目标字符串，第二个参数 \lstinline@src@ 是内容源。这个函数不需要考虑 \lstinline@dest@ 的容量是否足够，只管往里复制就行\footnote{实际上，它也没办法顾及 \lstinline@dest@ 的容量够不够，因为字符串作为数组类型，在传递参数时就会变成指针类型，在此过程中它的长度信息就已经丧失了，除非我们人为地把长度信息也传入其中。}。\par
-换句话说，我们只需要把 \lstinline@src@ 串中的有效部分逐个赋值给 \lstinline@dest@ 的对应部分就行。比如说，\lstinline@dest[0]=src[0]@，然后 \lstinline@dest[1]=src[1]@，诸如此类。终止条件是 \lstinline@src[i]=='\0'@，这时我们就可以停止了。但是最后不要忘了人为地在后面补上一个 \lstinline@'\0'@ 结束符，否则这个字符串就就没有结束。\par
+接下来我们再写一个稍难的函数。\lstinline@strcpy@ 函数可以把一串内容复制到另一个字符串中，效果等同于``字符串间的赋值''，这样可以免于让我们用逐个字符赋值的麻烦方法来改变整个字符串的值。它接收两个参数，第一个参数 \lstinline@dest@ 是目标字符串，第二个参数 \lstinline@src@ 是内容源。这个函数不需要考虑 \lstinline@dest@ 的容量是否足够，只管往里复制就行\footnote{实际上，它也没办法顾及 \lstinline@dest@ 的容量够不够，因为字符串作为数组类型，在传递参数时就会变成指针类型，在此过程中它的长度信息就已经丧失了，除非我们人为地把长度限制也传入其中，比如 \lstinline@cstring@ 库中的 \lstinline@strncpy@ 函数，它就可以接收一个长度限制参数，以防数组越界行为的发生。}。\par
+换句话说，我们只需要把 \lstinline@src@ 串中的有效部分逐个赋值给 \lstinline@dest@ 的对应部分就行。比如说，\linebreak\lstinline@dest[0]=src[0]@，然后 \lstinline@dest[1]=src[1]@，诸如此类。终止条件是 \lstinline@src[i]=='\0'@，这时我们就可以停止了。但是最后不要忘了人为地在后面补上一个 \lstinline@'\0'@ 结束符，否则这个字符串就就没有结束。\par
 所以我们就来模仿赋值语句的方式来写一个 \lstinline@StrCpy@ 函数。它的第一个参数是 \lstinline@char*@ 类型的，第二个参数是 \lstinline@const char*@ 类型的（因为不需要修改，那么就从定义层面防止修改），而返回值是 \lstinline@char*@ 类型的，它的值（地址）应该等于第一个参数的值（地址），这是为了实现类似于赋值运算符的那种连续赋值语法（\lstinline@StrCpy(str1,StrCpy(str2,str))@）。\par
 \begin{lstlisting}
 char* StrCpy(char*, const char*);
@@ -136,26 +136,26 @@ int main() { //主函数
 \begin{lstlisting}
     char str[33];
     cin >> str; //直接用cin向字符串中输入
-\end{lstlisting}
-但是这样就可能会遇到问题。如果我们要向字符串中输入两个英文名，比如 \lstinline@Bjarne Stroustrup@ 和 \lstinline@Alan Mathison Turing@，我们可能就会遭遇这样的困难：
+\end{lstlisting}\pagebreak
+但是这样就可能会遇到问题。如果我们要向字符串中输入两个英文名，比如 \lstinline@Bjarne Stroustrup@ 和 \lstinline@Alan Mathison Turing@，下面这段代码能达到我们的目的吗？
 \begin{lstlisting}
     char name1[33], name2[33]; //定义两个字符串用于输入人名
     cin >> name1 >> name2; //连续输入两个人名
     cout << name1 << endl << name2; //输出第一个人名，再换行，再输出第二个人名
 \end{lstlisting}
 如果我们真的运行一下，就会发现情况好像不太对劲。\\\noindent\rule{\linewidth}{.2pt}\texttt{
-\textbf{Bjarne Stroustrup}\\{\kaishu(刚按下回车键，准备输入第二个人名，结果程序就开始输出了)}\\
+\textbf{Bjarne Stroustrup}{\kaishu\color{gray}(刚按下回车键，准备输入第二个人名，结果程序就开始输出了)}\\
 Bjarne\\
 Stroustrup
 }\\\noindent\rule{\linewidth}{.2pt}
 这是怎么回事？\par
-这是因为，用 \lstinline@cin<<@ 输入字符串时，它断句的方式是在每个空白字符\footnote{空白字符（Whitespace character），在ASCII字符区内包括 \lstinline@'\\t'@, \lstinline@'\\n'@, \lstinline@'\\v'@, \lstinline@'\\f'@, \lstinline@'\\r'@, \lstinline@' '@。如果要判断某个字符是否是空白字符，可以用 \lstinline@cctype@ 库中的 \lstinline@isspace@ 函数来处理，如 \lstinline@isspace('a')@，返回值是 \lstinline@0@。}处断开。所以在输入 \lstinline@name1@ 时，它只会读取到空格之前的内容，而把 \lstinline@Stroustrup@ 这个输出留给下一个输入，即 \lstinline@name2@。这也就解释了为什么当我们按下回车键的时候它就开始输出了，这是因为程序已经把两个字符串读完，接下来当然就是执行输出了。同时这也是输出 \lstinline@name1@ 时得到 \lstinline@Bjarne@ 而输出 \lstinline@name2@ 时得到 \lstinline@Stroustrup@ 的原因。\par
+这是因为，用 \lstinline@cin<<@ 输入字符串时，它断句的方式是在每个空白字符\footnote{空白字符（Whitespace character），在ASCII字符区内包括 \lstinline@'\\t'@, \lstinline@'\\n'@, \lstinline@'\\v'@, \lstinline@'\\f'@, \lstinline@'\\r'@, \lstinline@' '@。如果要判断某个字符是否是空白字符，可以用 \lstinline@cctype@ 库中的 \lstinline@isspace@ 函数来计算，如 \lstinline@isspace('a')@，它的返回值是 \lstinline@0@。}处断开。所以在输入 \lstinline@name1@ 时，它只会读取到空格之前的内容，而把 \lstinline@Stroustrup@ 这个输出留给下一个输入，即 \lstinline@name2@。这也就解释了为什么当我们按下回车键的时候它就开始输出了，这是因为程序已经把两个字符串读完，接下来当然就是执行输出了。同时这也是输出 \lstinline@name1@ 时得到 \lstinline@Bjarne@ 而输出 \lstinline@name2@ 时得到 \lstinline@Stroustrup@ 的原因。\par
 怎么解决呢？我们可以用 \lstinline@cin@ 的成员函数 \lstinline@get@ 或者是 \lstinline@istream@ 类的成员函数 \lstinline@getline@ 来解决。先来讲讲 \lstinline@getline@。\par
 \subsubsection*{\lstinline@getline@ 成员函数}
 \lstinline@getline@ 成员函数的定义语法有如下两种，它们是重载关系：
 \begin{lstlisting}
-istream& getline(char_type *s, streamsize count); //重载1
-istream& getline(char_type *s, streamsize count, char_type delim); //重载2
+istream& getline(char_type *s, streamsize count); //(1)
+istream& getline(char_type *s, streamsize count, char_type delim); //(2)
 \end{lstlisting}
 其中的 \lstinline@s@ 是待输入的字符串，而 \lstinline@count@ 表明这个字符串的容量（不同于 \lstinline@strcpy@，这里必须提供容量参数）。对于第一个重载来说，它的含义就是：读取一整行输入，直到遇到回车符\footnote{回车符会被提取，但不会存入 \lstinline@s@ 字符串中。}，才停止输入；或者是 \lstinline@count@ 长度的字符串容纳不了用户输入的内容量，这时输入也会停止，同时 \lstinline@cin@ 会进入``fail''状态（我们需要用 \lstinline@input_clear@ 来恢复 \lstinline@cin@，并清理输入流）。\par
 接下来我们可以用 \lstinline@getline@ 来输入一些有空格的名字了。程序不会在空格字符处断句，只会在回车字符处断句。\par
@@ -165,12 +165,12 @@ istream& getline(char_type *s, streamsize count, char_type delim); //重载2
     cin.getline(name1, NameLen).getline(name2, NameLen); //getline可以连续使用
     cout << name1 << endl << name2; //输出第一个人名，再换行，再输出第二个人名
 \end{lstlisting}
-本程序的运行结果是\\\noindent\rule{\linewidth}{.2pt}\texttt{
+这段代码的运行结果是：\\\noindent\rule{\linewidth}{.2pt}\texttt{
 \textbf{Bjarne Stroustrup\\
 Alan Mathison Turing}\\
 Bjarne Stroustrup\\
 Alan Mathison Turing
-}\\\noindent\rule{\linewidth}{.2pt}\\
+}\\
 这就合乎我们的预期了。\par
 至于第二种重载，无非就是把分隔符从换行符换成了自定义的字符而已，没什么特别的，这里就不再赘述。\par
 \subsubsection*{\lstinline@get@ 成员函数}
