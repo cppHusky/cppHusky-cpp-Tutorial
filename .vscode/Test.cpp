@@ -2,7 +2,10 @@
 #include <type_traits>
 #include <string>
 int main(){
-    std::string s;
-    s.assign("1");
+    for(static int i=0;i<3;i++){
+    }
+    i=0;
+    // std::string s;
+    // s.assign("1");
     return 0;
 }

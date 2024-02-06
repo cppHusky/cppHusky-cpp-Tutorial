@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  6 FEB 2024 14:23
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  6 FEB 2024 18:17
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1305,31 +1305,20 @@ File: ./06_custom_types_and_their_use/../images/generalized_parts/06_public_and_
 (./generalized_parts/07_projecting/01_separate_compilation.tex [153
 
 ] (./07_projecting/../code_in_book/7.1-7.3/Header.hpp) (./07_projecting/../code_in_book/7.1-7.3/Definition.cpp) [154] (./07_projecting/../code_in_book/7.1-7.3/Test.cpp)
-Overfull \hbox (59.09216pt too wide) in paragraph at lines 44--44
-\TU/SimSun(0)/m/n/10 我 们 注 意 到，|  当 包 含 了 \TU/SourceCodePro(0)/m/n/10 Header.hpp \TU/SimSun(0)/m/n/10 之 后，|  在 \TU/SourceCodePro(0)/m/n/10 Test.cpp \TU/SimSun(0)/m/n/10 中 就 不 需 要 包 含 [][][] 和 [][][][][][][][][][][]了。|
- []
-
 File: ./07_projecting/../images/generalized_parts/07_separate_compilation.drawio.png Graphic file (type bmp)
 <./07_projecting/../images/generalized_parts/07_separate_compilation.drawio.png>
-[155] (./07_projecting/../code_in_book/7.4-7.6/Header.hpp) (./07_projecting/../code_in_book/7.4-7.6/Definition.cpp [156]) (./07_projecting/../code_in_book/7.4-7.6/main.cpp [157])
-Overfull \hbox (45.04604pt too wide) in paragraph at lines 71--71
-\TU/SimSun(0)/m/n/10 请 读 者 注 意 各 文 件 之 间 使 用 [][][][][][][][] 的 关 系。|  因 为 在 \TU/SourceCodePro(0)/m/n/10 Definition.cpp \TU/SimSun(0)/m/n/10 中 没 有 使 用 [][][][][][][][][][][]，|
- []
-
-) (./generalized_parts/07_projecting/02_namespace.tex
-Overfull \hbox (0.58308pt too wide) in paragraph at lines 23--23
+ [155] (./07_projecting/../code_in_book/7.4-7.6/Header.hpp) (./07_projecting/../code_in_book/7.4-7.6/Definition.cpp [156]) (./07_projecting/../code_in_book/7.4-7.6/main.cpp [157])) (./generalized_parts/07_projecting/02_namespace.tex
+Overfull \hbox (0.58308pt too wide) in paragraph at lines 24--24
 \TU/SimSun(0)/m/n/10 也 就 是 从 这 个 时 期 起，|  我 逐 渐 放 弃 了 使 用 [][][][][][][][][][][] 和 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]这
- []
-
-
-Overfull \hbox (11.03897pt too wide) in paragraph at lines 24--25
-[]\TU/SimSun(0)/m/n/10 几 乎 所 有 初 学 者 都 会 无 一 例 外 地 认 为 [][][][][][][][][][][] 是 很 方 便 的；|  而 通 篇 累 牍 的 [][][][][]
  []
 
 [158]
 File: ./07_projecting/../images/generalized_parts/07_file_explorer_and_namespaces.drawio.png Graphic file (type bmp)
 <./07_projecting/../images/generalized_parts/07_file_explorer_and_namespaces.drawio.png>
- [159] [160] [161] [162]) (./generalized_parts/07_projecting/03_scope_storage_duration_and_linkage.tex [163] [164] [165] [166]
+ [159] [160] [161] [162]) (./generalized_parts/07_projecting/03_scope_storage_duration_and_linkage.tex [163] [164] [165]
+Underfull \vbox (badness 2762) has occurred while \output is active []
+
+ [166]
 Overfull \hbox (0.13913pt too wide) in paragraph at lines 132--132
 []\TU/SimSun(0)/m/n/10 我 们 在 局 部 作 用 域 内 定 义 的 变 量 都 有 自 动 存 储 期，|  除 非 我 们 用 [][][][][]\TU/lmr/m/n/10 , [][][][][] \TU/SimSun(0)/m/n/10 或 [][][][][]
  []
@@ -2055,12 +2044,12 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: EE24E1C9A48AF065A1A46F079F4DE10F;9866.
  ) 
 Here is how much of TeX's memory you used:
- 28280 strings out of 474924
- 745863 string characters out of 5765037
+ 28284 strings out of 474924
+ 745897 string characters out of 5765037
  2050189 words of memory out of 5000000
- 49120 multiletter control sequences out of 15000+600000
+ 49124 multiletter control sequences out of 15000+600000
  571845 words of font info for 168 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 93i,18n,111p,1239b,1918s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 93i,18n,111p,1239b,1916s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on main.pdf (418 pages).
