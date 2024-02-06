@@ -12,7 +12,7 @@ class D : C { /*...*/ }; //D继承自C
 \subsection*{生物分类法}
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=.75\textwidth]{../images/generalized_parts/09_taxonomic_rank_graph_of_red_fox.png}
+    \includegraphics[width=.65\textwidth]{../images/generalized_parts/09_taxonomic_rank_graph_of_red_fox.png}
     \caption{赤狐的生物分类}
     \footnotesize{图片来源：Wikipedia}
 \end{figure}
@@ -53,7 +53,7 @@ class Vulpes_vulpes : public Vulpes { //赤狐种，公有继承自狐属
     //...
 };
 \end{lstlisting}
-像这样，我们就可以通过继承关系建立起一个复杂的树状结构。所以一个赤狐种的对象具有从 \lstinline@Eukarya@ 类到 \lstinline@Vulpes@ 类的所有公有和受保护成员。\par
+像这样，我们就可以通过继承关系建立起一个复杂的树状结构。一个赤狐种的对象就具有从 \lstinline@Eukarya@ 类到 \lstinline@Vulpes@ 类的所有公有和受保护成员。\par
 如果我们还想要添加新的分支类，只需要通过继承关系把它们接到适当的类中，就可以拥有这个类及其基类的全部成员。举个例子说，犬科还有一条分支是犬属\textit{Canis} - 狼种\textit{Canis lupus} - 家犬亚种\textit{Canis lupus familaries}。所以我们可以在 \lstinline@Canidae@ 之下再继承一个分支。
 \begin{lstlisting}
 class Canis : public Canidae { //犬属，公有继承自犬科
@@ -68,12 +68,12 @@ class Canis_lupus_familaries : public Canis_lupus { //家犬亚种，公有继�
 \end{lstlisting}\par
 这样一来，赤狐种 \lstinline@Vulpes_vulpes@ 和家犬亚种 \lstinline@Canis_lupus_familaries@ 就在相同的特征方面继承同一个类，而在各自的特性上又有自己的一套。就这样，面对这样错综复杂的关系，C++可以通过继承功能，把它们梳理得十分清晰。\par
 \subsection*{C++流输入/输出库}
-C++的流输入/输出库是一个系统，包含 \lstinline@iostream@, \lstinline@fstream@, \lstinline@sstream@ 等许多库文件，\lstinline@std::istream@, \lstinline@std::ostream@ 等许多我们已经熟知的类模板或类。它们之间有一套复杂的继承关系，见图9.6。其中，\lstinline@std::istream@ 是 \lstinline@std::basic_istream@ 类模板的一个实例，定义为 \lstinline@std::basic_istream<char>@；\lstinline@std::ostream@ 是 \lstinline@std::basic_ostream@ 类模板的一个实例，定义为 \lstinline@std::basic_ostream<char>@。\par
+C++的流输入/输出库是一个系统，包含 \lstinline@iostream@, \lstinline@fstream@, \lstinline@sstream@ 等许多库文件，\newline\lstinline@std::istream@, \lstinline@std::ostream@ 等许多我们已经熟知的类模板或类。它们之间有一套复杂的继承关系，见图9.6。其中，\lstinline@std::istream@ 是 \lstinline@std::basic_istream@ 类模板的一个实例，定义为\newline\lstinline@std::basic_istream<char>@；\lstinline@std::ostream@ 是 \lstinline@std::basic_ostream@ 类模板的一个实例，定义为 \lstinline@std::basic_ostream<char>@。\par
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.8\textwidth]{../images/generalized_parts/09_inheritance_diagram_of_io_library.png}
     \caption{C++流输入/输出库中的继承关系}
 \end{figure}
 我们曾经用 \lstinline@std::cout.setf(std::ios_base::boolalpha)@ 来改变 \lstinline@std::cout@ 对 \lstinline@bool@ 数据的输出方式，这里的 \lstinline@setf@ 和 \lstinline@fmtflags@ 其实都是定义在 \lstinline@std::ios_base@ 类中的。\lstinline@std::ostream@ 间接继承了 \lstinline@std::ios_base@ 类，所以它可以把 \lstinline@std::ios_base::setf@ 当作自己的成员函数来调用。\par
-我们也曾用过 \lstinline@std::cin.clear()@ 这样的写法，这里的 \lstinline@clear@ 是定义在 \lstinline@std::basic_ios<CharT,Traits>@ 类中的一个成员函数。\lstinline@std::istream@ 类继承了 \lstinline@std::basic_ios<ChatT,Traits>@，所以它也能调用这个成员函数。\par
-敏锐的读者可能发现了，图9.6中的 \lstinline@std::basic_iostream@ 类同时继承了 \lstinline@std::basic_ostream@ 和 \lstinline@std::basic_istream@ 类。这种操作叫作多重继承，我们会在第十章中讲解有关问题。\par
+我们也曾用过 \lstinline@std::cin.clear()@ 这样的写法，这里的 \lstinline@clear@ 是定义在\newline\lstinline@std::basic_ios<CharT,Traits>@ 类中的一个成员函数。\lstinline@std::istream@ 类继承了\newline\lstinline@std::basic_ios<ChatT,Traits>@，所以它也能调用这个成员函数。\par
+敏锐的读者可能发现了，图9.6中 \lstinline@std::basic_iostream@ 类同时继承了 \lstinline@std::basic_ostream@ 和 \lstinline@std::basic_istream@ 类。这种操作叫作多重继承，我们会在第十章中讲解有关问题。\par

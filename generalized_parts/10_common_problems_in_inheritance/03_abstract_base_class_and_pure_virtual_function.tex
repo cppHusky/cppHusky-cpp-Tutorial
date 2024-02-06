@@ -60,13 +60,13 @@ struct Shape { //抽象基类，这个类用来表示各种几何图形
     virtual double area()const = 0; //面积，纯虚函数
 };
 \end{lstlisting}
-这里的 \lstinline@Shape@ 用 \lstinline@struct@ 来定义，这样可以少写一个 \lstinline@public@ 了。\par
-接下来我们就用 \lstinline@Shape@ 派生其它类，如图4.5所示。\par
+这里的 \lstinline@Shape@ 用 \lstinline@struct@ 来定义，这样可以少写一个 \lstinline@public@ 了。\par\pagebreak
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.6\textwidth]{../images/generalized_parts/10_abstract_shape_class.drawio.png}
     \caption{\lstinline@Shape@ 之下派生的各个类}
 \end{figure}
+接下来我们就用 \lstinline@Shape@ 派生其它类，如图4.5所示。\par
 三角形和圆形的定义很简单，没什么可说的。
 \begin{lstlisting}
 class Triangle : public Shape { //三角形
@@ -134,7 +134,7 @@ struct Square :  Rhombus_abc { //正方形
     double perimeter()const { return 4 * _a; }
     double area()const { return _a * _a; }
 };
-\end{lstlisting}
+\end{lstlisting}\pagebreak
 我们突然发现，\lstinline@Rhombus::perimeter()@ 和 \lstinline@Square::perimeter()@ 的定义是完全相同的——实际上菱形与正方形的周长公式真的完全一致。因此我们还可以把它们作为共性，定义到抽象菱形基类当中，也就是把上述代码改成这样：
 \begin{lstlisting}
 struct Rhombus_abc : Parallelogram_abc { //抽象菱形基类

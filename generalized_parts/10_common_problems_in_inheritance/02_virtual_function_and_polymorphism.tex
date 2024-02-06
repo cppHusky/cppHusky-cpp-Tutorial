@@ -24,7 +24,7 @@ int main() {
 }
 \end{lstlisting}
 所以如果单纯是为了使用某个派生类的对象，那么咱犯不着还要通过基类指针/引用倒一遍。\par
-那么向下转换是为了使用某个派生类独有的成员对象吗？问题同样在于，如果这个成员对象是派生类独有的，那么我们应该传入派生类的指针/引用，而不是拿基类来做文章；如果这个成员对象是所有派生类都有的呢，我们应该在设计之初就把它写到基类的成员对象当中，使它成为所有派生类的共性，而不是像刚才说的那样，把它写成每个派生类``共同的独特性''。
+那么向下转换是为了使用某个派生类独有的成员对象吗？问题同样在于，如果这个成员对象是派生类独有的，那么我们应该传入派生类的指针/引用，而不是拿基类来做文章；如果这个成员对象是所有派生类都有的呢，我们应该在设计之初就把它写到基类的成员对象当中，使它成为所有派生类的共性，而不是像刚才说的那样，把它写成每个派生类``共同的独特性''。\pagebreak
 \begin{lstlisting}
 class Base {
 protected:
@@ -147,13 +147,13 @@ void shape_area(const Triangle &tri) {
 显然，因为不同派生类的 \lstinline@area@ 函数彼此有一些差异（而且它们多少用到了派生类当中的成员），所以我们不能把这些函数定义在基类中。这也就导致我们不能用 \lstinline@sh->area()@ 之类的写法——基类当中没有这个函数的定义。\par
 那么我们在基类中添加一个 \lstinline@area@ 函数的定义，可否？答案是好像不行，因为这样一来，我们在使用 \lstinline@sh->area()@ 时也只能做到调用 \lstinline@Shape::area()@，而根本就不是在调用 \lstinline@Triangle::area()@ 或者别的派生类成员函数。\par
 而虚函数为我们提供了这种可能性——当我们用基类的指针/引用调用基类的虚函数时，程序会进行运行时检测，判断这个指针实际指向哪个类型的对象，然后调用这个类中的成员函数（如果存在的话）。
-还是以 \lstinline@Shape@ 为例，我们可以在 \lstinline@Shape@ 当中声明虚函数 \lstinline@perimeter@ 和 \lstinline@area@。这样，我们就可以用基类的指针调用 \lstinline@area@ 函数；而在运行时，程序会根据这个指针指向对象的类型，判断该用 \lstinline@Triangle::area()@, \lstinline@Circle::area()@ 还是 \lstinline@Parallelogram::area()@。
+还是以 \lstinline@Shape@ 为例，我们可以在 \lstinline@Shape@ 当中声明虚函数 \lstinline@perimeter@ 和 \lstinline@area@。这样，我们就可以用基类的指针调用 \lstinline@area@ 函数；而在运行时，程序会根据这个指针指向对象的类型，判断该用 \lstinline@Triangle::area()@, \lstinline@Circle::area()@ 还是 \lstinline@Parallelogram::area()@。\pagebreak
 \begin{lstlisting}
 struct Shape { //这个类用来表示各种几何图形
     //...
     virtual double perimeter()const { return 0; }
     virtual double area()const { return 0; }
-    //虚函数，如果通过指针/引用调用它，程序会进行运行时类型判断，决定调用哪个函数
+    //虚函数，若通过指针/引用调用它，程序会进行运行时类型判断，决定调用哪个函数
     virtual ~Shape() {} 
 };
 \end{lstlisting}
@@ -173,7 +173,7 @@ struct Shape { //这个类用来表示各种几何图形
 \end{lstlisting}
 瞧，连动态类型转换都可以省了。我们不再需要自行判断基类指针究竟指向什么，程序会帮我们判断。\par
 \subsection*{虚函数的性质}
-在没有虚函数的情况下，编译器根据调用成员函数的对象/指针/引用就知道要调用哪个类的成员函数。举个例子，对于一个 \lstinline@std::string@ 类的对象 \lstinline@str@ 来说，当我们调用 \lstinline@size()@ 成员函数时，编译器根据对象的类型就可以推测出它要调用的是 \lstinline@std::string::size()@，而不是 \lstinline@std::vector<int>::size@ 或者别的。\par
+在没有虚函数的情况下，编译器根据调用成员函数的对象/指针/引用就知道要调用哪个类的成员函数。举个例子，对于一个 \lstinline@std::string@ 类的对象 \lstinline@str@ 来说，当我们调用 \lstinline@size()@ 成员函数时，编译器根据对象的类型就可以推测出它要调用的是 \lstinline@std::string::size()@，而不是\newline\lstinline@std::vector<int>::size@ 或者别的。\par
 编译器知道了要调用哪个成员函数之后，它就会把这个函数与该语句绑定（或者说，链接）起来，这样程序就知道该调用什么函数了。\par
 对于指针来说亦如此。如果没有虚函数的话，一切都很简单：对于 \lstinline@Type*@ 类型的指针，当我们使用 \lstinline@->@ 进行指针的成员访问时，编译器会把 \lstinline@Type@ 类型的成员与其绑定。这种绑定是在编译期完成的，我们把这种方式称为\textbf{早绑定（Early binding）}。\par
 虚函数为我们提供了另一种可能：用派生类的成员函数覆盖基类的成员函数。如果基类指针指向派生类对象，并且这个派生类有同名的成员函数，那么程序可以使用派生类成员覆盖基类成员。那么这两个条件——是否有同名函数，这是可以在编译时确定下来的；但是，基类指针究竟指向什么，这是不可能在编译时确定下来的\footnote{除非这个基类指针是 \lstinline@constexpr@ 之类的}。正因如此，这个调用不能在编译期进行早绑定，而必须在运行期根据实际情况绑定到相应的成员函数中。我们把这种方式称为\textbf{迟绑定（Late binding）}。

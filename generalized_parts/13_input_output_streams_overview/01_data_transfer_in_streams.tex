@@ -1,14 +1,14 @@
 \section{信息在流中的传递}
 \subsection*{什么是流？}
-程序与外界的一切交互都是依靠字符的\textbf{输入（Input）}和\textbf{输出（Output）}完成的。我们可以想像一条流水线，我们的输入字符从输入设备——比如键盘中产生，经过流水线，一个个地被程序接收。这就是\textbf{流（Stream）}。\par
-对于输出信息来说，它也有一条（其实不止）流水线。输出字符从程序中产生，经过这条流水线，就能一个个地被输出设备——比如显示器所接收。\par
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{../images/generalized_parts/13_input_output_stream.drawio.png}
     \caption{程序的输入输出流}
     \footnotesize{仅供示意，输入内容与输出内容无因果关系}
 \end{figure}
-如图 \lstinline@13.2@所示，我们可以通过键盘输入一系列的内容到程序中，这时程序可以从输入流中逐个字符地读取我们的输入信息。程序还可以通过输出流把要输出的内容逐个字符地输出到相应的输出设备中，从而变成我们能在显示器中看到的信息。\par
+程序与外界的一切交互都是依靠字符的\textbf{输入（Input）}和\textbf{输出（Output）}完成的。我们可以想像一条流水线，我们的输入字符从输入设备——比如键盘中产生，经过流水线，一个个地被程序接收。这就是\textbf{流（Stream）}。\par
+对于输出信息来说，它也有一条（其实不止）流水线。输出字符从程序中产生，经过这条流水线，就能一个个地被输出设备——比如显示器所接收。\par
+如图13.2所示，我们可以通过键盘输入一系列的内容到程序中，这时程序可以从输入流中逐个字符地读取我们的输入信息。程序还可以通过输出流把要输出的内容逐个字符地输出到相应的输出设备中，从而变成我们能在显示器中看到的信息。\par
 总而言之，在流中传递的所有``信息''，都是以字符为单位的。所有的输入，都可以看作是字符输入；所有的输出，都可以看作是字符输出。当程序需要我们输入字符的时候，我们输入的是字符；当程序需要我们输入整数或者浮点数的时候，我们输入的也是字符。那么问题来了：程序要怎么把我们输入的``字符''变成保存在整型/浮点型变量中的``数''呢？这就要依靠 \lstinline@std::basic_istream@ 类模板中定义的重载运算符 \lstinline@>>@ 了。\par
 \lstinline@std::basic_istream@ 提供了一套方法，这样就允许我们从输入流的若干字符当中整理出有效信息，并把这个值赋给对应的变量或对象。与 \lstinline@std::basic_istream@ 相关的 \lstinline@>>@ 运算符有很多重载，以下是其中的一部分，包括成员函数和非成员函数：
 \begin{lstlisting}
@@ -55,5 +55,5 @@ C语言来说有三种标准输入/输出——\lstinline@stdin@, \lstinline@std
 \end{lstlisting}
 对于异常处理来说，使用 \lstinline@std::cerr@ 就不会存在缓冲区风险了。\par
 如果我们有需要手动刷新输出缓冲区的话，可以调用 \lstinline@std::ostream@ 对象的 \lstinline@flush@ 成员函数。\par
-如果我们还同时有换行需求的话，那么我们可以不用手动 \lstinline@flush@ 了，直接写一个 \lstinline@std::cout<<std::endl@ 就行。这个语句就意味着两个操作：输出一个换行符，然后顺便刷新缓冲区。\par
-当然，这也就意味着，如果我们要进行文件操作之类的话，就要少用 \lstinline@std::endl@ 来换行了，应该尽可能使用 \lstinline@'\n'@ 这样的操作。否则就会不断刷新缓冲区，和挤牙膏没什么区别了。\par
+如果我们还同时有换行需求的话，那么我们可以不用手动 \lstinline@flush@ 了，直接写一个\newline\lstinline@std::cout<<std::endl@ 就行。这个语句就意味着两个操作：输出一个换行符，然后顺便刷新缓冲区。\par
+当然，这也就意味着，如果我们要进行文件操作之类的话，就要少用 \lstinline@std::endl@ 来换行了，应该尽可能使用 \lstinline@'\n'@ 这样的操作。否则就会不断刷新缓冲区，和挤牙膏没什么区别了。\par\pagebreak

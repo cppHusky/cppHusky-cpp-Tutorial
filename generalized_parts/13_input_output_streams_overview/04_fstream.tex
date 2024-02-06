@@ -1,5 +1,5 @@
 \section{文件输入/输出\texttt{fstream}}
-\lstinline@std::basic_fstream@ 继承自 \lstinline@std::basic_iostrem@，表示文件输入输出，而 \lstinline@std::basic_ifstream@ 和 \lstinline@std::basic_ofstream@ 分别继承自 \lstinline@std::basic_istream@ 和 \lstinline@std::basic_ostream@。与字符串输入/输出不同，文件输入/输出的源和目标不再是内存中的对象，而是外存中的文件。\par
+\lstinline@std::basic_fstream@ 继承自 \lstinline@std::basic_iostrem@，表示文件输入输出，而\newline\lstinline@std::basic_ifstream@ 和 \lstinline@std::basic_ofstream@ 分别继承自 \lstinline@std::basic_istream@ 和\newline\lstinline@std::basic_ostream@。与字符串输入/输出不同，文件输入/输出的源和目标不再是内存中的对象，而是外存中的文件。\par
 既然源/目标的种类不同，那么构建输入/输出流的方式就会有差异。对于 \lstinline@std::cin@, \lstinline@std::cout@ 这样的标准输入/输出流来说，C++已经为我们把一切构建完成，我们只需要直接用就好；对于字符串输入/输出流来说，每一个流对象都自带一个底层字符串，所以我们不需要构建什么，直接用就好；但是文件输入/输出则不同，编译器也不确定这个文件是什么，所以我们需要自行指定源/目标，并控制这个流的开启或关闭。
 \subsection*{开启/关闭文件流}
 \lstinline@std::ifstream@ 和 \lstinline@std::ofstream@ 都有 \lstinline@open@ 和 \lstinline@close@ 函数。这两个函数可以负责开启和关闭文件流。\par
@@ -21,11 +21,11 @@
         std::cerr << "An exception has been caught:\n" << msg.what();
     }
 \end{lstlisting}\par
-至于关闭文件流的 \lstinline@close@ 函数嘛……我们可以不写，一般来说都是没问题的。对于 \lstinline@std::ifstream@ 和 \lstinline@std::ofstream@ 来说，它们的析构函数都会执行关闭文件流的操作；在打开另一个文件的时候亦然。不过为了明确起见，本书仍然严格地显式调用 \lstinline@close()@ 来关闭文件输入流。\par
+至于关闭文件流的 \lstinline@close@ 函数嘛……我们可以不写，一般来说都是没问题的。对于\newline\lstinline@std::ifstream@ 和 \lstinline@std::ofstream@ 来说，它们的析构函数都会执行关闭文件流的操作；在打开另一个文件的时候亦然。不过为了明确起见，本书仍然严格地显式调用 \lstinline@close()@ 来关闭文件输入流。\par
 \subsection*{文件路径与\texttt{std::filesystem}}
 当然，如果我们现在就去运行上面这段代码的话，它的运行结果应该就是抛出异常然后输出异常信息——这当然是因为我们还没有提供这个文件。接下来，我们就来看看有关文件路径的问题。\par
-不同的操作系统对文件路径的规则是不一样的。比如一个Windows文件的路径是\verb|C:\backslash Users\backslash username\backslash Documents\backslash README.md|，
-而一个MacOS文件的路径是\verb|/Users/username/Documents/README.md|。还有其它各种你听说过和没听说过的操作系统，它们的文件路径规则都有一定的差异。这里提供\href{https://learn.microsoft.com/zh-cn/windows/win32/fileio/naming-a-file}{Windows系统}、\href{https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html#//apple_ref/doc/uid/TP40010672-CH2-SW14}{MacOS系统}和\href{https://www.pathname.com/fhs/}{Linux系统}的相关资料链接；至于其它系统，就行读者自行查阅相关文档。本书就不讲了。\par
+不同的操作系统对文件路径的规则是不一样的。比如一个Windows文件的路径是\newline\verb|C:\Users\username\Documents\README.md|，
+而一个MacOS文件的路径是\newline\verb|/Users/username/Documents/README.md|。还有其它各种你听说过和没听说过的操作系统，它们的文件路径规则都有一定的差异。这里提供\href{https://learn.microsoft.com/zh-cn/windows/win32/fileio/naming-a-file}{Windows系统}、\href{https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html#//apple_ref/doc/uid/TP40010672-CH2-SW14}{MacOS系统}和\href{https://www.pathname.com/fhs/}{Linux系统}的相关资料链接；至于其它系统，就行读者自行查阅相关文档。本书就不讲了。\par
 C++17提供了 \lstinline@filesystem@ 库，使我们可以更方便地进行文件操作——不只是输入/输出！但是我们在这里只介绍一点点路径相关的知识。\par
 不同的操作系统有自己的\textbf{原生格式（Native format）}文件名，比如Windows中要用反斜线\footnote{在C++中，当我们用字符串来描述路径时，反斜线需要以转义字符的形式表达，也就是 \lstinline@'\\'@。}，而基于Unix的Linux/MacOS等系统中要用斜线来表示。\textbf{通用格式（Generic format）}则是全用斜线。\lstinline@filesystem@ 库的函数允许我们把原生格式的路径用通用格式来表达。如果你的电脑是Windows系统的，那么下面这段代码能演示出比较清晰的效果：
 \lstinputlisting[caption=\texttt{getpath.cpp}]{../code_in_book/13.4/getpath.cpp}
@@ -35,7 +35,7 @@ C++17提供了 \lstinline@filesystem@ 库，使我们可以更方便地进行文
 C:/Users/cppHusky/C++/Edition2/code_in_book/13.4
 \end{verbatim}\noindent\rule{\linewidth}{.2pt}\par
 这里的 \lstinline@fs::path@ 是一个类名，它可以用来表示文件的路径。对于一个 \lstinline@fs::path@ 对象来说，我们可以手动写一个原生格式的文件路径，比如 \lstinline@D:\\Folder\\out.txt@，作为初始化的参数；当然也可以用 \lstinline@std::filesystem@ 中的方法。\par
-\lstinline@current_path@ 是一个非成员函数，它用来描述当前程序所处的文件夹（不是文件）路径。\lstinline@parent_path()@ 是 \lstinline@fs::path@ 类的成员函数，它可以返回该对象所存路径的上一级路径名。
+\lstinline@current_path@ 是一个非成员函数，它用来描述当前程序所处的文件夹（不是文件）路径。\linebreak\lstinline@parent_path()@ 是 \lstinline@fs::path@ 类的成员函数，它可以返回该对象所存路径的上一级路径名。
 \begin{lstlisting}
     fs::path ph {fs::current_path()}; //ph存储的是该程序所在文件夹路径
     ph = ph.parent_path(); //ph改为存储上一级路径
@@ -46,7 +46,7 @@ C:/Users/cppHusky/C++/Edition2/code_in_book/13.4
     if (!fout.is_open()) { /*...*/ }
 \end{lstlisting}
 如果衔接上面的代码，那么这几行的含义就是：在本程序所在路径的上一级文件夹中，找到 \lstinline@out.txt@ 文件并将其作为输出流的目标。\par
-除了 \lstinline@/@ 运算符，我们还可以使用 \lstinline@/=@ 运算符来进行路径的拼接，效果很像 \lstinline@+=@ 运算符之于 \lstinline@std::string@ 对象。\par
+除了 \lstinline@/@ 运算符，我们还可以使用 \lstinline@/=@ 运算符来进行路径的拼接，效果很像 \lstinline@+=@ 运算符之于\linebreak\lstinline@std::string@ 对象。\par
 \begin{lstlisting}
     fs::path ph1 {fs::current_path()};
     ph1 /= "folder"; //这样，folder就被加入到ph1所指的路径中
@@ -101,7 +101,7 @@ C++中有六个打开标志常量，它们分别是：
     \item \lstinline@std::ofstream@ 的默认打开方式是 \lstinline@std::ios::out@，即以输出方式打开；
     \item \lstinline@std::fstream@ 的默认打开方式是 \lstinline@std::ios::in | std::ios::out@，即以输入和输出方式打开——这样它既能输入也能输出。
 \end{itemize}
-这里的 \lstinline@|@ 运算符是按位或运算，实际上就是把这两个常量所指代的信息合并起来，就像掩码一样。\par
+这里的 \lstinline@|@ 运算符是按位或运算，实际上就是把这两个常量所指代的信息合并起来，就像掩码一样。\par\pagebreak
 如果我们需要自定义一种打开方式，那也很简单：
 \begin{lstlisting}
     std::fstream fio {

@@ -136,23 +136,25 @@ auto user::array<bool, N>::operator=(const array &arr) -> array& {
     return *this;
 }
 template<std::size_t N>
-constexpr bool& user::array<bool, N>::at(std::size_t pos) {
+constexpr auto user::array<bool, N>::at(std::size_t pos)
+-> reference {
     if (pos >= N)
         pos = N - 1;
     return _elem[pos];
 }
 template<std::size_t N>
-constexpr const bool& user::array<bool, N>::at(std::size_t pos)const {
+constexpr bool user::array<bool, N>::at(std::size_t pos)const {
     if (pos >= N)
         pos = N - 1;
     return _elem[pos];
 }
 template<std::size_t N>
-constexpr bool& user::array<bool, N>::operator[](std::size_t pos) {
+constexpr auto user::array<bool, N>::operator[](std::size_t pos)
+-> reference {
     return _elem[pos];
 }
 template<std::size_t N>
-constexpr const bool& user::array<bool, N>::operator[](std::size_t pos)const {
+constexpr bool user::array<bool, N>::operator[](std::size_t pos)const {
     return _elem[pos];
 }
 template<std::size_t N>
@@ -160,12 +162,29 @@ void user::array<bool, N>::fill(bool val) {
     for (std::size_t i = 0; i < N; i++)
         _elem[i] = val;
 }
-//比较运算符和get函数均无需再重载
+template<std::size_t I, std::size_t N>
+typename std::bitset<N>::reference user::get(array<bool, N> &arr) {
+    return arr._elem[I];
+}
+template<std::size_t I, std::size_t N>
+const bool user::get(const array<bool, N> &arr) {
+    return arr._elem[I];
+}
+template<std::size_t N>
+constexpr bool user::operator<(
+    const array<bool, N> &lhs, const array<bool, N> &rhs
+) {
+   return lhs._elem.to_string() < rhs._elem.to_string();
+} //这里我们可以用std::bitset的to_string成员函数，转换成std::string再比较
+//其它比较运算符无需再重载
 template<std::size_t N, std::size_t M>
 void user::swap(array<bool, N> &lhs, array<bool, M> &rhs) {
     constexpr std::size_t minlen {std::min(N, M)};
-    for (std::size_t i = 0; i < minlen; i++)
-        std::swap(lhs._elem[i], rhs._elem[i]);
+    for (std::size_t i = 0; i < minlen; i++){
+        bool tmp {lhs._elem[i]};
+        lhs._elem[i] = rhs._elem[i];
+        rhs._elem[i] = tmp;
+    }
 }
 template<std::size_t N> //类模板参数
 template<std::size_t M> //函数模板参数

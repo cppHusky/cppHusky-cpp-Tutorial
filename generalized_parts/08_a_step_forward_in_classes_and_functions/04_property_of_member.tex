@@ -1,5 +1,4 @@
 \section{成员的属性}
-前三节的内容比较硬，读者可能也看乏了，所以本节我就来放放水。\par
 \subsection*{静态成员}
 一个类的非静态成员是无链接的。就以 \lstinline@valarri@ 为例，此对象的 \lstinline@_cap@ 成员和彼对象的 \lstinline@_cap@ 成员完全不是一个事物，它们在内存中有不同的地址——仅这一点足够说明问题了。\par
 静态成员（Static member）则不然，它具有内部链接。换句话说，只要是这个类的静态成员，甭管是此对象的成员还是彼对象的成员，它们都是同一个事物，有完全相同的内存地址。
@@ -20,8 +19,8 @@ int main() {
 0x600c54\\
 0x7ffd441a290c\\
 0x600c54
-}\\\noindent\rule{\linewidth}{.2pt}
-我们可以看到，这里 \lstinline@a.nonsta@ 和 \lstinline@b.nonsta@ 的地址值不同；而 \lstinline@a.sta@ 和 \lstinline@b.sta@ 的地址值相同。另外，读者也很容易注意到，静态成员的地址值与非静态成员的地址值也有很大不同，这是因为它们的存储位置不一样——非静态对象的非静态成员位于栈段，而静态成员位于数据段或BSS段。\par
+}\pagebreak
+我们可以看到，这里 \lstinline@a.nonsta@ 和 \lstinline@b.nonsta@ 的地址值不同；而 \lstinline@a.sta@ 和 \lstinline@b.sta@ 的地址值相同。另外，读者也很容易注意到，静态成员的地址值与非静态成员的地址值也很不相同，这是因为它们的存储位置不一样——非静态对象的非静态成员位于栈段，而静态成员位于数据段或BSS段。\par
 （非常量的）静态成员变量不能在类当中定义，只能声明；所以我们要把它放在类外定义，就像上面这段代码中写的那样。而在定义的时候呢，我们不能再写 \lstinline@static@ 了。\par
 \lstinline@C::sta@ 定义在全局作用域，所以它不仅对于 \lstinline@C@ 类来说是静态成员，而且还具有外部链接——我们可以在一个源文件中为 \lstinline@C::sta@ 进行定义，而在另一源文件中不定义就可以使用它。
 \begin{lstlisting}
@@ -43,9 +42,9 @@ int main() {
 我们还可能会图方便，直接把 \lstinline@C::sta@ 定义在头文件中，但是我们会立刻发现一个问题：如果把 \lstinline@C::sta@ 定义在头文件中，那么两个源文件在包含此头文件后，就会在两个文件中分别产生两个定义，这就违反了单一定义规则（ODR），如图8.3所示。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=.8\textwidth]{../images/generalized_parts/08_file_inclusion.drawio.png}
+    \includegraphics[width=\textwidth]{../images/generalized_parts/08_file_inclusion.drawio.png}
     \caption{把 \lstinline@C::sta@ 定义在头文件中将导致具有外部链接的变量被定义两次}
-\end{figure}
+\end{figure}\pagebreak
 所幸，从C++17起我们可以通过定义内联变量的方式来解决这个问题。
 \begin{lstlisting}
 //Header.hpp
@@ -53,7 +52,7 @@ struct C {
     static int sta;
 }
 inline int C::sta {};
-\end{lstlisting}
+\end{lstlisting}\par
 \lstinline@inline@\footnote{关于 \lstinline@inline@ 的其它作用，有些资料声称使用 \lstinline@inline@ 可以降低部分函数运行的时间；而有些资料则声称不能。笔者在这方面无睱深入研究，所以本着宁缺勿滥的原则，不作此方面的介绍，仅介绍笔者已知的 \lstinline@inline@ 关键字作用。}关键字的作用在于，允许拥有外部链接的函数/变量在不同翻译单元中分别定义（但是，在每个翻译单元中仍然只能有单个定义）。这些定义应该要相同；如果不相同，编译器会自行选择其中一个作为它的定义（因为不能违反ODR）——那就属于未定义行为（Undefined behavior）了，我们最好别这么干。\par
 对于定义在头文件的函数/对象来说，内联是我们的最佳选择。\par
 言归正传。静态对象有很多用处，比如说在 \lstinline@valarray@ 类中，我们把 \lstinline@MAX_SIZE@ 成员定义成了静态成员。这样的好处在于，其一，它对 \lstinline@valarri@ 类的所有对象都是统一的，我们不必担心某个对象的数据被误修改从而导致不统一；其二，静态成员的内存空间是单独的，而且对于所有对象来说只此一个，这也就意味着我们不需要为每个对象都定义一个专属的 \lstinline@MAX_SIZE@ 成员，从而浪费大把的内存空间。\par
@@ -123,7 +122,7 @@ int main() {
     std::cout << arr[0]; //试图访问arr[0]，但我们没打算修改它的值
 //error: passing 'const valarri' as 'this' argument discards qualifiers
 \end{lstlisting}
-这也同样是C++的保护机制在作怪——它不允许你把 \lstinline@arr@ 作为一个参数传给 \lstinline@valarri::operator[](int)@，因为这个函数并不保证传入的隐藏参数是常量引用。\par
+这也同样是C++的保护机制在作怪——它不允许你把 \lstinline@arr@ 作为一个参数传给\\\lstinline@valarri::operator[](int)@，因为这个函数并不保证传入的隐藏参数是常量引用。\par
 这也是是我们使用常成员函数的原因。当我们在参数列表之后加上一个 \lstinline@const@ 之后，我们就是在向编译器宣告：这个函数不会改变调用它的对象的值！
 \begin{lstlisting}
 //声明&定义
@@ -133,7 +132,7 @@ public:
 \end{lstlisting}
 这两个成员函数之间是重载关系。第一个函数接收一个隐藏的 \lstinline@valarri&@ 参数和一个 \lstinline@int@ 参数；第二个函数接收一个隐藏的 \lstinline@const valarri&@ 参数和一个 \lstinline@int@ 参数——所以它们是不一样的，编译器会有所选择\footnote{简单来说，编译器会对左值变量优先匹配 \lstinline@T&@ 参数，次优先匹配 \lstinline@const T&@ 参数；对左值常量优先匹配 \lstinline@const T&@ 参数，而不能匹配 \lstinline@T&@ 参数。我们在精讲篇中再谈。}。\par
 读者还需要注意，这里第二个函数的返回类型不是 \lstinline@int&@ 而是 \lstinline@int@。这同样是防止修改常量的一种方式。只不过，如果我们不慎将它的返回类型真的定义成了引用，编译器也无法检查出来。如果在这种情况下``越狱''修改常量，那就会引发不可预知的后果，同样属于未定义行为。所以读者也勿必多留个心眼，不要在这里失误。\par
-\lstinline@valarri@ 类中还有许多函数可以定为常成员函数，比如 \lstinline@valarri::max@, \lstinline@valarri::min@, \lstinline@valarri::sum@，还有 \lstinline@valarri::operator+(const valarri&)@ 之类的运算符，只要它们不需要修改 \lstinline@*this@ 本身，我们就可以把它们都定义成常成员函数——这样总是没有坏处的，毕竟可变对象可以调用常成员函数，但常量对象就真的不能调用非常成员函数（注意断句：非/常成员函数）了。
+\lstinline@valarri@ 类中还有许多函数可以定为常成员函数，比如 \lstinline@valarri::max@, \lstinline@valarri::min@,\\\lstinline@valarri::sum@，还有 \lstinline@valarri::operator+(const valarri&)@ 之类的运算符，只要它们不需要修改 \lstinline@*this@ 本身，我们就可以把它们都定义成常成员函数——这样总是没有坏处的，毕竟可变对象可以调用常成员函数，但常量对象就真的不能调用非常成员函数（注意断句：非/常成员函数）了。
 \begin{lstlisting}  
 //声明
 public:
@@ -294,7 +293,7 @@ private:
 于是，当我们定义一个对象时，无论是不是常量对象，它都有这样的特点：
 \begin{itemize}
     \item 如果一直不调用 \lstinline@area()@ 成员函数，这个值永远不会被计算，节省了计算时间；
-    \item 第一次调用 \lstinline@area()@ 成员函数，这个值被计算出来并存储到 \lstinline@_area@ 中，同时延迟标记 \lstinline@_area_cached@ 消除；
+    \item 第一次调用 \lstinline@area()@ 成员函数，这个值被计算出来并存储到 \lstinline@_area@ 中，与此同时延迟标记\linebreak\lstinline@_area_cached@ 消除；
     \item 以后再调用 \lstinline@area()@ 成员函数，直接返回 \lstinline@_area@ 就行了，无需再次计算。
 \end{itemize}\par
 很多人容易滥用 \lstinline@mutable@ 这个关键字，用来表达一些``可修改''的变量，然后把所有的对象都定义成 \lstinline@const@ 常量对象。这是非常糟糕的习惯！\par

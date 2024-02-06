@@ -98,7 +98,7 @@ public:
 };
 \end{lstlisting}
 但是这里存在另一个问题：C++17标准并没有保证不同访问权限的成员间的初始化顺序\footnote{这个问题貌似在C++23标准中得到了解决。}——换句话说，这样会把初始化变成一个未定义行为。为了预防这种情况的发生，我们还是要把 \lstinline@_arr@ 和 \lstinline@_p@ 都放在同一访问权限之下。\par
-然而，如果把它们都放在 \lstinline@private@ 访问权限下，那么 \lstinline@_cap@ 就不能被派生类使用，这不符合我们的初衷；如果把它们都放在 \lstinline@protected@ 访问权限下，那么 \lstinline@_p@ 就可以被 \lstinline@string@ 类直接接触，起不到隔离的作用。为此，我们还需要更加取巧的方法才行，那就是——引用。
+然而，如果把它们都放在 \lstinline@private@ 访问权限下，那么 \lstinline@_cap@ 就不能被派生类使用，这不符合我们的初衷；如果把它们都放在 \lstinline@protected@ 访问权限下，那么 \lstinline@_p@ 就可以被 \lstinline@string@ 类直接接触，起不到隔离的作用。为此，我们还需要更加取巧的方法才行，那就是——引用。\pagebreak
 \begin{lstlisting}
 class Arr {
     std::size_t ori_cap; //通过构造函数的初值列初始化
@@ -123,15 +123,15 @@ string::string(std::size_t count, char ch) : Arr {count} {
 这里我们只需要显式调用 \lstinline@Arr@ 的构造函数就行了。至于 \lstinline@_size@ 的初始化，自有默认成员初始值来招待。\par
 \subsection*{实操：适配\texttt{std::vector<int>}的\texttt{stack}类}
 \lstinline@std::stack@ 是一种容器适配器\footnote{容器适配器（Container Adapter），是一种在特定容器类型上提供特定接口的数据结构，它们通过包装底层容器（如数组或链表）来提供特定的功能。}，用来表示``栈''这个数据结构。\par
-\textbf{栈（Stack）}是一种数据结构，它只支持两种基本的修改操作：从末端堆入数据（Push），或者从末端移出数据（Pop），如图9.4所示。C++在 \lstinline@stack@ 库中定义了 \lstinline@std::stack@ 类模板，读者可以在 \href{https://en.cppreference.com/w/cpp/container/stack}{std::stack - cppreference.com} 中查到它支持的功能等有关信息。
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.75\textwidth]{../images/generalized_parts/09_lifo_stack.png}
     \caption{栈的数据操作方式：从末端堆入、从末端移出}
     \footnotesize{图片来源：Wikipedia}
 \end{figure}
+\textbf{栈（Stack）}是一种数据结构，它只支持两种基本的修改操作：从末端堆入数据（Push），或者从末端移出数据（Pop），如图9.4所示。C++在 \lstinline@stack@ 库中定义了 \lstinline@std::stack@ 类模板，读者可以在 \href{https://en.cppreference.com/w/cpp/container/stack}{std::stack - cppreference.com} 中查到它支持的功能等有关信息。
 关于 \lstinline@stack@ 类的具体实现，我们当然可以从一个裸的数组开始写起，但是这样太麻烦了。为此，我们可以让 \lstinline@stack@ 类内嵌一个 \lstinline@std::vector@ 对象，从而通过调用 \lstinline@std::vector@ 现成的成员函数来实现我们想要的基本功能。\par
-注意，这些 \lstinline@std::vector@ 的功能仅限 \lstinline@stack@ 类内部使用；而对于外部来说，不是所有的 \lstinline@std::vector@ 成员函数都能调用。因此我们可以用私有继承的方式来实现，这样就保证了 \lstinline@std::vector@ 的公有成员都是 \lstinline@stack@ 的私有成员，从而起到屏障效果。
+注意，这些 \lstinline@std::vector@ 的功能仅限 \lstinline@stack@ 类内部使用；而对于外部来说，不是所有的\newline\lstinline@std::vector@ 成员函数都能调用。因此我们可以用私有继承的方式来实现，这样就保证了\newline\lstinline@std::vector@ 的公有成员都是 \lstinline@stack@ 的私有成员，从而起到屏障效果。
 \begin{lstlisting}
 class stack : private vector<int> { //private是默认的，可省略
     //...待补充
@@ -144,7 +144,7 @@ class stack : private vector<int> { //private是默认的，可省略
 \begin{itemize}
     \item 默认构造函数将建立一个空的栈。
     \item 拷贝构造函数接收另一个同类\footnote{需要提醒，\lstinline@std::stack@ 是一个类模板而不是类。\lstinline@std::stack<int>@ 和 \lstinline@std::stack<double>@ 同属一个类模板，但却是两个不同的类。}对象。
-    \item 有的构造函数接收一个 \lstinline@Container@ 类对象——对于我们来说，这个 \lstinline@Container@ 指的就是 \lstinline@std::vector<int>@。
+    \item 有的构造函数接收一个 \lstinline@Container@ 类对象——对于我们来说，这个 \lstinline@Container@ 指的就是\newline\lstinline@std::vector<int>@。
     \item ……
 \end{itemize}
 \lstinline@std::stack@ 的析构函数也很简单。如果 \lstinline@stack@ 类没有什么动态内存操作的后顾之忧，那么我们不需要自行写一个析构函数，用默认的析构函数足够了。至于 \lstinline@std::vector<int>@ 中的动态内存空间，那应该是 \lstinline@std::vector<int>@ 的析构函数负责处理的。\par
@@ -203,7 +203,7 @@ public:
 \begin{lstlisting}
     void push(const int&); //堆入数据
     void pop(); //移出数据
-\end{lstlisting}\par
+\end{lstlisting}\par\pagebreak
 \lstinline@swap@ 成员函数亦如此。
 \begin{lstlisting}
     void swap(stack&); //交换内容
@@ -225,7 +225,7 @@ stack::stack(const std::vector<int> &v) : std::vector<int>{v} {}
 stack::stack(const stack &s) : std::vector<int>{s} {}
 //拷贝构造函数
 \end{lstlisting}
-这里的构造函数调用了 \lstinline@std::vector<int>@ 的拷贝构造函数，用以为 \lstinline@stack@ 类内嵌的 \lstinline@std::vector<int>@ 对象初始化。而下面的拷贝构造函数就显得有些反常，它传入的参数是 \lstinline@stack@ 类的？\par
+这里的构造函数调用了 \lstinline@std::vector<int>@ 的拷贝构造函数，用以为 \lstinline@stack@ 类内嵌的\newline\lstinline@std::vector<int>@ 对象初始化。而下面的拷贝构造函数就显得有些反常，它传入的参数是 \lstinline@stack@ 类的？\par
 其实这是因为，基类与派生类之间可以进行隐式类型转换。我们会在下一章中讲解这方面的详细知识；现阶段读者只需要明白，\textbf{派生类的对象可以无风险地隐式类型转换成基类对象——得到的正是那个内嵌于派生类中的基类对象}\footnote{在类的内部，这个关系是成立的；对于公有继承来说，这个关系也成立。但是对于私有继承的派生类来说，在类外不允许这种隐式类型转换。}。所以这里传入的 \lstinline@s@ 会先隐式类型转换成 \lstinline@std::vector<int>@ 类型，然后用以构造。\par
 \begin{lstlisting}
 stack& stack::operator=(const stack &s) {
@@ -259,7 +259,7 @@ bool stack::operator<(const stack &s)const {
 }
 \end{lstlisting}
 小于号这样定义就可以。需要注意，对于 \lstinline@std::vector@ 来说，小于号并不是成员函数，而是非成员函数，因此我们不能用成员函数的调用方法。\par
-另外读者可能会对 \lstinline@*this<static_cast<std::vector<int>>(s)@\footnote{请读者留意，一些上古编译器会把两个半尖括号 \lstinline@>>@ 识别成右移位运算符。如果发生了这样的事情，读者只需在两个半尖括号之间加一空格，改写成 \lstinline@> >@ 就可以了。相似的情形还有两个半方括号 \lstinline@[[@ 这样的写法，可能会被编译器当作属性说明符，这时我们只需要加一空格就可以了。}这样的写法感到好奇——难道这样不会像我们在第二章第四节末尾所讲那样\footnote{我们曾就 \lstinline@static_cast<int>(a)*b@ 这个语法做过讨论，发现在这个类型转换的过程中，\lstinline@a@ 被转换为 \lstinline@int@ 型之后马上又被转换为 \lstinline@double@，结果并没有实现我们的目的。}，\lstinline@s@ 被转换成 \lstinline@std::vector<int>@ 类型后又被转换成 \lstinline@stack@ 类型吗？其实不会，这是因为继承关系所带来的隐式类型转换是不平等的。派生类的对象可以无风险转换为基类对象\footnote{再次提醒，对于类内部来说才有这样的隐式类型转换关系；对于类外部来说就未必了。}，但基类对象就不能隐式转换为派生类对象。所以对于 \lstinline@*this<static_cast<std::vector<int>>(s)@ 来说，只有一种可能的转换方式，就是二者都转换为 \lstinline@std::vector<int>@ 对象。\par
+另外读者可能会对 \lstinline@*this<static_cast<std::vector<int>>(s)@\footnote{请读者留意，一些上古编译器会把两个半尖括号 \lstinline@>>@ 识别成右移位运算符。如果发生了这样的事情，读者只需在两个半尖括号之间加一空格，改写成 \lstinline@> >@ 就可以了。相似的情形还有两个半方括号 \lstinline@[[@ 这样的写法，可能会被编译器当作属性说明符，这时我们只需要加一空格就可以了。}这样的写法感到好奇——难道这样不会像我们在第二章第四节末尾所讲那样\footnote{我们曾就 \lstinline@static_cast<int>(a)*b@ 这个语法做过讨论，发现在这个类型转换的过程中，\lstinline@a@ 被转换为 \lstinline@int@ 型之后马上又被转换为 \lstinline@double@，结果并没有实现我们的目的。}，\lstinline@s@ 被转换成 \lstinline@std::vector<int>@ 类型后又被转换成 \lstinline@stack@ 类型吗？其实不会，这是因为继承关系所带来的隐式类型转换是不平等的。派生类的对象可以无风险转换为基类对象\footnote{再次提醒，对于类内部来说才有这样的隐式类型转换关系；对于类外部来说就未必了。}，但基类对象就不能隐式转换为派生类对象。所以对于\newline \lstinline@*this<static_cast<std::vector<int>>(s)@ 来说，只有一种可能的转换方式，就是二者都转换为 \lstinline@std::vector<int>@ 对象。\par
 接下来的几个比较运算符就是小儿科了。
 \begin{lstlisting}
 bool stack::operator<(const stack &s)const {
@@ -290,13 +290,13 @@ bool stack::operator!=(const stack &s)const {
     \item 组合方式下，我们可以定义多个成员对象。虽然有些时候我们只需一个对象就够了——\lstinline@stack@ 正是这样的情形；但是如果我们需要内嵌多个对象，那么私有继承方式就不管用了，我们必须组合。
 \end{itemize}
 无论怎么说，这些优点都太显著，所以我们常常会忽略私有继承这种方式。\par
-但是，私有继承方式也有它的些许优点：
+但是，私有继承方式也有它自己的优点：
 \begin{itemize}
     \item 如果我们希望像 \lstinline@Arr@ 那样只把 \lstinline@p()@ 当作一个随机而变的成员对象来使用的话，定义一个 \lstinline@_arr@ 作为中介还是麻烦了点。不如通过继承方式，让 \lstinline@p()@ 成为真正意义上的成员。
     \item 在继承方式下，基类的受保护成员对派生类也可见，这就为我们在某些特定条件下写代码提供了便利。
     \item 继承方式还为多态提供了可能，我们会在下一节中讲到。
 \end{itemize}\par
 如果要我描述的话，我认为私有继承相较于组合方式来说，有点像 \lstinline@mutable@ 成员相较于普通成员——如果没有什么这方面的专门需求，就不要用它。虽说如此，但是私有继承作为一种行之有效的表示``整体与部分''关系的方式，仍是读者应知应会的内容。\par
-\subsection*{\lstinline@stack@ 类的初步实现代码}
+\subsection*{\texttt{stack}类的初步实现代码}
 \lstinputlisting[caption=\texttt{Header.hpp}]{../code_in_book/9.1-9.2/Header.hpp}
 \lstinputlisting[caption=\texttt{Definition.cpp}]{../code_in_book/9.1-9.2/Definition.cpp}

@@ -1,7 +1,7 @@
 \section{多重继承}
 在上一章中，我们看到了C++流输入/输出库中复杂的继承关系。其中的 \lstinline@std::basic_iostream@ 尤为引人注目。你没看错，这个类同时继承自 \lstinline@std::basic_ostream@ 和 \lstinline@std::basic_istream@。这种继承多个基类的操作叫做\textbf{多重继承（Multiple Inheritance）}。\par
 多重继承并不神秘。如果我们把继承视作是单纯的内嵌一个基类对象的话（私有继承是这样做的），那么多重继承就意味着在派生类对象中同时内嵌两个基类对象；如果我们把继承视作是共性成员的代码重用的话（公开继承是这样做的），那么多重继承就意味着派生类同时拥有这两个基类的特征。\par
-以 \lstinline@std::stringstream@ 为例，它继承自 \lstinline@std::iostream@，而 \lstinline@std::iostream@ 多重继承自 \lstinline@std::istream@ 和 \lstinline@std::ostream@，所以它同时拥有 \lstinline@>>@ 和 \lstinline@<<@ 运算符的重载。于是这个类的对象既有输入功能又有输出功能。\par
+以 \lstinline@std::stringstream@ 为例，它继承自 \lstinline@std::iostream@，而 \lstinline@std::iostream@ 多重继承自\linebreak\lstinline@std::istream@ 和 \lstinline@std::ostream@，所以它同时拥有 \lstinline@>>@ 和 \lstinline@<<@ 运算符的重载。于是这个类的对象既有输入功能又有输出功能。\par
 \begin{lstlisting}
     std::stringstream ss;
     std::string str;
@@ -43,10 +43,10 @@ class Derived : public std::vector<int>, public std::string {
 \begin{lstlisting}
     std::cout << d.std::vector<int>::size(); //调用std::vector<int>的size成员
 \end{lstlisting}
-作用域解析运算符拥有最高优先级，所以 \lstinline@d.std::vector<int>::size()@ 的含义是 \lstinline@d.(std::vector<int>::size())@。也就是说，这里我们指定了调用的成员函数是 \lstinline@std::vector<int>::size()@。\par
+作用域解析运算符拥有最高优先级，所以 \lstinline@d.std::vector<int>::size()@ 的含义是\newline\lstinline@d.(std::vector<int>::size())@。也就是说，这里我们指定了调用的成员函数是\newline\lstinline@std::vector<int>::size()@。\par
 这样一来我们就解决了名称歧义的问题。\par
 \subsection*{初始化顺序问题}
-对于单重继承来说，初始化的顺序是一目了然的。对于每个派生类来说，都是先初始化它的基类部分，然后再初始化派生类的成员。如果它的基类又是另一个类的派生类，那么同样遵循这样的规则，先初始化这个基类的基类部分，再初始化这个基类的成员……以此类推。\par
+对于单重继承来说，初始化的顺序是一目了然的。对于每个派生类来说，都是先初始化它的基类部分，然后再初始化派生类的成员。如果它的基类又是另一个类的派生类，那么同样遵循这样的规则，先初始化这个基类的基类部分，再初始化这个基类的成员……以此类推。\par\pagebreak
 对于多重继承来说，初始化的顺序是按继承定义中的顺序进行的。
 \begin{lstlisting}
 struct A { A() { std::cout << "A::A()\n"; } };
@@ -61,7 +61,7 @@ int main() {
 这段代码中的继承关系很清晰，如图10.6所示。
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=.36\textwidth]{../images/generalized_parts/10_multiple_inheritance_example.drawio.png}
+    \includegraphics[width=.5\textwidth]{../images/generalized_parts/10_multiple_inheritance_example.drawio.png}
     \caption{多重继承关系示例}
 \end{figure}
 那么它的运行结果将是怎样的呢？\\\noindent\rule{\linewidth}{.2pt}\texttt{
@@ -76,7 +76,7 @@ E::E()
     \item 调用 \lstinline@C@ 的构造函数。在这一过程中，\lstinline@A::A()@ 先调用，然后是 \lstinline@C::C()@。虽然在 \lstinline@E::E()@ 当中我们把 \lstinline@D{}@ 写在了 \lstinline@C{}@ 前面，但是这并不会改变构造函数调用的顺序——这个顺序是取决于继承顺序的。
     \item 调用 \lstinline@D@ 的构造函数。在这一过程中，\lstinline@B::B()@ 先调用，然后是 \lstinline@D::D()@。
     \item 完成了 \lstinline@C::C()@ 和 \lstinline@D::D()@ 的调用之后，\lstinline@E::E()@ 调用。
-\end{enumerate}
+\end{enumerate}\par
 不要觉得多重继承中的初始化顺序很复杂，其实只是多了一项准则而已：按多重继承的基类顺序调用各个基类的构造函数——简单点说，从左到右。对于这个继承顺序来说，调用 \lstinline@E::E()@ 之前就应当先后调用 \lstinline@C::C()@ 和 \lstinline@D::D()@。至于这两个构造函数要干什么，那不是 \lstinline@E@ 应当管的事情。从运行结果上看，\lstinline@C::C()@ 在 \lstinline@D::D()@ 之前，\lstinline@D::D()@ 又在 \lstinline@E::E()@ 这前，这就够了。\par
 \subsection*{菱形继承结构的重复成员}
 我们说，派生类的对象相当于内嵌了一个基类的对象；或者说，派生类相当于拥有基类的成员\footnote{即便基类的私有成员对派生类不可见。}。多重继承会为我们带来另一个棘手的问题，就是在菱形的继承关系下，公共基类的对象，或者说成员，发生了重复。\par

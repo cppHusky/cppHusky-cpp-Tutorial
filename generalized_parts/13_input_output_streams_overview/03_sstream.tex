@@ -1,5 +1,5 @@
 \section{字符串输入/输出\texttt{sstream}}
-\lstinline@std::basic_stringstream@ 继承自 \lstinline@std::basic_iostream@，表示字符串输入/输出。而 \lstinline@std::basic_istringstream@ 和 \lstinline@std::basic_ostingstream@ 分别继承自 \lstinline@std::basic_istream@ 和 \lstinline@std::basic_ostream@。我们在上一节中已经看到了它的一点影子，那就是用 \lstinline@std::istringstream@ 对象来产生一个新的输入流，再把 \lstinline@std::cin@ 重定向到它。\par
+\lstinline@std::basic_stringstream@ 继承自 \lstinline@std::basic_iostream@，表示字符串输入/输出。而\newline\lstinline@std::basic_istringstream@ 和 \lstinline@std::basic_ostingstream@ 分别继承自 \lstinline@std::basic_istream@ 和 \lstinline@std::basic_ostream@。我们在上一节中已经看到了它的一点影子，那就是用 \lstinline@std::istringstream@ 对象来产生一个新的输入流，再把 \lstinline@std::cin@ 重定向到它。\par
 这三个类都定义在 \lstinline@sstream@ 库中。它们最一般的用途是向字符串中输入/输出内容。程序把一段内容通过流输入到字符串中，这是``输出''；程序从一段内容中通过流读取信息，这是``输入''，不要搞混。我们只需始终记住：信息从程序中传到外界是输出，从外界传到程序中是输入。\par
 对于 \lstinline@std::stringstream@ 系列的类来说，它们都有内置的底层字符串，用以存储内容。我们可以用 \lstinline@str@ 成员函数来访问或修改它。
 \begin{lstlisting}
@@ -7,7 +7,7 @@ std::basic_string<CharT, Traits, Allocator> str()const; //访问
 void str(const std::basic_string<CharT, Traits, Allocator> &s); //修改
 \end{lstlisting}\par
 注意这个访问函数重载，它的返回类型不是引用，所以我们不能靠它来修改数据，而是必须以提供参数的方式进行。\par
-下面是一个简单的使用字符串输入/输出的示例。我们先把待输入的内容存进一个 \lstinline@std::istringstream@ 对象（的底层字符串）中，再陆陆续续把输出内容输出到 \lstinline@std::ostringstream@ 对象（的底层字符串）中。但是我们不能直接看到这些输出内容，所以为了检验，我们还会用 \lstinline@std::cout@ 把 \lstinline@std::ostringstream@ 对象中的内容输出到屏幕中。\par
+下面是一个简单的使用字符串输入/输出的示例。我们先把待输入的内容存进一个\newline\lstinline@std::istringstream@ 对象（的底层字符串）中，再陆陆续续把输出内容输出到\newline\lstinline@std::ostringstream@ 对象（的底层字符串）中。但是我们不能直接看到这些输出内容，所以为了检验，我们还会用 \lstinline@std::cout@ 把 \lstinline@std::ostringstream@ 对象中的内容输出到屏幕中。\par
 \lstinputlisting[caption=\texttt{string\_stream\_calculator.cpp}]{code_in_book/13.2/string_stream_calculator.cpp}
 这段代码的运行结果是：\\\noindent\rule{\linewidth}{.2pt}\texttt{
 1.6 6.28 0.1 2
@@ -30,4 +30,4 @@ void str(const std::basic_string<CharT, Traits, Allocator> &s); //修改
     std::cout << sin.get() << ' '; //52
 \end{lstlisting}
 在这里，当我们进行重定向之后，\lstinline@std::cin@ 和 \lstinline@sin@ 就指向了同一个缓冲区，所以它们就会共用输入内容。\par
-字符串输入/输出的内容不多，本节只是作一个过渡，接下来就让我们看看文件输入/输出的相关知识。\par
+字符串输入/输出的内容不多，本节只是作一个过渡，接下来就让我们看看文件输入/输出的相关知识。\par\pagebreak

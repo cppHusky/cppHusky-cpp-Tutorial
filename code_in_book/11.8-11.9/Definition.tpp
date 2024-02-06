@@ -10,7 +10,8 @@ std::ostream& user::operator<<(
     std::ostream &out,
     const user::unique_ptr<T> &ptr
 ) {
-    return out << ptr._ptr; //其实就是直接输出ptr内部的指针值，这也正是我们想要的
+    return out << ptr._ptr;
+    //其实就是直接输出ptr内部的指针值，这也正是我们想要的
 }
 //主模板成员函数定义部分
 template<typename T>

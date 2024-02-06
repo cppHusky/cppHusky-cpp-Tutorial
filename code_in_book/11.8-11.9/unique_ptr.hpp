@@ -18,7 +18,7 @@ public:
     using pointer = T*; //通过using定义成员类型pointer，公有
     using element_type = T; //定义成员类型element_type
 private:
-    pointer _ptr {nullptr}; //pointer类型的私有成员，成员类型pointer必须定义在前面
+    pointer _ptr {nullptr}; //pointer类私有成员，成员类型pointer必须定义在前面
     static std::unordered_set<pointer> record;
 public:
     explicit unique_ptr(pointer = {nullptr}); //接收pointer类参数，或nullptr

@@ -51,41 +51,41 @@
 \contentsline {section}{\numberline {8.3}构造与析构}{190}{section.8.3}%
 \contentsline {section}{\numberline {8.4}成员的属性}{199}{section.8.4}%
 \contentsline {section}{\numberline {8.5}类型转换函数}{208}{section.8.5}%
-\contentsline {section}{\numberline {8.6}复合类型与对象}{218}{section.8.6}%
-\contentsline {section}{\numberline {8.7}实操：简单的\texttt {string}类}{221}{section.8.7}%
+\contentsline {section}{\numberline {8.6}复合类型与对象}{219}{section.8.6}%
+\contentsline {section}{\numberline {8.7}实操：简单的\texttt {string}类}{222}{section.8.7}%
 \contentsline {chapter}{\numberline {第九章\hspace {.3em}}类的继承}{245}{chapter.9}%
 \contentsline {section}{\numberline {9.1}基本概念}{245}{section.9.1}%
-\contentsline {section}{\numberline {9.2}公开继承与受保护成员}{247}{section.9.2}%
+\contentsline {section}{\numberline {9.2}公开继承与受保护成员}{248}{section.9.2}%
 \contentsline {section}{\numberline {9.3}私有继承}{252}{section.9.3}%
-\contentsline {section}{\numberline {9.4}多级继承}{261}{section.9.4}%
+\contentsline {section}{\numberline {9.4}多级继承}{262}{section.9.4}%
 \contentsline {chapter}{\numberline {第十章\hspace {.3em}}继承中的常见问题}{265}{chapter.10}%
 \contentsline {section}{\numberline {10.1}继承中的类型转换}{265}{section.10.1}%
 \contentsline {section}{\numberline {10.2}虚函数与多态}{269}{section.10.2}%
 \contentsline {section}{\numberline {10.3}抽象基类与纯虚函数}{274}{section.10.3}%
 \contentsline {section}{\numberline {10.4}多重继承}{279}{section.10.4}%
-\contentsline {section}{\numberline {10.5}虚继承}{282}{section.10.5}%
+\contentsline {section}{\numberline {10.5}虚继承}{283}{section.10.5}%
 \contentsline {chapter}{\numberline {第十一章\hspace {.3em}}模板与泛型编程基础}{291}{chapter.11}%
 \contentsline {section}{\numberline {11.1}函数模板与\texttt {constexpr}}{291}{section.11.1}%
 \contentsline {section}{\numberline {11.2}函数模板的实例化与特化}{296}{section.11.2}%
 \contentsline {section}{\numberline {11.3}类模板}{301}{section.11.3}%
-\contentsline {section}{\numberline {11.4}类模板的友元、实例化与特化}{307}{section.11.4}%
-\contentsline {section}{\numberline {11.5}STL简介}{320}{section.11.5}%
-\contentsline {section}{\numberline {11.6}实操：智能指针}{332}{section.11.6}%
-\contentsline {chapter}{\numberline {第十二章\hspace {.3em}}异常处理简介}{345}{chapter.12}%
-\contentsline {section}{\numberline {12.1}基本\texttt {try}-\texttt {catch}-\texttt {throw}结构}{345}{section.12.1}%
-\contentsline {section}{\numberline {12.2}异常类\texttt {std::exception}相关}{350}{section.12.2}%
-\contentsline {section}{\numberline {12.3}实操：简单矩阵类的设计}{353}{section.12.3}%
-\contentsline {chapter}{\numberline {第十三章\hspace {.3em}}输入/输出流简介}{369}{chapter.13}%
-\contentsline {section}{\numberline {13.1}信息在流中的传递}{369}{section.13.1}%
-\contentsline {section}{\numberline {13.2}流输入/输出\texttt {iostream}}{372}{section.13.2}%
-\contentsline {section}{\numberline {13.3}字符串输入/输出\texttt {sstream}}{382}{section.13.3}%
-\contentsline {section}{\numberline {13.4}文件输入/输出\texttt {fstream}}{384}{section.13.4}%
-\contentsline {part}{精讲篇（敬请期待）}{391}{part*.269}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{391}{appendix.A}%
-\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{393}{appendix.B}%
-\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{395}{appendix.C}%
-\contentsline {section}{\numberline {C.1}数制转换}{395}{section.C.1}%
-\contentsline {section}{\numberline {C.2}布尔代数基础}{404}{section.C.2}%
-\contentsline {section}{\numberline {C.3}位运算简介}{405}{section.C.3}%
-\contentsline {chapter}{\numberline {附录 D\hspace {.3em}}有关C++语言的其它资料}{407}{appendix.D}%
-\contentsline {chapter}{跋}{409}{appendix*.278}%
+\contentsline {section}{\numberline {11.4}类模板的友元、实例化与特化}{308}{section.11.4}%
+\contentsline {section}{\numberline {11.5}STL简介}{321}{section.11.5}%
+\contentsline {section}{\numberline {11.6}实操：智能指针}{333}{section.11.6}%
+\contentsline {chapter}{\numberline {第十二章\hspace {.3em}}异常处理简介}{347}{chapter.12}%
+\contentsline {section}{\numberline {12.1}基本\texttt {try}-\texttt {catch}-\texttt {throw}结构}{347}{section.12.1}%
+\contentsline {section}{\numberline {12.2}异常类\texttt {std::exception}相关}{352}{section.12.2}%
+\contentsline {section}{\numberline {12.3}实操：简单矩阵类的设计}{355}{section.12.3}%
+\contentsline {chapter}{\numberline {第十三章\hspace {.3em}}输入/输出流简介}{371}{chapter.13}%
+\contentsline {section}{\numberline {13.1}信息在流中的传递}{371}{section.13.1}%
+\contentsline {section}{\numberline {13.2}流输入/输出\texttt {iostream}}{374}{section.13.2}%
+\contentsline {section}{\numberline {13.3}字符串输入/输出\texttt {sstream}}{385}{section.13.3}%
+\contentsline {section}{\numberline {13.4}文件输入/输出\texttt {fstream}}{387}{section.13.4}%
+\contentsline {part}{精讲篇（敬请期待）}{395}{part*.269}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}C++运算符基本属性}{395}{appendix.A}%
+\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}ASCII码表（0到127）}{397}{appendix.B}%
+\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{399}{appendix.C}%
+\contentsline {section}{\numberline {C.1}数制转换}{399}{section.C.1}%
+\contentsline {section}{\numberline {C.2}布尔代数基础}{408}{section.C.2}%
+\contentsline {section}{\numberline {C.3}位运算简介}{409}{section.C.3}%
+\contentsline {chapter}{\numberline {附录 D\hspace {.3em}}有关C++语言的其它资料}{411}{appendix.D}%
+\contentsline {chapter}{跋}{413}{appendix*.278}%

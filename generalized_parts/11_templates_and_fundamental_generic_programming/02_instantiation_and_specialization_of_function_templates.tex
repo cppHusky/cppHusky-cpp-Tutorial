@@ -15,7 +15,7 @@ void swap(T(&)[N], T(&)[N]);
     double a {1}, b{2};
     user::swap(a, b); //编译器推导出T=double
 \end{lstlisting}
-这说明程序需要一个 \lstinline@T=double@ 的函数，那么编译器就会生成一个这样的函数，它的全名叫作 \lstinline@user::swap<double>@，尖括号里的内容就是它的模板实参；参数列表是 \lstinline@(double&,double&)@。同理，如果我们传入的是两个 \lstinline@int@ 数据，那么编译器就会推导出 \lstinline@T=int@，然后生成一个这样的函数，它的全名叫作 \lstinline@user::swap<int>@，参数列表是 \lstinline@(int&,int&)@。\par
+这说明程序需要一个 \lstinline@T=double@ 的函数，那么编译器就会生成一个这样的函数，它的全名叫作\newline\lstinline@user::swap<double>@，尖括号里的内容就是它的模板实参；参数列表是 \lstinline@(double&,double&)@。同理，如果我们传入的是两个 \lstinline@int@ 数据，那么编译器就会推导出 \lstinline@T=int@，然后生成一个这样的函数，它的全名叫作 \lstinline@user::swap<int>@，参数列表是 \lstinline@(int&,int&)@。\par
 我们可以用全名来调用它，这样就不用麻烦编译器做模板参数推导了（毕竟，它的推导结果可能并不是我们想要的样子）。
 \begin{lstlisting}
     int a {1}, b {2};
@@ -63,7 +63,7 @@ T max(const T (&a)[N1], const T (&b)[N2]) {
 }
 };
 \end{lstlisting}\par
-代码11.1中的两个 \lstinline@user::swap@ 函数之间也有重载关系。当我们不加模板实参地调用 \lstinline@user::swap@ 时，编译器会根据一套复杂的重载决议规则，选择最匹配的函数模板，并调用相应的函数实例。这套规则的简化版（足够对付日常编程中的常见情况了）是这样的：
+代码11.1中的两个 \lstinline@user::swap@ 函数之间也有重载关系。当我们不加模板实参地调用\newline\lstinline@user::swap@ 时，编译器会根据一套复杂的重载决议规则，选择最匹配的函数模板，并调用相应的函数实例。这套规则的简化版（足够对付日常编程中的常见情况了）是这样的：
 \begin{enumerate}
     \item 如果同一个名字下有一个参数类型相匹配\footnote{这个匹配过程可能涉及隐式类型转换，比如数组到指针的类型转换等。}的非模板函数，那么将优先调用非模板函数。
     \item 如果这个名字之下都是函数模板，那么将优先调用函数形参更特殊\footnote{实际上，重载函数模板之间存在一种偏序关系，编译器将根据它们之间的偏序关系来决定各个重载的优先级。}的模板重载。举例来说，\lstinline@fun(T*)@ 就比 \lstinline@fun(T)@ 更特殊，因为前者的限制比后者多，虽然两者都可以接收各种指针\footnote{包括一阶指针，高阶指针，数组指针等各种指针。}，但是前者不能接收指针以外的类型（比如非指针的数据）——所以 \lstinline@fun(T*)@ 更特殊，而 \lstinline@fun(T)@ 更一般。
@@ -125,15 +125,15 @@ bool less(const char *lhs, const char *rhs) { //定义非模板函数
 这里有三个函数模板重载，对于第一个重载来说，我们无法通过函数参数提供任何信息，编译器不能进行模板参数推导，所以我们必须把两个模板参数都写出来才行；对于第二个重载，编译器可以根据我们提供的实参来推导第二个模板参数，所以我们可以省去第二个模板参数；对于第三个重载，编译器可以根据我们提供的两个实参来推导所有模板参数，所以我们可以把它们全都省去了。\par
 下面就展示这三个模板的调用过程：当我们需要比较两个类时，就把这两个类都放到模板参数中；当我们需要比较两个对象时，就把这两个对象都放到函数参数中；当我们需要比较一个类和一个对象时，就把类放到模板参数中，对象放到函数参数中。\par
 \lstinputlisting[caption=\texttt{main.cpp}]{../code_in_book/11.2-11.3/main.cpp}
-读者可能注意到了一些新的问题：这里我们判断 \lstinline@*p1@ 和 \lstinline@int(&)[3]@ 的时候，结果并没有如同预期那样输出 \lstinline@1@。这是因为，\lstinline@user::is_same@ 接收参数 \lstinline@p1@ 时会进行数组到指针的隐式类型转换，所以到了函数内部，\lstinline@obj@ 形参的类型已经是 \lstinline@int*@ 了，我们只有提供 \lstinline@int*@ 参数才能得到 \lstinline@true@ 的返回值。\par
-我们可以添加一个专为数组而设计的函数模板，从而解决这个类型转换的问题。
+不过，这种传递函数参数的方式还是会导致部分信息的损失，比如让我们无法判断引用类型。
 \begin{lstlisting}
-namespace user { //namespace是可以拼接的
-template<typename T1, typename T2, std::size_t N>
-constexpr bool is_same(const T2(&arr)[N]) { //为防止数组-指针转换而设计的模板
-    return std::is_same<T1, T2[N]>::value;
-}
-};
-\end{lstlisting}
-不过，这种传递函数参数的方式还是会导致部分信息的损失，比如让我们无法判断引用类型。\par
-总之，如果需要最严格的类型判断，模板参数无疑是比函数参数更为严格和可靠的。对于模板参数来说，一是一，二是二，类型参数不会进行转换。\par
+    int a, &ref {a};
+    std::cout << user::is_same(a, ref); //输出1
+\end{lstlisting}\par
+其实出现这个问题的原因也很简单。作为实参，\lstinline@a@ 和 \lstinline@ref@ 在传递参数的过程中都表现出 \lstinline@int@ 的特征，所以在函数参数传递的过程中，编译器还是把 \lstinline@ref@ 当变量来看待了。那怎么样才能真正区分开它们呢？还是要用 \lstinline@decltype@ 传递模板参数。
+\begin{lstlisting}
+    int a, &ref {a};
+    std::cout << user::is_same<decltype(a), decltype(ref)>(); //输出0
+\end{lstlisting}\par
+除此之外还有一些出问题的可能性，比如一个常量和一个变量比较类型时，若是进行函数参数传递，那么``是否为常量''这则信息是检测不出来的。只有使用模板参数传递，我们才能知道它们两者的常量性是否相同。\par
+总而言之，如果需要最严格的类型判断，模板参数无疑是比函数参数更为严格和可靠的。对于模板参数来说，一是一，二是二，类型参数不会进行转换。\par

@@ -17,7 +17,7 @@
     \item 身高、体重。这些可能是浮点数，我们用 \lstinline@float@ 和 \lstinline@double@ 就行。
     \item 年龄。它是非负的整数，所以可以用 \lstinline@unsigned@ 来表示\footnote{其实用 \lstinline@unsigned char@ 存储这个值，然后在需要的时候类型转换为整型，这才是最节省内存空间的方法；但是吧，我们没必要在节省内存空间这个问题上太强迫症了，毕竟现在已经不是那个内存空间寸土寸金的年代了。}。
     \item ……
-\end{itemize}\par
+\end{itemize}\par\pagebreak
 然后我们可以写这样一个类：
 \begin{lstlisting}
 class PersonalInfo {
@@ -51,7 +51,7 @@ public:
     std::cout << str[0] << std::endl; //将输出Bjarne Stroustrup
     std::cout << *(str+4) << std::endl; //将输出Claude Elwood Shannon
 \end{lstlisting}
-请读者关注它们的类型。既然 \lstinline@str@ 是一个 \lstinline@std::string[5]@ 类型，那么这个数组就可以在涉及加减法的场合下将隐式类型转换为指针\footnote{顺便一说，虽然 \lstinline@std::string@ 类型是自定义类型，但是 \lstinline@std::string@ 有关的数组和指针类型都不是自定义类型。它们只是``复合类型''，属于数组或指针家族。}。而对于指针来说，\lstinline@str+4@ 就意味着``第五个数组元素的地址''（别忘了，第一个元素是 \lstinline@str+0@，所以推算下来 \lstinline@str+4@ 就是第五个元素）。再取内容，得到的就是 \lstinline@std::string@ 类型的结果了。于是重载了这个输出的 \lstinline@std::cout@ 自然可以输出对应的结果。\par
+请读者关注它们的类型。既然 \lstinline@str@ 是一个 \lstinline@std::string[5]@ 类型，那么这个数组就可以在涉及加减法的场合下将隐式类型转换为指针\footnote{顺便一说，虽然 \lstinline@std::string@ 类型是自定义类型，但是 \lstinline@std::string@ 有关的数组和指针类型都不是自定义类型。它们只是``复合类型''，属于数组或指针家族。}。而对于指针来说，\lstinline@str+4@ 就意味着``第五个数组元素的地址''（别忘了，第一个元素是 \lstinline@str+0@，所以推算下来 \lstinline@str+4@ 就是第五个元素）。再取内容，得到的就是 \lstinline@std::string@ 类型的结果了。于是重载了这个输出的 \lstinline@std::cout@ 自然可以输出对应的结果。\par\pagebreak
 我们还可以输出单个字符，这是因为 \lstinline@std::string@ 类重载了下标运算符。
 \begin{lstlisting}
     std::cout << str[1][0]; //将输出D

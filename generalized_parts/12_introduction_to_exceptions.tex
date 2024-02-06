@@ -7,7 +7,7 @@
 但不是所有的bug都可以在编译期发现，比如：
 \begin{itemize}
     \item 动态内存空间不足，无法分配新的内存空间。
-    \item 数组访问越界。比如，循环结构 \lstinline@\for(int i=n-1;i>=0;i++)@ 中本来是要写成自减运算符的，但是没注意就不小心写了个自增。
+    \item 数组访问越界。比如，循环结构 \lstinline@for(int i=n-1;i>=0;i++)@ 中本来是要写成自减运算符的，但是没注意就不小心写了个自增。
     \item 为函数/运算符提供了不当的参数。比如，除数为 \lstinline@0@。
     \item ……
 \end{itemize}

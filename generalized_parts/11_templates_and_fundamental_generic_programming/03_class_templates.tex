@@ -9,7 +9,7 @@ template<
 > class vector;
 \end{lstlisting}
 其中的 \lstinline@Allocator@ 模板参数已经有默认值，如果我们没有特殊需要，也没必要管它。而这里的 \lstinline@T@，就是这个数组所存元素的类型。\par
-\lstinline@std::vector<int>@ 是一个类实例，简称类。这个类的对象所存储的元素均为 \lstinline@int@ 数据；\lstinline@std::vector<bool>@ 也是一个类实例，这个类的对象所存储的元素均为 \lstinline@bool@ 数据。类模板的概念就是这么简单。\par
+\lstinline@std::vector<int>@ 是一个类实例，简称类。这个类的对象所存储的元素均为 \lstinline@int@ 数据；\newline\lstinline@std::vector<bool>@ 也是一个类实例，这个类的对象所存储的元素均为 \lstinline@bool@ 数据。类模板的概念就是这么简单。\par
 \lstinline@array@ 库中有一个 \lstinline@std::array@ 类模板，它的定义是
 \begin{lstlisting}
 template<
@@ -23,7 +23,7 @@ template<
     \item \lstinline@std::array@ 的容量是定值，长度不可改变；另两个的长度可以改变。
     \item \lstinline@std::valarray@ 在数值计算方面支持非常丰富的功能，而另两者在这方面支持的功能很少。
     \item \lstinline@std::array@ 和 \lstinline@std::vector@ 都属于STL的一部分，它们对迭代器的支持很完备；\lstinline@std::valarray@ 不支持迭代器。
-\end{itemize}
+\end{itemize}\pagebreak
 定义一个类模板的对象时，如果不提供类的全名（除非有默认模板参数），编译器也会进行模板参数推导。但我的建议是，在使用类模板时尽可能提供默认参数以外的全名。
 \begin{lstlisting}
     std::array<int, 5> arr {1,2,3,4,5}; //定义一个5长度int数组
@@ -77,7 +77,7 @@ public:
     array& operator=(const array&); //赋值运算符
 \end{lstlisting}
 在类模板的内部，如果我们不加说明的话，所有的 \lstinline@array@ 都是指 \lstinline@array<T,N>@，其中的 \lstinline@T@ 和 \lstinline@N@ 正是这个类的模板参数。\par
-读者需要留意，不同类型的类模板对象是不可以相互赋值/拷贝构造的。什么叫``不同类型''呢？只要类模板参数有一点不同，它们就不是同一个类型。比如说吧，\lstinline@user::array<int,5>@ 和 \lstinline@user::array<double,5>@ 当然是不同类型；而 \lstinline@user::array<int,5>@ 和 \lstinline@user::array<int,3>@ 也不是同一个类型！\par
+读者需要留意，不同类型的类模板对象是不可以相互赋值/拷贝构造的。什么叫``不同类型''呢？只要类模板参数有一点不同，它们就不是同一个类型。比如说吧，\lstinline@user::array<int,5>@ 和\newline\lstinline@user::array<double,5>@ 当然是不同类型；而 \lstinline@user::array<int,5>@ 和 \lstinline@user::array<int,3>@ 也不是同一个类型！\par
 然后是 \lstinline@at@ 和 \lstinline@operator[]@ 函数。注意，它们都分为常成员函数版本和非常成员函数版本。
 \begin{lstlisting}
 public:
@@ -95,7 +95,7 @@ public:
     constexpr const T& front()const { return _elem[0]; }
     constexpr T& back() { return _elem[N - 1]; }
     constexpr const T& back()const { return _elem[N - 1]; }
-\end{lstlisting}\par
+\end{lstlisting}\par\pagebreak
 接下来的 \lstinline@size@ 和 \lstinline@empty@ 也是同理。\lstinline@max_size@ 我们就不写了。
 \begin{lstlisting}
 public:
@@ -132,7 +132,7 @@ template<typename T, std::size_t N>
 constexpr bool operator==(const array<T, N>&, const array<T, N>&);
 template<typename T, std::size_t N>
 constexpr bool operator!=(const array<T, N>&, const array<T, N>&);
-\end{lstlisting}\par
+\end{lstlisting}\par\newpage
 \subsubsection*{实现}
 接下来我们逐一完成各个成员函数的定义。注意，函数的定义可以在命名空间作用域之外进\footnote{如果是跨文件编译的话，那么几乎是必须的。}。只要我们提供了函数的全名，那么编译器自然能知道这个函数是什么。
 \begin{lstlisting}
@@ -172,7 +172,7 @@ user::array<T,N>& user::array<T, N>::operator=(const array &arr) {
 template<typename T, std::size_t N>
 auto user::array<T, N>::operator=(const array &arr) -> array& { /*...*/ }
 //auto占位，->后接返回类型，编译器将会自行推导auto意味着什么
-\end{lstlisting}
+\end{lstlisting}\pagebreak
 接下来是 \lstinline@at@ 和 \lstinline@operator[]@ 成员函数，套路相同。
 \begin{lstlisting}
 template<typename T, std::size_t N>
@@ -210,7 +210,7 @@ void user::array<T, N>::swap(array &arr) {
         std::swap(_elem[i], arr._elem[i]);
 }
 \end{lstlisting}
-提醒读者，只要模板参数有一点不同，两个类实例就不是同类。所以 \lstinline@user::array<int,3>@ 和 \lstinline@user::array<int,5>@ 对象之间不能使用 \lstinline@swap@ 来交换内容。我们稍后来专门讲讲这个问题，现在先放过它。
+提醒读者，只要模板参数有一点不同，两个类实例就不是同类。所以 \lstinline@user::array<int,3>@ 和\linebreak\lstinline@user::array<int,5>@ 对象之间不能使用 \lstinline@swap@ 来交换内容。我们稍后来专门讲讲这个问题，现在先放过它。
 \lstinline@get@ 非成员模板函数看上去很复杂，但它的实现很简单。
 \begin{lstlisting}
 template<std::size_t I, typename T, std::size_t N>
@@ -264,4 +264,4 @@ constexpr bool user::operator!=(
     return lhs < rhs || rhs < lhs;
 }
 \end{lstlisting}
-这些还是一如既往的代码重用，我就不赘述了。\par
+这些还是一如既往的代码重用，我就不赘述了。\par\newpage

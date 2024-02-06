@@ -41,16 +41,16 @@ int main() {
 你瞧，\lstinline@Derived@ 所占用的内存空间大小为8字节，这说明它包含了 \lstinline@Base::a@ 和 \lstinline@Derived::b@ 两个成员。那么当我们对一个 \lstinline@Derived*@ 指针取内容时，程序将会取该字节起的8个字节作为一个 \lstinline@Derived@ 对象。\par
 那么假如我把它转换成 \lstinline@Base*@ 指针然后取内容呢？程序只会取该字节起的4个字节作为一个 \lstinline@Base@ 对象。\par
 所以我们不难发现，因为 \lstinline@Base@ 对象是内嵌在 \lstinline@Derived@ 对象当中的，我们就可以用 \lstinline@Base*@ 指针来取 \lstinline@Derived@ 对象中的基类部分，如图10.1所示。
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=.7\textwidth]{../images/generalized_parts/10_derived_class_object_and_subobject_in_memory.drawio.png}
-    \caption{用基类指针指向内嵌于派生类中的基类对象}
-\end{figure}
 所以对于公有继承来说，我们可以把派生类的指针隐式类型转换为基类的指针。
 \begin{lstlisting}
     Derived d {/*...*/};
     Base *b = &d; //&d被隐式类型转换为Base*类型，并赋值给b
 \end{lstlisting}\par
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.7\textwidth]{../images/generalized_parts/10_derived_class_object_and_subobject_in_memory.drawio.png}
+    \caption{用基类指针指向内嵌于派生类中的基类对象}
+\end{figure}
 至于私有继承和受保护继承，它们的规律和对象之间的类型转换很相似——受保护继承的派生类指针只有在派生类及``派生类的派生类''中可以转换为基类指针；私有继承的派生类指针只能在这个类中转换为基类指针。\par
 无论继承权限如何，我们都把这种\textbf{派生类指针到基类指针的类型转换称为向上类型转换（Upcasting）}\footnote{我们在习惯上会把继承关系图中的基类画在上方，派生类画在下方，因此得名。}。向上类型转换总是安全的，因为基类指针访问的范围总是不大于派生类指针，所以就不会发生访问内存``越界''这样的问题。\par
 引用也可以进行类型转换，道理相同：派生类的对象或者引用类型可以向上类型转换成基类的引用。所以如果我们要写一个对所有狗类都通用的函数，我们就不必为 \lstinline@Husky@, \lstinline@Retriever@ 等类型写一大堆重载，只需要写 \lstinline@Dog@ 一个类就行了。
@@ -63,7 +63,7 @@ int main() {
     fun(mine); //Husky对象到Dog引用的向上类型转换
 }
 \end{lstlisting}\par
-这里我们看到的都是指针/引用的隐式类型转换。如果要做显式类型转换的话，我们用 \lstinline@static_cast@ 来实现就可以了。\par
+这里我们看到的都是指针/引用的隐式类型转换。如果要做显式类型转换的话，我们用\newline\lstinline@static_cast@ 来实现就可以了。\par
 \subsection*{指针/引用的向下类型转换}
 派生类的指针/引用可以转换为基类的引用，只要在特定继承方式下这种类型转换是可见的就行。相反地，基类的指针/引用也可以类型转换为派生类。但是相较于前者，这种基类到派生类的转换不仅多了限制，还可能存在危险。\par
 基类指针/引用到派生类指针/引用的类型转换必须显式地进行——换句话说，你必须知道你正在做什么，不能稀里糊涂地就把类型转换给执行了。\par

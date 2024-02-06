@@ -9,7 +9,7 @@
 所以我们应该把这样一盘散沙的零件封装成一个完整的对象，这样也就有了``整体与部分''的概念。\par
 一辆汽车，它的发动机就是它的一部分；一个人，他的大脑和心脏就是他的一部分；一个动物园，它的各个展区——狮子区、老虎区等，都是它的一部分；一个国家，它的各个城市，都是它的一部分。\par
 以上所述，都是\textbf{``整体与部分''的关系，用英文可以阐述为``Has-a relationship''，在C++中可以诠释为``对象与成员''}。如果我们定义一个 \lstinline@valarri@ 类的 \lstinline@a@，那么 \lstinline@a@ 就是对象，\lstinline@a._size@, \lstinline@a._cap@ 和 \lstinline@a._arr@ 都是成员。这些成员如果单独存在，它表达的含义就不明显了；但是倘若它们存放在一起，那么我们就可以根据它们各自的值，以及它们之间的相互关系，从而表示更丰富、更明确的含义。\par
-我们在第八章曾讲过，一个类的成员同时也是另一个类的对象——这说明整体与部分的关系是有传递性的。作为汽车一部分的发动机，它也是由气缸、活塞、燃油泵等部分构成的。就这样，我们可以把一个对象拆解成若干成员，又把这些作为成员的对象拆解成更小单位的成员，一直拆解到 \lstinline@int@, \lstinline@double@ 等基本类型及它们的指针、数组类型。\par
+我们在第八章曾讲过，一个类的成员同时也是另一个类的对象——这说明整体与部分的关系是有传递性的。作为汽车一部分的发动机，它也是由气缸、活塞、燃油泵等部分构成的。就这样，我们可以把一个对象拆解成若干成员，又把这些作为成员的对象拆解成更小单位的成员，一直拆解到 \lstinline@int@, \lstinline@double@ 等基本类型及它们的指针、数组类型。\par\pagebreak
 \subsection*{模板与实例}
 我们曾在第四章简单地讲解过泛型编程的概念。我们说，泛型编程并不直接定义具体的函数，而是定义了一个模板（Template）。
 \begin{lstlisting}
@@ -51,6 +51,6 @@ int main() {
 在这个继承操作当中，\lstinline@Husky@ 类继承自 \lstinline@Dog@ 类。其中的 \lstinline@Husky@ 称为\textbf{派生类（Derived class）}，而 \lstinline@Dog@ 称为\textbf{基类（Base class）}。派生类的对象拥有基类的成员，所以 \lstinline@mine@ 可以使用 \lstinline@age@, \lstinline@weight@ 等基类成员，就好像它们定义在了 \lstinline@Husky@ 类当中一样，如图所示。
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=.8\textwidth]{../images/generalized_parts/09_dog_and_husky_relationship.drawio.png}
+    \includegraphics[width=.35\textwidth]{../images/generalized_parts/09_dog_and_husky_relationship.drawio.png}
     \caption{\lstinline@Dog@ 类的成员与 \lstinline@Husky@ 类的成员}
-\end{figure}\par
+\end{figure}\par\newpage

@@ -50,7 +50,7 @@ valarri::valarri() {
 如果读者还有印象的话，应该会记得，我们在上一节中每逢定义一个 \lstinline@valarri@ 对象时，即便不想提供任何初始化，也需要写成 \lstinline@valarri v{}@ 而不能写成 \lstinline@valarri v@，原因就在于，我们已经定义了一个构造函数，但没有定义默认构造函数，所以我们不能不提供初始化。解决方法也很简单，像刚才一样提供一个默认构造函数就行了。\par
 心细的读者可能会发现另一个问题——我们使用 \lstinline@valarri v{}@ 为什么就行了呢？难道提供空初始化和不提供初始化有什么区别吗？\par
 其实，问题的关键在于，这里的 \lstinline@valarri v{}@ 并不是像 \lstinline@int i{}@ 的空初始化那样；这个初始化实际上传入了一个 \lstinline@std::initializer_list<int>@ 类型的参数！如果不信，你可以试试 \lstinline@valarri v()@ 这种写法，它是不能通过编译的。\par
-这就不得不谈到 \lstinline@std::initializer_list@ 了。它是一个类模板，可以存储一个常量数组（\lstinline@const T[N]@ 类型）。我们可以这样验证它的类型\footnote{这里走了一点曲线，先用 \lstinline@auto@ 来创建一个对象，再去判断这个对象的类型。这是因为花括号嵌套内容在C++中的解释有多种可能，单纯的 \lstinline@\{1,2,3\}@ 未必是个对象，所以直接用 \lstinline@decltype(\{1,2,3\})@ 是行不通的。}：
+这就不得不谈到 \lstinline@std::initializer_list@ 了。它是一个类模板，可以存储一个常量数组\\（\lstinline@const T[N]@ 类型）。我们可以这样验证它的类型\footnote{这里走了一点曲线，先用 \lstinline@auto@ 来创建一个对象，再去判断这个对象的类型。这是因为花括号嵌套内容在C++中的解释有多种可能，单纯的 \lstinline@\{1,2,3\}@ 未必是个对象，所以直接用 \lstinline@decltype(\{1,2,3\})@ 是行不通的。}：
 \begin{lstlisting}
 //包含头文件initializer_list
     auto ilist = {1,2,3}; //auto会自动识别初始化内容的类型，并作为ilist的类型
@@ -69,7 +69,7 @@ valarri::valarri() {
 这样就会输出\\\noindent\rule{\linewidth}{.2pt}\texttt{
 1 2 3 
 }\\\noindent\rule{\linewidth}{.2pt}\par
-还有一种更简单的方法是用范围 \lstinline@for@ 循环，请读者参考下面 \lstinline@valarri::valarri(const std::initializer_list<int>&)@ 的定义：
+还有一种更简单的方法是用范围 \lstinline@for@ 循环，请读者参考下面\\\lstinline@valarri::valarri(const std::initializer_list<int>&)@ 的定义：
 \begin{lstlisting}
 //声明
 public:
@@ -163,7 +163,7 @@ basic_string(
 \subsection*{成员的初始化}
 构造函数的作用是为这个类的对象提供初始化。但是``对象有初始化''并不意味着``这个对象的成员有初始化''。\par
 读者可能会问：我写构造函数的目的不就是为了给它的成员提供初值吗？如果我不写构造函数，直接用默认构造函数的话，那么我定义的局部对象的成员就会得到不确定的初值；现在我写了构造函数，让它有了确定的初值，难道这还不叫``初始化''吗？\par
-先别急，我们来回顾一下之前写过的构造函数，比如 \lstinline@valarri::valarri(const std::initializer_list<int>&)@，然后我们就会发现，这里的每个成员获得``初值''的方式都是``赋值''，而不是真正意义上的``初始化''！
+先别急，我们来回顾一下之前写过的构造函数，比如\\\lstinline@valarri::valarri(const std::initializer_list<int>&)@，然后我们就会发现，这里的每个成员获得``初值''的方式都是``赋值''，而不是真正意义上的``初始化''！
 \begin{lstlisting}
 valarri::valarri(const std::initializer_list<int> &ilist) {
     _cap = ilist.size(); //_cap通过赋值获得“初值”
@@ -285,7 +285,7 @@ void fun(valarri a) { //在传递参数时会进行拷贝构造
     \includegraphics[width=0.8\textwidth]{../images/generalized_parts/08_shallow_copy_and_deep_copy.drawio.png}
     \caption{浅拷贝与深拷贝}
 \end{figure}\par
-要实现深拷贝其实很简单，就像一般的构造函数那样写就行了，只是参数类型变成了 \lstinline@const valarri&@ 而已，剩下的只是按我们的需要复制值或内容而已。
+要实现深拷贝其实很简单，就像一般的构造函数那样写就行了，只是参数类型变成了\\\lstinline@const valarri&@ 而已，剩下的只是按我们的需要复制值或内容而已。
 \begin{lstlisting}
 //声明
 public:

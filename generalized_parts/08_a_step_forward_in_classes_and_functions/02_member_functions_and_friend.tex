@@ -162,7 +162,7 @@ valarri valarri::operator+(int n) { //重载valarri成员函数operator+
         v._arr[i] = _arr[i] + n; //这两个_arr成员不是同一个东西
     return v; //返回值是v
 }
-\end{lstlisting}
+\end{lstlisting}\pagebreak
 读者可能关心以下几个问题，我将逐一说明：\par
 {\kaishu 为什么重载的加法运算符只接收了一个参数？不是说，成员函数接收的操作数个数不变吗？}\par
 我们在下一节中会讲到，任何一个成员函数都带有一个隐藏参数，即``调用此函数的对象''。以 \lstinline@size@ 成员函数为例，当我们调用它的时候，比如写成 \lstinline@_arr.size()@。这里看似不需要传递参数；但在汇编代码中我们就可以看出，实际上这个过程把 \lstinline@_arr@ 以指针（或引用）的形式传递过去了。\par
@@ -178,7 +178,7 @@ valarri valarri::operator+(int n) { //重载valarri成员函数operator+
     v._size = std::min(_size, a._size);
 \end{lstlisting}
 它有三个 \lstinline@_size@ 成员出现。\lstinline@v._size@ 和 \lstinline@a._size@ 分别是 \lstinline@v@ 和 \lstinline@a@ 的成员，这个不会搞混吧。而 \lstinline@_size@ 正是``调用此运算符的对象''的成员。\par
-如果放在 \lstinline@arr1+arr2@ 的情境下，那么 \lstinline@_size@, \lstinline@a._size@ 和 \lstinline@v._size@ 分别对应 \lstinline@arr1._size@\footnote{这只是象怔性的写法，实际上 \lstinline@arr1._size@ 的写法相当于在 \lstinline@valarri@ 的类作用域外部访问该类的私有成员，这是禁止的。}, \lstinline@arr2._size@ 和 \lstinline@(arr1+arr2)._size@\footnote{初学者可能对 \lstinline@(arr1+arr2)._size@ 这种写法感到困惑，但是不要忘记，\lstinline@arr1+arr2@ 的返回值也是一个 \lstinline@valarri@ 类型的对象，所以它当然也有自己的成员咯。}。图8.1展示了它们之间的关系。\par
+如果放在 \lstinline@arr1+arr2@ 的情境下，那么 \lstinline@_size@, \lstinline@a._size@ 和 \lstinline@v._size@ 分别对应 \lstinline@arr1._size@\footnote{这只是象怔性的写法，实际上 \lstinline@arr1._size@ 的写法相当于在 \lstinline@valarri@ 的类作用域外部访问该类的私有成员，这是禁止的。}, \lstinline@arr2._size@ 和 \lstinline@(arr1+arr2)._size@\footnote{初学者可能对 \lstinline@(arr1+arr2)._size@ 这种写法感到困惑，但是不要忘记，\lstinline@arr1+arr2@ 的返回值也是一个\\\lstinline@valarri@ 类型的对象，所以它当然也有自己的成员咯。}。图8.1展示了它们之间的关系。\par
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{../images/generalized_parts/08_operator_overloading_as_member_function.drawio.png}
@@ -227,7 +227,7 @@ valarri& valarri::operator=(const valarri&){
 \begin{lstlisting}
     arr1 = arr1; //这是需要特殊考虑的！
 \end{lstlisting}
-如果进行了自我赋值，那就应该什么也不做直接返回 \lstinline@*this@，否则就是在浪费时间。
+如果进行了自我赋值，那就应该什么也不做直接返回 \lstinline@*this@，否则就是在浪费时间。\pagebreak
 \begin{lstlisting}
 valarri& valarri::operator=(const valarri &a) { //其中的a应作为常量引用
     if (&a == this) //检测a的地址是否与本对象一致

@@ -1,8 +1,8 @@
 \section{实操：简单的\texttt{string}类}
 我们在本节的目的是：参照 \lstinline@std::string@ 类的功能，仿制一个 \lstinline@string@ 类。这个仿制版本不需要多么专业，也不需要多么复杂的功能。我们的目的在于学习与掌握，而不是拿出去实际使用。\par
-我们先来看看 \lstinline@std::string@ 有哪些常用功能——我们可以在 \href{https://en.cppreference.com/w/cpp/string/basic\_string}{std::basic\_string - cppreference.com} 中查到——知己知彼嘛。但是出于整理的目的，还是请允许我在书中花上一些篇幅来介绍。\par
+我们先看看 \lstinline@std::string@ 有哪些常用功能。我们可以在 \href{https://en.cppreference.com/w/cpp/string/basic\_string}{std::basic\_string - cppreference.com} 中查到大量有关它的信息。但是出于整理的目的，还是请允许我在书中花上一些篇幅来进行介绍。\par
 \subsection*{功能简介}
-\lstinline@std::string@ 的全称是 \lstinline@std::basic_string<char,std::char_traits<char>,std::allocator<char>>@。是不是很吓人？不过我们现在不用研究什么 \lstinline@char_traits@ 或者 \lstinline@allocator@，只需要盯着我们的目的——仿制一个 \lstinline@string@ 类，就足够了。所以我们就用简单一点的方法，不用什么所谓动态内存分配器之类的东西，直接用 \lstinline@new[]@/\lstinline@delete[]@，诸如此类。\par
+\lstinline@std::string@ 的全称是\newline\lstinline@std::basic_string<char,std::char_traits<char>,std::allocator<char>>@。是不是很吓人？不过我们现在不用研究什么 \lstinline@char_traits@ 或者 \lstinline@allocator@，只需要盯着我们的目的——仿制一个 \lstinline@string@ 类，就足够了。所以我们就用简单一点的方法，不用什么所谓动态内存分配器之类的东西，直接用 \lstinline@new[]@/\lstinline@delete[]@，诸如此类。\par
 \lstinline@std::string@ 的构造函数非常多样：
 \begin{itemize}
     \item 默认构造函数将建立一个空字符串。
@@ -28,7 +28,7 @@
 \lstinline@copy@ 成员函数的作用是把本字符串的内容复制一部分到指定的 \lstinline@char*@ 字符串中，其作用有点像 \lstinline@cstring@ 库中的 \lstinline@std::memcpy@。\par
 \lstinline@swap@ 成员函数的作用是把此对象与另一个对象的内容完全交换，这算是我们的老朋友了。\par
 \lstinline@find@ 成员函数是一个查找函数。丰富而强大的查找功能是 \lstinline@std::string@ 的一大特色。通过 \lstinline@find@ 函数，我们可以在一个对象中查找其它字符、字符串或对象（其实还是在字符串中查找特定字符串）。\lstinline@std::string@ 还提供了 \lstinline@rfind@ 成员函数，它就是从后向前找而已。至于 \lstinline@find_first_of@ 这些，各有各的作用，太多了，我就不一个个说了。\par
-\lstinline@compare@ 成员函数和六个重载比较运算符（非成员函数）的作用是进行字典序比较。对于 \lstinline@compare@ 来说，如果此对象应排在彼对象之前，那么返回值为负数（具体多少，那就不一定了）；如果此对象应排在彼对象之后，那么返回值为正数；如果它们完全相同，那么返回值为 \lstinline@0@。\par
+\lstinline@compare@ 成员函数和六个重载比较运算符（非成员函数）的作用是进行字典序比较。对于\newline\lstinline@compare@ 来说，如果此对象应排在彼对象之前，那么返回值为负数（具体多少，那就不一定了）；如果此对象应排在彼对象之后，那么返回值为正数；如果它们完全相同，那么返回值为 \lstinline@0@。\par
 还有一些其它类的成员函数与 \lstinline@std::string@ 类有着密不可分的关系。比如说 \lstinline@std::istream@ 类重载了 \lstinline@>>@ 运算符，可以接收外界到 \lstinline@std::string@ 的输入；\lstinline@std::ostream@ 类重载了 \lstinline@<<@ 运算符，可以直接输出 \lstinline@std::string@ 对象。\par
 好了，关于 \lstinline@std::string@ 的功能，我们先介绍到这里。\par
 实际上 \lstinline@std::string@ 的功能远比这些要多，但是我们没有必要做这么多（单纯只是刚才那一页，就已经是不小的工作量了），况且这里还有太多我们没学过的知识。\par
@@ -192,7 +192,7 @@ public:
     std::size_t find(char ch, std::size_t pos = {0})const;
     //这三个都是常成员函数，因为不需要改变对象的内容
 \end{lstlisting}\par
-\lstinline@compare@ 函数以及六个比较运算符都可以用来与另一对象进行字典序比较。读者可能会觉得这个工作有点太难了，但是不要担心，我们可以像之前那样，用C++算法库中的 \lstinline@std::lexicographical_compare@ 函数模板来解决它。只要实现了小于号，\lstinline@compare@ 和其它五个运算符就都可以实现了。
+\lstinline@compare@ 函数以及六个比较运算符都可以用来与另一对象进行字典序比较。读者可能会觉得这个工作有点太难了，但是不要担心，我们可以像之前那样，用C++算法库中的\newline\lstinline@std::lexicographical_compare@ 函数模板来解决它。只要实现了小于号，\lstinline@compare@ 和其它五个运算符就都可以实现了。
 \begin{lstlisting}
 public:
     int compare(const string&)const;
@@ -223,7 +223,7 @@ string::string(std::size_t count, char ch)
 读者可能发现，在 \lstinline@string@ 当中我们没有使用 \lstinline@char[]@/\lstinline@char*@ 字符串那样在字符串之后加入一个 \lstinline@'\0'@ 作为结束符。这是因为我们已经有了一个专门负责记录字符串长度的成员变量 \lstinline@_size@ 了，所以自然不需要使用结束符这种字符来标记字符串的结尾了。
 \begin{lstlisting}
 string::string(const string &other, std::size_t pos, std::size_t count)
-    : _cap {other._cap} //当pos和count都取默认值时它充当拷贝构造函数，故_cap要一致
+    : _cap {other._cap} //pos和count都取默认值时它充当拷贝构造函数，故_cap要一致
 {
     if (pos >= other._size) //为了防范pos越界的情况
         at(0) = '\0'; //直接把第一个字符变成空字符，什么也不做
@@ -251,7 +251,7 @@ string::string(const char* s, std::size_t count)
         at(_size) = s[_size];
 }
 \end{lstlisting}
-这个版本的构造函数是从一个 \lstinline@const char*@ 字符串拷贝内容。在这里我们不能通过默认参数的方法来把二者合并为同一个函数，因为默认参数的确定是编译时行为，而编译器是无法预测 \lstinline@std::strlen(s)@ 将会是多少的。
+这个版本的构造函数是从一个 \lstinline@const char*@ 字符串拷贝内容。在这里我们不能通过默认参数的方法来把二者合并为同一个函数，因为默认参数的确定是编译时行为，而编译器是无法预测\newline\lstinline@std::strlen(s)@ 将会是多少的。
 \begin{lstlisting}
 string::string(std::initializer_list<char> ilist)
     : _cap {ilist.size()}
@@ -278,7 +278,7 @@ const char& string::at(std::size_t pos)const { //注意返回类型是const char
         pos = _size - 1;
     return _arr.p()[_size];
 }
-\end{lstlisting}\par
+\end{lstlisting}\par\pagebreak
 接下来是赋值函数 \lstinline@assign@。
 \begin{lstlisting}
 string& string::assign(std::size_t count, char ch) {
@@ -384,7 +384,7 @@ string& string::append(std::initializer_list<char> ilist) {
     //先用构造函数把s转换成string对象，然后调用另一个append重载，默认参数0, npos
 }
 \end{lstlisting}
-这里我们又进行了代码重用，通过另外两个成员函数，直接实现本函数的功能。在调用 \lstinline@append(const string&,std::size_t,std::size_t)@ 的过程中，函数期待传入 \lstinline@string@ 对象但我们提供了 \lstinline@const char*@ 或 \lstinline@std::initializer_list<char>@ 对象，这时就会发生隐式类型转换。\par
+这里我们又进行了代码重用，通过另外两个成员函数，直接实现本函数的功能。在调用\newline\lstinline@append(const string&,std::size_t,std::size_t)@ 的过程中，函数期待传入 \lstinline@string@ 对象但我们提供了 \lstinline@const char*@ 或 \lstinline@std::initializer_list<char>@ 对象，这时就会发生隐式类型转换。\par
 有了 \lstinline@append@ 函数之后，\lstinline@operator+=@ 只是在此基础上做略微改动而已。我们已经在定义中完成它们，所以不用再多说了。\par
 下面是一系列 \lstinline@insert@ 成员函数。\lstinline@string@ 的 \lstinline@insert@ 与链表不同，我们能做的只有在插入字符之前把其余字符逐个后移，从而为新内容腾出空间。
 \begin{lstlisting}
@@ -489,7 +489,7 @@ std::size_t string::find(string &str, std::size_t pos)const {
             if (at(i+j) != str.at(j)) { //一旦发现一个不相等的字符
                 equal = false; //标记为不相等
                 break; //退出循环
-            } //可以想见，如果这个循环下来没有任何字符不相等，那么它就是我们要找的
+            } //如果这个循环下来没有任何字符不相等，那么它就是我们要找的
         if(equal) //euqal为真
             return i;
     }

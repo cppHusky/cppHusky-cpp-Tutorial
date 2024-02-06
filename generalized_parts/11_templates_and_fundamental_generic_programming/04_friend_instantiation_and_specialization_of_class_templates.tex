@@ -23,7 +23,7 @@ int main() {
 \lstinline@type_traits@ 库中已经有两个实例，我们将在后面用到它们。
 \begin{lstlisting}
 template <bool _Val>
-using bool_constant = integral_constant<bool, _Val>; //这是一个模板别名，作为中介
+using bool_constant = integral_constant<bool, _Val>; //这是模板别名，作为中介
 using true_type  = bool_constant<true>; //这是一个类别名，我们可以当它是一个实例
 using false_type = bool_constant<false>; //同上
 \end{lstlisting}
@@ -32,7 +32,7 @@ using false_type = bool_constant<false>; //同上
 \subsection*{类模板中的友元}
 回到我们的 \lstinline@user::array@。让我们以 \lstinline@get@ 和 \lstinline@swap@ 为例来了解一下友元。\par
 \subsubsection*{函数友元}
-首先读者不要忘记，\lstinline@user::array@ 不是一个类，而是一个类模板；\lstinline@user::get@ 也不是一个函数，而是一个函数模板。\textbf{把一个函数模板作为友元，不等于把一个函数实例作为友元。}如果我们想把 \lstinline@user::get@ 的一个实例作为 \lstinline@user::array@ 的友元，那么我们应该这样写：
+首先读者不要忘记，\lstinline@user::array@ 不是一个类，而是一个类模板；\lstinline@user::get@ 也不是一个函数，而是一个函数模板。\textbf{把一个函数模板作为友元，不等于把一个函数实例作为友元。}如果我们想把 \lstinline@user::get@ 的一个实例作为 \lstinline@user::array@ 的友元，那么我们应该这样写：\pagebreak
 \begin{lstlisting}
 //namespace user
 template<typename T, std::size_t N>
@@ -141,7 +141,7 @@ void user::array<T, N>::swap(array<T, M> &arr) {
 }
 \end{lstlisting}
 这是一个 \lstinline@template@ 双层嵌套的结构。这里出现的两行 \lstinline@template@ 语句是不可以调换顺序的，因为它们有各自的含义。\par
-我们思考一下，\lstinline@user::array::swap@ 是一个```类模板'的成员`函数模板'''。这里的第一个 \lstinline@template@ 指定的是它的类模板参数，而第二个 \lstinline@template@ 指定的是它的函数模板参数。它们是分工明确的，既不可以合并，也不可以颠倒，更不可以随意拆分——你说``我要把它们合并成单个 \lstinline@template@''或者``我要把它们拆分成三个 \lstinline@template@''，那都是不对的。\par
+我们思考一下，\lstinline@user::array::swap@ 是一个```类模板'的成员`函数模板'''。这里的第一个\linebreak\lstinline@template@ 指定的是它的类模板参数，而第二个 \lstinline@template@ 指定的是它的函数模板参数。它们是分工明确的，既不可以合并，也不可以颠倒，更不可以随意拆分——你说``我要把它们合并成单个 \lstinline@template@''或者``我要把它们拆分成三个 \lstinline@template@''，那都是不对的。\par
 \subsection*{类模板的特化}
 类模板特化这里的规则比函数模板特化复杂得多，也好用得多。类不像函数那样可以重载，所以我们在绝大多数时候都必须依赖特化。函数不允许使用部分特化——换言之就是函数特化语法中，尖括号内不能再有任何模板参数了，所有的模板参数必须是确定的值；但是类可以进行\textbf{部分特化（Partial specialization）}，这就大大丰富了我们对类模板使用方式的可能性。\par
 类模板\textbf{完全特化（Full specialization）}的语法与函数模板的特化大同小异。
@@ -154,7 +154,7 @@ class vector<bool> { /*...*/ }; //vector<bool>类型特化
 \end{lstlisting}\par
 \lstinline@std::vector@ 有一个针对 \lstinline@bool@ 类型的特化\footnote{实际上 \lstinline@std::vector@ 针对 \lstinline@bool@ 的特化是部分特化，因为它还有一个带默认值的类模板参数 \lstinline@Allocator@。不过，倘若不考虑这个参数，我们就可以把它当作一个完全特化。}，它用更密集的方式来排布 \lstinline@bool@ 数组中的数据，从而为我们大幅节省了内存空间。\par
 由于取址单元的缘故，一个 \lstinline@bool@ 类型数据必须占用一个字节内存空间；这会导致其余7比特被浪费掉。对于原始的 \lstinline@bool[]@ 数组来说也是如此。而特化的 \lstinline@std::vector<bool>@ 采取了一些不同于其它实例的存储方式，充分利用了每一字节的全部8个比特，这样就能减少空间的浪费。\par
-\lstinline@std::array@ 并没有提供对于 \lstinline@bool@ 类型的特化，不过我们也可以自己动手写一个 \lstinline@user::array<bool,N>@ 特化来。然而限于篇幅，我们就不在这里写了，放到本节末尾。至于更多特化中的细节，我们就放到精讲篇再谈。\par
+\lstinline@std::array@ 并没有提供对于 \lstinline@bool@ 类型的特化，不过我们也可以自己动手写一个\newline\lstinline@user::array<bool,N>@ 特化来。然而限于篇幅，我们就不在这里写了，放到本节末尾。至于更多特化中的细节，我们就放到精讲篇再谈。\par
 再来看几个部分特化的例子吧。还记得我们常常用的 \lstinline@std::is_same@ 吗？它的定义其实很简单，我们自己都可以写一份相似的出来。以下就是一个例子：
 \begin{lstlisting}
 namespace user {
@@ -235,6 +235,7 @@ int main() {
 \subsection*{完整代码：\texttt{user::array}类模板及其对\texttt{bool}类型的特化}
 我把有关 \lstinline@user::array@ 类模板及其重载的代码列到此处。在这里，我重新梳理了代码的排版，并把部分成员函数的定义和声明分开到不同文件中；我还把 \lstinline@user::array<bool,N>@ 单独列入另一文件中，这样能使代码看上去更简洁（虽然也好不到哪里去）。\par
 另外，我还调整了代码的结构和排版，并补充了一些注释。希望这能使你阅读代码更加容易！\par
+有关 \lstinline@user::arrray<bool,N>@ 这部分的内容，我们是用 \lstinline@std::bitset@ 来实现的。因为篇幅原因，我们不能再多讲。如果读者看不懂特化部分的内容，也可以选择跳过。\par
 \lstinputlisting[caption=\texttt{array.hpp}]{../code_in_book/11.4-11.6/array.hpp}
 \lstinputlisting[caption=\texttt{Specification.tpp}]{../code_in_book/11.4-11.6/Specification.tpp}
 \lstinputlisting[caption=\texttt{Definition.tpp}]{../code_in_book/11.4-11.6/Definition.tpp}

@@ -19,7 +19,7 @@
     }
 \end{lstlisting}
 这段代码的运行结果如下：\\\noindent\rule{\linewidth}{.2pt}\texttt{
-{\kaishu （开始运行一段时间后）}\\
+{\kaishu\color{gray}（开始运行一段时间后）}\\
 An exception has been caught:\\
 std::bad\_alloc
 }\\\noindent\rule{\linewidth}{.2pt}\par
@@ -41,9 +41,9 @@ vector::\_M\_range\_check: \_\_n (which is 5) >= this->size() (which is 5)
 这里的 \lstinline@what@ 返回内容清楚明白，意思就是提供的参数 \lstinline@n@ 大于等于 \lstinline@this->size()@，这就是范围错误了。\par
 顺便一提，\lstinline@std::out_of_range@ 继承自 \lstinline@std::logic_error@，它们都定义在 \lstinline@stdexcept@ 库中。但是我们即便不包含这个库也能用，这是因为 \lstinline@vector@ 库中已经包含过它了。\par
 \subsection*{实操：为 \texttt{user::array::at}设计异常抛出}
-接下来我们来尝试修改一下曾经写过的 \lstinline@std::array@ 的 \lstinline@at@ 函数，当下标范围不合理时，让它抛出 \lstinline@std::out_of_range@ 对象。
+接下来我们来尝试修改一下曾经写过的 \lstinline@std::array@ 的 \lstinline@at@ 函数，当下标范围不合理时，让它抛出 \lstinline@std::out_of_range@ 对象。\pagebreak
 \begin{lstlisting}
-//记得#include<stdexcept>和#include<string@
+//记得#include<stdexcept>和#include<string>
 template<typename T, std::size_t N>
 constexpr T& user::array<T, N>::at(std::size_t pos) {
     if (pos >= N) { //范围错误，应当抛出异常
