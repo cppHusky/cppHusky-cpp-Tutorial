@@ -86,6 +86,6 @@
 \contentsline {chapter}{\numberline {附录 C\hspace {.3em}}相关数学知识}{399}{appendix.C}%
 \contentsline {section}{\numberline {C.1}数制转换}{399}{section.C.1}%
 \contentsline {section}{\numberline {C.2}布尔代数基础}{408}{section.C.2}%
-\contentsline {section}{\numberline {C.3}位运算简介}{409}{section.C.3}%
-\contentsline {chapter}{\numberline {附录 D\hspace {.3em}}有关C++语言的其它资料}{411}{appendix.D}%
-\contentsline {chapter}{跋}{413}{appendix*.278}%
+\contentsline {section}{\numberline {C.3}位运算简介}{412}{section.C.3}%
+\contentsline {chapter}{\numberline {附录 D\hspace {.3em}}有关C++语言的其它资料}{415}{appendix.D}%
+\contentsline {chapter}{跋}{417}{appendix*.282}%

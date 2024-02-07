@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  7 FEB 2024 10:43
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  7 FEB 2024 23:14
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1703,32 +1703,47 @@ File: appendices/../images/other_parts/C_digital_clock.png Graphic file (type bm
 [399
 
 ]
-File: appendices/../images/other_parts/C_from_counting_to_exponentiation.png Graphic file (type bmp)
-<appendices/../images/other_parts/C_from_counting_to_exponentiation.png>
+File: appendices/../images/other_parts/C_from_counting_to_exponentiation.drawio.png Graphic file (type bmp)
+<appendices/../images/other_parts/C_from_counting_to_exponentiation.drawio.png>
 File: appendices/../images/other_parts/C_duodecimal_multiplication_table.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_duodecimal_multiplication_table.png>
  [400]
 Underfull \vbox (badness 2753) has occurred while \output is active []
 
  [401] [402]
-File: appendices/../images/other_parts/C_formatted_representation_of_a_number.png Graphic file (type bmp)
-<appendices/../images/other_parts/C_formatted_representation_of_a_number.png>
+File: appendices/../images/other_parts/C_formatted_representation_of_a_number.drawio.png Graphic file (type bmp)
+<appendices/../images/other_parts/C_formatted_representation_of_a_number.drawio.png>
  [403] [404]
-File: appendices/../images/other_parts/C_short_division.png Graphic file (type bmp)
-<appendices/../images/other_parts/C_short_division.png>
+File: appendices/../images/other_parts/C_short_division.drawio.png Graphic file (type bmp)
+<appendices/../images/other_parts/C_short_division.drawio.png>
  [405] [406]
-File: appendices/../images/other_parts/C_bin_to_oct.png Graphic file (type bmp)
-<appendices/../images/other_parts/C_bin_to_oct.png>
+File: appendices/../images/other_parts/C_bin_to_oct.drawio.png Graphic file (type bmp)
+<appendices/../images/other_parts/C_bin_to_oct.drawio.png>
  [407]
-File: appendices/../images/other_parts/C_bin_to_hex.png Graphic file (type bmp)
-<appendices/../images/other_parts/C_bin_to_hex.png>
+File: appendices/../images/other_parts/C_bin_to_hex.drawio.png Graphic file (type bmp)
+<appendices/../images/other_parts/C_bin_to_hex.drawio.png>
 File: appendices/../images/other_parts/C_maya_numbers.png Graphic file (type bmp)
 <appendices/../images/other_parts/C_maya_numbers.png>
- [408]) (./other_parts/appendices/D.tex [409] [410
-
-]
+ [408] [409] [410] [411]
+File: appendices/../images/other_parts/C_bitwise_and.drawio.png Graphic file (type bmp)
+<appendices/../images/other_parts/C_bitwise_and.drawio.png>
+ [412]
+File: appendices/../images/other_parts/C_bitwise_or.drawio.png Graphic file (type bmp)
+<appendices/../images/other_parts/C_bitwise_or.drawio.png>
+File: appendices/../images/other_parts/C_bitwise_not.drawio.png Graphic file (type bmp)
+<appendices/../images/other_parts/C_bitwise_not.drawio.png>
+File: appendices/../images/other_parts/C_bitwise_xor.drawio.png Graphic file (type bmp)
+<appendices/../images/other_parts/C_bitwise_xor.drawio.png>
+ [413]
+File: appendices/../images/other_parts/C_bitwise_right_shift.drawio.png Graphic file (type bmp)
+<appendices/../images/other_parts/C_bitwise_right_shift.drawio.png>
+File: appendices/../images/other_parts/C_bitwise_left_shift.drawio.png Graphic file (type bmp)
+<appendices/../images/other_parts/C_bitwise_left_shift.drawio.png>
+) (./other_parts/appendices/D.tex [414]
 附录 D
-)) (./other_parts/afterword.tex [411] [412
+)) (./other_parts/afterword.tex [415
+
+] [416
 
 ])
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
@@ -1739,28 +1754,28 @@ File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [413]
+ [417]
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
 File: images/other_parts/back_cover.pdf Graphic file (type pdf)
 <use images/other_parts/back_cover.pdf, page 1>
- [414] (./main.aux)
+ [418] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: EE24E1C9A48AF065A1A46F079F4DE10F;9866.
+(rerunfilecheck)             Checksum: 1AD20A2BB8B3E3F772C580336726C8AF;9866.
  ) 
 Here is how much of TeX's memory you used:
- 28286 strings out of 474924
- 745919 string characters out of 5765037
+ 28352 strings out of 474924
+ 750250 string characters out of 5765037
  2050189 words of memory out of 5000000
- 49126 multiletter control sequences out of 15000+600000
+ 49186 multiletter control sequences out of 15000+600000
  571845 words of font info for 168 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,18n,111p,1239b,1916s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (422 pages).
+Output written on main.pdf (426 pages).

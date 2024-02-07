@@ -25,7 +25,7 @@
 一个十进制整数的每一位都满足这样``逢10进一''的规则，所以我们对每一位都可以仿照此理来进行推导。于是我们把计数推广到加法（加法就是重复若干次的计数过程），再把加法推广到乘法（若干次同样的加法过程），再把乘法推广到乘方（若干次同样的乘法过程），乃至高德纳箭头\footnote{高德纳箭头（Knuth's up-arrow notation），由高德纳在1976年提出，它是一种表示巨大整数的方法，可以视作是对重复乘方的迭代扩展。}。图C.2展示了这样一个过程，我们就是从这里开始学习数学的。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.75\textwidth]{../images/other_parts/C_from_counting_to_exponentiation.png}
+    \includegraphics[width=0.75\textwidth]{../images/other_parts/C_from_counting_to_exponentiation.drawio.png}
     \caption{从计数到乘方}
 \end{figure}
 我们在小学时都背过加法表和乘法表，它就是10进制整数的计算规则。但是如果换一套进制呢，情况就会发生变化了。图C.3就是一个12进制乘法表，仅供读者开拓眼界。\par
@@ -103,7 +103,7 @@ a=\sum_{n=-\infty}^{+\infty}a_n16^n
 这里的$(10)_{10}$与$(1010)_2$是相等的，$(0.75)_{10}$与$(0.c)_{16}$也是相等的，读者可以自行计算验证。\footnote{我们把$[\;]$内的数字都用十进制来表示，这样会方便我们计算。毕竟我们还是最熟悉十进制。}而$(1a.c3)_{16}$的表示可以参考图C.4来理解。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.6\textwidth]{../images/other_parts/C_formatted_representation_of_a_number.png}
+    \includegraphics[width=0.6\textwidth]{../images/other_parts/C_formatted_representation_of_a_number.drawio.png}
     \caption{$(1a.c3)_{16}$的形式化表示}
 \end{figure}
 \subsection*{进位与借位}
@@ -200,7 +200,7 @@ a=\sum_{n=-\infty}^{+\infty}a_n16^n
 我们不难发现，整个过程的关键其实就是反复对着上一步的商值除以$R$，然后把每一步的余数按照个位、十位、百位的顺序排起来。实际操作中，我们更倾向于用短除法来进行转换，如图C.5所示。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.75\textwidth]{../images/other_parts/C_short_division.png}
+    \includegraphics[width=0.75\textwidth]{../images/other_parts/C_short_division.drawio.png}
     \caption{通过短除法把十进制数转换成$R$进制}
 \end{figure}
 使用短除法时只需注意，先算出来的余数在个位，后算出来的在十位，以此类推，从低到高。\par
@@ -257,7 +257,7 @@ x_m=a_{3m+2}2^2+a_{3m+1}2^1+a_{3m}2^0
 具体来说，如何操作呢？我们可以在分号左右两边，每三位一组（如果不到三个数字，不妨在两侧补0），把它转换成八进制。以$(10101.1101)_2$为例，我们把$[1,0,1,0,1;1,1,0,1]_2$以分号为界，向左向右每三位一组，转换成八进制，这就是图C.6中从上到下的过程。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.5\textwidth]{../images/other_parts/C_bin_to_oct.png}
+    \includegraphics[width=0.5\textwidth]{../images/other_parts/C_bin_to_oct.drawio.png}
     \caption{二进制与八进制的转换}
 \end{figure}
 那么拿到$(25.64)_8$之后我们也可以反过来，把每一位转换成三位一组的二进制形式，也就是图C.6中从下到上的过程。\par
@@ -273,7 +273,7 @@ x_m=a_{4m+3}2^3+a_{4m+2}2^2+a_{4m+1}2^1+a_{4m}2^0
 具体操作和二进制转八进制相似，只是三位一组变成了四位一组。还以$(10101.1101)_2$为例，我们把$[1,0,1,0,1;1,1,0,1]_2$以分号为界，向左向右每四位一组（如果不到四个数字，不妨在两侧补0），转换成十六进制，这就是图C.7中从上到下的过程。\par
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.5\textwidth]{../images/other_parts/C_bin_to_hex.png}
+    \includegraphics[width=0.5\textwidth]{../images/other_parts/C_bin_to_hex.drawio.png}
     \caption{二进制与十六进制的转换}
 \end{figure}
 那么拿到$(15.d)_{16}$之后我们也可以反过来，把每一位转换成四位一组的二进制形式，也就是图C.7中从下到上的过程。\par
@@ -293,7 +293,211 @@ x_m=a_{4m+3}2^3+a_{4m+2}2^2+a_{4m+1}2^1+a_{4m}2^0
 另外，十进制的乘法表大小为$10^2=100$，而二十进制的乘法表大小为$20^2=400$。就从乘法表的大小来说，越高进制的计算学习起来就越困难，因为我们要为此记忆更大的乘法表。\par
 但是，进制越低，表示数据时就会表达得越冗长。我们在上一节中也能看到，二进制需要用四位数字才能表示的数，十六进制用一位就可以了。不同的进制对于计算机来说可能无所谓，但是对于人来说就不一样了。对于人来说，我们当然希望内容不要太长，否则看起来很难受。因此我们在计算机科学中看到的很多信息（比如错误代码）往往是十六进制显示的，而不是用一长串二进制显示。\par
 对于计算机来说，它最适合的进制是二进制。一方面，很多基本电子元器件只有``开''``关''两个状态，所以这一``位''只能表示两种信息；另一方面，我们可以只用``高电平''和``低电平''这两个电压来表示信息，这样无论是在抗干扰方面，还是在组合、计算方面，都有无与伦比的优势。\par
-
-
-
+本节我们先来研究二进制数据``每一位''的性质。等到下一节，我们再来看多位数的操作。
+\subsection*{基本计算：与、或、非}
+对于计算机来说，二进制的基本计算不是传统意义上的加减乘除四则运算——原因是，像加法这样的操作会产生进位，而单纯只有一位数的情况下，我们是无法用它表示``进位''的——所以我们需要更底层的运算，这就是\textbf{与（And/Conjunction）}、\textbf{或（Or/Disjunction）}、\textbf{非（Not/Negation）}。\par
+在布尔代数中，与运算的记号是$\land$。它的规则是：仅当$\land$左右的值都等于$1$，运算结果才等于$1$；否则就等于$0$。
+\begin{align*}
+0\land0={}&0{}&0\land1={}&0\\
+1\land0={}&0{}&1\land1={}&1
+\end{align*}\par
+或运算的记号是$\lor$。它的规则是：仅当$\lor$左右的值都等于$0$，运算结果才等于$0$；否则就等于$1$。
+\begin{align*}
+0\lor0={}&0{}&0\lor1={}&1\\
+1\lor0={}&1{}&1\lor1={}&1
+\end{align*}\par
+非运算的记号是$\lnot$。它的规则是：对$1$演算得到$0$，对$0$演算得到$1$。
+\begin{align*}
+\lnot0={}&1{}&\lnot1={}&0
+\end{align*}\par
+它们的运算很简单，读者只要遵照这一套规则来演算就可以了。\par
+\subsection*{逻辑变量与真值表}
+我们考虑这样的一``位''，它的值要么是$0$，要么是$1$。我们可以用变量来表达这一位的值，比如$a$。它就是一个逻辑变量（Boolean variable）。对于若干逻辑变量构成的复杂表达式，我们可以用真值表（Truth table）来描述它的性质——其实就是把所有可能的逻辑变量值都想一遍，算出对应的结果，填入表中即可。\par
+以$\lnot a\land(b\lor c)$ 为例，我们可以考虑$a, b, c$各数据的取值，它们一共只有下面八种情况：
+\begin{align*}
+\lnot0\land(0\lor0)={}&0{}&\lnot1\land(0\lor0)={}&0\\
+\lnot0\land(0\lor1)={}&1{}&\lnot1\land(0\lor1)={}&0\\
+\lnot0\land(1\lor0)={}&1{}&\lnot1\land(1\lor0)={}&0\\
+\lnot0\land(1\lor1)={}&1{}&\lnot1\land(1\lor1)={}&0
+\end{align*}
+这样一来我们就可以画出它的真值表了，如表C.1所示：
+\begin{table}[htbp]
+\centering
+\begin{tabular}{cccc|cccc}
+\hline\rule{0pt}{2.4ex}
+$a$ & $b$ & $c$ & $\lnot a\land(b\lor c)$ & $a$ & $b$ & $c$ & $\lnot a\land(b\lor c)$\\
+\hline\hline\rule{0pt}{2.4ex}
+$0$ & $0$ & $0$ & $0$ & $1$ & $0$ & $0$ & $0$\\
+\hline\rule{0pt}{2.4ex}
+$0$ & $0$ & $1$ & $1$ & $1$ & $0$ & $1$ & $0$\\
+\hline\rule{0pt}{2.4ex}
+$0$ & $1$ & $0$ & $1$ & $1$ & $1$ & $0$ & $0$\\
+\hline\rule{0pt}{2.4ex}
+$0$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $0$\\
+\hline
+\end{tabular}
+\caption{$\lnot a\land(b\lor c)$的真值表}
+\end{table}\par
+要比较两个表达式是不是等价，我们只需要比较它们的真值表是否完全一样就可以了。以\newline$\lnot[a\lor(\lnot b\land\lnot c)]$ 为例，它的真值表（留给读者自行计算）就与$\lnot a\land(b\lor c)$完全相同，所以对于同一个$a, b, c$组合来说，它们总是可以算出相同的结果来。\par
+不过，总是这么列真值表未免有点麻烦了，所以我们可以先推断出一些次级结论——哪些类型的式子是等价的？\par
+\subsection*{常见计算法则}
+首先，我们看四个恒等的情况：
+\begin{align*}
+a\land0={}&0{}&b\lor1={}&1\\
+a\land1={}&a{}&b\lor0={}&b
+\end{align*}
+这很好理解，因为无论$a$是什么，$1\land0$和$0\land0$都只能得到$0$；同理，$0\lor1$和$1\lor1$都只能得到$1$。另外的两个交给读者自行验证，想必很容易理解。\par
+还有一些可以很容易简化的式子，比如说这个：
+\begin{align*}
+a\land a={}&a{}&b\lor b={}&b
+\end{align*}
+读者列一个真值表就可以看出来，这个关系很显然。这个结果也同时给我们提了个醒，与/或运算是没有消去律的，我们不能根据$x\land x=x$得到$x=1$或者$x=0$这样的结果，因为这两种结果都是完全有可能的。\par
+与运算/或运算都满足交换律，即：
+\begin{align*}
+a\land b={}&b\land a{}&a\lor b={}&b\lor a
+\end{align*}
+对于同一个运算来说，还满足结合律：
+\begin{align*}
+(a\land b)\land c={}&a\land(b\land c){}&(a\lor b)\lor c={}&a\lor(b\lor c)
+\end{align*}
+满足交换律、结合律的情况下，我们可以任意交换它们的计算顺序并改变结合关系，比如：
+\begin{align*}
+a\land1\land a\land1\land a=(a\land a\land a)\land(1\land 1)=a\land1=a
+\end{align*}\par
+但是在与/或运算同时存在的时候就不能乱来，因为它们互相之间有分配律关系：
+\begin{align*}
+a\land(b\lor c)={}&(a\land b)\lor(a\land c){}&a\lor(b\land c)={}&(a\lor b)\land(a\lor c)
+\end{align*}\par
+实际上还有很多这样的运算法则，比如这个：
+\begin{align*}
+a\land(a\lor b)=a\lor(a\land b)=a
+\end{align*}
+但我觉得这些东西就没必要记忆了，不是很常用。\par
+再来看看有关非运算的计算法则。最简单也最显然的就是这个：
+\begin{align*}
+\lnot(\lnot a)=a
+\end{align*}
+其实这就是双重否定表示肯定的关系，不必多说。
+\begin{align*}
+a\land\lnot a={}&0{}&a\lor\lnot a={}&1
+\end{align*}
+这个看上去复杂，但实际上不难。$a$和$\lnot a$总有一个为$1$而另一个为$0$，那么对于与运算来说，总有一个为$0$，所以结果为$0$；对于或运算来说，总有一个为$1$，所以结果为$1$。\par
+接下来是德·摩根律。我建议读者还是要记忆一下它的，因为它很好用：
+\begin{align*}
+\lnot(a\land b)={}&\lnot a\lor\lnot b\\
+\lnot(a\lor b)={}&\lnot a\land\lnot b
+\end{align*}
+除此之外的那些计算法则，我们就不必讲了。\par
+\subsection*{异或运算}
+\textbf{异或（Exclusive or）}是一种很重要的运算，它的符号可以记为$\oplus$，其真值表如表C.2所示：\newline
+\begin{table}[htbp]
+\centering
+\begin{tabular}{ccc|ccc}
+\hline\rule{0pt}{2.4ex}
+$a$ & $b$ & $a\oplus b$ & $a$ & $b$ & $a\oplus b$\\
+\hline\hline\rule{0pt}{2.4ex}
+$0$ & $0$ & $0$ & $1$ & $0$ & $1$\\
+\hline\rule{0pt}{2.4ex}
+$0$ & $1$ & $1$ & $1$ & $1$ & $0$\\
+\hline
+\end{tabular}
+\caption{$a\oplus b$的真值表}
+\end{table}
+简单说就是，如果$a$和$b$的值不同，那么异或运算的结果就是$1$；如果$a$和$b$的值相同，那么异或运算的结果就是$0$。\par
+异或运算可以用与/或/非的组合形式来表达，以下是三种等价的表达方式：
+\begin{align*}
+a\oplus b={}&(a\lor b)\land\lnot(a\land b)\\
+={}&(a\lor b)\land(\lnot a\lor\lnot b)\\
+={}&(a\land\lnot b)\lor(\lnot a\land b)
+\end{align*}
+这里就不细究了，请读者自行尝试分析吧。（分析不出来也没关系，我本来也没打算做这么深）\par
+异或运算是加法器的组成部分。试想，我们现在有两个逻辑变量$a_0, b_0$，可以用来表示两个一位二进制数，那么我们可以用两个逻辑变量$c_0, c_1$来表示它们的加法结果。这也正是我们在讲进制转换时所熟悉的结果：
+\begin{align*}
+a_02^0+b_02^0=c_12^1+c_02^0
+\end{align*}
+在这里，$c_0$及$c_1$都是由$a_0$和$b_0$构成的逻辑表达式所决定的。于是我们有
+\begin{align*}
+c_0={}&a_0\oplus b_0\\
+c_1={}&a_0\land b_0
+\end{align*}
+读者可以自行作出真值表，看一下这样得到的$c_0$和$c_1$是否能完美地符合二进制的计算结果。这就是一个\textbf{半加器（Half adder）}。\par
+如果要进行多位数的加法，那道理也是相似的——只是我们还不得不使用全加器（Full adder），从而形成多位加法器。这些内容已经超出了本节该有的范围，我们就不多谈了。\par
 \section{位运算简介}
+位运算看上去很抽象，很难懂；但是只要你学会了布尔代数，那就没什么难的了。你可以把位运算理解成多位布尔代数计算。\par
+C++中提供了六个位运算符：按位与运算符 \lstinline@&@、按位或运算符 \lstinline@|@、按位取反运算符 \lstinline@~@、按位异或运算符 \lstinline@^@、左移位运算符 \lstinline@<<@ 和右移位运算符 \lstinline@>>@。\par
+在这里，为了避开负数对我们理解造成的影响，我们选择使用C++中的\newline\lstinline@unsigned@ 类型来解读它。这是因为，\lstinline@unsigned@ 类型全都是正数（不涉及补码），所以我们可以很直观地根据输出结果来判断每一个二进制位都是什么样的。\par
+\begin{lstlisting}
+    unsigned a = 5, b = 9;
+    cout << (a & b); //输出1
+\end{lstlisting}
+按位与运算符的操作就是，对两个数的二进制逐位取逻辑与。在本例中，\lstinline@5@ 的二进制是 \lstinline@00000101@（仅显示后8位），\lstinline@9@ 的二进制是 \lstinline@00001001@，所以我们可以列出这样一个式子来，如图C.9所示。\par
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.8\textwidth]{../images/other_parts/C_bitwise_and.drawio.png}
+    \caption{按位与（Bitwise and）运算的解读}
+    \footnotesize{每8位（比特）用不同颜色加以区分，下同}
+\end{figure}
+也就是说，只有两个数的个位（二进制意义上的，下同）都为 \lstinline@1@ 时，结果的个位才是 \lstinline@1@，否则为 \lstinline@0@；同理，只有两个数的十位都为 \lstinline@1@ 时结果的十位才是 \lstinline@1@。这样逐位分析下来，我们自然也就不难理解这个运算的结果为什么是 \lstinline@00000001@ 了。\par
+按位或运算符也是同理。
+\begin{lstlisting}
+    unsigned a = 50, b = 25;
+    cout << (a | b); //输出59
+\end{lstlisting}
+按位或运算符的操作就是，对两个数的二进制逐位取逻辑或。在本例中，\lstinline@50@ 的二进制是 \lstinline@00110010@，\lstinline@25@ 的二进制是 \lstinline@00011001@，所以我们就可以像图C.10中所示的那样，得到结果 \lstinline@00111011@，即 \lstinline@59@。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.8\textwidth]{../images/other_parts/C_bitwise_or.drawio.png}
+    \caption{按位或（Bitwise or）运算的解读}
+\end{figure}\par
+按位取反也简单，\lstinline@0@ 变 \lstinline@1@，\lstinline@1@ 变 \lstinline@0@，就是最终结果了。
+\begin{lstlisting}
+    unsigned a = 1456621861;
+    cout << ~a; //输出2838345434
+\end{lstlisting}
+这个数字比较大，但是它们的二进制确实满足逐位相反的关系，见图C.11。\par
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.8\textwidth]{../images/other_parts/C_bitwise_not.drawio.png}
+    \caption{按位取反（Bitwise not）运算的解读}
+\end{figure}
+按位异或也是此理。
+\begin{lstlisting}
+    unsigned a = 178, b = 83;
+    cout << (a ^ b); //输出225
+\end{lstlisting}
+想必也不需要我再过多解释，我们可以直接看图C.12。\par
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.8\textwidth]{../images/other_parts/C_bitwise_xor.drawio.png}
+    \caption{按位异或（Bitwise Xor）运算的解读}
+\end{figure}
+最后我们来讲一下移位运算符。它所做的操作是对整个数的二进制表示整体左移或右移。举个例子吧：
+\begin{lstlisting}
+    unsigned a = 10;
+    cout << (a >> 1) << endl; //5
+    cout << (a >> 2) << endl; //2
+    cout << (a >> 3) << endl; //1
+    cout << (a >> 4) << endl; //0
+    cout << (a >> 5) << endl; //0
+\end{lstlisting}
+让我们想一下 \lstinline@a@ 的二进制。它是 \lstinline@00001010@。如果我们把每一位都向右挪，并把最左边的一位用 \lstinline@0@ 替补上去，那么将得到 \lstinline@00000101@，这正是 \lstinline@a>>1@ 的结果；同理，如果我们把每一位都向右挪两位，并把最左边的两位用 \lstinline@0@ 替补上去\footnote{对于无符号类型来说是这样的，但对于有符号类型来说不是如此。因为这些知识已经涉及到补码，所以此处不再探讨。}，那么将得到 \lstinline@00000010@；以此类推。\par
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.8\textwidth]{../images/other_parts/C_bitwise_right_shift.drawio.png}
+    \caption{右移位（Shift right）运算的解读}
+\end{figure}
+左移位同理，是在右边用 \lstinline@0@ 替补上去，如图C.14所示。
+\begin{lstlisting}
+    unsigned a = 10;
+    cout << (a << 1) << endl; //20
+    cout << (a << 2) << endl; //40
+    cout << (a << 3) << endl; //80
+    cout << (a << 4) << endl; //160
+    cout << (a << 5) << endl; //320
+\end{lstlisting}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.8\textwidth]{../images/other_parts/C_bitwise_left_shift.drawio.png}
+    \caption{左移位（Shift left）运算符的解读}
+\end{figure}\par
+位运算有很丰富的玩法，但是这里不再介绍更多细节了，读者可以自行寻找相关方面的参考资料。\par
