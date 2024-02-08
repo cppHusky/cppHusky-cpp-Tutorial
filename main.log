@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  7 FEB 2024 23:14
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.12.3)  8 FEB 2024 19:39
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -980,14 +980,12 @@ File: images/other_parts/cover.pdf Graphic file (type pdf)
 
 ] [2
 
-] (./other_parts/foreword.tex) [1
+] (./other_parts/foreword.tex [1
 
-]
+])
 LaTeX Font Info:    Font shape `TU/SimSun(0)/m/sl' in size <10> not available
-(Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 16.
- [2
-
-] (./main.toc
+(Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 14.
+ [2] (./main.toc
 LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
  (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1021,7 +1019,9 @@ Package fontspec Info: Font family 'FangSong(0)' created for font 'FangSong'
 (fontspec)             <->"FangSong/OT:script=hani;language=dflt;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
- [3] [4])
+ [3
+
+] [4])
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
@@ -1770,10 +1770,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 1AD20A2BB8B3E3F772C580336726C8AF;9866.
  ) 
 Here is how much of TeX's memory you used:
- 28352 strings out of 474924
- 750250 string characters out of 5765037
+ 28361 strings out of 474924
+ 750813 string characters out of 5765037
  2050189 words of memory out of 5000000
- 49186 multiletter control sequences out of 15000+600000
+ 49195 multiletter control sequences out of 15000+600000
  571845 words of font info for 168 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,18n,111p,1239b,1916s stack positions out of 10000i,1000n,20000p,200000b,200000s
